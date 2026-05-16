@@ -1,0 +1,24 @@
+# Build output
+MindSpace/bin/
+MindSpace/obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+packages/
+*.nupkg
+
+# Claude Code config
+.claude/
+
+# PDF documents
+*.pdf
+
+# OS
+Thumbs.db
+.DS_Store
