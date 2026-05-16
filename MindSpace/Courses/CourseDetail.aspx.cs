@@ -106,12 +106,25 @@ namespace MindSpace
                 rptResources.DataSource = dt;
                 rptResources.DataBind();
 
-                // Advance progress to at least 50% for enrolled users viewing resources
+                // Advance progress to at least 50% for enrolled users viewing resources (first time only)
                 if (userID > 0 && isEnrolled)
                 {
-                    DatabaseHelper.ExecuteNonQuery(
-                        "UPDATE Enrollments SET Progress=CASE WHEN Progress<50 THEN 50 ELSE Progress END WHERE UserID=@uid AND CourseID=@cid",
+                    int rowsChanged = DatabaseHelper.ExecuteNonQuery(
+                        "UPDATE Enrollments SET Progress=50 WHERE UserID=@uid AND CourseID=@cid AND Progress<50",
                         new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
+
+                    // Log to UserProgress only when progress first reaches 50%
+                    if (rowsChanged > 0)
+                    {
+                        try
+                        {
+                            DatabaseHelper.ExecuteNonQuery(
+                                @"INSERT INTO UserProgress (UserID,EventType,ReferenceID,ProgressPct,MinutesSpent)
+                                  VALUES (@uid,'resource_view',@cid,50,15)",
+                                new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
+                        }
+                        catch { /* UserProgress table may not exist yet — non-fatal */ }
+                    }
                 }
             }
         }
@@ -163,6 +176,16 @@ namespace MindSpace
 
                 pnlMsg.Visible = true;
                 litMsg.Text    = "Successfully enrolled! You now have access to all resources and quizzes.";
+
+                // Log enrollment event to UserProgress
+                try
+                {
+                    DatabaseHelper.ExecuteNonQuery(
+                        @"INSERT INTO UserProgress (UserID,EventType,ReferenceID,ProgressPct,MinutesSpent)
+                          VALUES (@uid,'enroll',@cid,0,5)",
+                        new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
+                }
+                catch { /* UserProgress table may not exist yet — non-fatal */ }
             }
             catch { /* Already enrolled */ }
 

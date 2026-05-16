@@ -18,7 +18,7 @@ namespace MindSpace
 
             if (!IsPostBack)
             {
-                if (!int.TryParse(Request.QueryString["resultID"], out int resultID) || resultID <= 0)
+                if (!int.TryParse(Request.QueryString["resultID"], out int resultID) || resultID < 0)
                 {
                     Response.Redirect("~/User/UserHome.aspx");
                     return;

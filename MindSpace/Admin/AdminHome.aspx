@@ -1,4 +1,4 @@
-<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="AdminHome.aspx.cs" Inherits="MindSpace.AdminHome" %>
+<%@ Page Title="Admin Dashboard" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="MindSpace.AdminHome" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 

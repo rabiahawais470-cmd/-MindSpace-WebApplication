@@ -142,22 +142,35 @@ namespace MindSpace
                 new SqlParameter("@feedback", feedback)
             });
 
-            // Update enrollment progress if quiz passed
-            if (percentage >= passingScore)
-            {
-                // Find courseID for this quiz
-                object courseIDObj = DatabaseHelper.ExecuteScalar(
-                    "SELECT CourseID FROM Quizzes WHERE QuizID=@id",
-                    new[] { new SqlParameter("@id", quizID) });
+            // Update enrollment progress and log UserProgress event
+            object courseIDObj = DatabaseHelper.ExecuteScalar(
+                "SELECT CourseID FROM Quizzes WHERE QuizID=@id",
+                new[] { new SqlParameter("@id", quizID) });
+            int courseIDForProgress = courseIDObj != null ? Convert.ToInt32(courseIDObj) : 0;
 
-                if (courseIDObj != null)
-                {
-                    int cID = Convert.ToInt32(courseIDObj);
-                    DatabaseHelper.ExecuteNonQuery(
-                        "UPDATE Enrollments SET Progress=100,IsCompleted=1 WHERE UserID=@uid AND CourseID=@cid",
-                        new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", cID) });
-                }
+            if (percentage >= passingScore && courseIDForProgress > 0)
+            {
+                DatabaseHelper.ExecuteNonQuery(
+                    "UPDATE Enrollments SET Progress=100,IsCompleted=1 WHERE UserID=@uid AND CourseID=@cid",
+                    new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseIDForProgress) });
             }
+
+            // Log to UserProgress table
+            string evtType = percentage >= passingScore ? "quiz_pass" : "quiz_fail";
+            try
+            {
+                DatabaseHelper.ExecuteNonQuery(
+                    @"INSERT INTO UserProgress (UserID,EventType,ReferenceID,ProgressPct,ScoreValue,MinutesSpent)
+                      VALUES (@uid,@evt,@rid,@pct,@score,10)",
+                    new[] {
+                        new SqlParameter("@uid",   userID),
+                        new SqlParameter("@evt",   evtType),
+                        new SqlParameter("@rid",   quizID),
+                        new SqlParameter("@pct",   (int)percentage),
+                        new SqlParameter("@score", percentage)
+                    });
+            }
+            catch { /* UserProgress table may not exist yet — non-fatal */ }
 
             Response.Redirect("~/Courses/QuizResults.aspx?resultID=" + resultID);
         }

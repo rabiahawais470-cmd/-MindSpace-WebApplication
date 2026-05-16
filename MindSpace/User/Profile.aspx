@@ -1,4 +1,4 @@
-<%@ Page Title="My Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="MindSpace.ProfilePage" %>
+<%@ Page Title="My Profile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="MindSpace.ProfilePage" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -88,16 +88,50 @@
             </div>
         </div>
 
-        <!-- ACCOUNT INFO -->
+        <!-- ACCOUNT INFO + STATS -->
         <div class="ms-card p-4">
             <h6 class="fw-semibold mb-3 text-muted border-bottom pb-2">ACCOUNT INFORMATION</h6>
-            <div class="row g-2 small">
+            <div class="row g-2 small mb-3">
                 <div class="col-5 text-muted">Member Since</div>
                 <div class="col-7 fw-semibold"><asp:Literal ID="litJoined" runat="server" /></div>
                 <div class="col-5 text-muted">Account Role</div>
                 <div class="col-7">
                     <span class="badge badge-role-learner"><asp:Literal ID="litRole" runat="server" /></span>
                 </div>
+            </div>
+
+            <h6 class="fw-semibold mb-3 text-muted border-bottom pb-2">LEARNING STATISTICS</h6>
+            <div class="row g-2 mb-3">
+                <div class="col-6">
+                    <div class="p-2 rounded text-center" style="background:rgba(108,92,231,0.07);">
+                        <div class="fw-bold text-primary fs-5"><asp:Literal ID="litStatEnrolled" runat="server">0</asp:Literal></div>
+                        <div class="small text-muted">Courses Enrolled</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-2 rounded text-center" style="background:rgba(0,184,148,0.07);">
+                        <div class="fw-bold" style="color:var(--ms-secondary);font-size:1.25rem;"><asp:Literal ID="litStatCompleted" runat="server">0</asp:Literal></div>
+                        <div class="small text-muted">Courses Completed</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-2 rounded text-center" style="background:rgba(116,185,255,0.12);">
+                        <div class="fw-bold" style="color:#0984e3;font-size:1.25rem;"><asp:Literal ID="litStatQuizzes" runat="server">0</asp:Literal></div>
+                        <div class="small text-muted">Quizzes Taken</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-2 rounded text-center" style="background:rgba(253,203,110,0.15);">
+                        <div class="fw-bold" style="color:#e17055;font-size:1.25rem;"><asp:Literal ID="litStatForum" runat="server">0</asp:Literal></div>
+                        <div class="small text-muted">Forum Posts</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="UserHome.aspx" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-tachometer-alt me-1"></i>Back to Dashboard
+                </a>
             </div>
         </div>
 

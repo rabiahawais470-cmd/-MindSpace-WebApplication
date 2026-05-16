@@ -22,25 +22,46 @@ namespace MindSpace
         private void LoadProfile()
         {
             int userID = Convert.ToInt32(Session["UserID"]);
-            string sql = "SELECT FullName, Username, Email, Bio, DateRegistered, Role FROM Users WHERE UserID=@uid";
-            DataTable dt = DatabaseHelper.ExecuteQuery(sql, new[] { new SqlParameter("@uid", userID) });
+            DataTable dt = DatabaseHelper.ExecuteQuery(
+                "SELECT FullName, Username, Email, Bio, DateRegistered, Role FROM Users WHERE UserID=@uid",
+                new[] { new SqlParameter("@uid", userID) });
 
-            if (dt.Rows.Count == 1)
-            {
-                DataRow row = dt.Rows[0];
-                string fullName = row["FullName"].ToString();
+            if (dt.Rows.Count != 1) return;
+            DataRow row     = dt.Rows[0];
+            string fullName = row["FullName"].ToString();
 
-                txtFullName.Text = fullName;
-                txtUsername.Text = row["Username"].ToString();
-                txtEmail.Text    = row["Email"].ToString();
-                txtBio.Text      = row["Bio"]?.ToString() ?? "";
+            txtFullName.Text        = fullName;
+            txtUsername.Text        = row["Username"].ToString();
+            txtEmail.Text           = row["Email"].ToString();
+            txtBio.Text             = row["Bio"]?.ToString() ?? "";
+            litAvatarInitial.Text   = fullName.Length > 0 ? fullName[0].ToString().ToUpper() : "U";
+            litDisplayName.Text     = fullName;
+            litDisplayUsername.Text = "@" + row["Username"].ToString();
+            litJoined.Text          = Convert.ToDateTime(row["DateRegistered"]).ToString("dd MMMM yyyy");
+            litRole.Text            = row["Role"].ToString();
 
-                litAvatarInitial.Text  = fullName.Length > 0 ? fullName[0].ToString().ToUpper() : "U";
-                litDisplayName.Text    = fullName;
-                litDisplayUsername.Text = "@" + row["Username"].ToString();
-                litJoined.Text         = Convert.ToDateTime(row["DateRegistered"]).ToString("dd MMMM yyyy");
-                litRole.Text           = row["Role"].ToString();
-            }
+            LoadStats(userID);
+        }
+
+        private void LoadStats(int userID)
+        {
+            litStatEnrolled.Text  = DatabaseHelper.ExecuteScalar(
+                "SELECT COUNT(*) FROM Enrollments WHERE UserID=@uid",
+                new[] { new SqlParameter("@uid", userID) }).ToString();
+
+            litStatCompleted.Text = DatabaseHelper.ExecuteScalar(
+                "SELECT COUNT(*) FROM Enrollments WHERE UserID=@uid AND IsCompleted=1",
+                new[] { new SqlParameter("@uid", userID) }).ToString();
+
+            litStatQuizzes.Text   = DatabaseHelper.ExecuteScalar(
+                "SELECT COUNT(*) FROM QuizResults WHERE UserID=@uid",
+                new[] { new SqlParameter("@uid", userID) }).ToString();
+
+            object fp = DatabaseHelper.ExecuteScalar(
+                @"SELECT (SELECT COUNT(*) FROM ForumPosts    WHERE UserID=@uid AND IsActive=1) +
+                         (SELECT COUNT(*) FROM ForumComments WHERE UserID=@uid AND IsActive=1)",
+                new[] { new SqlParameter("@uid", userID) });
+            litStatForum.Text = fp?.ToString() ?? "0";
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

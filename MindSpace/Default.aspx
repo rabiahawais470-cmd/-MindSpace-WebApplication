@@ -1,4 +1,4 @@
-<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="MindSpace.DefaultPage" %>
+<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="MindSpace.DefaultPage" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-center d-none d-lg-block">
-                    <div style="font-size:12rem;line-height:1;opacity:0.15;">🧠</div>
+                    <div style="font-size:12rem;line-height:1;opacity:0.15;">ðŸ§ </div>
                 </div>
             </div>
         </div>

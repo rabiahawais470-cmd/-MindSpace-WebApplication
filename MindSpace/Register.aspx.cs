@@ -80,13 +80,6 @@ namespace MindSpace
 
                 if (result != null)
                 {
-                    // Auto-login the new user
-                    int userID = Convert.ToInt32(result);
-                    Session["UserID"]   = userID;
-                    Session["FullName"] = fullName;
-                    Session["Username"] = username;
-                    Session["Role"]     = "learner";
-
                     Response.Redirect("~/Login.aspx?registered=1");
                 }
                 else

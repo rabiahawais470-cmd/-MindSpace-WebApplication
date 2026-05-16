@@ -125,8 +125,27 @@ CREATE TABLE ForumPosts (
     Content     NVARCHAR(MAX) NOT NULL,
     DatePosted  DATETIME DEFAULT GETDATE(),
     IsActive    BIT DEFAULT 1,
-    ViewCount   INT DEFAULT 0
+    ViewCount   INT DEFAULT 0,
+    IsResolved  BIT DEFAULT 0,
+    EditedAt    DATETIME NULL
 );
+
+-- =============================================
+-- TABLE: UserProgress  (activity / progress events log)
+-- =============================================
+CREATE TABLE UserProgress (
+    ProgressID   INT IDENTITY(1,1) PRIMARY KEY,
+    UserID       INT NOT NULL FOREIGN KEY REFERENCES Users(UserID),
+    EventType    NVARCHAR(50)   NOT NULL,
+    -- 'enroll', 'resource_view', 'quiz_pass', 'quiz_fail', 'course_complete',
+    -- 'forum_post', 'forum_reply'
+    ReferenceID  INT            NULL,       -- CourseID or QuizID depending on EventType
+    ProgressPct  INT            NULL,       -- course completion % at time of event
+    ScoreValue   DECIMAL(5,2)   NULL,       -- quiz percentage or numeric score
+    MinutesSpent INT NOT NULL DEFAULT 0,    -- estimated minutes for this activity
+    RecordedAt   DATETIME NOT NULL DEFAULT GETDATE()
+);
+CREATE INDEX IX_UserProgress_User ON UserProgress (UserID, RecordedAt DESC);
 
 -- =============================================
 -- TABLE: ForumComments
@@ -137,7 +156,8 @@ CREATE TABLE ForumComments (
     UserID     INT NOT NULL FOREIGN KEY REFERENCES Users(UserID),
     Content    NVARCHAR(MAX) NOT NULL,
     DatePosted DATETIME DEFAULT GETDATE(),
-    IsActive   BIT DEFAULT 1
+    IsActive   BIT DEFAULT 1,
+    EditedAt   DATETIME NULL
 );
 GO
 
@@ -154,7 +174,7 @@ VALUES (
     'System Administrator',
     'admin',
     'admin@mindspace.com',
-    'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3',
+    'e86f78a8a3caf0b60d8e74e5942aa6d86dc150cd3c03338aef25b7d2d7e3acc7',
     'admin'
 );
 
@@ -162,14 +182,13 @@ VALUES (
 INSERT INTO Users (FullName, Username, Email, PasswordHash, Role)
 VALUES
 ('Alex Johnson', 'alexj', 'alex@student.apu.edu.my',
- 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'learner'),
+ '8776f108e247ab1e2b323042c049c266407c81fbad41bde1e8dfc1bb66fd267e', 'learner'),
 ('Sarah Chen', 'sarahc', 'sarah@student.apu.edu.my',
- 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'learner'),
+ '8776f108e247ab1e2b323042c049c266407c81fbad41bde1e8dfc1bb66fd267e', 'learner'),
 ('Mohammed Ali', 'mohammedali', 'mohammed@student.apu.edu.my',
- 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'learner');
+ '8776f108e247ab1e2b323042c049c266407c81fbad41bde1e8dfc1bb66fd267e', 'learner');
 
--- NOTE: Default password hash above is for "123" (SHA256).
--- When you register through the app normally, the correct hash is computed.
+-- Learner password hash above is SHA256("Test@123").
 -- To set a known admin password, register via the app then UPDATE Role.
 
 -- Sample Courses
@@ -257,54 +276,130 @@ Simple mindfulness practices for students:
 5. Evening reflection (3 minutes): Before sleep, reflect on 3 things you''re grateful for from the day.',
  NULL, 3);
 
--- Sample Quiz for Course 1
+-- =============================================
+-- QUIZ 1: Understanding Anxiety (CourseID=3)
+-- =============================================
 INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
-VALUES (1, 'Stress Management Assessment', 'Test your understanding of stress management fundamentals.', 60);
+VALUES (3, 'Understanding Anxiety', 'Test your knowledge about anxiety, its causes, and management techniques.', 70);
 
-INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
-VALUES
-(1, 'Which hormones are primarily released during the stress response?', 'multiple', 'A', 1),
-(1, 'The 4-7-8 breathing technique involves inhaling for 4 counts, holding for 7, and exhaling for 8 counts.', 'truefalse', 'True', 2),
-(1, 'Which of the following is NOT a common sign of chronic stress?', 'multiple', 'D', 3),
-(1, 'What does the 5-4-3-2-1 grounding technique help with?', 'multiple', 'B', 4),
-(1, 'Regular physical exercise is an effective strategy for managing stress.', 'truefalse', 'True', 5);
+INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
+(1, 'What is anxiety?', 'multichoice', 'A', 1),
+(1, 'Which breathing technique helps reduce anxiety?', 'multichoice', 'B', 2),
+(1, 'Anxiety disorder affects what percentage of adults?', 'multichoice', 'C', 3);
 
-INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText)
-VALUES
-(1, 'A', 'Cortisol and Adrenaline'),
-(1, 'B', 'Serotonin and Dopamine'),
-(1, 'C', 'Insulin and Glucagon'),
-(1, 'D', 'Melatonin and Oxytocin'),
-(3, 'A', 'Persistent headaches'),
-(3, 'B', 'Difficulty concentrating'),
-(3, 'C', 'Fatigue and irritability'),
-(3, 'D', 'Improved immune function'),
-(4, 'A', 'Improving memory recall'),
-(4, 'B', 'Anchoring you to the present moment'),
-(4, 'C', 'Increasing energy levels'),
-(4, 'D', 'Improving social skills');
+INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+(1, 'A', 'A persistent feeling of worry about future events'),
+(1, 'B', 'A temporary emotion only experienced by anxious people'),
+(1, 'C', 'A sign of weakness'),
+(1, 'D', 'Something that never goes away'),
+(2, 'A', 'Holding your breath'),
+(2, 'B', 'Box breathing (4-4-4-4)'),
+(2, 'C', 'Breathing quickly'),
+(2, 'D', 'None of the above'),
+(3, 'A', '2%'),
+(3, 'B', '5%'),
+(3, 'C', '19%'),
+(3, 'D', '50%');
 
--- Sample Quiz for Course 2
+-- =============================================
+-- QUIZ 2: Mindfulness & Meditation (CourseID=2)
+-- =============================================
 INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
-VALUES (2, 'Mindfulness Knowledge Check', 'Evaluate your understanding of mindfulness principles and practice.', 70);
+VALUES (2, 'Mindfulness & Meditation', 'Test your understanding of mindfulness principles and meditation practices.', 70);
 
-INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
-VALUES
-(2, 'Mindfulness practice requires complete emptying of the mind.', 'truefalse', 'False', 1),
-(2, 'Research shows that regular mindfulness practice can physically change brain structure.', 'truefalse', 'True', 2),
-(2, 'Which of the following best describes mindfulness?', 'multiple', 'C', 3),
-(2, 'How much daily mindfulness practice has been shown to have measurable benefits?', 'multiple', 'A', 4);
+INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
+(2, 'What is mindfulness?', 'multichoice', 'A', 1),
+(2, 'How long should beginners meditate daily?', 'multichoice', 'B', 2),
+(2, 'Which sense is commonly used in grounding technique 5-4-3-2-1?', 'multichoice', 'B', 3);
 
-INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText)
-VALUES
-(7, 'A', 'Thinking about future plans clearly'),
-(7, 'B', 'Suppressing negative emotions'),
-(7, 'C', 'Intentional present-moment awareness without judgment'),
-(7, 'D', 'Focusing only on positive thoughts'),
-(8, 'A', 'As little as 10 minutes per day'),
-(8, 'B', 'At least 2 hours per day'),
-(8, 'C', 'Only during meditation retreats'),
-(8, 'D', 'A minimum of 1 hour per day');
+INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+(4, 'A', 'Paying attention to the present moment without judgment'),
+(4, 'B', 'Thinking about the future'),
+(4, 'C', 'Worrying about the past'),
+(4, 'D', 'Ignoring your surroundings'),
+(5, 'A', '30 minutes'),
+(5, 'B', '5-10 minutes'),
+(5, 'C', '2 hours'),
+(5, 'D', 'Meditation time does not matter'),
+(6, 'A', 'Only sight'),
+(6, 'B', 'All five senses'),
+(6, 'C', 'Only touch'),
+(6, 'D', 'Only hearing');
+
+-- =============================================
+-- QUIZ 3: Stress Management (CourseID=1)
+-- =============================================
+INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
+VALUES (1, 'Stress Management', 'Assess your knowledge of stress causes, effects, and healthy coping strategies.', 70);
+
+INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
+(3, 'What is the main cause of stress?', 'multichoice', 'A', 1),
+(3, 'Which of these is a healthy stress management technique?', 'multichoice', 'A', 2),
+(3, 'What is the stress hormone called?', 'multichoice', 'B', 3);
+
+INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+(7, 'A', 'Our perception of events'),
+(7, 'B', 'The events themselves only'),
+(7, 'C', 'Other people'),
+(7, 'D', 'Work only'),
+(8, 'A', 'Exercise and deep breathing'),
+(8, 'B', 'Avoiding the problem'),
+(8, 'C', 'Drinking alcohol'),
+(8, 'D', 'Overworking'),
+(9, 'A', 'Serotonin'),
+(9, 'B', 'Cortisol'),
+(9, 'C', 'Dopamine'),
+(9, 'D', 'Adrenaline only');
+
+-- =============================================
+-- QUIZ 4: Sleep Hygiene (CourseID=4)
+-- =============================================
+INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
+VALUES (4, 'Sleep Hygiene', 'Test your knowledge about healthy sleep habits and rest optimization.', 70);
+
+INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
+(4, 'How many hours of sleep does an adult need?', 'multichoice', 'B', 1),
+(4, 'What should you avoid before bed?', 'multichoice', 'D', 2),
+(4, 'What is the best room temperature for sleep?', 'multichoice', 'B', 3);
+
+INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+(10, 'A', '4-5 hours'),
+(10, 'B', '7-9 hours'),
+(10, 'C', '10-12 hours'),
+(10, 'D', 'Sleep duration does not matter'),
+(11, 'A', 'Blue light from screens'),
+(11, 'B', 'Caffeine'),
+(11, 'C', 'Heavy meals'),
+(11, 'D', 'All of the above'),
+(12, 'A', '75 degrees F (24 degrees C)'),
+(12, 'B', '65-68 degrees F (18-20 degrees C)'),
+(12, 'C', '80 degrees F (27 degrees C)'),
+(12, 'D', 'Any temperature is fine');
+
+-- =============================================
+-- QUIZ 5: Emotional Resilience (CourseID=5)
+-- =============================================
+INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
+VALUES (5, 'Emotional Resilience', 'Assess your understanding of emotional resilience and coping mechanisms.', 70);
+
+INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
+(5, 'What is emotional resilience?', 'multichoice', 'B', 1),
+(5, 'Which factor builds emotional resilience?', 'multichoice', 'D', 2),
+(5, 'What is a healthy coping mechanism?', 'multichoice', 'D', 3);
+
+INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+(13, 'A', 'Never feeling sad'),
+(13, 'B', 'The ability to bounce back from adversity'),
+(13, 'C', 'Ignoring problems'),
+(13, 'D', 'Being emotionless'),
+(14, 'A', 'Social support'),
+(14, 'B', 'Self-care'),
+(14, 'C', 'Positive thinking'),
+(14, 'D', 'All of the above'),
+(15, 'A', 'Journaling'),
+(15, 'B', 'Talking to friends'),
+(15, 'C', 'Exercise'),
+(15, 'D', 'All of the above');
 
 -- Sample Enrollments (learner 2 enrolled in courses 1 & 2)
 INSERT INTO Enrollments (UserID, CourseID, Progress, IsCompleted)
@@ -333,6 +428,64 @@ VALUES
 (2, 2, 'The Pomodoro technique is a game changer! I also started keeping a worry journal - writing down anxious thoughts before studying helps clear my mind. And please remember to eat well and sleep enough - they make a huge difference!'),
 (3, 2, 'Yes! I tried it last night when I couldn''t sleep. It took about 3-4 cycles but I definitely felt more relaxed. I think the key is the extended exhale which activates the parasympathetic nervous system. Really effective!');
 
+-- Additional Forum Seed Data (more discussions and replies)
+INSERT INTO ForumPosts (UserID, Title, Content, ViewCount)
+VALUES
+(2, 'Struggling with sleep anxiety - any advice?',
+ 'I''ve been experiencing a lot of anxiety specifically around bedtime. My mind races as soon as I lie down and I can''t switch off. I''ve tried the sleep hygiene tips from the course but still struggling. Has anyone else experienced this? What actually helped you?',
+ 15),
+(3, 'Gratitude journaling - does it really work?',
+ 'I started a gratitude journal after completing the Emotional Resilience module and honestly wasn''t expecting much. But after two weeks, I''ve noticed I''m genuinely looking for positive things throughout the day. Has anyone else tried this? How long did it take before you noticed a difference?',
+ 22),
+(4, 'Best apps for meditation beginners?',
+ 'Just started the Mindfulness course and looking for a good meditation app to supplement my learning. I''ve heard about Calm, Headspace, and Insight Timer but not sure where to start. Any recommendations from people who''ve tried these?',
+ 31);
+
+INSERT INTO ForumComments (PostID, UserID, Content)
+VALUES
+(4, 2, 'I struggled with sleep anxiety for months! What really helped me was the 4-7-8 breathing technique - do it 4 times right before bed. Also, avoid checking your phone for 30 minutes before sleep. It took about 2 weeks to notice a real difference but it works!'),
+(4, 3, 'Progressive muscle relaxation changed everything for me. Start from your toes and work upwards. Also try writing down everything on your mind before bed - getting thoughts out of your head and onto paper really helps.'),
+(5, 4, 'Yes! Gratitude journaling absolutely works but you need to be specific. Instead of "I''m grateful for my family", write "I''m grateful that my friend texted to check on me today". Specificity makes the difference. I noticed a shift after about 10 days.'),
+(5, 2, 'I found it helpful to do 3 things: 1 thing that went well, 1 person I appreciate, 1 thing I''m looking forward to. Keep it simple and consistent. Morning works better for me than evening.'),
+(6, 3, 'Insight Timer is brilliant for beginners because it''s completely free with tons of guided meditations. Start with the 5-minute ones and work up gradually. Headspace has a good structured beginner course if you prefer guided programs.'),
+(6, 2, 'I started with Calm''s Daily Calm (10 minutes) and it was perfect for building the habit. After a month I moved to longer sessions. The key is consistency - same time every day, even if it''s only 5 minutes.');
+
+GO
+
+-- =============================================
+-- MIGRATION: Add EditedAt to ForumComments
+-- (run if upgrading an existing database)
+-- =============================================
+IF NOT EXISTS (
+    SELECT 1 FROM sys.columns
+    WHERE object_id = OBJECT_ID('ForumComments') AND name = 'EditedAt'
+)
+    ALTER TABLE ForumComments ADD EditedAt DATETIME NULL;
+GO
+
+-- =============================================
+-- MIGRATION: Add UserProgress table
+-- (run on existing databases to add progress tracking)
+-- =============================================
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'UserProgress')
+BEGIN
+    CREATE TABLE UserProgress (
+        ProgressID   INT IDENTITY(1,1) PRIMARY KEY,
+        UserID       INT NOT NULL FOREIGN KEY REFERENCES Users(UserID),
+        EventType    NVARCHAR(50)   NOT NULL,
+        -- 'enroll', 'resource_view', 'quiz_pass', 'quiz_fail',
+        -- 'course_complete', 'forum_post', 'forum_reply'
+        ReferenceID  INT            NULL,      -- CourseID or QuizID depending on EventType
+        ProgressPct  INT            NULL,      -- course completion % at time of event
+        ScoreValue   DECIMAL(5,2)   NULL,      -- quiz percentage or other numeric score
+        MinutesSpent INT NOT NULL DEFAULT 0,   -- estimated time (minutes) for this activity
+        RecordedAt   DATETIME NOT NULL DEFAULT GETDATE()
+    );
+    CREATE INDEX IX_UserProgress_User ON UserProgress (UserID, RecordedAt DESC);
+    PRINT 'UserProgress table created.';
+END
+ELSE
+    PRINT 'UserProgress table already exists - skipped.';
 GO
 
 PRINT 'MindSpaceDB created successfully!';

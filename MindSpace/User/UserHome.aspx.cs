@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
+using System.Web;
 using System.Web.UI;
 
 namespace MindSpace
@@ -22,14 +25,37 @@ namespace MindSpace
 
             if (!IsPostBack)
             {
-                litWelcome.Text = Session["FullName"]?.ToString() ?? "Learner";
                 int userID = Convert.ToInt32(Session["UserID"]);
+                LoadWelcomeBanner(userID);
                 LoadStats(userID);
                 LoadEnrolledCourses(userID);
+                LoadCertificates(userID);
+                LoadDiscussionActivity(userID);
                 LoadQuizResults(userID);
+                LoadProfileCard(userID);
+                LoadAchievements(userID);
             }
         }
 
+        // ============================================================
+        // WELCOME BANNER
+        // ============================================================
+        private void LoadWelcomeBanner(int userID)
+        {
+            string fullName = Session["FullName"]?.ToString() ?? "Learner";
+            litWelcome.Text       = HttpUtility.HtmlEncode(fullName.Split(' ')[0]);
+            litAvatarInitial.Text = fullName.Length > 0 ? HttpUtility.HtmlEncode(fullName[0].ToString().ToUpper()) : "U";
+
+            object joined = DatabaseHelper.ExecuteScalar(
+                "SELECT DateRegistered FROM Users WHERE UserID=@uid",
+                new[] { new SqlParameter("@uid", userID) });
+            litMemberSince.Text = (joined != null && joined != DBNull.Value)
+                ? Convert.ToDateTime(joined).ToString("MMMM yyyy") : "";
+        }
+
+        // ============================================================
+        // STATS CARDS
+        // ============================================================
         private void LoadStats(int userID)
         {
             litEnrolled.Text = DatabaseHelper.ExecuteScalar(
@@ -43,18 +69,27 @@ namespace MindSpace
             litQuizzesTaken.Text = DatabaseHelper.ExecuteScalar(
                 "SELECT COUNT(*) FROM QuizResults WHERE UserID=@uid",
                 new[] { new SqlParameter("@uid", userID) }).ToString();
+
+            // Forum posts + comments combined
+            object fp = DatabaseHelper.ExecuteScalar(
+                @"SELECT (SELECT COUNT(*) FROM ForumPosts    WHERE UserID=@uid AND IsActive=1) +
+                         (SELECT COUNT(*) FROM ForumComments WHERE UserID=@uid AND IsActive=1)",
+                new[] { new SqlParameter("@uid", userID) });
+            litForumPosts.Text = fp?.ToString() ?? "0";
         }
 
+        // ============================================================
+        // ENROLLED COURSES
+        // ============================================================
         private void LoadEnrolledCourses(int userID)
         {
-            string sql = @"
+            DataTable dt = DatabaseHelper.ExecuteQuery(@"
                 SELECT e.CourseID, c.Title, c.Category, e.Progress, e.IsCompleted
                 FROM   Enrollments e
                 JOIN   Courses c ON e.CourseID = c.CourseID
                 WHERE  e.UserID = @uid
-                ORDER  BY e.EnrollDate DESC";
-
-            DataTable dt = DatabaseHelper.ExecuteQuery(sql, new[] { new SqlParameter("@uid", userID) });
+                ORDER  BY e.IsCompleted ASC, e.EnrollDate DESC",
+                new[] { new SqlParameter("@uid", userID) });
 
             if (dt.Rows.Count == 0)
             {
@@ -69,22 +104,94 @@ namespace MindSpace
             }
         }
 
+        // ============================================================
+        // CERTIFICATES (completed courses)
+        // ============================================================
+        private void LoadCertificates(int userID)
+        {
+            DataTable dt = DatabaseHelper.ExecuteQuery(@"
+                SELECT e.EnrollmentID, e.UserID, e.CourseID, e.EnrollDate,
+                       c.Title, c.Category
+                FROM   Enrollments e
+                JOIN   Courses c ON e.CourseID = c.CourseID
+                WHERE  e.UserID = @uid AND e.IsCompleted = 1
+                ORDER  BY e.EnrollDate DESC",
+                new[] { new SqlParameter("@uid", userID) });
+
+            if (dt.Rows.Count > 0)
+            {
+                pnlCertificates.Visible  = true;
+                litCertCount.Text        = dt.Rows.Count.ToString();
+                rptCertificates.DataSource = dt;
+                rptCertificates.DataBind();
+            }
+            else
+            {
+                pnlCertificates.Visible = false;
+            }
+        }
+
+        // ============================================================
+        // DISCUSSION ACTIVITY (last 5 posts + comments)
+        // ============================================================
+        private void LoadDiscussionActivity(int userID)
+        {
+            DataTable dt = DatabaseHelper.ExecuteQuery(@"
+                SELECT TOP 5 ActivityType, PostID, Label, DatePosted, Context
+                FROM (
+                    SELECT 'post' AS ActivityType,
+                           fp.PostID,
+                           fp.Title AS Label,
+                           fp.DatePosted,
+                           CAST(NULL AS NVARCHAR(200)) AS Context
+                    FROM   ForumPosts fp
+                    WHERE  fp.UserID = @uid AND fp.IsActive = 1
+
+                    UNION ALL
+
+                    SELECT 'reply',
+                           fc.PostID,
+                           LEFT(fc.Content, 80),
+                           fc.DatePosted,
+                           fp.Title
+                    FROM   ForumComments fc
+                    JOIN   ForumPosts fp ON fc.PostID = fp.PostID
+                    WHERE  fc.UserID = @uid AND fc.IsActive = 1
+                ) AS Combined
+                ORDER BY DatePosted DESC",
+                new[] { new SqlParameter("@uid", userID) });
+
+            if (dt.Rows.Count == 0)
+            {
+                pnlNoActivity.Visible = true;
+                rptActivity.Visible   = false;
+            }
+            else
+            {
+                pnlNoActivity.Visible = false;
+                rptActivity.DataSource = dt;
+                rptActivity.DataBind();
+            }
+        }
+
+        // ============================================================
+        // QUIZ RESULTS
+        // ============================================================
         private void LoadQuizResults(int userID)
         {
-            string sql = @"
+            DataTable dt = DatabaseHelper.ExecuteQuery(@"
                 SELECT TOP 5 qr.Score, qr.TotalQuestions, qr.Percentage, qr.DateTaken,
                        q.Title AS QuizTitle
                 FROM   QuizResults qr
                 JOIN   Quizzes q ON qr.QuizID = q.QuizID
                 WHERE  qr.UserID = @uid
-                ORDER  BY qr.DateTaken DESC";
-
-            DataTable dt = DatabaseHelper.ExecuteQuery(sql, new[] { new SqlParameter("@uid", userID) });
+                ORDER  BY qr.DateTaken DESC",
+                new[] { new SqlParameter("@uid", userID) });
 
             if (dt.Rows.Count == 0)
             {
-                pnlNoQuizzes.Visible      = true;
-                rptQuizResults.Visible    = false;
+                pnlNoQuizzes.Visible   = true;
+                rptQuizResults.Visible = false;
             }
             else
             {
@@ -94,6 +201,89 @@ namespace MindSpace
             }
         }
 
+        // ============================================================
+        // PROFILE CARD
+        // ============================================================
+        private void LoadProfileCard(int userID)
+        {
+            DataTable dt = DatabaseHelper.ExecuteQuery(
+                "SELECT FullName, Username, Bio FROM Users WHERE UserID=@uid",
+                new[] { new SqlParameter("@uid", userID) });
+
+            if (dt.Rows.Count == 0) return;
+            DataRow row = dt.Rows[0];
+
+            string fullName = row["FullName"].ToString();
+            string bio      = row["Bio"]?.ToString() ?? "";
+
+            litProfileName.Text    = HttpUtility.HtmlEncode(fullName);
+            litProfileUsername.Text = HttpUtility.HtmlEncode(row["Username"].ToString());
+            litProfileInitial.Text = fullName.Length > 0 ? HttpUtility.HtmlEncode(fullName[0].ToString().ToUpper()) : "U";
+
+            if (!string.IsNullOrWhiteSpace(bio))
+            {
+                pnlBio.Visible    = true;
+                litProfileBio.Text = HttpUtility.HtmlEncode(bio);
+            }
+            else
+            {
+                pnlBio.Visible = false;
+            }
+        }
+
+        // ============================================================
+        // ACHIEVEMENTS
+        // ============================================================
+        private void LoadAchievements(int userID)
+        {
+            int enrolled     = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                "SELECT COUNT(*) FROM Enrollments WHERE UserID=@uid",
+                new[] { new SqlParameter("@uid", userID) }));
+            int completed    = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                "SELECT COUNT(*) FROM Enrollments WHERE UserID=@uid AND IsCompleted=1",
+                new[] { new SqlParameter("@uid", userID) }));
+            int quizzesTaken = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                "SELECT COUNT(*) FROM QuizResults WHERE UserID=@uid",
+                new[] { new SqlParameter("@uid", userID) }));
+            int forumPosts   = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                @"SELECT (SELECT COUNT(*) FROM ForumPosts    WHERE UserID=@uid AND IsActive=1) +
+                         (SELECT COUNT(*) FROM ForumComments WHERE UserID=@uid AND IsActive=1)",
+                new[] { new SqlParameter("@uid", userID) }));
+            int highScores   = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                "SELECT COUNT(*) FROM QuizResults WHERE UserID=@uid AND Percentage >= 70",
+                new[] { new SqlParameter("@uid", userID) }));
+
+            var badges = new List<(string Icon, string Name, string Desc, bool Unlocked)>
+            {
+                ("🌱", "First Steps",       "Enrolled in your first course",         enrolled >= 1),
+                ("🎓", "Graduate",          "Completed your first course",           completed >= 1),
+                ("📚", "Avid Learner",      "Enrolled in 3 or more courses",         enrolled >= 3),
+                ("🏆", "Course Champion",   "Completed 3 or more courses",           completed >= 3),
+                ("✏️",  "Quiz Taker",        "Attempted your first quiz",             quizzesTaken >= 1),
+                ("⭐", "High Achiever",     "Scored 70%+ on 3 or more quizzes",     highScores >= 3),
+                ("💬", "Community Voice",   "Made your first forum post",            forumPosts >= 1),
+                ("🤝", "Forum Regular",     "Made 5 or more forum contributions",    forumPosts >= 5),
+            };
+
+            var sb = new StringBuilder();
+            foreach (var (icon, name, desc, unlocked) in badges)
+            {
+                string cls = unlocked ? "unlocked" : "locked";
+                sb.Append($@"<div class=""achievement-badge {cls}"">
+                    <span class=""badge-icon"">{icon}</span>
+                    <div class=""badge-info"">
+                        <div class=""badge-name"">{HttpUtility.HtmlEncode(name)}</div>
+                        <div class=""badge-desc"">{HttpUtility.HtmlEncode(desc)}</div>
+                    </div>
+                </div>");
+            }
+
+            litAchievements.Text = sb.ToString();
+        }
+
+        // ============================================================
+        // HELPER
+        // ============================================================
         protected string GetCatClass(string category)
         {
             switch (category?.ToLower())
