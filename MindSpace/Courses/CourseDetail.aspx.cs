@@ -113,14 +113,10 @@ namespace MindSpace
 
                     if (rowsChanged > 0)
                     {
-                        try
-                        {
-                            DatabaseHelper.ExecuteNonQuery(
-                                @"INSERT INTO UserProgress (UserID,EventType,ReferenceID,ProgressPct,MinutesSpent)
-                                  VALUES (@uid,'resource_view',@cid,50,15)",
-                                new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
-                        }
-                        catch { }
+                        DatabaseHelper.ExecuteNonQuery(
+                            @"INSERT INTO UserProgress (UserID,EventType,ReferenceID,ProgressPct,MinutesSpent)
+                              VALUES (@uid,'resource_view',@cid,50,15)",
+                            new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
                     }
                 }
             }
@@ -188,25 +184,17 @@ namespace MindSpace
             if (Session["UserID"] == null) { Response.Redirect("~/Login.aspx"); return; }
 
             int userID = Convert.ToInt32(Session["UserID"]);
-            try
-            {
-                DatabaseHelper.ExecuteNonQuery(
-                    "INSERT INTO Enrollments (UserID, CourseID) VALUES (@uid, @cid)",
-                    new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
+            DatabaseHelper.ExecuteNonQuery(
+                "INSERT INTO Enrollments (UserID, CourseID) VALUES (@uid, @cid)",
+                new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
 
-                pnlMsg.Visible = true;
-                litMsg.Text    = "Successfully enrolled! You now have access to all resources and quizzes.";
+            pnlMsg.Visible = true;
+            litMsg.Text    = "Successfully enrolled! You now have access to all resources and quizzes.";
 
-                try
-                {
-                    DatabaseHelper.ExecuteNonQuery(
-                        @"INSERT INTO UserProgress (UserID,EventType,ReferenceID,ProgressPct,MinutesSpent)
-                          VALUES (@uid,'enroll',@cid,0,5)",
-                        new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
-                }
-                catch { }
-            }
-            catch { }
+            DatabaseHelper.ExecuteNonQuery(
+                @"INSERT INTO UserProgress (UserID,EventType,ReferenceID,ProgressPct,MinutesSpent)
+                  VALUES (@uid,'enroll',@cid,0,5)",
+                new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
 
             LoadCourse();
         }
