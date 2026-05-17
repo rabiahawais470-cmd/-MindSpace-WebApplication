@@ -151,12 +151,17 @@ CREATE TABLE ForumPosts (
 CREATE TABLE UserProgress (
     ProgressID   INT IDENTITY(1,1) PRIMARY KEY,
     UserID       INT NOT NULL FOREIGN KEY REFERENCES Users(UserID),
-    EventType    NVARCHAR(50)   NOT NULL,
-    -- 'enroll', 'resource_view', 'quiz_pass', 'quiz_fail', 'course_complete',
-    -- 'forum_post', 'forum_reply'
+    CourseID     INT NULL FOREIGN KEY REFERENCES Courses(CourseID),
+    QuizID       INT NULL FOREIGN KEY REFERENCES Quizzes(QuizID),
+    ActionType   NVARCHAR(50)   NULL,       -- 'enroll','quiz_pass','quiz_fail','forum_post','resource_view','course_complete'
+    Score        DECIMAL(5,2)   NULL,       -- quiz percentage score (0–100)
+    DateCreated  DATETIME NOT NULL DEFAULT GETDATE(),
+    IsCompleted  BIT NOT NULL DEFAULT 0,    -- 1 when event represents a completion milestone
+    -- Legacy / extended columns kept for backward compatibility
+    EventType    NVARCHAR(50)   NOT NULL DEFAULT '',
     ReferenceID  INT            NULL,       -- CourseID or QuizID depending on EventType
     ProgressPct  INT            NULL,       -- course completion % at time of event
-    ScoreValue   DECIMAL(5,2)   NULL,       -- quiz percentage or numeric score
+    ScoreValue   DECIMAL(5,2)   NULL,       -- alias of Score, kept for existing queries
     MinutesSpent INT NOT NULL DEFAULT 0,    -- estimated minutes for this activity
     RecordedAt   DATETIME NOT NULL DEFAULT GETDATE()
 );
@@ -586,13 +591,17 @@ BEGIN
     CREATE TABLE UserProgress (
         ProgressID   INT IDENTITY(1,1) PRIMARY KEY,
         UserID       INT NOT NULL FOREIGN KEY REFERENCES Users(UserID),
-        EventType    NVARCHAR(50)   NOT NULL,
-        -- 'enroll', 'resource_view', 'quiz_pass', 'quiz_fail',
-        -- 'course_complete', 'forum_post', 'forum_reply'
-        ReferenceID  INT            NULL,      -- CourseID or QuizID depending on EventType
-        ProgressPct  INT            NULL,      -- course completion % at time of event
-        ScoreValue   DECIMAL(5,2)   NULL,      -- quiz percentage or other numeric score
-        MinutesSpent INT NOT NULL DEFAULT 0,   -- estimated time (minutes) for this activity
+        CourseID     INT NULL FOREIGN KEY REFERENCES Courses(CourseID),
+        QuizID       INT NULL FOREIGN KEY REFERENCES Quizzes(QuizID),
+        ActionType   NVARCHAR(50)   NULL,
+        Score        DECIMAL(5,2)   NULL,
+        DateCreated  DATETIME NOT NULL DEFAULT GETDATE(),
+        IsCompleted  BIT NOT NULL DEFAULT 0,
+        EventType    NVARCHAR(50)   NOT NULL DEFAULT '',
+        ReferenceID  INT            NULL,
+        ProgressPct  INT            NULL,
+        ScoreValue   DECIMAL(5,2)   NULL,
+        MinutesSpent INT NOT NULL DEFAULT 0,
         RecordedAt   DATETIME NOT NULL DEFAULT GETDATE()
     );
     CREATE INDEX IX_UserProgress_User ON UserProgress (UserID, RecordedAt DESC);
