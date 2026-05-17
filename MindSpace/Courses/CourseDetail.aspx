@@ -154,5 +154,111 @@
             </div>
         </div>
 
+        <!-- ===== SUCCESS STORIES ===== -->
+        <div class="mt-5 pt-2" style="border-top:2px solid var(--ms-border);">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="fw-bold mb-0">
+                    <i class="fas fa-star me-2 text-warning"></i>Success Stories
+                </h4>
+                <span class="text-muted small">Hear from students who completed this course</span>
+            </div>
+
+            <!-- Story cards (visible to all) -->
+            <asp:Panel ID="pnlNoStories" runat="server" Visible="false">
+                <div class="text-center py-4 text-muted">
+                    <i class="fas fa-comment-slash fa-2x mb-2 d-block" style="color:#ddd;"></i>
+                    No success stories yet. Be the first to share yours after passing the quiz!
+                </div>
+            </asp:Panel>
+
+            <div class="row g-3 mb-4">
+                <asp:Repeater ID="rptStories" runat="server">
+                    <ItemTemplate>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="story-card">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="story-avatar">
+                                        <%# Convert.ToString(Eval("DisplayName")).Length > 0 ? Convert.ToString(Eval("DisplayName")).Substring(0,1).ToUpper() : "?" %>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold" style="font-size:0.9rem;"><%# System.Web.HttpUtility.HtmlEncode(Convert.ToString(Eval("DisplayName"))) %></div>
+                                        <div class="text-muted" style="font-size:0.72rem;"><%# Convert.ToDateTime(Eval("DatePosted")).ToString("dd MMM yyyy") %></div>
+                                    </div>
+                                </div>
+                                <div class="story-achievement-badge">
+                                    <i class="fas fa-trophy me-1"></i><%# System.Web.HttpUtility.HtmlEncode(Convert.ToString(Eval("Achievement"))) %>
+                                </div>
+                                <p class="story-text mb-2">
+                                    <em>"<%# System.Web.HttpUtility.HtmlEncode(Convert.ToString(Eval("WhatLearned"))) %>"</em>
+                                </p>
+                                <div class="story-result">
+                                    <i class="fas fa-check-circle me-1"></i><%# System.Web.HttpUtility.HtmlEncode(Convert.ToString(Eval("Result"))) %>
+                                </div>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+
+            <!-- Share story — visible to users who passed quiz (70%+) and haven't submitted yet -->
+            <asp:Panel ID="pnlShareStory" runat="server" Visible="false">
+                <div class="text-center mb-3">
+                    <button type="button" class="btn btn-warning fw-bold px-4"
+                            onclick="var w=document.getElementById('storyFormWrap');w.style.display=w.style.display==='none'?'block':'none';return false;">
+                        <i class="fas fa-pen-nib me-2"></i>Share Your Success Story
+                    </button>
+                </div>
+                <div id="storyFormWrap" style="display:none;">
+                    <div class="story-form-panel">
+                        <h6 class="fw-bold mb-3"><i class="fas fa-edit me-2 text-primary"></i>Tell Others What You Achieved</h6>
+
+                        <asp:Panel ID="pnlStoryError" runat="server" Visible="false">
+                            <div class="alert alert-danger py-2 small mb-3">
+                                <i class="fas fa-exclamation-circle me-1"></i>
+                                <asp:Literal ID="litStoryError" runat="server" />
+                            </div>
+                        </asp:Panel>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Your Name <span class="text-muted fw-normal">(displayed publicly)</span></label>
+                                <asp:TextBox ID="txtStoryName" runat="server" CssClass="form-control form-control-sm"
+                                    placeholder="e.g. Alex J." MaxLength="100" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Achievement Badge <span class="text-muted fw-normal">(short, shown as tag)</span></label>
+                                <asp:TextBox ID="txtAchievement" runat="server" CssClass="form-control form-control-sm"
+                                    placeholder="e.g. Reduced stress by 50%" MaxLength="200" />
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold small">What did you learn? <span class="text-muted fw-normal">(1–2 sentences)</span></label>
+                                <asp:TextBox ID="txtWhatLearned" runat="server" TextMode="MultiLine" Rows="3"
+                                    CssClass="form-control form-control-sm"
+                                    placeholder="e.g. I learned to recognise my stress triggers and apply the 4-7-8 breathing technique instantly." />
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold small">What result did you achieve?</label>
+                                <asp:TextBox ID="txtResult" runat="server" CssClass="form-control form-control-sm"
+                                    placeholder="e.g. I now sleep 7 hours a night and feel much calmer during exams." MaxLength="500" />
+                            </div>
+                            <div class="col-12">
+                                <asp:Button ID="btnSubmitStory" runat="server" Text="Submit My Story"
+                                    CssClass="btn btn-primary btn-sm px-4" OnClick="btnSubmitStory_Click" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </asp:Panel>
+
+            <!-- Encourage enrolled users who haven't yet passed the quiz -->
+            <asp:Panel ID="pnlEncourageQuiz" runat="server" Visible="false">
+                <div class="encourage-quiz-banner">
+                    <i class="fas fa-lightbulb me-2"></i>
+                    Pass the course quiz with <strong>70% or above</strong> to unlock the ability to share your own success story!
+                </div>
+            </asp:Panel>
+
+        </div>
+
     </div>
 </asp:Content>

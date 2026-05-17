@@ -1055,3 +1055,82 @@ a:hover { color: var(--ms-primary-dk); }
 
 .legend-dot.you-dot   { background: var(--ms-primary); }
 .legend-dot.class-dot { background: #b2bec3; }
+
+/* =============================================
+   Success Stories
+   ============================================= */
+.story-card {
+    background: #fff;
+    border-radius: var(--ms-radius);
+    border: 1px solid var(--ms-border);
+    padding: 1.4rem;
+    height: 100%;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.story-card:hover {
+    box-shadow: var(--ms-shadow);
+    transform: translateY(-2px);
+}
+.story-card::before {
+    content: '\201C';
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    font-size: 5rem;
+    color: var(--ms-primary);
+    opacity: 0.08;
+    line-height: 1;
+    font-family: Georgia, serif;
+}
+.story-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ms-primary), #a29bfe);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.story-achievement-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #f9c74f, #f8961e);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.65rem;
+    border-radius: 50px;
+    margin-bottom: 0.5rem;
+}
+.story-text {
+    font-size: 0.85rem;
+    color: var(--ms-text-muted);
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+}
+.story-result {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ms-secondary);
+}
+.story-form-panel {
+    background: #f8f6ff;
+    border: 1px solid var(--ms-border);
+    border-radius: var(--ms-radius);
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+.encourage-quiz-banner {
+    background: linear-gradient(135deg, #f8f6ff, #ede9ff);
+    border: 1px dashed var(--ms-primary);
+    border-radius: var(--ms-radius-sm);
+    padding: 0.85rem 1.2rem;
+    font-size: 0.875rem;
+    color: var(--ms-primary-dk);
+    margin-top: 1rem;
+}

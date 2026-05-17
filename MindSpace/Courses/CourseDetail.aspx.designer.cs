@@ -28,5 +28,16 @@ namespace MindSpace {
         protected global::System.Web.UI.WebControls.Panel pnlProgress;
         protected global::System.Web.UI.WebControls.Repeater rptQuizzes;
         protected global::System.Web.UI.WebControls.Repeater rptResources;
+        protected global::System.Web.UI.WebControls.Repeater rptStories;
+        protected global::System.Web.UI.WebControls.Panel pnlNoStories;
+        protected global::System.Web.UI.WebControls.Panel pnlShareStory;
+        protected global::System.Web.UI.WebControls.Panel pnlStoryError;
+        protected global::System.Web.UI.WebControls.Panel pnlEncourageQuiz;
+        protected global::System.Web.UI.WebControls.Literal litStoryError;
+        protected global::System.Web.UI.WebControls.TextBox txtStoryName;
+        protected global::System.Web.UI.WebControls.TextBox txtAchievement;
+        protected global::System.Web.UI.WebControls.TextBox txtWhatLearned;
+        protected global::System.Web.UI.WebControls.TextBox txtResult;
+        protected global::System.Web.UI.WebControls.Button btnSubmitStory;
     }
 }

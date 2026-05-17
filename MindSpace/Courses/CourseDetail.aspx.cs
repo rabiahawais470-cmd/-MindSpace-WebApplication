@@ -88,6 +88,7 @@ namespace MindSpace
 
             LoadResources(userID, isEnrolled);
             LoadQuizzes(isEnrolled, userID > 0);
+            LoadSuccessStories(userID, isEnrolled);
         }
 
         private void LoadResources(int userID, bool isEnrolled)
@@ -177,6 +178,111 @@ namespace MindSpace
             catch { /* Already enrolled */ }
 
             LoadCourse();
+        }
+
+        private void LoadSuccessStories(int userID, bool isEnrolled)
+        {
+            string sql = @"SELECT StoryID, DisplayName, Achievement, WhatLearned, Result, DatePosted
+                           FROM SuccessStories
+                           WHERE CourseID=@cid AND IsApproved=1
+                           ORDER BY DatePosted DESC";
+            try
+            {
+                DataTable dt = DatabaseHelper.ExecuteQuery(sql, new[] { new SqlParameter("@cid", courseID) });
+
+                if (dt.Rows.Count == 0)
+                {
+                    pnlNoStories.Visible = true;
+                    rptStories.Visible   = false;
+                }
+                else
+                {
+                    pnlNoStories.Visible  = false;
+                    rptStories.DataSource = dt;
+                    rptStories.DataBind();
+                }
+            }
+            catch
+            {
+                // SuccessStories table may not exist yet on older DBs
+                pnlNoStories.Visible = true;
+                rptStories.Visible   = false;
+            }
+
+            if (userID <= 0) return;
+
+            // Check whether user has passed any quiz for this course (>=70%)
+            try
+            {
+                int passed = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                    @"SELECT COUNT(*) FROM QuizResults qr
+                      JOIN Quizzes q ON qr.QuizID = q.QuizID
+                      WHERE qr.UserID=@uid AND q.CourseID=@cid AND qr.Percentage >= 70",
+                    new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) }));
+
+                int alreadyShared = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                    "SELECT COUNT(*) FROM SuccessStories WHERE UserID=@uid AND CourseID=@cid",
+                    new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) }));
+
+                if (passed > 0 && alreadyShared == 0)
+                {
+                    pnlShareStory.Visible    = true;
+                    pnlEncourageQuiz.Visible = false;
+                }
+                else if (passed == 0 && isEnrolled)
+                {
+                    pnlEncourageQuiz.Visible = true;
+                }
+            }
+            catch { /* non-fatal */ }
+        }
+
+        protected void btnSubmitStory_Click(object sender, EventArgs e)
+        {
+            if (Session["UserID"] == null) return;
+            if (!int.TryParse(Request.QueryString["id"], out courseID) || courseID <= 0) return;
+
+            int    userID      = Convert.ToInt32(Session["UserID"]);
+            string name        = txtStoryName.Text.Trim();
+            string achievement = txtAchievement.Text.Trim();
+            string whatLearned = txtWhatLearned.Text.Trim();
+            string result      = txtResult.Text.Trim();
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(achievement) ||
+                string.IsNullOrEmpty(whatLearned) || string.IsNullOrEmpty(result))
+            {
+                pnlStoryError.Visible = true;
+                litStoryError.Text    = "Please fill in all four fields before submitting.";
+                return;
+            }
+
+            try
+            {
+                DatabaseHelper.ExecuteNonQuery(
+                    @"INSERT INTO SuccessStories (CourseID, UserID, DisplayName, Achievement, WhatLearned, Result)
+                      VALUES (@cid, @uid, @name, @ach, @wl, @res)",
+                    new[] {
+                        new SqlParameter("@cid",  courseID),
+                        new SqlParameter("@uid",  userID),
+                        new SqlParameter("@name", name),
+                        new SqlParameter("@ach",  achievement),
+                        new SqlParameter("@wl",   whatLearned),
+                        new SqlParameter("@res",  result)
+                    });
+
+                pnlMsg.Visible    = true;
+                litMsg.Text       = "Your success story has been shared! Thank you for inspiring others.";
+                pnlShareStory.Visible    = false;
+                pnlEncourageQuiz.Visible = false;
+                pnlStoryError.Visible    = false;
+
+                LoadSuccessStories(userID, true);
+            }
+            catch (Exception ex)
+            {
+                pnlStoryError.Visible = true;
+                litStoryError.Text    = "Could not save your story: " + ex.Message;
+            }
         }
 
         protected string GetCatClass(string cat)
