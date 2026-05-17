@@ -131,33 +131,20 @@ namespace MindSpace
 
         private void LoadQuizzes(bool isEnrolled, bool isLoggedIn)
         {
-            if (!isLoggedIn)
-            {
-                pnlLoginForQuiz.Visible = true;
-                rptQuizzes.Visible      = false;
-                pnlNoQuizzes.Visible    = false;
-                return;
-            }
-
-            if (!isEnrolled)
-            {
-                pnlNoQuizzes.Visible    = false;
-                pnlLoginForQuiz.Visible = false;
-                rptQuizzes.Visible      = false;
-                return;
-            }
-
+            // Always fetch and display quizzes; auth/enroll gates are handled by Quiz.aspx
             string sql = "SELECT QuizID, Title, Description, PassingScore FROM Quizzes WHERE CourseID=@id";
             DataTable dt = DatabaseHelper.ExecuteQuery(sql, new[] { new SqlParameter("@id", courseID) });
 
             if (dt.Rows.Count == 0)
             {
-                pnlNoQuizzes.Visible = true;
-                rptQuizzes.Visible   = false;
+                pnlNoQuizzes.Visible    = true;
+                rptQuizzes.Visible      = false;
+                pnlLoginForQuiz.Visible = false;
             }
             else
             {
                 pnlNoQuizzes.Visible    = false;
+                pnlLoginForQuiz.Visible = !isLoggedIn;   // note for guests, shown below the list
                 rptQuizzes.DataSource   = dt;
                 rptQuizzes.DataBind();
             }

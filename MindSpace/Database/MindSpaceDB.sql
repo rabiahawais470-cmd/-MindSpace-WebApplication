@@ -488,6 +488,125 @@ ELSE
     PRINT 'UserProgress table already exists - skipped.';
 GO
 
+-- =============================================
+-- MIGRATION: Seed resources for Courses 3, 4, 5
+-- (safe to re-run — skips if rows already exist)
+-- =============================================
+IF NOT EXISTS (SELECT 1 FROM Resources WHERE CourseID = 3)
+BEGIN
+    INSERT INTO Resources (CourseID, Title, ResourceType, Content, URL, OrderNum) VALUES
+    (3, 'What is Anxiety? Types and Symptoms', 'article',
+     'Anxiety is a natural response to perceived threat or uncertainty. It becomes a disorder when it is persistent, excessive, and interferes with daily functioning. The main anxiety disorders include:
+
+Generalised Anxiety Disorder (GAD): persistent worry about a variety of topics, events, or activities. People with GAD find it hard to control their worry and often feel on edge.
+
+Panic Disorder: recurrent unexpected panic attacks — sudden surges of intense fear accompanied by physical symptoms such as pounding heart, shortness of breath, dizziness, and chest tightness.
+
+Social Anxiety Disorder: intense fear of social or performance situations where scrutiny by others is possible. The person fears humiliation or embarrassment.
+
+Specific Phobias: intense, irrational fear of a specific object or situation (e.g., heights, spiders, flying).
+
+Recognising your anxiety type is the first step. Common physical signs include: racing heart, sweating, trembling, dry mouth, nausea, and shortness of breath. Cognitive signs include: catastrophic thinking, overestimating danger, and difficulty concentrating.',
+     NULL, 1),
+    (3, 'Cognitive-Behavioural Techniques for Anxiety', 'article',
+     'Cognitive-Behavioural Therapy (CBT) is the gold-standard psychological treatment for anxiety. Its core principle: our thoughts influence our feelings and behaviours. By changing unhelpful thought patterns, we can reduce anxiety.
+
+Key CBT techniques for anxiety:
+
+1. Thought Records: When you notice anxiety, write down the situation, your automatic thought, the evidence for and against that thought, and a balanced alternative thought. This slows down catastrophic thinking.
+
+2. Behavioural Experiments: Test your anxious predictions against reality. If you fear that speaking in class will lead to everyone laughing, test this belief by gradually participating and noting what actually happens.
+
+3. Exposure Hierarchy: Create a list of feared situations from least to most anxiety-provoking. Start with the easiest and gradually work up. Repeated exposure reduces anxiety over time.
+
+4. Cognitive Restructuring: Challenge unhelpful thinking patterns such as: catastrophising ("This will be a disaster"), mind-reading ("Everyone thinks I''m stupid"), and overestimating probability ("Something bad will definitely happen").
+
+5. Relaxation Techniques: Diaphragmatic breathing, progressive muscle relaxation, and mindfulness-based strategies reduce the physical component of anxiety.',
+     NULL, 2),
+    (3, 'Anxiety Management - Expert Talk', 'video',
+     NULL, 'https://www.youtube.com/embed/WWloIAQpMcQ', 3);
+END
+
+IF NOT EXISTS (SELECT 1 FROM Resources WHERE CourseID = 4)
+BEGIN
+    INSERT INTO Resources (CourseID, Title, ResourceType, Content, URL, OrderNum) VALUES
+    (4, 'The Science of Sleep and Mental Health', 'article',
+     'Sleep is not passive — it is one of the most active and essential processes your brain and body undergo. During sleep, the brain consolidates memories, clears metabolic waste products (including proteins linked to Alzheimer''s), and regulates emotional responses.
+
+The sleep architecture consists of cycles (~90 minutes each) alternating between:
+- NREM Stage 1 & 2 (Light sleep): transition to sleep, body temperature drops, heart rate slows
+- NREM Stage 3 (Deep/Slow-wave sleep): tissue repair, immune strengthening, memory consolidation
+- REM sleep: vivid dreaming, emotional memory processing, creativity
+
+Why sleep matters for mental health:
+- Sleep deprivation increases amygdala reactivity by up to 60%, making you more emotionally reactive
+- Chronic poor sleep is one of the strongest predictors of depression and anxiety
+- A single night of 6 hours or less impairs attention, working memory, and decision-making comparably to 24 hours of no sleep
+
+The recommended amount for adults (18–64) is 7–9 hours per night. Most people underestimate their own sleep deficit.',
+     NULL, 1),
+    (4, 'Building a Sleep-Friendly Environment and Routine', 'article',
+     'Sleep hygiene refers to the habits and environmental conditions that promote consistent, high-quality sleep. Research-backed strategies:
+
+Environment optimisation:
+- Temperature: Keep your bedroom between 16–20°C (60–68°F). Your core body temperature must drop to initiate sleep.
+- Darkness: Use blackout curtains or a sleep mask. Even small amounts of light suppress melatonin.
+- Sound: Use white noise, earplugs, or silence. Your brain continues processing sound during sleep.
+- Bed association: Use your bed only for sleep and intimacy. This strengthens the mental association between bed and sleep.
+
+Behavioural strategies:
+- Consistent schedule: Wake at the same time every day (including weekends). This anchors your circadian rhythm.
+- Wind-down routine: 30–60 minutes before bed, dim lights, avoid screens, and do calming activities (reading, gentle stretching, warm bath).
+- Caffeine cut-off: Caffeine has a half-life of 5–6 hours. A 3pm coffee still leaves half its dose in your system at 9pm.
+- Alcohol: While alcohol may help you fall asleep, it fragments sleep in the second half of the night and suppresses REM sleep.
+- Exercise: Regular exercise improves sleep quality significantly, but avoid vigorous exercise within 2 hours of bedtime.',
+     NULL, 2),
+    (4, 'Sleep Hygiene - Guided Relaxation', 'video',
+     NULL, 'https://www.youtube.com/embed/aXItOY0sLRY', 3),
+    (4, 'Sleep Quality Tracker Template', 'download',
+     'Download this sleep quality tracker to monitor your sleep schedule, bedtime habits, and energy levels. Tracking for two weeks helps identify patterns that improve or disrupt your sleep.',
+     NULL, 4);
+END
+
+IF NOT EXISTS (SELECT 1 FROM Resources WHERE CourseID = 5)
+BEGIN
+    INSERT INTO Resources (CourseID, Title, ResourceType, Content, URL, OrderNum) VALUES
+    (5, 'What is Emotional Resilience?', 'article',
+     'Emotional resilience is the ability to adapt positively in the face of adversity, trauma, threats, or significant sources of stress. Resilient people do not avoid or suppress difficult emotions — instead, they process them effectively and use the experience to grow.
+
+Key dimensions of resilience:
+- Emotional regulation: the ability to manage and modulate emotional responses. This does not mean suppressing emotions but experiencing them without being overwhelmed.
+- Cognitive flexibility: the ability to reframe situations and find alternative interpretations. Resilient people can step back from a setback and find lessons or opportunities.
+- Social connectedness: strong, supportive relationships are consistently the most powerful predictor of resilience. People rarely bounce back from adversity in isolation.
+- Self-efficacy: belief in your own ability to cope. This builds through experience — small successes accumulate into a strong internal narrative.
+- Purpose and meaning: a sense of why you are doing what you are doing buffers against stress and gives direction during difficulty.
+
+Research by psychologist Martin Seligman (PERMA model) identifies five pillars of wellbeing that build resilience: Positive Emotion, Engagement, Relationships, Meaning, and Accomplishment.',
+     NULL, 1),
+    (5, 'Building Your Resilience Toolkit', 'article',
+     'Resilience is not a fixed trait — it is a set of skills that can be learned and strengthened over time. Here are evidence-based strategies used by mental health professionals:
+
+1. Develop a growth mindset (Carol Dweck): View challenges as opportunities for learning rather than threats to your competence. Replace "I can''t do this" with "I can''t do this yet."
+
+2. Practice gratitude: Daily gratitude practice (writing 3 specific things you appreciate) has been shown to increase wellbeing and reduce symptoms of depression within 2–4 weeks.
+
+3. Build your support network: Identify 3–5 people you can call when struggling. Vulnerability and connection are core to resilience — asking for help is a strength.
+
+4. Develop emotional vocabulary: The more precisely you can label an emotion (not just "bad" but "disappointed", "overwhelmed", "embarrassed"), the more effectively you can process it.
+
+5. Accept what you cannot control: The Stoic practice of distinguishing between what is within your control and what is not reduces anxiety and increases a sense of agency.
+
+6. Regular physical self-care: Sleep, exercise, and nutrition are foundational. Resilience under stress is impossible on chronic sleep deprivation or poor nutrition.
+
+7. Post-traumatic growth journaling: After difficult experiences, write about: what happened, how you felt, what you learned, and how it has shaped you. This promotes integration and meaning-making.',
+     NULL, 2),
+    (5, 'Building Resilience - Expert Guidance', 'video',
+     NULL, 'https://www.youtube.com/embed/NWH8N-BvhAw', 3),
+    (5, 'Resilience Self-Assessment Worksheet', 'download',
+     'Download this resilience self-assessment to identify your current strengths, areas for growth, and create a personalised resilience-building action plan.',
+     NULL, 4);
+END
+
 PRINT 'MindSpaceDB created successfully!';
 PRINT '';
 PRINT 'IMPORTANT: To set up the admin account:';
