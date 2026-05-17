@@ -80,7 +80,7 @@
                                     </div>
 
                                     <%# Eval("ResourceType").ToString()=="video" && !string.IsNullOrEmpty(Convert.ToString(Eval("URL"))) ?
-                                        "<div class='ratio ratio-16x9 mt-2'><iframe src='" + Eval("URL") + "' allowfullscreen class='rounded' title='Video resource'></iframe></div>" : "" %>
+                                        "<div class='ratio ratio-16x9 mt-2'><iframe src='" + Eval("URL") + "?rel=0' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen class='rounded' title='Video resource'></iframe></div>" : "" %>
 
                                     <%# !string.IsNullOrEmpty(Convert.ToString(Eval("Content"))) ?
                                         "<p class='text-muted small mt-2 mb-0' style='line-height:1.7;'>" +

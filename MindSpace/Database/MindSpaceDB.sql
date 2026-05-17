@@ -243,8 +243,8 @@ The good news: stress is manageable. With the right tools and consistent practic
 
 5. Brief Physical Activity: Even a 10-minute walk releases endorphins that combat stress hormones.',
  NULL, 2),
-(1, 'Stress Management - Guided Exercise Video', 'video',
- NULL, 'https://www.youtube.com/embed/z6X5oEIg6Ak', 3),
+(1, 'How to Make Stress Your Friend - Kelly McGonigal (TED)', 'video',
+ NULL, 'https://www.youtube.com/embed/RcGyVTAoXEU', 3),
 (1, 'Daily Stress Journal Template', 'download',
  'Download this daily stress journal template to track your stress triggers, responses, and coping strategies. Regular journaling helps identify patterns and monitor your progress.',
  NULL, 4);
@@ -263,8 +263,8 @@ Core mindfulness principles:
 
 Research from Harvard, Oxford, and other leading institutions confirms that regular mindfulness practice (as little as 10 minutes per day) can physically change brain structure, increasing grey matter in areas associated with learning, memory, and emotional regulation.',
  NULL, 1),
-(2, '10-Minute Body Scan Meditation', 'video',
- NULL, 'https://www.youtube.com/embed/dB_LkXuDEDw', 2),
+(2, 'All It Takes Is 10 Mindful Minutes - Andy Puddicombe (TED)', 'video',
+ NULL, 'https://www.youtube.com/embed/qzR62JJCMBQ', 2),
 (2, 'Mindfulness for Students - Guide', 'article',
  'As a student, your mind is constantly pulled in multiple directions: lectures, assignments, social pressures, and future concerns. Mindfulness gives you the ability to choose where to direct your attention.
 
@@ -523,8 +523,8 @@ Key CBT techniques for anxiety:
 
 5. Relaxation Techniques: Diaphragmatic breathing, progressive muscle relaxation, and mindfulness-based strategies reduce the physical component of anxiety.',
      NULL, 2),
-    (3, 'Anxiety Management - Expert Talk', 'video',
-     NULL, 'https://www.youtube.com/embed/WWloIAQpMcQ', 3);
+    (3, 'How to Cope with Anxiety - Olivia Remes (TEDx)', 'video',
+     NULL, 'https://www.youtube.com/embed/ZidGozDhOjg', 3);
 END
 
 IF NOT EXISTS (SELECT 1 FROM Resources WHERE CourseID = 4)
@@ -561,8 +561,8 @@ Behavioural strategies:
 - Alcohol: While alcohol may help you fall asleep, it fragments sleep in the second half of the night and suppresses REM sleep.
 - Exercise: Regular exercise improves sleep quality significantly, but avoid vigorous exercise within 2 hours of bedtime.',
      NULL, 2),
-    (4, 'Sleep Hygiene - Guided Relaxation', 'video',
-     NULL, 'https://www.youtube.com/embed/aXItOY0sLRY', 3),
+    (4, 'Sleep Is Your Superpower - Matthew Walker (TED)', 'video',
+     NULL, 'https://www.youtube.com/embed/5MuIMqhT8DM', 3),
     (4, 'Sleep Quality Tracker Template', 'download',
      'Download this sleep quality tracker to monitor your sleep schedule, bedtime habits, and energy levels. Tracking for two weeks helps identify patterns that improve or disrupt your sleep.',
      NULL, 4);
@@ -600,8 +600,8 @@ Research by psychologist Martin Seligman (PERMA model) identifies five pillars o
 
 7. Post-traumatic growth journaling: After difficult experiences, write about: what happened, how you felt, what you learned, and how it has shaped you. This promotes integration and meaning-making.',
      NULL, 2),
-    (5, 'Building Resilience - Expert Guidance', 'video',
-     NULL, 'https://www.youtube.com/embed/NWH8N-BvhAw', 3),
+    (5, 'The Three Secrets of Resilient People - Lucy Hone (TEDx)', 'video',
+     NULL, 'https://www.youtube.com/embed/ITjsb4a-pXQ', 3),
     (5, 'Resilience Self-Assessment Worksheet', 'download',
      'Download this resilience self-assessment to identify your current strengths, areas for growth, and create a personalised resilience-building action plan.',
      NULL, 4);
