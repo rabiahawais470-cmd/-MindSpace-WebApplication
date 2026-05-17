@@ -256,5 +256,20 @@ namespace MindSpace
                 default:         return "#74B9FF";
             }
         }
+
+        protected string GetDownloadButton(object urlObj, object titleObj)
+        {
+            string url   = Convert.ToString(urlObj);
+            string title = Convert.ToString(titleObj);
+            if (string.IsNullOrEmpty(url))
+                return "<span class='btn btn-outline-secondary btn-sm mt-2 disabled'><i class=\"fas fa-download me-1\"></i>Coming Soon</span>";
+
+            string resolved = Page.ResolveUrl("~" + url);
+            string encoded  = System.Web.HttpUtility.HtmlAttributeEncode(resolved);
+            string download = System.Web.HttpUtility.HtmlAttributeEncode(
+                System.IO.Path.GetFileName(url));
+            return $"<a href='{encoded}' download='{download}' class='btn btn-outline-primary btn-sm mt-2'>" +
+                   "<i class=\"fas fa-download me-1\"></i>Download Resource</a>";
+        }
     }
 }

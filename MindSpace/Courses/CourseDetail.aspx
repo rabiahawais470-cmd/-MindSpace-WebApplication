@@ -87,7 +87,10 @@
                                         Convert.ToString(Eval("Content")).Replace("\n","<br/>") + "</p>" : "" %>
 
                                     <%# Eval("ResourceType").ToString()=="download" ?
-                                        "<a href='#' class='btn btn-outline-primary btn-sm mt-2'><i class=\"fas fa-download me-1\"></i>Download Resource</a>" : "" %>
+                                        (string.IsNullOrEmpty(Convert.ToString(Eval("URL")))
+                                            ? "<span class='btn btn-outline-secondary btn-sm mt-2 disabled'><i class=\"fas fa-download me-1\"></i>Coming Soon</span>"
+                                            : "<a href='" + System.Web.HttpUtility.HtmlAttributeEncode(Convert.ToString(Eval("URL"))) + "' download class='btn btn-success btn-sm mt-2'><i class=\"fas fa-download me-1\"></i>Download Resource</a>")
+                                        : "" %>
                                 </div>
                             </div>
                         </div>

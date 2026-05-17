@@ -267,7 +267,7 @@ The good news: stress is manageable. With the right tools and consistent practic
  NULL, 'https://www.youtube.com/embed/RcGyVTAoXEU', 3),
 (1, 'Daily Stress Journal Template', 'download',
  'Download this daily stress journal template to track your stress triggers, responses, and coping strategies. Regular journaling helps identify patterns and monitor your progress.',
- NULL, 4);
+ '/Content/Downloads/stress-journal-template.html', 4);
 
 -- Sample Resources for Course 2 (Mindfulness)
 INSERT INTO Resources (CourseID, Title, ResourceType, Content, URL, OrderNum)
@@ -688,7 +688,7 @@ Behavioural strategies:
      NULL, 'https://www.youtube.com/embed/5MuIMqhT8DM', 3),
     (4, 'Sleep Quality Tracker Template', 'download',
      'Download this sleep quality tracker to monitor your sleep schedule, bedtime habits, and energy levels. Tracking for two weeks helps identify patterns that improve or disrupt your sleep.',
-     NULL, 4);
+     '/Content/Downloads/sleep-quality-tracker.html', 4);
 END
 
 IF NOT EXISTS (SELECT 1 FROM Resources WHERE CourseID = 5)
@@ -727,7 +727,7 @@ Research by psychologist Martin Seligman (PERMA model) identifies five pillars o
      NULL, 'https://www.youtube.com/embed/ITjsb4a-pXQ', 3),
     (5, 'Resilience Self-Assessment Worksheet', 'download',
      'Download this resilience self-assessment to identify your current strengths, areas for growth, and create a personalised resilience-building action plan.',
-     NULL, 4);
+     '/Content/Downloads/resilience-self-assessment.html', 4);
 END
 
 PRINT 'MindSpaceDB created successfully!';
