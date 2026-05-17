@@ -200,7 +200,7 @@
                                         </a>
                                     </div>
                                     <div class="activity-meta">
-                                        <%# Eval("ActivityType").ToString()=="post" ? "<i class='fas fa-pen me-1'></i>New discussion" : "<i class='fas fa-reply me-1'></i>Reply in: " + System.Web.HttpUtility.HtmlEncode(Eval("Context")?.ToString() ?? "") %>
+                                        <%# Eval("ActivityType").ToString()=="post" ? "<i class='fas fa-pen me-1'></i>New discussion" : "<i class='fas fa-reply me-1'></i>Reply in: " + System.Web.HttpUtility.HtmlEncode(Convert.ToString(Eval("Context"))) %>
                                         &nbsp;&bull;&nbsp;
                                         <%# Convert.ToDateTime(Eval("DatePosted")).ToString("dd MMM yyyy") %>
                                     </div>
