@@ -36,11 +36,11 @@
                 <asp:RequiredFieldValidator ID="rfvUsername" runat="server"
                     ControlToValidate="txtUsername" ErrorMessage="Username is required."
                     CssClass="validation-error" Display="Dynamic" />
-                <asp:RegularExpressionValidator ID="revUsername" runat="server"
-                    ControlToValidate="txtUsername"
-                    ValidationExpression="^[A-Za-z0-9_]{3,50}$"
+                <asp:RegularExpressionValidator ID=”revUsername” runat=”server”
+                    ControlToValidate=”txtUsername”
+                    ValidationExpression=”^[A-Za-z0-9_]&#123;3,50&#125;$”
                     ErrorMessage=”Username must be 3-50 characters: letters, numbers, or underscore.”
-                    CssClass="validation-error" Display="Dynamic" />
+                    CssClass=”validation-error” Display=”Dynamic” />
                 <span id="usernameFeedback" class="validation-error"></span>
             </div>
 
@@ -76,7 +76,7 @@
                     CssClass="validation-error" Display="Dynamic" />
                 <asp:RegularExpressionValidator ID="revPassword" runat="server"
                     ControlToValidate="txtPassword"
-                    ValidationExpression=".{8,}"
+                    ValidationExpression=".&#123;8,&#125;"
                     ErrorMessage="Password must be at least 8 characters."
                     CssClass="validation-error" Display="Dynamic" />
                 <!-- Password strength bar -->
