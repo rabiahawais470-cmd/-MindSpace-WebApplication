@@ -96,6 +96,7 @@
                 <asp:ListItem Value="Anxiety">Anxiety</asp:ListItem>
                 <asp:ListItem Value="Sleep Hygiene">Sleep Hygiene</asp:ListItem>
                 <asp:ListItem Value="Resilience">Resilience</asp:ListItem>
+                <asp:ListItem Value="Self-Care">Self-Care</asp:ListItem>
             </asp:DropDownList>
             <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-outline-primary"
                 CausesValidation="false" OnClick="btnSearch_Click" />

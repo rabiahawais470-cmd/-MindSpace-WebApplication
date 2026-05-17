@@ -132,10 +132,10 @@
                 </a>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
-                <a href="../User/Forum.aspx" class="d-block text-decoration-none">
+                <a href="../User/Discussions.aspx" class="d-block text-decoration-none">
                     <div class="ms-card p-3 text-center">
                         <i class="fas fa-comments fa-2x text-info mb-2"></i>
-                        <div class="fw-semibold small">View Forum</div>
+                        <div class="fw-semibold small">View Discussions</div>
                     </div>
                 </a>
             </div>

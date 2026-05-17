@@ -70,14 +70,14 @@
 
             <asp:Repeater ID="rptReview" runat="server">
                 <ItemTemplate>
-                    <div class="quiz-question-card mb-3"
-                         style="border-left:4px solid #74B9FF;">
+                    <div class="quiz-question-card mb-3" style="border-left:4px solid #74B9FF;">
                         <div class="quiz-question-num">Question <%# Container.ItemIndex + 1 %></div>
-                        <div class="quiz-question-text"><%# Eval("QuestionText") %></div>
+                        <div class="quiz-question-text"><%# System.Web.HttpUtility.HtmlEncode(Eval("QuestionText").ToString()) %></div>
                         <div class="mt-2 small">
-                            <span class="badge bg-success">
-                                <i class="fas fa-check me-1"></i>Correct Answer:
-                                <%# Eval("CorrectAnswer") %>
+                            <span class="badge bg-success px-2 py-1">
+                                <i class="fas fa-check me-1"></i>
+                                <strong><%# Eval("CorrectAnswer") %>.</strong>
+                                <%# System.Web.HttpUtility.HtmlEncode(Eval("CorrectAnswerText").ToString()) %>
                             </span>
                         </div>
                     </div>

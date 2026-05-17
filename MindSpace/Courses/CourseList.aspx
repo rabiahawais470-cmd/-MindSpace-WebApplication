@@ -28,6 +28,7 @@
                         <asp:ListItem Value="Anxiety">Anxiety</asp:ListItem>
                         <asp:ListItem Value="Sleep Hygiene">Sleep Hygiene</asp:ListItem>
                         <asp:ListItem Value="Resilience">Resilience</asp:ListItem>
+                        <asp:ListItem Value="Self-Care">Self-Care</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col-md-2">

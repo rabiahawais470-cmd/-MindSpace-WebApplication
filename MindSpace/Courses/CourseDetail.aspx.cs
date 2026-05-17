@@ -220,6 +220,7 @@ namespace MindSpace
                 case "anxiety":           return "anxiety";
                 case "sleep hygiene":     return "sleep";
                 case "resilience":        return "resilience";
+                case "self-care":         return "selfcare";
                 default:                  return "mindfulness";
             }
         }
@@ -233,6 +234,7 @@ namespace MindSpace
                 case "anxiety":           return "💙";
                 case "sleep hygiene":     return "🌙";
                 case "resilience":        return "💪";
+                case "self-care":         return "🌸";
                 default:                  return "📚";
             }
         }

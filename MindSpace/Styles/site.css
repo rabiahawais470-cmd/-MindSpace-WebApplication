@@ -346,6 +346,7 @@ a:hover { color: var(--ms-primary-dk); }
 .cat-anxiety      { background: #dfe6fd; color: #2d3eb5; }
 .cat-sleep        { background: #ffe2d9; color: #c0392b; }
 .cat-resilience   { background: #e0d4fc; color: #6c3dcc; }
+.cat-selfcare     { background: #fde2f0; color: #c0166e; }
 
 .course-icon {
     font-size: 2.5rem;

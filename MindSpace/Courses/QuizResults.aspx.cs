@@ -84,10 +84,13 @@ namespace MindSpace
         private void LoadQuestionReview(int quizID)
         {
             string sql = @"
-                SELECT QuestionText, CorrectAnswer, QuestionType
-                FROM   Questions
-                WHERE  QuizID = @qid
-                ORDER  BY OrderNum";
+                SELECT q.QuestionText, q.CorrectAnswer, q.QuestionType,
+                       o.OptionText AS CorrectAnswerText
+                FROM   Questions q
+                JOIN   QuestionOptions o ON o.QuestionID = q.QuestionID
+                                        AND o.OptionLabel = q.CorrectAnswer
+                WHERE  q.QuizID = @qid
+                ORDER  BY q.OrderNum";
 
             DataTable dt = DatabaseHelper.ExecuteQuery(sql, new[] { new SqlParameter("@qid", quizID) });
 
