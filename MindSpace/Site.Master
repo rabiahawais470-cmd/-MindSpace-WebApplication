@@ -40,8 +40,7 @@
                     <asp:Panel ID="pnlUserNav" runat="server" Visible="false" CssClass="navbar-nav ms-auto align-items-center flex-row gap-1">
                         <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/User/UserHome.aspx") %>"><i class="fas fa-home me-1"></i>Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>"><i class="fas fa-book-open me-1"></i>Courses</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/User/Forum.aspx") %>"><i class="fas fa-comments me-1"></i>Forum</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/User/Discussions.aspx") %>"><i class="fas fa-comment-dots me-1"></i>Discussions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/User/Discussions.aspx") %>"><i class="fas fa-comments me-1"></i>Discussions</a></li>
                         <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/User/ProgressTracking.aspx") %>"><i class="fas fa-chart-line me-1"></i>Progress</a></li>
                         <li class="nav-item dropdown ms-2">
                             <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" role="button" data-bs-toggle="dropdown">
