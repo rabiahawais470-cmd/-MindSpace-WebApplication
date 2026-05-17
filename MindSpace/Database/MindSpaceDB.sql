@@ -303,9 +303,9 @@ INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
 VALUES (3, 'Understanding Anxiety', 'Test your knowledge about anxiety, its causes, and management techniques.', 70);
 
 INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
-(1, 'What is anxiety?', 'multichoice', 'A', 1),
-(1, 'Which breathing technique helps reduce anxiety?', 'multichoice', 'B', 2),
-(1, 'Anxiety disorder affects what percentage of adults?', 'multichoice', 'C', 3);
+(1, 'What is anxiety?', 'multiple_choice', 'A', 1),
+(1, 'Which breathing technique helps reduce anxiety?', 'multiple_choice', 'B', 2),
+(1, 'Anxiety disorder affects what percentage of adults?', 'multiple_choice', 'C', 3);
 
 INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
 (1, 'A', 'A persistent feeling of worry about future events'),
@@ -328,9 +328,9 @@ INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
 VALUES (2, 'Mindfulness & Meditation', 'Test your understanding of mindfulness principles and meditation practices.', 70);
 
 INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
-(2, 'What is mindfulness?', 'multichoice', 'A', 1),
-(2, 'How long should beginners meditate daily?', 'multichoice', 'B', 2),
-(2, 'Which sense is commonly used in grounding technique 5-4-3-2-1?', 'multichoice', 'B', 3);
+(2, 'What is mindfulness?', 'multiple_choice', 'A', 1),
+(2, 'How long should beginners meditate daily?', 'multiple_choice', 'B', 2),
+(2, 'Which sense is commonly used in grounding technique 5-4-3-2-1?', 'multiple_choice', 'B', 3);
 
 INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
 (4, 'A', 'Paying attention to the present moment without judgment'),
@@ -353,9 +353,9 @@ INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
 VALUES (1, 'Stress Management', 'Assess your knowledge of stress causes, effects, and healthy coping strategies.', 70);
 
 INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
-(3, 'What is the main cause of stress?', 'multichoice', 'A', 1),
-(3, 'Which of these is a healthy stress management technique?', 'multichoice', 'A', 2),
-(3, 'What is the stress hormone called?', 'multichoice', 'B', 3);
+(3, 'What is the main cause of stress?', 'multiple_choice', 'A', 1),
+(3, 'Which of these is a healthy stress management technique?', 'multiple_choice', 'A', 2),
+(3, 'What is the stress hormone called?', 'multiple_choice', 'B', 3);
 
 INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
 (7, 'A', 'Our perception of events'),
@@ -378,9 +378,9 @@ INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
 VALUES (4, 'Sleep Hygiene', 'Test your knowledge about healthy sleep habits and rest optimization.', 70);
 
 INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
-(4, 'How many hours of sleep does an adult need?', 'multichoice', 'B', 1),
-(4, 'What should you avoid before bed?', 'multichoice', 'D', 2),
-(4, 'What is the best room temperature for sleep?', 'multichoice', 'B', 3);
+(4, 'How many hours of sleep does an adult need?', 'multiple_choice', 'B', 1),
+(4, 'What should you avoid before bed?', 'multiple_choice', 'D', 2),
+(4, 'What is the best room temperature for sleep?', 'multiple_choice', 'B', 3);
 
 INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
 (10, 'A', '4-5 hours'),
@@ -403,9 +403,9 @@ INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
 VALUES (5, 'Emotional Resilience', 'Assess your understanding of emotional resilience and coping mechanisms.', 70);
 
 INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum) VALUES
-(5, 'What is emotional resilience?', 'multichoice', 'B', 1),
-(5, 'Which factor builds emotional resilience?', 'multichoice', 'D', 2),
-(5, 'What is a healthy coping mechanism?', 'multichoice', 'D', 3);
+(5, 'What is emotional resilience?', 'multiple_choice', 'B', 1),
+(5, 'Which factor builds emotional resilience?', 'multiple_choice', 'D', 2),
+(5, 'What is a healthy coping mechanism?', 'multiple_choice', 'D', 3);
 
 INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
 (13, 'A', 'Never feeling sad'),
@@ -1287,6 +1287,226 @@ Research by psychologist Martin Seligman (PERMA model) identifies five pillars o
      'Download this resilience self-assessment to identify your current strengths, areas for growth, and create a personalised resilience-building action plan.',
      '/Content/Downloads/resilience-self-assessment.html', 4);
 END
+
+-- ============================================================
+-- COURSE 7: Self-Care & Emotional Wellbeing
+-- ============================================================
+IF NOT EXISTS (SELECT 1 FROM Courses WHERE Title = 'Self-Care & Emotional Wellbeing')
+BEGIN
+    INSERT INTO Courses (Title, Description, Category, DifficultyLevel, Duration, IsActive)
+    VALUES (
+        'Self-Care & Emotional Wellbeing',
+        'Discover the science and practice of self-care as a foundation for mental health. This course covers evidence-based self-care strategies including boundary setting, emotional needs, rest and recovery, and building sustainable daily routines for lasting wellbeing.',
+        'Self-Care', 'Beginner', '3 weeks', 1
+    );
+END
+
+IF NOT EXISTS (SELECT 1 FROM Resources WHERE CourseID = (SELECT TOP 1 CourseID FROM Courses WHERE Title='Self-Care & Emotional Wellbeing') AND OrderNum=1)
+BEGIN
+    DECLARE @sc7ID INT = (SELECT TOP 1 CourseID FROM Courses WHERE Title='Self-Care & Emotional Wellbeing');
+
+    INSERT INTO Resources (CourseID, Title, ResourceType, Content, URL, OrderNum) VALUES
+    (@sc7ID, 'What is Self-Care? The Science Behind It', 'article',
+     'Self-care is the deliberate practice of activities that maintain and improve physical, mental, and emotional health. It is not selfish -- it is essential. Research shows that consistent self-care reduces burnout, lowers cortisol, and improves immune function.
+
+The World Health Organization defines self-care as the ability of individuals to promote health, prevent disease, and cope with illness with or without the support of a healthcare provider. Self-care falls into six key domains: physical (sleep, nutrition, exercise), emotional (recognising and expressing feelings), social (healthy relationships), mental (stimulation, creativity), spiritual (meaning and purpose), and professional (work-life balance).
+
+One foundational concept is the oxygen mask principle -- you must care for yourself before you can effectively help others. Chronic self-neglect leads to compassion fatigue, burnout, and reduced ability to regulate emotions. Even small daily acts of self-care accumulate into meaningful wellbeing over time.',
+     NULL, 1),
+    (@sc7ID, 'Practical Self-Care Strategies for Every Day', 'article',
+     'Effective self-care does not require vast amounts of time. Research-backed strategies include:
+
+1. Boundary Setting: Learning to say no is a skill. Healthy boundaries protect your energy and reduce resentment. Practice by identifying your limits and communicating them clearly.
+
+2. The HALT Technique: When overwhelmed, check if you are Hungry, Angry, Lonely, or Tired. Addressing these basic needs first often resolves emotional distress.
+
+3. The 5-Minute Reset: Set a timer for 5 minutes and do one of the following -- stretch, breathe deeply, write three things you are grateful for, or step outside.
+
+4. Digital Detox: Schedule 30-60 minutes daily away from screens, especially before bed. Constant connectivity activates the stress response and prevents recovery.
+
+5. Nourishment: Eating regular, balanced meals stabilises blood sugar and mood. The gut-brain connection means what you eat directly affects how you feel.
+
+6. Joyful Movement: Any physical activity you enjoy counts as self-care. Aim for at least 20-30 minutes most days.',
+     NULL, 2),
+    (@sc7ID, 'Self Care: What It Really Is - Susannah Winters (TEDx)', 'video',
+     NULL, 'https://www.youtube.com/embed/dBn0ETS6XDk', 3),
+    (@sc7ID, 'My Self-Care Plan Worksheet', 'download',
+     'Download this self-care planning worksheet to map your six domains of self-care, rate current satisfaction, set goals, and build a sustainable weekly routine.',
+     '/Content/Downloads/self-care-plan.html', 4);
+END
+
+-- Quiz for Course 7
+IF NOT EXISTS (SELECT 1 FROM Quizzes WHERE CourseID = (SELECT TOP 1 CourseID FROM Courses WHERE Title='Self-Care & Emotional Wellbeing'))
+BEGIN
+    DECLARE @sc7QID INT;
+    DECLARE @sc7CID INT = (SELECT TOP 1 CourseID FROM Courses WHERE Title='Self-Care & Emotional Wellbeing');
+
+    INSERT INTO Quizzes (CourseID, Title, Description, PassingScore)
+    VALUES (@sc7CID, 'Self-Care Essentials', 'Test your understanding of self-care principles, strategies, and evidence-based practices.', 70);
+    SET @sc7QID = SCOPE_IDENTITY();
+
+    -- Q1
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'What does the WHO definition of self-care emphasise?', 'multiple_choice', 'C', 1);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Relying on healthcare professionals for all health decisions'),
+    (SCOPE_IDENTITY(),'B','Avoiding illness through isolation'),
+    (SCOPE_IDENTITY(),'C','The ability of individuals to promote health and cope with illness with or without professional support'),
+    (SCOPE_IDENTITY(),'D','Taking vitamins and supplements daily');
+
+    -- Q2
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'The six domains of self-care do NOT include which of the following?', 'multiple_choice', 'D', 2);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Physical'),
+    (SCOPE_IDENTITY(),'B','Emotional'),
+    (SCOPE_IDENTITY(),'C','Spiritual'),
+    (SCOPE_IDENTITY(),'D','Financial investment');
+
+    -- Q3
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'Chronic self-neglect most commonly leads to?', 'multiple_choice', 'B', 3);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Increased productivity'),
+    (SCOPE_IDENTITY(),'B','Burnout, compassion fatigue, and impaired emotional regulation'),
+    (SCOPE_IDENTITY(),'C','Better focus and efficiency'),
+    (SCOPE_IDENTITY(),'D','Stronger immune function');
+
+    -- Q4
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'The oxygen mask principle in self-care means?', 'multiple_choice', 'A', 4);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','You must take care of yourself before you can effectively care for others'),
+    (SCOPE_IDENTITY(),'B','Deep breathing is the most important self-care practice'),
+    (SCOPE_IDENTITY(),'C','Self-care should only be practised in emergencies'),
+    (SCOPE_IDENTITY(),'D','Physical health always comes before emotional health');
+
+    -- Q5
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'The HALT technique asks you to check if you are?', 'multiple_choice', 'C', 5);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Happy, Active, Lively, Tired'),
+    (SCOPE_IDENTITY(),'B','Healthy, Alert, Logical, Thankful'),
+    (SCOPE_IDENTITY(),'C','Hungry, Angry, Lonely, Tired'),
+    (SCOPE_IDENTITY(),'D','Hopeful, Anxious, Lost, Troubled');
+
+    -- Q6
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'Which of the following best describes a healthy boundary?', 'multiple_choice', 'B', 6);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Never saying yes to any request'),
+    (SCOPE_IDENTITY(),'B','Clearly communicating your limits to protect your wellbeing and relationships'),
+    (SCOPE_IDENTITY(),'C','Avoiding all social contact'),
+    (SCOPE_IDENTITY(),'D','Doing whatever others ask to avoid conflict');
+
+    -- Q7
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'How does the gut-brain connection relate to self-care?', 'multiple_choice', 'D', 7);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','The stomach produces serotonin independently of the brain'),
+    (SCOPE_IDENTITY(),'B','Eating habits have no proven effect on mood'),
+    (SCOPE_IDENTITY(),'C','The gut only affects digestion, not mental health'),
+    (SCOPE_IDENTITY(),'D','What you eat directly affects neurotransmitter production and emotional wellbeing');
+
+    -- Q8
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'A digital detox supports self-care primarily by?', 'multiple_choice', 'A', 8);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Reducing constant stimulation that activates the stress response and prevents mental recovery'),
+    (SCOPE_IDENTITY(),'B','Eliminating the need for social interaction'),
+    (SCOPE_IDENTITY(),'C','Improving physical fitness'),
+    (SCOPE_IDENTITY(),'D','Increasing work productivity');
+
+    -- Q9
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'Physical self-care includes which of the following?', 'multiple_choice', 'D', 9);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Regular sleep'),
+    (SCOPE_IDENTITY(),'B','Balanced nutrition'),
+    (SCOPE_IDENTITY(),'C','Consistent physical activity'),
+    (SCOPE_IDENTITY(),'D','All of the above');
+
+    -- Q10
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'Emotional self-care involves?', 'multiple_choice', 'B', 10);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Suppressing difficult feelings to stay positive'),
+    (SCOPE_IDENTITY(),'B','Recognising, accepting, and healthily expressing your emotions'),
+    (SCOPE_IDENTITY(),'C','Avoiding all situations that cause negative emotions'),
+    (SCOPE_IDENTITY(),'D','Seeking validation from others for all decisions');
+
+    -- Q11
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'Professional self-care is best described as?', 'multiple_choice', 'C', 11);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Working as many hours as possible to succeed'),
+    (SCOPE_IDENTITY(),'B','Keeping work and personal life completely separate at all times'),
+    (SCOPE_IDENTITY(),'C','Maintaining a sustainable work-life balance and finding meaning in your work'),
+    (SCOPE_IDENTITY(),'D','Avoiding promotion to reduce responsibility');
+
+    -- Q12
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'Adequate, consistent sleep is important for self-care because?', 'multiple_choice', 'D', 12);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','It increases appetite and caloric intake'),
+    (SCOPE_IDENTITY(),'B','It reduces the need for social interaction'),
+    (SCOPE_IDENTITY(),'C','It guarantees success in academic and professional life'),
+    (SCOPE_IDENTITY(),'D','It restores the brain, regulates mood, and supports immune function');
+
+    -- Q13
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'Self-compassion and self-care are related in that?', 'multiple_choice', 'A', 13);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Self-compassion reduces self-criticism and supports the motivation to practise self-care'),
+    (SCOPE_IDENTITY(),'B','Self-compassion is self-indulgent and reduces motivation'),
+    (SCOPE_IDENTITY(),'C','Self-care only involves physical activities'),
+    (SCOPE_IDENTITY(),'D','Self-compassion requires comparing yourself favourably to others');
+
+    -- Q14
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'Social self-care involves?', 'multiple_choice', 'B', 14);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Spending all your free time with others'),
+    (SCOPE_IDENTITY(),'B','Nurturing meaningful relationships and setting limits on draining interactions'),
+    (SCOPE_IDENTITY(),'C','Avoiding conflict at all costs'),
+    (SCOPE_IDENTITY(),'D','Only socialising with people who agree with you');
+
+    -- Q15
+    INSERT INTO Questions (QuizID, QuestionText, QuestionType, CorrectAnswer, OrderNum)
+    VALUES (@sc7QID, 'Which of the following is an effective micro self-care practice?', 'multiple_choice', 'C', 15);
+    INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
+    (SCOPE_IDENTITY(),'A','Taking a two-week holiday every month'),
+    (SCOPE_IDENTITY(),'B','Quitting your job to reduce stress'),
+    (SCOPE_IDENTITY(),'C','A 5-minute breathing exercise, gratitude journaling, or a short outdoor walk'),
+    (SCOPE_IDENTITY(),'D','Sleeping 12 hours per day');
+END
+
+-- =============================================
+-- MIGRATION: Fix broken YouTube video URLs
+-- Safe to re-run — UPDATE only changes rows
+-- that still have the wrong/old URL.
+-- =============================================
+
+-- Fix 1: Lucy Hone — Course 5 (Building Emotional Resilience)
+-- The old ID ITjsb4a-pXQ returns HTTP 404 (video deleted from YouTube).
+-- Correct ID: NWH8N-BvhAw (TEDxChristchurch, confirmed embeddable via oEmbed).
+UPDATE Resources
+SET    URL = 'https://www.youtube.com/embed/NWH8N-BvhAw'
+WHERE  Title        = 'The Three Secrets of Resilient People - Lucy Hone (TEDx)'
+  AND  ResourceType = 'video'
+  AND  URL         != 'https://www.youtube.com/embed/NWH8N-BvhAw';
+
+-- Fix 2: Self-Care course — Course 7 (Self-Care & Emotional Wellbeing)
+-- The placeholder title "How to Make Self-Care Sustainable - TED" has no matching
+-- TED/TEDx talk.  Replace with the confirmed-embeddable Susannah Winters TEDx talk.
+UPDATE Resources
+SET    Title = 'Self Care: What It Really Is - Susannah Winters (TEDx)',
+       URL   = 'https://www.youtube.com/embed/dBn0ETS6XDk'
+WHERE  CourseID     = (SELECT TOP 1 CourseID FROM Courses
+                       WHERE Title = 'Self-Care & Emotional Wellbeing')
+  AND  ResourceType = 'video'
+  AND  OrderNum     = 3;
+GO
 
 PRINT 'MindSpaceDB created successfully!';
 PRINT '';

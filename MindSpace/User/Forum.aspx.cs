@@ -39,7 +39,12 @@ namespace MindSpace
 
         private void LoadPosts(string search = "")
         {
-            string sql = @"
+            string sort    = hdnSort.Value ?? "newest";
+            string orderBy = sort == "replies" ? "CommentCount DESC, fp.DatePosted DESC"
+                           : sort == "views"   ? "fp.ViewCount DESC, fp.DatePosted DESC"
+                                               : "fp.DatePosted DESC";
+
+            string sql = $@"
                 SELECT fp.PostID, fp.Title, fp.Content, fp.DatePosted, fp.ViewCount, fp.IsResolved,
                        u.FullName,
                        (SELECT COUNT(*) FROM ForumComments fc WHERE fc.PostID=fp.PostID AND fc.IsActive=1) AS CommentCount
@@ -47,7 +52,7 @@ namespace MindSpace
                 JOIN   Users u ON fp.UserID = u.UserID
                 WHERE  fp.IsActive = 1
                   AND  (@search='' OR fp.Title LIKE @searchLike OR fp.Content LIKE @searchLike)
-                ORDER  BY fp.DatePosted DESC";
+                ORDER  BY {orderBy}";
 
             SqlParameter[] prms = {
                 new SqlParameter("@search",     search),

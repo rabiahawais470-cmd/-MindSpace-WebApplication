@@ -293,6 +293,7 @@ namespace MindSpace
                 case "anxiety":           return "anxiety";
                 case "sleep hygiene":     return "sleep";
                 case "resilience":        return "resilience";
+                case "self-care":         return "selfcare";
                 default:                  return "mindfulness";
             }
         }

@@ -25,12 +25,17 @@
         </asp:Panel>
 
         <div class="ms-card p-4">
+            <!-- Hidden username for password-manager accessibility -->
+            <input type="text" name="username" autocomplete="username"
+                   style="display:none;" aria-hidden="true"
+                   value='<%: Session["Username"] %>' />
             <!-- Current Password -->
             <div class="mb-3">
                 <label class="form-label">Current Password <span class="text-danger">*</span></label>
                 <div class="input-group">
                     <asp:TextBox ID="txtCurrentPassword" runat="server" TextMode="Password"
-                        CssClass="form-control" placeholder="Your current password" MaxLength="100" />
+                        CssClass="form-control" placeholder="Your current password" MaxLength="100"
+                        autocomplete="current-password" />
                     <button class="btn btn-outline-secondary" type="button"
                             onclick="togglePwd('<%: txtCurrentPassword.ClientID %>', 'eye1')">
                         <i class="fas fa-eye" id="eye1"></i>
@@ -47,7 +52,8 @@
                 <label class="form-label">New Password <span class="text-danger">*</span></label>
                 <div class="input-group">
                     <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password"
-                        CssClass="form-control" placeholder="Min 8 characters" MaxLength="100" />
+                        CssClass="form-control" placeholder="Min 8 characters" MaxLength="100"
+                        autocomplete="new-password" />
                     <button class="btn btn-outline-secondary" type="button"
                             onclick="togglePwd('<%: txtNewPassword.ClientID %>', 'eye2')">
                         <i class="fas fa-eye" id="eye2"></i>
@@ -72,7 +78,8 @@
                 <label class="form-label">Confirm New Password <span class="text-danger">*</span></label>
                 <div class="input-group">
                     <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"
-                        CssClass="form-control" placeholder="Repeat new password" MaxLength="100" />
+                        CssClass="form-control" placeholder="Repeat new password" MaxLength="100"
+                        autocomplete="new-password" />
                     <button class="btn btn-outline-secondary" type="button"
                             onclick="togglePwd('<%: txtConfirmPassword.ClientID %>', 'eye3')">
                         <i class="fas fa-eye" id="eye3"></i>

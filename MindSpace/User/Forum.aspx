@@ -139,7 +139,7 @@
                                             <%# Convert.ToDateTime(Eval("DatePosted")).ToString("dd MMM yyyy, HH:mm") %>
                                         </span>
                                     </div>
-                                    <p class="mb-0 small"><%# Eval("Content") %></p>
+                                    <p class="mb-0 small"><%# System.Web.HttpUtility.HtmlEncode(Eval("Content").ToString()) %></p>
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -175,16 +175,16 @@
                                         <asp:LinkButton ID="lbtnView" runat="server" CommandName="ViewPost"
                                             CommandArgument='<%# Eval("PostID") %>'
                                             CssClass="text-decoration-none text-dark">
-                                            <%# Eval("Title") %>
+                                            <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
                                         </asp:LinkButton>
                                     </h6>
                                     <%# (bool)Eval("IsResolved") ? "<span class=\"badge bg-success ms-2\"><i class=\"fas fa-check-circle me-1\"></i>Resolved</span>" : "" %>
                                 </div>
                                 <p class="small text-muted mb-2" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">
-                                    <%# Eval("Content") %>
+                                    <%# System.Web.HttpUtility.HtmlEncode(Eval("Content").ToString()) %>
                                 </p>
                                 <div class="forum-post-meta">
-                                    <span><i class="fas fa-user me-1"></i><%# Eval("FullName") %></span>
+                                    <span><i class="fas fa-user me-1"></i><%# System.Web.HttpUtility.HtmlEncode(Eval("FullName").ToString()) %></span>
                                     <span><i class="fas fa-calendar me-1"></i><%# Convert.ToDateTime(Eval("DatePosted")).ToString("dd MMM yyyy") %></span>
                                     <span><i class="fas fa-comment me-1"></i><%# Eval("CommentCount") %> replies</span>
                                     <span><i class="fas fa-eye me-1"></i><%# Eval("ViewCount") %> views</span>

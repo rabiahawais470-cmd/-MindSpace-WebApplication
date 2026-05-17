@@ -96,7 +96,7 @@
                         <div class="enrolled-course-item">
                             <div class="d-flex justify-content-between align-items-start mb-2">
                                 <div>
-                                    <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>">
+                                    <span class="course-cat-badge cat-<%# Eval("Category").ToString().ToLower() == "self-care" ? "selfcare" : GetCatClass(Eval("Category").ToString()) %>">
                                         <%# System.Web.HttpUtility.HtmlEncode(Eval("Category").ToString()) %>
                                     </span>
                                     <h6 class="fw-bold mb-0 mt-1">
@@ -151,7 +151,7 @@
                                                 <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
                                             </div>
                                             <div class="cert-category">
-                                                <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>" style="font-size:0.65rem;padding:0.15rem 0.5rem;">
+                                                <span class="course-cat-badge cat-<%# Eval("Category").ToString().ToLower() == "self-care" ? "selfcare" : GetCatClass(Eval("Category").ToString()) %>" style="font-size:0.65rem;padding:0.15rem 0.5rem;">
                                                     <%# System.Web.HttpUtility.HtmlEncode(Eval("Category").ToString()) %>
                                                 </span>
                                             </div>

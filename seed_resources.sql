@@ -48,7 +48,7 @@ BEGIN
      'Resilience is a set of learnable skills. Evidence-based strategies: (1) Growth mindset -- view challenges as learning opportunities; replace "I cannot do this" with "I cannot do this yet"; (2) Gratitude practice -- write 3 specific things you appreciate daily, shown to increase wellbeing within 2-4 weeks; (3) Build your support network -- identify 3-5 people you can call when struggling; (4) Emotional vocabulary -- label emotions precisely rather than just "bad" (e.g. "disappointed", "overwhelmed", "embarrassed"); (5) Accept what you cannot control -- distinguish between what is and is not within your control; (6) Physical self-care -- sleep, exercise, and nutrition are foundational to resilience; (7) Post-traumatic growth journaling -- write about what happened, how you felt, what you learned, and how it has shaped you.',
      NULL, 2),
     (5, 'The Three Secrets of Resilient People - Lucy Hone (TEDx)', 'video',
-     NULL, 'https://www.youtube.com/embed/ITjsb4a-pXQ', 3),
+     NULL, 'https://www.youtube.com/embed/NWH8N-BvhAw', 3),
     (5, 'Resilience Self-Assessment Worksheet', 'download',
      'Download this resilience self-assessment to identify your current strengths, areas for growth, and create a personalised resilience-building action plan.',
      NULL, 4)
