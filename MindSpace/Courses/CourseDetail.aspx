@@ -79,12 +79,12 @@
                                         </span>
                                     </div>
 
-                                    <%# Eval("ResourceType").ToString()=="video" && !string.IsNullOrEmpty(Eval("URL")?.ToString()) ?
+                                    <%# Eval("ResourceType").ToString()=="video" && !string.IsNullOrEmpty(Convert.ToString(Eval("URL"))) ?
                                         "<div class='ratio ratio-16x9 mt-2'><iframe src='" + Eval("URL") + "' allowfullscreen class='rounded' title='Video resource'></iframe></div>" : "" %>
 
-                                    <%# !string.IsNullOrEmpty(Eval("Content")?.ToString()) ?
+                                    <%# !string.IsNullOrEmpty(Convert.ToString(Eval("Content"))) ?
                                         "<p class='text-muted small mt-2 mb-0' style='line-height:1.7;'>" +
-                                        Eval("Content").ToString().Replace("\n","<br/>") + "</p>" : "" %>
+                                        Convert.ToString(Eval("Content")).Replace("\n","<br/>") + "</p>" : "" %>
 
                                     <%# Eval("ResourceType").ToString()=="download" ?
                                         "<a href='#' class='btn btn-outline-primary btn-sm mt-2'><i class=\"fas fa-download me-1\"></i>Download Resource</a>" : "" %>
