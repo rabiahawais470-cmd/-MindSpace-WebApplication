@@ -39,7 +39,7 @@
                 <asp:RegularExpressionValidator ID="revUsername" runat="server"
                     ControlToValidate="txtUsername"
                     ValidationExpression="^[A-Za-z0-9_]{3,50}$"
-                    ErrorMessage="Username must be 3â€“50 characters: letters, numbers, or underscore."
+                    ErrorMessage=”Username must be 3-50 characters: letters, numbers, or underscore.”
                     CssClass="validation-error" Display="Dynamic" />
                 <span id="usernameFeedback" class="validation-error"></span>
             </div>

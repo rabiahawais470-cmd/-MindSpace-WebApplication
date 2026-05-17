@@ -74,23 +74,23 @@ namespace MindSpace
                 new SqlParameter("@hash",     passwordHash)
             };
 
+            bool registered = false;
             try
             {
                 object result = DatabaseHelper.ExecuteScalar(sql, prms);
 
                 if (result != null)
-                {
-                    Response.Redirect("~/Login.aspx?registered=1");
-                }
+                    registered = true;
                 else
-                {
                     ShowError("An error occurred during registration. Please try again.");
-                }
             }
             catch (Exception ex)
             {
                 ShowError("Registration failed: " + ex.Message);
             }
+
+            if (registered)
+                Response.Redirect("~/Login.aspx?registered=1");
         }
 
         private void ShowError(string message)
