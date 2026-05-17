@@ -421,6 +421,564 @@ INSERT INTO QuestionOptions (QuestionID, OptionLabel, OptionText) VALUES
 (15, 'C', 'Exercise'),
 (15, 'D', 'All of the above');
 
+-- Extended quiz questions: 12 more per quiz (60 total new questions)
+-- Run only if questions 16+ do not yet exist
+IF NOT EXISTS (SELECT 1 FROM Questions WHERE OrderNum=4)
+BEGIN
+
+-- QUIZ 1: Understanding Anxiety (QuizID=1, OrderNum 4-15)
+DECLARE @q INT;
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'What is Generalized Anxiety Disorder (GAD)?','multiple_choice','C',4);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','A phobia of specific objects or situations'),
+(@q,'B','Anxiety that occurs only in social settings'),
+(@q,'C','Persistent, excessive worry about many different areas of life'),
+(@q,'D','A short-term stress response to immediate danger');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'Which of the following is a cognitive symptom of anxiety?','multiple_choice','B',5);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Rapid heartbeat'),
+(@q,'B','Racing or intrusive thoughts'),
+(@q,'C','Sweating'),
+(@q,'D','Muscle tension');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'CBT stands for?','multiple_choice','A',6);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Cognitive Behavioral Therapy'),
+(@q,'B','Cognitive Brain Training'),
+(@q,'C','Clinical Behavioral Technique'),
+(@q,'D','Comprehensive Breathing Therapy');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'Which neurotransmitter, when low, is most associated with anxiety?','multiple_choice','D',7);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Dopamine'),
+(@q,'B','Serotonin'),
+(@q,'C','Norepinephrine'),
+(@q,'D','GABA');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'The fight-or-flight response is triggered by which brain structure?','multiple_choice','B',8);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Hippocampus'),
+(@q,'B','Amygdala'),
+(@q,'C','Prefrontal cortex'),
+(@q,'D','Cerebellum');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'Social anxiety disorder primarily involves fear of?','multiple_choice','A',9);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Negative evaluation or judgment by others'),
+(@q,'B','Open spaces'),
+(@q,'C','Physical illness'),
+(@q,'D','Contamination');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'What best describes a panic attack?','multiple_choice','C',10);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','A mild feeling of worry lasting several days'),
+(@q,'B','Persistent low mood and loss of interest'),
+(@q,'C','A sudden surge of intense fear with physical symptoms peaking within minutes'),
+(@q,'D','A phobic response triggered by a specific object');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'What is the key difference between fear and anxiety?','multiple_choice','B',11);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Fear is internal; anxiety is external'),
+(@q,'B','Fear responds to present danger; anxiety is directed toward future threats'),
+(@q,'C','Fear is healthy; anxiety is always unhealthy'),
+(@q,'D','There is no meaningful difference');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'Which therapy has the strongest evidence base for treating anxiety disorders?','multiple_choice','A',12);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Cognitive Behavioral Therapy (CBT)'),
+(@q,'B','Hypnotherapy'),
+(@q,'C','Psychoanalysis'),
+(@q,'D','Art therapy');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'Exposure therapy for anxiety works by?','multiple_choice','D',13);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Avoiding feared situations permanently'),
+(@q,'B','Taking medication before facing fears'),
+(@q,'C','Replacing anxious thoughts with positive affirmations'),
+(@q,'D','Gradually confronting feared situations until anxiety reduces');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'Mindfulness helps reduce anxiety primarily by?','multiple_choice','C',14);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Eliminating all negative thoughts'),
+(@q,'B','Increasing the speed of the stress response'),
+(@q,'C','Increasing present-moment awareness and reducing rumination'),
+(@q,'D','Suppressing emotional responses');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (1,'Which lifestyle factor most significantly reduces anxiety symptoms over time?','multiple_choice','B',15);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Sleeping more than 10 hours per night'),
+(@q,'B','Regular aerobic exercise'),
+(@q,'C','Drinking herbal tea'),
+(@q,'D','Avoiding all social situations');
+
+-- QUIZ 2: Mindfulness & Meditation (QuizID=2, OrderNum 4-15)
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'What type of meditation focuses sustained attention on a single object such as the breath?','multiple_choice','A',4);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Focused attention meditation'),
+(@q,'B','Open monitoring meditation'),
+(@q,'C','Loving-kindness meditation'),
+(@q,'D','Body scan meditation');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'MBSR stands for?','multiple_choice','C',5);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Mindful Breathing and Stress Relief'),
+(@q,'B','Mind-Body Stress Recovery'),
+(@q,'C','Mindfulness-Based Stress Reduction'),
+(@q,'D','Meditative Brain Self-Regulation');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'Research shows that regular meditation increases grey matter density in which brain region?','multiple_choice','B',6);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Amygdala'),
+(@q,'B','Prefrontal cortex'),
+(@q,'C','Brain stem'),
+(@q,'D','Cerebellum');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'Body scan meditation involves?','multiple_choice','D',7);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Scanning your environment for sources of danger'),
+(@q,'B','Rapid movement through yoga poses'),
+(@q,'C','Counting breaths from 1 to 10 repeatedly'),
+(@q,'D','Systematically moving attention through different parts of the body');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'Loving-kindness (Metta) meditation is primarily designed to cultivate?','multiple_choice','A',8);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Compassion and goodwill toward self and others'),
+(@q,'B','Deep physical relaxation'),
+(@q,'C','Focused concentration on a mantra'),
+(@q,'D','Awareness of bodily sensations');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'How does regular mindfulness practice affect the amygdala?','multiple_choice','C',9);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','It enlarges the amygdala, improving threat detection'),
+(@q,'B','It has no effect on amygdala activity'),
+(@q,'C','It reduces amygdala reactivity, lowering stress responses'),
+(@q,'D','It transfers amygdala function to the hippocampus');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'Open monitoring meditation differs from focused attention meditation in that it?','multiple_choice','B',10);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Requires eyes to remain open at all times'),
+(@q,'B','Involves observing all arising thoughts and sensations without attachment'),
+(@q,'C','Uses a specific mantra or sound'),
+(@q,'D','Is only practised while walking');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'What is the default mode network (DMN)?','multiple_choice','D',11);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','The neural pathway responsible for voluntary movement'),
+(@q,'B','A network activated only during sleep'),
+(@q,'C','The brain system responsible for processing sensory input'),
+(@q,'D','A brain network active during mind-wandering and self-referential thought');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'Research shows mindfulness-based interventions reduce symptoms of?','multiple_choice','D',12);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Depression only'),
+(@q,'B','Anxiety only'),
+(@q,'C','Chronic pain only'),
+(@q,'D','Depression, anxiety, and chronic pain');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'What does "beginner''s mind" mean in mindfulness practice?','multiple_choice','A',13);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Approaching each experience with openness, as if encountering it for the first time'),
+(@q,'B','Only practising meditation if you are a beginner'),
+(@q,'C','Thinking like a child'),
+(@q,'D','Starting each session with no technique');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'Slow, mindful breathing reduces anxiety because?','multiple_choice','B',14);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','It increases carbon dioxide levels dangerously'),
+(@q,'B','It activates the parasympathetic nervous system, countering fight-or-flight'),
+(@q,'C','It reduces oxygen to the brain'),
+(@q,'D','It stops all anxious thoughts immediately');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (2,'A standard MBSR program is how many weeks long?','multiple_choice','C',15);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','4 weeks'),
+(@q,'B','6 weeks'),
+(@q,'C','8 weeks'),
+(@q,'D','12 weeks');
+
+-- QUIZ 3: Stress Management (QuizID=3, OrderNum 4-15)
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'What is eustress?','multiple_choice','B',4);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','A severe form of chronic stress'),
+(@q,'B','Positive, motivating stress that enhances performance'),
+(@q,'C','Stress caused by external events only'),
+(@q,'D','The absence of any stress');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'The parasympathetic nervous system is also called?','multiple_choice','C',5);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Fight-or-flight system'),
+(@q,'B','Central processing system'),
+(@q,'C','Rest-and-digest system'),
+(@q,'D','Arousal system');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'In Selye''s General Adaptation Syndrome, what happens during the Exhaustion stage?','multiple_choice','D',6);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','The body mobilises its resources for the first time'),
+(@q,'B','The body successfully adapts and functions normally'),
+(@q,'C','Stress hormones reach their peak levels'),
+(@q,'D','The body''s resources are depleted and vulnerability to illness increases');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'Chronic stress most directly suppresses which body system?','multiple_choice','A',7);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','The immune system'),
+(@q,'B','The digestive system'),
+(@q,'C','The skeletal system'),
+(@q,'D','The endocrine system');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'The Pomodoro Technique uses focused work intervals of?','multiple_choice','C',8);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','10 minutes'),
+(@q,'B','20 minutes'),
+(@q,'C','25 minutes'),
+(@q,'D','50 minutes');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'The relaxation response described by Dr. Herbert Benson is best defined as?','multiple_choice','B',9);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','A sudden burst of energy after rest'),
+(@q,'B','A physiological state of deep rest opposite to the fight-or-flight response'),
+(@q,'C','Falling asleep under stress'),
+(@q,'D','A mental state of ignoring stressors');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'Social support reduces stress because it?','multiple_choice','D',10);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Removes the source of stress'),
+(@q,'B','Provides emotional comfort'),
+(@q,'C','Offers practical help and information'),
+(@q,'D','Provides emotional, informational, and practical help');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'Expressive journaling reduces stress primarily by?','multiple_choice','A',11);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Externalising thoughts, gaining perspective, and processing emotions'),
+(@q,'B','Keeping secrets away from others'),
+(@q,'C','Reinforcing negative thought patterns'),
+(@q,'D','Replacing physical exercise');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'Which breathing pattern most effectively activates the relaxation response?','multiple_choice','B',12);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Rapid shallow chest breathing'),
+(@q,'B','Slow, deep diaphragmatic breathing with a longer exhale than inhale'),
+(@q,'C','Holding the breath for 30 seconds'),
+(@q,'D','Breathing through the mouth only');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'Cognitive reframing helps manage stress by?','multiple_choice','C',13);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Denying that a stressor exists'),
+(@q,'B','Avoiding thinking about the stressor'),
+(@q,'C','Changing how you interpret or assign meaning to a stressful situation'),
+(@q,'D','Expressing anger toward the stressor');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'What percentage of doctor visits are estimated to be stress-related?','multiple_choice','D',14);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','20-30%'),
+(@q,'B','40-50%'),
+(@q,'C','55-65%'),
+(@q,'D','75-90%');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (3,'Progressive Muscle Relaxation (PMR) works by?','multiple_choice','A',15);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Systematically tensing and releasing muscle groups to reduce physical tension'),
+(@q,'B','Stretching muscles as far as possible and holding'),
+(@q,'C','Massaging each muscle group for 5 minutes'),
+(@q,'D','Applying heat packs to tense muscles');
+
+-- QUIZ 4: Sleep Hygiene (QuizID=4, OrderNum 4-15)
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'REM sleep is primarily important for?','multiple_choice','C',4);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Physical repair of muscles and tissues'),
+(@q,'B','Releasing growth hormone'),
+(@q,'C','Memory consolidation and emotional processing'),
+(@q,'D','Detoxifying the liver');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'What is sleep latency?','multiple_choice','B',5);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','The total number of hours slept'),
+(@q,'B','The time it takes to fall asleep after lights out'),
+(@q,'C','The number of times you wake during the night'),
+(@q,'D','The duration of REM sleep');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'Which hormone primarily regulates the sleep-wake cycle?','multiple_choice','A',6);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Melatonin'),
+(@q,'B','Cortisol'),
+(@q,'C','Insulin'),
+(@q,'D','Adrenaline');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'Insomnia is clinically defined as difficulty sleeping at least how many nights per week?','multiple_choice','D',7);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','1 night per week'),
+(@q,'B','2 nights per week'),
+(@q,'C','2-3 nights per week with mild daytime impact'),
+(@q,'D','3 or more nights per week for at least 3 months');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'Sleep apnea is characterised by?','multiple_choice','B',8);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Excessive daytime sleepiness without nighttime disturbances'),
+(@q,'B','Repeated pauses in breathing during sleep, often with snoring'),
+(@q,'C','Difficulty falling asleep due to racing thoughts'),
+(@q,'D','Walking or talking during sleep');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'To avoid disrupting sleep, caffeine should be avoided at least how long before bedtime?','multiple_choice','C',9);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','1 hour before bed'),
+(@q,'B','2-3 hours before bed'),
+(@q,'C','6 hours before bed'),
+(@q,'D','Caffeine has no effect on sleep');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'The human circadian rhythm operates on approximately what cycle?','multiple_choice','A',10);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','24 hours'),
+(@q,'B','12 hours'),
+(@q,'C','48 hours'),
+(@q,'D','It varies widely between individuals');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'Which sleep stage is the deepest and most physically restorative?','multiple_choice','D',11);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Stage 1 (N1) - light sleep'),
+(@q,'B','Stage 2 (N2) - sleep spindles'),
+(@q,'C','REM sleep'),
+(@q,'D','Stage 3 (N3) - slow-wave or deep sleep');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'Blue light from screens disrupts sleep primarily by?','multiple_choice','B',12);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Causing eye strain that makes falling asleep painful'),
+(@q,'B','Suppressing melatonin production, signalling the brain it is still daytime'),
+(@q,'C','Increasing body temperature'),
+(@q,'D','Stimulating the digestive system');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'Cognitive Behavioral Therapy for Insomnia (CBT-I) primarily works by?','multiple_choice','C',13);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Prescribing sleep medication'),
+(@q,'B','Eliminating all daytime activities'),
+(@q,'C','Changing thoughts, beliefs, and behaviours that interfere with quality sleep'),
+(@q,'D','Increasing time spent in bed to force more sleep');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'What is the recommended duration for a beneficial daytime nap?','multiple_choice','A',14);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','10-20 minutes (power nap)'),
+(@q,'B','45-60 minutes'),
+(@q,'C','90-120 minutes'),
+(@q,'D','Duration does not matter as long as you feel rested');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (4,'Why is maintaining a consistent wake time important for sleep quality?','multiple_choice','D',15);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','It allows you to maximise total time in bed'),
+(@q,'B','It ensures you always feel rested immediately upon waking'),
+(@q,'C','It reduces the need for melatonin'),
+(@q,'D','It anchors the circadian rhythm, making it easier to fall and stay asleep');
+
+-- QUIZ 5: Emotional Resilience (QuizID=5, OrderNum 4-15)
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'The PERMA model of wellbeing was developed by?','multiple_choice','B',4);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Abraham Maslow'),
+(@q,'B','Martin Seligman'),
+(@q,'C','Viktor Frankl'),
+(@q,'D','Carl Rogers');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'Post-traumatic growth (PTG) refers to?','multiple_choice','C',5);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','The inevitable psychological damage caused by trauma'),
+(@q,'B','A return to baseline functioning after a traumatic event'),
+(@q,'C','Positive psychological change and personal development following adversity'),
+(@q,'D','A therapeutic technique for treating PTSD');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'Emotional regulation refers to?','multiple_choice','A',6);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Managing the intensity, duration, and expression of emotions adaptively'),
+(@q,'B','Suppressing all negative emotions'),
+(@q,'C','Only experiencing positive emotions'),
+(@q,'D','Avoiding situations that trigger emotions');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'Self-compassion differs from self-esteem in that self-compassion?','multiple_choice','D',7);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Requires you to feel better than others'),
+(@q,'B','Depends on achieving goals'),
+(@q,'C','Is only relevant during moments of success'),
+(@q,'D','Does not depend on performance, comparison, or outcome');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'Which factor is most consistently protective against occupational burnout?','multiple_choice','B',8);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','High income'),
+(@q,'B','Strong social support and meaningful work'),
+(@q,'C','Working fewer than 30 hours per week'),
+(@q,'D','Having a high IQ');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'The window of tolerance in trauma therapy refers to?','multiple_choice','C',9);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','The time frame in which trauma therapy is most effective'),
+(@q,'B','A person''s ability to tolerate physical pain'),
+(@q,'C','The optimal zone of arousal in which a person can function and process experience'),
+(@q,'D','The maximum duration of a therapy session');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'Neuroplasticity supports resilience because?','multiple_choice','A',10);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','The brain can reorganise, form new connections, and adapt following adversity'),
+(@q,'B','The brain shrinks in size when stressed, improving efficiency'),
+(@q,'C','Neuroplasticity only occurs in children'),
+(@q,'D','New neurons can be created through willpower alone');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'Regular gratitude practice builds resilience primarily by?','multiple_choice','D',11);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Eliminating negative experiences from memory'),
+(@q,'B','Increasing financial security'),
+(@q,'C','Replacing the need for social support'),
+(@q,'D','Shifting attention toward positive aspects of life and broadening perspective');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'ACT stands for?','multiple_choice','B',12);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Anxiety Control Therapy'),
+(@q,'B','Acceptance and Commitment Therapy'),
+(@q,'C','Adaptive Coping Technique'),
+(@q,'D','Arousal Control Training');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'Psychological flexibility, a core ACT concept, involves?','multiple_choice','C',13);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Changing your core values based on circumstances'),
+(@q,'B','Avoiding difficult thoughts and emotions'),
+(@q,'C','Adapting behaviour in alignment with values despite difficult thoughts or feelings'),
+(@q,'D','Achieving complete emotional stability at all times');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'Cognitive reappraisal as a coping strategy involves?','multiple_choice','A',14);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Reinterpreting the meaning of a situation to change its emotional impact'),
+(@q,'B','Suppressing the expression of an emotion while still feeling it'),
+(@q,'C','Removing yourself physically from a stressful situation'),
+(@q,'D','Seeking distraction through entertainment');
+
+INSERT INTO Questions (QuizID,QuestionText,QuestionType,CorrectAnswer,OrderNum)
+VALUES (5,'Barbara Fredrickson''s broaden-and-build theory states that positive emotions?','multiple_choice','D',15);
+SET @q=SCOPE_IDENTITY();
+INSERT INTO QuestionOptions(QuestionID,OptionLabel,OptionText) VALUES
+(@q,'A','Are less important than managing negative emotions'),
+(@q,'B','Only affect mood, not behaviour or cognition'),
+(@q,'C','Indicate a lack of awareness of real problems'),
+(@q,'D','Broaden thinking and awareness, helping build lasting personal resources over time');
+
+END -- IF NOT EXISTS
+
 -- Sample Enrollments (learner 2 enrolled in courses 1 & 2)
 INSERT INTO Enrollments (UserID, CourseID, Progress, IsCompleted)
 VALUES
