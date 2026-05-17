@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-center d-none d-lg-block">
-                    <div style="font-size:12rem;line-height:1;opacity:0.15;">ðŸ§ </div>
+                    <div style="font-size:12rem;line-height:1;opacity:0.15;">🧠</div>
                 </div>
             </div>
         </div>

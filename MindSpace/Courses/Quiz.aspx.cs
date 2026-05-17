@@ -157,20 +157,16 @@ namespace MindSpace
 
             // Log to UserProgress table
             string evtType = percentage >= passingScore ? "quiz_pass" : "quiz_fail";
-            try
-            {
-                DatabaseHelper.ExecuteNonQuery(
-                    @"INSERT INTO UserProgress (UserID,EventType,ReferenceID,ProgressPct,ScoreValue,MinutesSpent)
-                      VALUES (@uid,@evt,@rid,@pct,@score,10)",
-                    new[] {
-                        new SqlParameter("@uid",   userID),
-                        new SqlParameter("@evt",   evtType),
-                        new SqlParameter("@rid",   quizID),
-                        new SqlParameter("@pct",   (int)percentage),
-                        new SqlParameter("@score", percentage)
-                    });
-            }
-            catch { /* UserProgress table may not exist yet — non-fatal */ }
+            DatabaseHelper.ExecuteNonQuery(
+                @"INSERT INTO UserProgress (UserID,EventType,ReferenceID,ProgressPct,ScoreValue,MinutesSpent)
+                  VALUES (@uid,@evt,@rid,@pct,@score,10)",
+                new[] {
+                    new SqlParameter("@uid",   userID),
+                    new SqlParameter("@evt",   evtType),
+                    new SqlParameter("@rid",   quizID),
+                    new SqlParameter("@pct",   (int)percentage),
+                    new SqlParameter("@score", percentage)
+                });
 
             Response.Redirect("~/Courses/QuizResults.aspx?resultID=" + resultID);
         }
