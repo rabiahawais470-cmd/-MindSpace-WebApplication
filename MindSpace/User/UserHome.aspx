@@ -301,9 +301,6 @@
                         <a href="Discussions.aspx" class="btn btn-outline-primary btn-sm text-start">
                             <i class="fas fa-comment-dots me-2"></i>Community Discussions
                         </a>
-                        <a href="Forum.aspx" class="btn btn-outline-primary btn-sm text-start">
-                            <i class="fas fa-comments me-2"></i>Discussion Forum
-                        </a>
                         <a href="Profile.aspx" class="btn btn-outline-primary btn-sm text-start">
                             <i class="fas fa-user-edit me-2"></i>Edit My Profile
                         </a>
