@@ -724,7 +724,7 @@ Research by psychologist Martin Seligman (PERMA model) identifies five pillars o
 7. Post-traumatic growth journaling: After difficult experiences, write about: what happened, how you felt, what you learned, and how it has shaped you. This promotes integration and meaning-making.',
      NULL, 2),
     (5, 'The Three Secrets of Resilient People - Lucy Hone (TEDx)', 'video',
-     NULL, 'https://www.youtube.com/embed/ITjsb4a-pXQ', 3),
+     NULL, 'https://www.youtube.com/embed/NWH8N-BvhAw', 3),
     (5, 'Resilience Self-Assessment Worksheet', 'download',
      'Download this resilience self-assessment to identify your current strengths, areas for growth, and create a personalised resilience-building action plan.',
      '/Content/Downloads/resilience-self-assessment.html', 4);
