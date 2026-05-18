@@ -293,10 +293,10 @@ namespace MindSpace
             if (dt.Rows.Count == 0) return;
             DataRow r = dt.Rows[0];
 
-            int   total  = Convert.ToInt32(r["TotalAttempts"]);
-            decimal avg  = Convert.ToDecimal(r["AvgScore"]);
-            decimal best = Convert.ToDecimal(r["BestScore"]);
-            int   passed = Convert.ToInt32(r["Passed"]);
+            int   total  = (r["TotalAttempts"] == DBNull.Value) ? 0 : Convert.ToInt32(r["TotalAttempts"]);
+            decimal avg  = (r["AvgScore"] == DBNull.Value) ? 0 : Convert.ToDecimal(r["AvgScore"]);
+            decimal best = (r["BestScore"] == DBNull.Value) ? 0 : Convert.ToDecimal(r["BestScore"]);
+            int   passed = (r["Passed"] == DBNull.Value) ? 0 : Convert.ToInt32(r["Passed"]);
 
             if (total == 0)
             {
