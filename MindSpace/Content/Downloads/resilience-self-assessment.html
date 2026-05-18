@@ -22,22 +22,48 @@
   .field-group label { display:block; font-size:0.82rem; font-weight:600; color:#2d3436; margin-bottom:6px; }
   .textarea-box { border:1.5px solid #f0d0c0; border-radius:8px; width:100%; min-height:60px; padding:10px; font-size:0.85rem; resize:vertical; background:#fffaf7; font-family:inherit; }
   /* Likert scale */
-  .likert { display:flex; gap:0; margin:8px 0 4px; border:1.5px solid #f0d0c0; border-radius:8px; overflow:hidden; }
-  .likert-opt { flex:1; text-align:center; padding:8px 4px; font-size:0.72rem; font-weight:600; cursor:pointer; border-right:1px solid #f0d0c0; }
+  .likert { display:flex; gap:0; margin:8px 0 4px; border:1.5px solid #f0d0c0; border-radius:8px; overflow:hidden; flex-wrap:wrap; }
+  .likert-opt {
+      flex:1 1 80px;
+      min-width:60px;
+      text-align:center;
+      padding:8px 6px;
+      font-size:0.72rem;
+      font-weight:600;
+      cursor:pointer;
+      border-right:1px solid #f0d0c0;
+      line-height:1.3;
+      overflow-wrap:break-word;
+      word-break:break-word;
+      box-sizing:border-box;
+  }
   .likert-opt:last-child { border-right:none; }
   .likert-opt.l1 { color:#d63031; }
   .likert-opt.l2 { color:#e17055; }
   .likert-opt.l3 { color:#fdcb6e; }
   .likert-opt.l4 { color:#00b894; }
   .likert-opt.l5 { color:#006d5b; }
-  .likert-label { display:flex; justify-content:space-between; font-size:0.68rem; color:#636e72; margin-top:2px; margin-bottom:10px; }
+  .likert-label { display:flex; justify-content:space-between; font-size:0.68rem; color:#636e72; margin-top:2px; margin-bottom:10px; gap:6px; }
   .pillar-card { border:1.5px solid #f0d0c0; border-radius:10px; padding:16px; margin-bottom:16px; }
-  .pillar-header { font-size:0.88rem; font-weight:700; color:#e17055; margin-bottom:10px; }
-  .q-row { display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; }
+  .pillar-header { font-size:0.88rem; font-weight:700; color:#e17055; margin-bottom:10px; line-height:1.4; }
+  .q-row { display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
   .q-num { font-size:0.72rem; font-weight:700; color:#b2bec3; min-width:20px; margin-top:2px; }
-  .q-text { font-size:0.8rem; color:#2d3436; flex:1; }
-  .q-scale { display:flex; gap:6px; margin-top:6px; }
-  .q-scale span { width:32px; height:32px; border-radius:6px; border:1.5px solid #f0d0c0; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; cursor:pointer; }
+  .q-text { font-size:0.8rem; color:#2d3436; flex:1; min-width:200px; line-height:1.5; }
+  .q-scale { display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; }
+  .q-scale span {
+      min-width:32px;
+      min-height:32px;
+      border-radius:6px;
+      border:1.5px solid #f0d0c0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:0.8rem;
+      font-weight:700;
+      cursor:pointer;
+      padding:4px 8px;
+      box-sizing:border-box;
+  }
   .score-box { background:#fff0eb; border:1.5px solid #e17055; border-radius:8px; padding:14px; margin-top:20px; }
   .score-box h4 { font-size:0.85rem; font-weight:700; color:#e17055; margin-bottom:10px; }
   .score-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:0.8rem; }

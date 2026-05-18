@@ -22,12 +22,25 @@
   .field-group label { display:block; font-size:0.82rem; font-weight:600; color:#2d3436; margin-bottom:6px; }
   .textarea-box { border:1.5px solid #f5c6dc; border-radius:8px; width:100%; min-height:56px; padding:10px; font-size:0.85rem; resize:vertical; background:#fffaf8; font-family:inherit; }
   .domain-card { border:1.5px solid #f5c6dc; border-radius:10px; padding:16px; margin-bottom:14px; }
-  .domain-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-  .domain-icon { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
-  .domain-title { font-size:0.88rem; font-weight:700; }
-  .domain-sub { font-size:0.72rem; color:#636e72; }
-  .rating-row { display:flex; gap:6px; margin-bottom:10px; }
-  .rating-box { width:32px; height:32px; border:1.5px solid #f5c6dc; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.78rem; font-weight:700; cursor:pointer; }
+  .domain-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap; }
+  .domain-icon { min-width:36px; min-height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+  .domain-title { font-size:0.88rem; font-weight:700; line-height:1.3; }
+  .domain-sub { font-size:0.72rem; color:#636e72; line-height:1.4; overflow-wrap:break-word; word-break:break-word; }
+  .rating-row { display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap; }
+  .rating-box {
+      min-width:32px;
+      min-height:32px;
+      border:1.5px solid #f5c6dc;
+      border-radius:6px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:0.78rem;
+      font-weight:700;
+      cursor:pointer;
+      padding:4px 8px;
+      box-sizing:border-box;
+  }
   .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
   .habit-table { width:100%; border-collapse:collapse; font-size:0.8rem; margin-top:10px; }
   .habit-table th { background:#fff0f5; color:#e84393; font-weight:700; padding:8px 10px; border:1px solid #f5c6dc; text-align:left; }

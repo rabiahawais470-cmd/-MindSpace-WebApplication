@@ -20,8 +20,28 @@
   .field-group { margin-bottom:18px; }
   .field-group label { display:block; font-size:0.82rem; font-weight:600; color:#2d3436; margin-bottom:6px; }
   .textarea-box { border:1.5px solid #e2e0f0; border-radius:8px; width:100%; min-height:60px; padding:10px; font-size:0.85rem; resize:vertical; background:#fafafa; font-family:inherit; }
-  .scale-row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:6px 0; }
-  .scale-num { width:40px; height:40px; border-radius:8px; border:2px solid #e2e0f0; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem; cursor:pointer; }
+  .scale-row { display:flex; gap:8px; align-items:stretch; flex-wrap:wrap; margin:6px 0; }
+  .scale-num {
+      min-width:40px;
+      min-height:40px;
+      height:auto;
+      max-width:100%;
+      padding:6px 12px;
+      border-radius:8px;
+      border:2px solid #e2e0f0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-weight:700;
+      font-size:0.85rem;
+      line-height:1.2;
+      cursor:pointer;
+      white-space:normal;
+      overflow-wrap:break-word;
+      word-break:break-word;
+      box-sizing:border-box;
+  }
   .scale-num.blue  { border-color:#74b9ff; color:#0984e3; }
   .scale-num.indigo{ border-color:#a29bfe; color:#6c5ce7; }
   .scale-num.poor  { border-color:#fd79a8; color:#d63031; }
