@@ -2,258 +2,221 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ===== BANNER ===== -->
+    <!-- ===== HEADER ===== -->
     <div class="dash-banner">
-        <div class="container position-relative" style="z-index:2;">
-            <div class="row align-items-center g-3">
-                <div class="col">
-                    <div class="hero-eyebrow mb-2"><span class="pulse"></span><span>Learning Analytics</span></div>
-                    <h2 class="fw-bold mb-1" style="font-family:var(--font-display);font-size:1.75rem;letter-spacing:-0.03em;background:linear-gradient(135deg,#fff,#C7D2FE);-webkit-background-clip:text;background-clip:text;color:transparent;">
-                        My Learning Progress
-                    </h2>
-                    <p class="mb-0" style="color:rgba(255,255,255,0.65);font-size:0.9rem;">
-                        Track your journey and celebrate every milestone.
-                    </p>
+        <div class="row align-items-center g-3">
+            <div class="col">
+                <h2>My Learning Progress</h2>
+                <p>Track your journey and celebrate every milestone.</p>
+            </div>
+            <div class="col-auto d-flex gap-2 flex-wrap">
+                <a href="UserHome.aspx" class="btn btn-light btn-sm">
+                    <i class="fa-solid fa-table-cells-large me-1"></i>Dashboard
+                </a>
+                <a href="../Courses/CourseList.aspx" class="btn btn-outline-light btn-sm">
+                    <i class="fa-solid fa-plus me-1"></i>Explore Courses
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== STATS ROW (4 cards) ===== -->
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon purple"><i class="fa-solid fa-percent"></i></div>
+                <div>
+                    <div class="stat-num"><asp:Literal ID="litOverallPct" runat="server">0</asp:Literal>%</div>
+                    <div class="stat-label">Overall Progress</div>
                 </div>
-                <div class="col-auto d-flex gap-2">
-                    <a href="UserHome.aspx" class="btn btn-warning fw-bold btn-sm">
-                        <i class="fas fa-tachometer-alt me-1"></i>Dashboard
-                    </a>
-                    <a href="../Courses/CourseList.aspx" class="btn btn-outline-light btn-sm">
-                        <i class="fas fa-plus me-1"></i>Explore Courses
-                    </a>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon green"><i class="fa-solid fa-clipboard-check"></i></div>
+                <div>
+                    <div class="stat-num"><asp:Literal ID="litQuizzesDone" runat="server">0</asp:Literal></div>
+                    <div class="stat-label">Quizzes Taken</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon blue"><i class="fa-solid fa-comments"></i></div>
+                <div>
+                    <div class="stat-num"><asp:Literal ID="litForumCount" runat="server">0</asp:Literal></div>
+                    <div class="stat-label">Forum Posts</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon orange"><i class="fa-regular fa-clock"></i></div>
+                <div>
+                    <div class="stat-num"><asp:Literal ID="litHours" runat="server">0</asp:Literal>h</div>
+                    <div class="stat-label">Time on Platform</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container py-4">
+    <div class="row g-4">
 
-        <!-- ===== STATS ROW ===== -->
-        <div class="row g-3 mb-4">
-            <div class="col-6 col-md-3">
-                <div class="stat-card">
-                    <div class="stat-icon purple"><i class="fas fa-percent"></i></div>
-                    <div>
-                        <div class="stat-num">
-                            <asp:Literal ID="litOverallPct" runat="server">0</asp:Literal>%
-                        </div>
-                        <div class="stat-label">Overall Progress</div>
-                    </div>
-                </div>
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-8">
+
+            <!-- COURSE PROGRESS -->
+            <div class="section-header">
+                <h6 class="fw-bold mb-0">Course Progress</h6>
+                <a href="../Courses/CourseList.aspx" style="font-size: var(--text-sm); color: var(--color-primary);">Browse all &rarr;</a>
             </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-card">
-                    <div class="stat-icon green"><i class="fas fa-clipboard-check"></i></div>
-                    <div>
-                        <div class="stat-num">
-                            <asp:Literal ID="litQuizzesDone" runat="server">0</asp:Literal>
+
+            <asp:Panel ID="pnlNoCourses" runat="server" Visible="false">
+                <div class="card p-4 text-center text-muted mb-3">
+                    <i class="fa-solid fa-book fa-3x mb-3" style="color: #E5E7EB;"></i>
+                    <p class="mb-3">You haven&rsquo;t enrolled in any courses yet.</p>
+                    <a href="../Courses/CourseList.aspx" class="btn btn-primary btn-sm">Browse Courses</a>
+                </div>
+            </asp:Panel>
+
+            <asp:Repeater ID="rptCourseProgress" runat="server">
+                <ItemTemplate>
+                    <div class="progress-course-card mb-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="rounded-2 d-flex align-items-center justify-content-center"
+                                 style="width: 48px; height: 48px; background: var(--color-primary-light); color: var(--color-primary); border-radius: var(--radius-md); font-size: 1.25rem; flex-shrink: 0;">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div class="d-flex justify-content-between align-items-start gap-2 mb-1 flex-wrap">
+                                    <div>
+                                        <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>">
+                                            <%# System.Web.HttpUtility.HtmlEncode(Eval("Category").ToString()) %>
+                                        </span>
+                                        <div class="fw-semibold mt-1" style="font-size: var(--text-sm);">
+                                            <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>" style="color: var(--color-text-primary);">
+                                                <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <%# GetStatusBadge(Eval("IsCompleted"), Eval("Progress")) %>
+                                    </div>
+                                </div>
+                                <div class="progress mt-2" style="height: 6px;">
+                                    <div class="progress-bar" style="width: <%# Eval("Progress") %>%;"></div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-2 flex-wrap gap-2">
+                                    <div class="text-muted" style="font-size: 0.72rem;">
+                                        <i class="fa-solid fa-graduation-cap me-1"></i><%# Eval("QuizzesPassed") %>/<%# Eval("TotalQuizzes") %> quizzes passed
+                                        <span class="mx-1">&middot;</span>
+                                        <%# Eval("Progress") %>% complete
+                                    </div>
+                                    <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>" class="btn btn-sm btn-outline-primary">
+                                        <%# Convert.ToBoolean(Eval("IsCompleted")) ? "Review" : "Continue" %>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat-label">Quizzes Taken</div>
                     </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-card">
-                    <div class="stat-icon blue"><i class="fas fa-comments"></i></div>
-                    <div>
-                        <div class="stat-num">
-                            <asp:Literal ID="litForumCount" runat="server">0</asp:Literal>
-                        </div>
-                        <div class="stat-label">Forum Contributions</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-card">
-                    <div class="stat-icon orange"><i class="fas fa-clock"></i></div>
-                    <div>
-                        <div class="stat-num">
-                            <asp:Literal ID="litHours" runat="server">0</asp:Literal>h
-                        </div>
-                        <div class="stat-label">Time on Platform</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </ItemTemplate>
+            </asp:Repeater>
 
-        <div class="row g-4">
-
-            <!-- ============================== LEFT COLUMN ============================== -->
-            <div class="col-lg-8">
-
-                <!-- COURSE PROGRESS -->
-                <div class="section-header mb-3">
-                    <h5 class="fw-bold mb-0">
-                        <i class="fas fa-book-open me-2 text-primary"></i>Course Progress
-                    </h5>
-                    <a href="../Courses/CourseList.aspx" class="small text-primary">Browse all &rarr;</a>
+            <!-- QUIZ SCORE CHART -->
+            <div class="card p-4 mb-4 mt-4">
+                <div class="section-header mb-3" style="margin-bottom: 0;">
+                    <h6 class="fw-bold mb-0"><i class="fa-solid fa-chart-bar me-2" style="color: var(--color-primary);"></i>Quiz Score History</h6>
+                    <a href="../Courses/CourseList.aspx" style="font-size: var(--text-sm); color: var(--color-primary);">Take a quiz &rarr;</a>
                 </div>
 
-                <asp:Panel ID="pnlNoCourses" runat="server" Visible="false">
-                    <div class="ms-card p-4 text-center text-muted mb-4">
-                        <i class="fas fa-book fa-3x mb-3 d-block" style="color:#ddd;"></i>
-                        <p class="mb-2">You haven't enrolled in any courses yet.</p>
-                        <a href="../Courses/CourseList.aspx" class="btn btn-primary btn-sm">Browse Courses</a>
+                <asp:Panel ID="pnlNoChart" runat="server">
+                    <div class="text-center py-4 text-muted small">
+                        <i class="fa-solid fa-chart-bar fa-3x mb-3 d-block" style="color: #E5E7EB;"></i>
+                        Take your first quiz to see your score history here.
                     </div>
                 </asp:Panel>
 
-                <asp:Repeater ID="rptCourseProgress" runat="server">
+                <asp:Panel ID="pnlChart" runat="server" Visible="false">
+                    <canvas id="quizScoreChart" style="max-height: 280px;"></canvas>
+                </asp:Panel>
+
+                <asp:HiddenField ID="hdnChartData" runat="server" />
+            </div>
+
+            <!-- ACTIVITY TIMELINE -->
+            <div class="card p-4">
+                <h6 class="fw-bold mb-3"><i class="fa-solid fa-history me-2" style="color: var(--color-primary);"></i>Recent Activity</h6>
+
+                <asp:Panel ID="pnlNoActivity" runat="server" Visible="false">
+                    <div class="text-center py-3 text-muted small">
+                        <i class="fa-solid fa-stream fa-2x mb-2 d-block" style="color: #E5E7EB;"></i>
+                        No activity recorded yet. Start a course!
+                    </div>
+                </asp:Panel>
+
+                <asp:Repeater ID="rptActivity" runat="server">
                     <ItemTemplate>
-                        <div class="progress-course-card mb-3">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <div>
-                                    <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>">
-                                        <%# System.Web.HttpUtility.HtmlEncode(Eval("Category").ToString()) %>
-                                    </span>
-                                    <h6 class="fw-bold mb-0 mt-1">
-                                        <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>"
-                                           class="text-decoration-none" style="color:var(--ms-text);">
-                                            <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div>
-                                    <%# GetStatusBadge(Eval("IsCompleted"), Eval("Progress")) %>
-                                </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon <%# System.Web.HttpUtility.HtmlEncode(Eval("IconClass").ToString()) %>">
+                                <i class="fa-solid <%# System.Web.HttpUtility.HtmlEncode(Eval("Icon").ToString()) %>"></i>
                             </div>
-
-                            <div class="progress mb-2" style="height:10px;border-radius:50px;">
-                                <div class="progress-bar" role="progressbar"
-                                     style="width:<%# Eval("Progress") %>%;"
-                                     aria-valuenow="<%# Eval("Progress") %>" aria-valuemin="0" aria-valuemax="100">
+                            <div style="flex: 1; min-width: 0;">
+                                <div class="timeline-title">
+                                    <%# System.Web.HttpUtility.HtmlEncode(Eval("Label").ToString()) %>
                                 </div>
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="small text-muted">
-                                    <i class="fas fa-graduation-cap me-1 text-primary"></i>
-                                    <%# Eval("QuizzesPassed") %>/<%# Eval("TotalQuizzes") %> quiz(zes) passed
-                                    <span class="mx-1">&bull;</span>
-                                    <i class="fas fa-check-circle me-1 text-secondary"></i>
-                                    <%# Eval("Progress") %>% complete
-                                    <span class="mx-1">&bull;</span>
-                                    <i class="fas fa-calendar me-1"></i>
-                                    Enrolled <%# Convert.ToDateTime(Eval("EnrollDate")).ToString("dd MMM yyyy") %>
+                                <div class="timeline-meta">
+                                    <%# System.Web.HttpUtility.HtmlEncode(Eval("Detail").ToString()) %>
+                                    <span class="mx-1">&middot;</span>
+                                    <%# Convert.ToDateTime(Eval("RecordedAt")).ToString("dd MMM yyyy, HH:mm") %>
                                 </div>
-                                <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>"
-                                   class="btn btn-sm btn-outline-primary flex-shrink-0 ms-2">
-                                    <%# Convert.ToBoolean(Eval("IsCompleted")) ? "Review" : "Continue" %>
-                                    <i class="fas fa-arrow-right ms-1"></i>
-                                </a>
                             </div>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-
-                <!-- QUIZ SCORE CHART -->
-                <div class="ms-card p-4 mb-4">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h6 class="fw-bold mb-0">
-                            <i class="fas fa-chart-bar me-2 text-primary"></i>Quiz Score History
-                        </h6>
-                        <a href="../Courses/CourseList.aspx" class="small text-primary">Take a quiz &rarr;</a>
-                    </div>
-
-                    <asp:Panel ID="pnlNoChart" runat="server">
-                        <div class="text-center py-4 text-muted small">
-                            <i class="fas fa-chart-bar fa-3x mb-3 d-block" style="color:#ddd;"></i>
-                            Take your first quiz to see your score history here.
-                        </div>
-                    </asp:Panel>
-
-                    <asp:Panel ID="pnlChart" runat="server" Visible="false">
-                        <canvas id="quizScoreChart" style="max-height:280px;"></canvas>
-                    </asp:Panel>
-
-                    <asp:HiddenField ID="hdnChartData" runat="server" />
-                </div>
-
-                <!-- ACTIVITY TIMELINE -->
-                <div class="ms-card p-4">
-                    <h6 class="fw-bold mb-3">
-                        <i class="fas fa-history me-2 text-primary"></i>Recent Activity
-                    </h6>
-
-                    <asp:Panel ID="pnlNoActivity" runat="server" Visible="false">
-                        <div class="text-center py-3 text-muted small">
-                            <i class="fas fa-stream fa-2x mb-2 d-block" style="color:#ddd;"></i>
-                            No activity recorded yet. Start a course!
-                        </div>
-                    </asp:Panel>
-
-                    <asp:Repeater ID="rptActivity" runat="server">
-                        <ItemTemplate>
-                            <div class="timeline-item">
-                                <div class="timeline-icon <%# System.Web.HttpUtility.HtmlEncode(Eval("IconClass").ToString()) %>">
-                                    <i class="fas <%# System.Web.HttpUtility.HtmlEncode(Eval("Icon").ToString()) %>"></i>
-                                </div>
-                                <div class="timeline-body">
-                                    <div class="timeline-title">
-                                        <%# System.Web.HttpUtility.HtmlEncode(Eval("Label").ToString()) %>
-                                    </div>
-                                    <div class="timeline-meta">
-                                        <%# System.Web.HttpUtility.HtmlEncode(Eval("Detail").ToString()) %>
-                                        <span class="mx-1">&bull;</span>
-                                        <%# Convert.ToDateTime(Eval("RecordedAt")).ToString("dd MMM yyyy, HH:mm") %>
-                                    </div>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </div>
-
             </div>
 
-            <!-- ============================== RIGHT COLUMN ============================== -->
-            <div class="col-lg-4">
+        </div>
 
-                <!-- QUIZ PERFORMANCE -->
-                <div class="ms-card p-4 mb-4">
-                    <h6 class="fw-bold mb-3">
-                        <i class="fas fa-star me-2 text-warning"></i>Quiz Performance
-                    </h6>
-                    <div class="text-center mb-3">
-                        <div class="perf-score-circle">
-                            <div class="perf-score-num">
-                                <asp:Literal ID="litAvgScore" runat="server">—</asp:Literal>
-                            </div>
-                            <div class="perf-score-lbl">Avg Score</div>
-                        </div>
-                    </div>
-                    <div class="small">
-                        <div class="d-flex justify-content-between py-2 border-bottom">
-                            <span class="text-muted"><i class="fas fa-trophy me-1 text-warning"></i>Best Score</span>
-                            <span class="fw-bold text-success"><asp:Literal ID="litBestScore" runat="server">—</asp:Literal></span>
-                        </div>
-                        <div class="d-flex justify-content-between py-2 border-bottom">
-                            <span class="text-muted"><i class="fas fa-check-circle me-1 text-success"></i>Quizzes Passed</span>
-                            <span class="fw-bold text-primary"><asp:Literal ID="litQuizzesPassed" runat="server">0</asp:Literal></span>
-                        </div>
-                        <div class="d-flex justify-content-between py-2">
-                            <span class="text-muted"><i class="fas fa-percent me-1 text-primary"></i>Pass Rate</span>
-                            <span class="fw-bold"><asp:Literal ID="litPassRate" runat="server">—</asp:Literal></span>
-                        </div>
+        <!-- RIGHT COLUMN -->
+        <div class="col-lg-4">
+
+            <!-- QUIZ PERFORMANCE -->
+            <div class="card p-4 mb-3">
+                <h6 class="fw-bold mb-3"><i class="fa-solid fa-star me-2" style="color: var(--color-warning);"></i>Quiz Performance</h6>
+                <div class="text-center mb-3">
+                    <div class="perf-score-circle">
+                        <div class="perf-score-num"><asp:Literal ID="litAvgScore" runat="server">&mdash;</asp:Literal></div>
+                        <div class="perf-score-lbl">Avg Score</div>
                     </div>
                 </div>
-
-                <!-- CLASS COMPARISON -->
-                <div class="ms-card p-4 mb-4">
-                    <h6 class="fw-bold mb-3">
-                        <i class="fas fa-users me-2 text-primary"></i>vs. Class Average
-                    </h6>
-                    <asp:Literal ID="litComparison" runat="server" />
+                <div style="font-size: var(--text-sm);">
+                    <div class="d-flex justify-content-between py-2" style="border-bottom: 1px solid var(--color-card-border);">
+                        <span class="text-muted"><i class="fa-solid fa-trophy me-1" style="color: var(--color-warning);"></i>Best Score</span>
+                        <span class="fw-bold" style="color: var(--color-success);"><asp:Literal ID="litBestScore" runat="server">&mdash;</asp:Literal></span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2" style="border-bottom: 1px solid var(--color-card-border);">
+                        <span class="text-muted"><i class="fa-solid fa-circle-check me-1" style="color: var(--color-success);"></i>Quizzes Passed</span>
+                        <span class="fw-bold" style="color: var(--color-primary);"><asp:Literal ID="litQuizzesPassed" runat="server">0</asp:Literal></span>
+                    </div>
+                    <div class="d-flex justify-content-between py-2">
+                        <span class="text-muted"><i class="fa-solid fa-percent me-1" style="color: var(--color-primary);"></i>Pass Rate</span>
+                        <span class="fw-bold"><asp:Literal ID="litPassRate" runat="server">&mdash;</asp:Literal></span>
+                    </div>
                 </div>
-
-                <!-- ACHIEVEMENTS -->
-                <div class="ms-card p-4">
-                    <h6 class="fw-bold mb-3">
-                        <i class="fas fa-trophy me-2 text-warning"></i>Achievements
-                    </h6>
-                    <asp:Literal ID="litAchievements" runat="server" />
-                </div>
-
             </div>
+
+            <!-- CLASS COMPARISON -->
+            <div class="card p-4 mb-3">
+                <h6 class="fw-bold mb-3"><i class="fa-solid fa-users me-2" style="color: var(--color-primary);"></i>vs. Class Average</h6>
+                <asp:Literal ID="litComparison" runat="server" />
+            </div>
+
+            <!-- ACHIEVEMENTS BADGE GRID -->
+            <div class="card p-4">
+                <h6 class="fw-bold mb-3"><i class="fa-solid fa-trophy me-2" style="color: var(--color-warning);"></i>Achievements</h6>
+                <asp:Literal ID="litAchievements" runat="server" />
+            </div>
+
         </div>
     </div>
 
@@ -281,13 +244,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 {
                     label: 'Your Score (%)',
                     data: data.scores,
-                    backgroundColor: data.scores.map(function (s) {
-                        return s >= 70 ? 'rgba(0,184,148,0.75)' : 'rgba(225,112,85,0.75)';
-                    }),
-                    borderColor: data.scores.map(function (s) {
-                        return s >= 70 ? '#00B894' : '#E17055';
-                    }),
-                    borderWidth: 1.5,
+                    backgroundColor: data.scores.map(function (s) { return s >= 70 ? '#10B981' : '#EF4444'; }),
                     borderRadius: 6,
                     order: 1
                 },
@@ -295,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     label: 'Passing threshold (70%)',
                     data: data.labels.map(function () { return 70; }),
                     type: 'line',
-                    borderColor: '#6C5CE7',
+                    borderColor: '#7C6FCD',
                     borderDash: [6, 4],
                     borderWidth: 2,
                     pointRadius: 0,
@@ -307,33 +264,17 @@ document.addEventListener('DOMContentLoaded', function () {
         options: {
             responsive: true,
             plugins: {
-                legend: {
-                    position: 'top',
-                    labels: { font: { family: 'Poppins', size: 11 }, boxWidth: 14 }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function (ctx) {
-                            return ctx.dataset.label + ': ' + ctx.parsed.y + '%';
-                        }
-                    }
-                }
+                legend: { position: 'top', labels: { font: { family: 'Inter', size: 11 }, boxWidth: 14 } },
+                tooltip: { callbacks: { label: function (c) { return c.dataset.label + ': ' + c.parsed.y + '%'; } } }
             },
             scales: {
                 y: {
-                    beginAtZero: true,
-                    max: 100,
-                    ticks: {
-                        callback: function (v) { return v + '%'; },
-                        font: { family: 'Poppins', size: 11 }
-                    },
-                    grid: { color: 'rgba(0,0,0,0.05)' }
+                    beginAtZero: true, max: 100,
+                    ticks: { callback: function (v) { return v + '%'; }, font: { family: 'Inter', size: 11 } },
+                    grid: { color: 'rgba(124,111,205,0.08)' }
                 },
                 x: {
-                    ticks: {
-                        maxRotation: 25,
-                        font: { family: 'Poppins', size: 10 }
-                    },
+                    ticks: { maxRotation: 25, font: { family: 'Inter', size: 10 } },
                     grid: { display: false }
                 }
             }

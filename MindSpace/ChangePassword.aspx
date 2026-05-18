@@ -2,34 +2,31 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="page-header">
-        <div class="container">
-            <h1><i class="fas fa-key me-2"></i>Change Password</h1>
-            <p>Update your account password to keep your account secure</p>
-        </div>
-    </div>
+    <div style="max-width: 520px; margin: 20px auto;">
 
-    <div class="container" style="max-width:520px;">
+        <div class="mb-4">
+            <h3 style="font-family: var(--font-heading); font-weight: 700;"><i class="fa-solid fa-key me-2" style="color: var(--color-primary);"></i>Change Password</h3>
+            <p class="text-muted mb-0" style="font-size: var(--text-sm);">Update your account password to keep it secure.</p>
+        </div>
 
         <asp:Panel ID="pnlError" runat="server" Visible="false">
-            <div class="alert-ms-error">
-                <i class="fas fa-exclamation-circle me-2"></i>
+            <div class="alert-ms-error mb-3">
+                <i class="fa-solid fa-circle-exclamation me-2"></i>
                 <asp:Literal ID="litError" runat="server" />
             </div>
         </asp:Panel>
 
         <asp:Panel ID="pnlSuccess" runat="server" Visible="false">
-            <div class="alert-ms-success alert-auto-dismiss">
-                <i class="fas fa-check-circle me-2"></i>Password changed successfully!
+            <div class="alert-ms-success mb-3">
+                <i class="fa-solid fa-circle-check me-2"></i>Password changed successfully!
             </div>
         </asp:Panel>
 
-        <div class="ms-card p-4">
-            <!-- Hidden username for password-manager accessibility -->
+        <div class="card p-4">
             <input type="text" name="username" autocomplete="username"
                    style="display:none;" aria-hidden="true"
                    value='<%: Session["Username"] %>' />
-            <!-- Current Password -->
+
             <div class="mb-3">
                 <label class="form-label">Current Password <span class="text-danger">*</span></label>
                 <div class="input-group">
@@ -38,7 +35,7 @@
                         autocomplete="current-password" />
                     <button class="btn btn-outline-secondary" type="button"
                             onclick="togglePwd('<%: txtCurrentPassword.ClientID %>', 'eye1')">
-                        <i class="fas fa-eye" id="eye1"></i>
+                        <i class="fa-regular fa-eye" id="eye1"></i>
                     </button>
                 </div>
                 <asp:RequiredFieldValidator ID="rfvCurrent" runat="server"
@@ -47,7 +44,6 @@
                     CssClass="validation-error" Display="Dynamic" />
             </div>
 
-            <!-- New Password -->
             <div class="mb-3">
                 <label class="form-label">New Password <span class="text-danger">*</span></label>
                 <div class="input-group">
@@ -56,7 +52,7 @@
                         autocomplete="new-password" />
                     <button class="btn btn-outline-secondary" type="button"
                             onclick="togglePwd('<%: txtNewPassword.ClientID %>', 'eye2')">
-                        <i class="fas fa-eye" id="eye2"></i>
+                        <i class="fa-regular fa-eye" id="eye2"></i>
                     </button>
                 </div>
                 <asp:RequiredFieldValidator ID="rfvNew" runat="server"
@@ -66,14 +62,13 @@
                 <asp:RegularExpressionValidator ID="revNew" runat="server"
                     ControlToValidate="txtNewPassword"
                     ValidationExpression=".{8,}"
-                    ErrorMessage="New password must be at least 8 characters."
+                    ErrorMessage="Must be at least 8 characters."
                     CssClass="validation-error" Display="Dynamic" />
-                <div class="progress mt-2" style="height:5px;">
-                    <div id="newPwdStrength" class="progress-bar" style="width:0%;transition:width 0.3s;"></div>
+                <div class="progress mt-2" style="height: 4px;">
+                    <div id="newPwdStrength" class="progress-bar" style="width:0%; transition: width 0.3s;"></div>
                 </div>
             </div>
 
-            <!-- Confirm New Password -->
             <div class="mb-4">
                 <label class="form-label">Confirm New Password <span class="text-danger">*</span></label>
                 <div class="input-group">
@@ -82,7 +77,7 @@
                         autocomplete="new-password" />
                     <button class="btn btn-outline-secondary" type="button"
                             onclick="togglePwd('<%: txtConfirmPassword.ClientID %>', 'eye3')">
-                        <i class="fas fa-eye" id="eye3"></i>
+                        <i class="fa-regular fa-eye" id="eye3"></i>
                     </button>
                 </div>
                 <asp:RequiredFieldValidator ID="rfvConfirm" runat="server"
@@ -105,18 +100,16 @@
             </div>
         </div>
 
-        <!-- Password requirements info -->
-        <div class="mt-3 p-3 rounded" style="background:rgba(108,92,231,0.06);border:1px solid var(--ms-border);">
-            <h6 class="mb-2"><i class="fas fa-info-circle me-2 text-primary"></i>Password Requirements</h6>
-            <ul class="small text-muted mb-0">
+        <div class="mt-3 p-3" style="background: var(--color-primary-light); border-radius: var(--radius-md);">
+            <h6 class="mb-2" style="font-size: var(--text-sm);"><i class="fa-solid fa-circle-info me-2" style="color: var(--color-primary);"></i>Password Tips</h6>
+            <ul class="small text-muted mb-0" style="padding-left: 20px;">
                 <li>Minimum 8 characters</li>
-                <li>Use a mix of uppercase, lowercase, numbers, and symbols for a stronger password</li>
-                <li>Do not reuse old passwords</li>
+                <li>Mix uppercase, lowercase, numbers, and symbols for stronger passwords</li>
+                <li>Don&rsquo;t reuse old passwords</li>
             </ul>
         </div>
 
     </div>
-    <div class="mb-5"></div>
 
 </asp:Content>
 
@@ -127,7 +120,7 @@
         var i = document.getElementById(iconId);
         if (!f) return;
         f.type = (f.type === 'password') ? 'text' : 'password';
-        if (i) i.className = (f.type === 'text') ? 'fas fa-eye-slash' : 'fas fa-eye';
+        if (i) i.className = (f.type === 'text') ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye';
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -142,13 +135,15 @@
                 if (/[0-9]/.test(v))       s++;
                 if (/[^A-Za-z0-9]/.test(v)) s++;
                 bar.style.width = (s * 20) + '%';
-                var c = ['', '#e17055', '#fdcb6e', '#74b9ff', '#00b894', '#00b894'];
+                var c = ['', '#EF4444', '#F59E0B', '#7C6FCD', '#10B981', '#10B981'];
                 bar.style.background = c[s] || '';
             });
         }
-        bindPasswordConfirm('<%: txtNewPassword.ClientID %>',
-                            '<%: txtConfirmPassword.ClientID %>',
-                            'confirmFeedback');
+        if (typeof bindPasswordConfirm === 'function') {
+            bindPasswordConfirm('<%: txtNewPassword.ClientID %>',
+                                '<%: txtConfirmPassword.ClientID %>',
+                                'confirmFeedback');
+        }
     });
 </script>
 </asp:Content>

@@ -22,3 +22,26 @@ packages/
 # OS
 Thumbs.db
 .DS_Store
+
+# Playwright traces / screenshots from local UI testing
+.playwright-mcp/
+
+# Local UI verification screenshots
+v[0-9]-*.png
+audit-*.png
+check-*.png
+*-homepage*.png
+*-v3*.png
+final-*.png
+footer-*.png
+courselist.png
+discussions.png
+homepage.png
+profile.png
+progress.png
+admin-dashboard.png
+user-dashboard.png
+course[0-9]*-*.png
+
+# One-off DB migration helpers (kept locally only)
+fix_articles.ps1

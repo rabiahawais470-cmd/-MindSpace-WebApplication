@@ -2,107 +2,132 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="page-header">
-        <div class="container">
-            <h1><i class="fas fa-graduation-cap me-2"></i>Browse Courses</h1>
-            <p>Explore evidence-based mental health learning modules at your own pace</p>
-        </div>
+    <!-- HEADER -->
+    <div class="cl-header">
+        <h2 class="cl-header-title">Access mental health education <span class="cl-header-accent">designed for you</span></h2>
+        <p class="cl-header-sub">Short, evidence-based courses across six wellness topics &mdash; built for real life.</p>
     </div>
 
-    <div class="container py-4">
+    <!-- VISUAL CATEGORY STRIP -->
+    <div class="cl-cat-strip">
+        <a href="javascript:void(0)" class="cl-cat-chip all" data-cat=""><span class="cl-cat-chip-name">All Topics</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-stress" data-cat="Stress Management"><span class="cl-cat-chip-name">Stress</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-mindfulness" data-cat="Mindfulness"><span class="cl-cat-chip-name">Mindfulness</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-anxiety" data-cat="Anxiety"><span class="cl-cat-chip-name">Anxiety</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-sleep" data-cat="Sleep Hygiene"><span class="cl-cat-chip-name">Sleep</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-resilience" data-cat="Resilience"><span class="cl-cat-chip-name">Resilience</span></a>
+    </div>
 
-        <!-- SEARCH & FILTER -->
-        <div class="ms-card p-3 mb-4">
-            <div class="row g-2 align-items-end">
-                <div class="col-md-4">
-                    <label class="form-label small fw-semibold">Search</label>
-                    <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control"
-                        placeholder="Search courses..." />
-                </div>
-                <div class="col-md-3">
-                    <label class="form-label small fw-semibold">Category</label>
-                    <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-select">
-                        <asp:ListItem Value="">All Categories</asp:ListItem>
-                        <asp:ListItem Value="Stress Management">Stress Management</asp:ListItem>
-                        <asp:ListItem Value="Mindfulness">Mindfulness</asp:ListItem>
-                        <asp:ListItem Value="Anxiety">Anxiety</asp:ListItem>
-                        <asp:ListItem Value="Sleep Hygiene">Sleep Hygiene</asp:ListItem>
-                        <asp:ListItem Value="Resilience">Resilience</asp:ListItem>
-                        <asp:ListItem Value="Self-Care">Self-Care</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label small fw-semibold">Level</label>
-                    <asp:DropDownList ID="ddlLevel" runat="server" CssClass="form-select">
-                        <asp:ListItem Value="">All Levels</asp:ListItem>
-                        <asp:ListItem Value="Beginner">Beginner</asp:ListItem>
-                        <asp:ListItem Value="Intermediate">Intermediate</asp:ListItem>
-                        <asp:ListItem Value="Advanced">Advanced</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-                <div class="col-md-3">
-                    <div class="d-flex gap-2">
-                        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary"
-                            CausesValidation="false" OnClick="btnSearch_Click" />
-                        <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-outline-secondary"
-                            CausesValidation="false" OnClick="btnClear_Click" />
+    <!-- INLINE FILTER BAR -->
+    <div class="cl-filter-bar">
+        <div class="input-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search courses by title or keyword..." />
+        </div>
+        <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-select" style="max-width:200px;"
+                AutoPostBack="true" OnSelectedIndexChanged="btnSearch_Click">
+            <asp:ListItem Value="">All Categories</asp:ListItem>
+            <asp:ListItem Value="Stress Management">Stress Management</asp:ListItem>
+            <asp:ListItem Value="Mindfulness">Mindfulness</asp:ListItem>
+            <asp:ListItem Value="Anxiety">Anxiety</asp:ListItem>
+            <asp:ListItem Value="Sleep Hygiene">Sleep Hygiene</asp:ListItem>
+            <asp:ListItem Value="Resilience">Resilience</asp:ListItem>
+            <asp:ListItem Value="Self-Care">Self-Care</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlLevel" runat="server" CssClass="form-select" style="max-width:160px;"
+                AutoPostBack="true" OnSelectedIndexChanged="btnSearch_Click">
+            <asp:ListItem Value="">All Levels</asp:ListItem>
+            <asp:ListItem Value="Beginner">Beginner</asp:ListItem>
+            <asp:ListItem Value="Intermediate">Intermediate</asp:ListItem>
+            <asp:ListItem Value="Advanced">Advanced</asp:ListItem>
+        </asp:DropDownList>
+        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary"
+            CausesValidation="false" OnClick="btnSearch_Click" />
+        <asp:Button ID="btnClear" runat="server" Text="Reset" CssClass="btn btn-outline-secondary"
+            CausesValidation="false" OnClick="btnClear_Click" />
+    </div>
+
+    <!-- COUNT -->
+    <div class="cl-grid-header">
+        <h6 class="fw-bold mb-0" style="font-family: var(--font-heading);">All Courses</h6>
+        <span class="cl-grid-header-count">
+            <strong><asp:Literal ID="litCount" runat="server" /></strong> course<span>(s)</span>
+        </span>
+    </div>
+
+    <!-- COURSE GRID (wider, more breathing room) -->
+    <asp:Repeater ID="rptCourses" runat="server">
+        <HeaderTemplate>
+            <div class="cl-grid">
+        </HeaderTemplate>
+        <ItemTemplate>
+            <div class="course-card">
+                <div class="course-card-cover cat-<%# GetCatClass(Eval("Category").ToString()) %>">
+                    <div style="position:absolute; bottom:14px; left:14px; right:14px; z-index:2; display:flex; justify-content:space-between; align-items:end;">
+                        <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>" style="background:rgba(255,255,255,0.95); color:var(--color-text-primary);">
+                            <%# Eval("Category") %>
+                        </span>
+                        <span style="background:rgba(28,28,46,0.75); color:#fff; padding:4px 10px; border-radius:99px; font-size:0.7rem; font-weight:600; backdrop-filter:blur(8px);">
+                            <%# Eval("DifficultyLevel") %>
+                        </span>
                     </div>
+                </div>
+                <div class="course-card-body">
+                    <div class="course-card-meta-top">
+                        <i class="fa-solid fa-users"></i>
+                        <span><%# Eval("EnrollmentCount") %> enrolled</span>
+                        <i class="fa-regular fa-clock star" style="color:var(--color-text-secondary);"></i>
+                        <span><%# Eval("Duration") %></span>
+                    </div>
+                    <h6 class="course-card-title"><%# Eval("Title") %></h6>
+                    <p class="course-card-desc"><%# Eval("Description") %></p>
+                    <div class="course-card-footer-row" style="justify-content:space-between;">
+                        <%# Convert.ToBoolean(Eval("IsEnrolled")) ? "<span class='badge bg-success'><i class='fa-solid fa-check me-1'></i>Enrolled</span>" : "<span style='color:var(--color-text-secondary); font-size:0.72rem;'><i class='fa-regular fa-bookmark'></i></span>" %>
+                    </div>
+                    <a href='<%: ResolveUrl("~/Courses/CourseDetail.aspx") %>?id=<%# Eval("CourseID") %>' class="btn btn-primary btn-sm">
+                        <%# Convert.ToBoolean(Eval("IsEnrolled")) ? "Continue learning" : "View course" %>
+                    </a>
                 </div>
             </div>
-        </div>
+        </ItemTemplate>
+        <FooterTemplate></div></FooterTemplate>
+    </asp:Repeater>
 
-        <!-- RESULTS SUMMARY -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <p class="text-muted mb-0 small">
-                Showing <strong><asp:Literal ID="litCount" runat="server" /></strong> course(s)
-            </p>
-        </div>
-
-        <!-- COURSE GRID -->
-        <asp:Repeater ID="rptCourses" runat="server">
-            <HeaderTemplate><div class="row g-4"></HeaderTemplate>
-            <ItemTemplate>
-                <div class="col-md-6 col-xl-4 reveal">
-                    <div class="course-card cat-<%# GetCatClass(Eval("Category").ToString()) %>-bar">
-                        <div class="course-card-header">
-                            <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>">
-                                <%# Eval("Category") %>
-                            </span>
-                            <div class="course-icon"><%# GetCourseIcon(Eval("Category").ToString()) %></div>
-                            <h5 class="course-card-title"><%# Eval("Title") %></h5>
-                        </div>
-                        <div class="course-card-body">
-                            <p class="course-card-desc"><%# Eval("Description") %></p>
-                            <div class="course-card-meta">
-                                <span><i class="fas fa-signal me-1"></i><%# Eval("DifficultyLevel") %></span>
-                                <span><i class="fas fa-clock me-1"></i><%# Eval("Duration") %></span>
-                                <span><i class="fas fa-users me-1"></i><%# Eval("EnrollmentCount") %> enrolled</span>
-                            </div>
-                        </div>
-                        <div class="course-card-footer">
-                            <%# Convert.ToBoolean(Eval("IsEnrolled")) ?
-                                "<span class='badge bg-success me-auto'><i class=\"fas fa-check me-1\"></i>Enrolled</span>" : "" %>
-                            <a href="<%: ResolveUrl("~/Courses/CourseDetail.aspx") %>?id=<%# Eval("CourseID") %>"
-                               class="btn btn-primary btn-sm ms-auto">
-                                <%# Convert.ToBoolean(Eval("IsEnrolled")) ? "Continue" : "View Course" %>
-                                <i class="fas fa-arrow-right ms-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </ItemTemplate>
-            <FooterTemplate></div></FooterTemplate>
-        </asp:Repeater>
-
-        <!-- Empty state -->
-        <asp:Panel ID="pnlEmpty" runat="server" Visible="false">
-            <div class="text-center py-5 text-muted">
-                <i class="fas fa-search fa-3x mb-3 d-block" style="color:#ddd;"></i>
-                <p>No courses match your search. Try different keywords or clear the filters.</p>
+    <asp:Panel ID="pnlEmpty" runat="server" Visible="false">
+        <div class="card p-5 text-center text-muted" style="margin-top: 12px;">
+            <i class="fa-solid fa-magnifying-glass fa-3x mb-3" style="color: #E5E7EB;"></i>
+            <p>No courses match your filters. Try resetting them.</p>
+            <div>
                 <asp:Button ID="btnReset" runat="server" Text="Show All Courses"
                     CssClass="btn btn-outline-primary" CausesValidation="false" OnClick="btnClear_Click" />
             </div>
-        </asp:Panel>
+        </div>
+    </asp:Panel>
 
-    </div>
+</asp:Content>
+
+<asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
+<script>
+    (function () {
+        var dropdown = document.querySelector('select[id$="ddlCategory"]');
+        // Highlight currently active chip
+        if (dropdown) {
+            var sel = dropdown.value;
+            document.querySelectorAll('.cl-cat-chip').forEach(function (c) {
+                if ((c.getAttribute('data-cat') || '') === sel) c.classList.add('active');
+            });
+        }
+        // Wire chip clicks: set dropdown value, dispatch change to trigger AutoPostBack
+        document.querySelectorAll('.cl-cat-chip').forEach(function (chip) {
+            chip.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (!dropdown) return;
+                dropdown.value = chip.getAttribute('data-cat') || '';
+                var evt = document.createEvent('HTMLEvents');
+                evt.initEvent('change', true, true);
+                dropdown.dispatchEvent(evt);
+            });
+        });
+    })();
+</script>
 </asp:Content>

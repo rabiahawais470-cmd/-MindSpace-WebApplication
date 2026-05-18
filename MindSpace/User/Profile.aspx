@@ -2,136 +2,132 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="page-header">
-        <div class="container">
-            <h1><i class="fas fa-user-edit me-2"></i>My Profile</h1>
-            <p>Update your personal information and bio</p>
-        </div>
-    </div>
+    <div style="max-width: 720px; margin: 0 auto;">
 
-    <div class="container py-4" style="max-width:700px;">
+        <div class="mb-4">
+            <h3 style="font-family: var(--font-heading); font-weight: 700;">My Profile</h3>
+            <p class="text-muted mb-0" style="font-size: var(--text-sm);">Update your personal information and bio.</p>
+        </div>
 
         <asp:Panel ID="pnlMsg" runat="server" Visible="false">
-            <div class="alert-ms-success alert-auto-dismiss mb-3">
-                <i class="fas fa-check-circle me-2"></i>
+            <div class="alert-ms-success mb-3">
+                <i class="fa-solid fa-circle-check me-2"></i>
                 <asp:Literal ID="litMsg" runat="server" />
             </div>
         </asp:Panel>
 
         <asp:Panel ID="pnlError" runat="server" Visible="false">
             <div class="alert-ms-error mb-3">
-                <i class="fas fa-exclamation-circle me-2"></i>
+                <i class="fa-solid fa-circle-exclamation me-2"></i>
                 <asp:Literal ID="litError" runat="server" />
             </div>
         </asp:Panel>
 
-        <div class="ms-card p-4 mb-4">
-            <!-- Profile Avatar -->
-            <div class="text-center mb-4">
-                <div style="width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#6C5CE7,#00B894);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:2.5rem;color:#fff;">
-                    <asp:Literal ID="litAvatarInitial" runat="server" />
+        <!-- PROFILE HEADER CARD -->
+        <div class="card p-4 mb-4 d-flex flex-row align-items-center" style="gap: 24px;">
+            <div class="rounded-circle d-flex align-items-center justify-content-center"
+                 style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-primary), #9D8FE0); color: #fff; font-size: 1.75rem; font-weight: 700; flex-shrink: 0;">
+                <asp:Literal ID="litAvatarInitial" runat="server" />
+            </div>
+            <div style="flex: 1; min-width: 0;">
+                <h5 class="fw-bold mb-1"><asp:Literal ID="litDisplayName" runat="server" /></h5>
+                <div class="text-muted small mb-2"><asp:Literal ID="litDisplayUsername" runat="server" /></div>
+                <span class="badge badge-soft-primary"><asp:Literal ID="litRole" runat="server" /></span>
+            </div>
+        </div>
+
+        <!-- ACCOUNT STATS STRIP -->
+        <div class="row g-3 mb-4">
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon purple"><i class="fa-solid fa-book-open"></i></div>
+                    <div>
+                        <div class="stat-num"><asp:Literal ID="litStatEnrolled" runat="server">0</asp:Literal></div>
+                        <div class="stat-label">Enrolled</div>
+                    </div>
                 </div>
-                <h5 class="fw-bold mt-2 mb-0">
-                    <asp:Literal ID="litDisplayName" runat="server" />
-                </h5>
-                <small class="text-muted">
-                    <asp:Literal ID="litDisplayUsername" runat="server" />
-                </small>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon green"><i class="fa-solid fa-check-circle"></i></div>
+                    <div>
+                        <div class="stat-num"><asp:Literal ID="litStatCompleted" runat="server">0</asp:Literal></div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon blue"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <div>
+                        <div class="stat-num"><asp:Literal ID="litStatQuizzes" runat="server">0</asp:Literal></div>
+                        <div class="stat-label">Quizzes</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon orange"><i class="fa-solid fa-comments"></i></div>
+                    <div>
+                        <div class="stat-num"><asp:Literal ID="litStatForum" runat="server">0</asp:Literal></div>
+                        <div class="stat-label">Posts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERSONAL INFO FORM -->
+        <div class="card p-4 mb-4">
+            <h6 class="fw-bold mb-3">Personal Information</h6>
+
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                    <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control" MaxLength="100" />
+                    <asp:RequiredFieldValidator ID="rfvFullName" runat="server" ControlToValidate="txtFullName"
+                        ErrorMessage="Full name is required." CssClass="validation-error" Display="Dynamic" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Username</label>
+                    <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" ReadOnly="true"
+                        style="background: #F9FAFB;" />
+                    <small class="text-muted" style="font-size: 0.72rem;">Username cannot be changed.</small>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Email Address <span class="text-danger">*</span></label>
+                    <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" CssClass="form-control" MaxLength="100" />
+                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail"
+                        ErrorMessage="Email is required." CssClass="validation-error" Display="Dynamic" />
+                    <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail"
+                        ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+                        ErrorMessage="Please enter a valid email." CssClass="validation-error" Display="Dynamic" />
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Bio <span class="text-muted">(optional)</span></label>
+                    <asp:TextBox ID="txtBio" runat="server" TextMode="MultiLine" Rows="4"
+                        CssClass="form-control" MaxLength="500"
+                        placeholder="Tell us a bit about yourself..." />
+                    <small class="text-muted" style="font-size: 0.72rem;">
+                        <span id="bioCount">0</span>/500 characters
+                    </small>
+                </div>
             </div>
 
-            <h6 class="fw-semibold mb-3 text-muted border-bottom pb-2">PROFILE INFORMATION</h6>
-
-            <!-- Full Name -->
-            <div class="mb-3">
-                <label class="form-label">Full Name <span class="text-danger">*</span></label>
-                <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control" MaxLength="100" />
-                <asp:RequiredFieldValidator ID="rfvFullName" runat="server" ControlToValidate="txtFullName"
-                    ErrorMessage="Full name is required." CssClass="validation-error" Display="Dynamic" />
-            </div>
-
-            <!-- Username (read-only) -->
-            <div class="mb-3">
-                <label class="form-label">Username</label>
-                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" ReadOnly="true"
-                    style="background:#f8f7ff;" />
-                <small class="text-muted">Username cannot be changed.</small>
-            </div>
-
-            <!-- Email -->
-            <div class="mb-3">
-                <label class="form-label">Email Address <span class="text-danger">*</span></label>
-                <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" CssClass="form-control" MaxLength="100" />
-                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail"
-                    ErrorMessage="Email is required." CssClass="validation-error" Display="Dynamic" />
-                <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail"
-                    ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$"
-                    ErrorMessage="Please enter a valid email." CssClass="validation-error" Display="Dynamic" />
-            </div>
-
-            <!-- Bio -->
-            <div class="mb-4">
-                <label class="form-label">Bio <span class="text-muted">(optional)</span></label>
-                <asp:TextBox ID="txtBio" runat="server" TextMode="MultiLine" Rows="4"
-                    CssClass="form-control" MaxLength="500"
-                    placeholder="Tell us a bit about yourself..." />
-                <small class="text-muted">
-                    <span id="bioCount">0</span>/500 characters
-                </small>
-            </div>
-
-            <div class="d-flex gap-2">
+            <div class="d-flex gap-2 mt-4">
                 <asp:Button ID="btnSave" runat="server" Text="Save Changes"
                     CssClass="btn btn-primary" OnClick="btnSave_Click" />
                 <a href="../ChangePassword.aspx" class="btn btn-outline-secondary">
-                    <i class="fas fa-key me-1"></i>Change Password
+                    <i class="fa-solid fa-key me-1"></i>Change Password
                 </a>
             </div>
         </div>
 
-        <!-- ACCOUNT INFO + STATS -->
-        <div class="ms-card p-4">
-            <h6 class="fw-semibold mb-3 text-muted border-bottom pb-2">ACCOUNT INFORMATION</h6>
-            <div class="row g-2 small mb-3">
-                <div class="col-5 text-muted">Member Since</div>
-                <div class="col-7 fw-semibold"><asp:Literal ID="litJoined" runat="server" /></div>
-                <div class="col-5 text-muted">Account Role</div>
-                <div class="col-7">
-                    <span class="badge badge-role-learner"><asp:Literal ID="litRole" runat="server" /></span>
-                </div>
-            </div>
-
-            <h6 class="fw-semibold mb-3 text-muted border-bottom pb-2">LEARNING STATISTICS</h6>
-            <div class="row g-2 mb-3">
-                <div class="col-6">
-                    <div class="p-2 rounded text-center" style="background:rgba(108,92,231,0.07);">
-                        <div class="fw-bold text-primary fs-5"><asp:Literal ID="litStatEnrolled" runat="server">0</asp:Literal></div>
-                        <div class="small text-muted">Courses Enrolled</div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="p-2 rounded text-center" style="background:rgba(0,184,148,0.07);">
-                        <div class="fw-bold" style="color:var(--ms-secondary);font-size:1.25rem;"><asp:Literal ID="litStatCompleted" runat="server">0</asp:Literal></div>
-                        <div class="small text-muted">Courses Completed</div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="p-2 rounded text-center" style="background:rgba(116,185,255,0.12);">
-                        <div class="fw-bold" style="color:#0984e3;font-size:1.25rem;"><asp:Literal ID="litStatQuizzes" runat="server">0</asp:Literal></div>
-                        <div class="small text-muted">Quizzes Taken</div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="p-2 rounded text-center" style="background:rgba(253,203,110,0.15);">
-                        <div class="fw-bold" style="color:#e17055;font-size:1.25rem;"><asp:Literal ID="litStatForum" runat="server">0</asp:Literal></div>
-                        <div class="small text-muted">Forum Posts</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center">
-                <a href="UserHome.aspx" class="btn btn-outline-primary btn-sm">
-                    <i class="fas fa-tachometer-alt me-1"></i>Back to Dashboard
-                </a>
+        <!-- ACCOUNT INFO -->
+        <div class="card p-4">
+            <h6 class="fw-bold mb-3">Account Information</h6>
+            <div class="row g-2" style="font-size: var(--text-sm);">
+                <div class="col-sm-4 text-muted">Member Since</div>
+                <div class="col-sm-8 fw-semibold"><asp:Literal ID="litJoined" runat="server" /></div>
             </div>
         </div>
 

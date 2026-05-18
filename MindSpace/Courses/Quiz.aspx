@@ -1,64 +1,109 @@
 <%@ Page Title="Quiz" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Quiz.aspx.cs" Inherits="MindSpace.QuizPage" %>
 
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+    <style>
+        /* Focus mode — hide main sidebar + topbar for quiz */
+        #sidebar, .app-topbar { display: none !important; }
+        .app-main, .app-content { padding: 0 !important; }
+        body { background: #F4F2FA; }
+    </style>
+</asp:Content>
+
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="page-header">
-        <div class="container">
-            <h1><i class="fas fa-clipboard-check me-2"></i><asp:Literal ID="litQuizTitle" runat="server" /></h1>
-            <p><asp:Literal ID="litQuizDesc" runat="server" /></p>
-        </div>
-    </div>
+    <div class="d-flex" style="min-height: 100vh;">
 
-    <div class="container py-4" style="max-width:800px;">
-
-        <!-- Quiz info bar -->
-        <div class="ms-card p-3 mb-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
-            <div class="d-flex gap-4">
-                <span class="small text-muted">
-                    <i class="fas fa-question-circle me-1 text-primary"></i>
-                    <strong><asp:Literal ID="litQuestionCount" runat="server" /></strong> questions
-                </span>
-                <span class="small text-muted">
-                    <i class="fas fa-star me-1 text-warning"></i>
-                    Passing score: <strong><asp:Literal ID="litPassingScore" runat="server" />%</strong>
-                </span>
+        <!-- DARK LEFT PANEL — Quiz info + timer -->
+        <aside class="quiz-dark-panel">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <a href="javascript:history.back()" class="btn btn-sm btn-outline-light">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <span class="text-white-50 small">Quiz Mode</span>
             </div>
-            <span class="badge bg-primary">Attempt the quiz below</span>
-        </div>
 
-        <!-- Quiz Form -->
-        <asp:HiddenField ID="hdnQuizID" runat="server" />
-        <asp:HiddenField ID="hdnTotalQuestions" runat="server" />
+            <h6 class="fw-bold mb-1" style="color: #fff; font-family: var(--font-heading);">
+                <asp:Literal ID="litQuizTitle" runat="server" />
+            </h6>
+            <p class="text-white-50 mb-4" style="font-size: 0.75rem; line-height: 1.5;">
+                <asp:Literal ID="litQuizDesc" runat="server" />
+            </p>
 
-        <asp:Repeater ID="rptQuestions" runat="server">
-            <ItemTemplate>
-                <div class="quiz-question-card">
-                    <div class="quiz-question-num">Question <%# Container.ItemIndex + 1 %></div>
-                    <div class="quiz-question-text"><%# Eval("QuestionText") %></div>
-
-                    <%# Eval("QuestionType").ToString() == "truefalse" ?
-                        RenderTrueFalse((int)Eval("QuestionID")) :
-                        RenderOptions((int)Eval("QuestionID")) %>
+            <div class="d-flex flex-column gap-2 mb-3">
+                <div class="d-flex justify-content-between text-white-50" style="font-size: 0.72rem;">
+                    <span>Questions</span>
+                    <span class="fw-bold" style="color: #fff;"><asp:Literal ID="litQuestionCount" runat="server" /></span>
                 </div>
-            </ItemTemplate>
-        </asp:Repeater>
-
-        <!-- Submit -->
-        <div class="text-center mt-4">
-            <asp:Button ID="btnSubmit" runat="server" Text="Submit Quiz"
-                CssClass="btn btn-success btn-lg px-5 fw-bold"
-                OnClick="btnSubmit_Click"
-                OnClientClick="return validateAllAnswered();" />
-            <div class="text-muted small mt-2">
-                <i class="fas fa-info-circle me-1"></i>Make sure you answer all questions before submitting.
+                <div class="d-flex justify-content-between text-white-50" style="font-size: 0.72rem;">
+                    <span>Passing Score</span>
+                    <span class="fw-bold" style="color: #fff;"><asp:Literal ID="litPassingScore" runat="server" />%</span>
+                </div>
             </div>
-        </div>
 
+            <!-- Timer -->
+            <div class="quiz-timer">
+                <div class="quiz-timer-label">Time Elapsed</div>
+                <div class="quiz-timer-display" id="timerDisplay">00:00</div>
+            </div>
+        </aside>
+
+        <!-- MAIN QUIZ AREA -->
+        <div style="flex: 1; padding: 40px clamp(20px, 4vw, 60px); max-width: 900px; margin: 0 auto;">
+
+            <div class="mb-4">
+                <div style="color: var(--color-primary); font-size: var(--text-sm); font-weight: 600;">
+                    <i class="fa-solid fa-clipboard-check me-1"></i>Quiz in Progress
+                </div>
+            </div>
+
+            <asp:HiddenField ID="hdnQuizID" runat="server" />
+            <asp:HiddenField ID="hdnTotalQuestions" runat="server" />
+
+            <asp:Repeater ID="rptQuestions" runat="server">
+                <ItemTemplate>
+                    <div class="quiz-question-card">
+                        <div class="quiz-question-num">Question <%# Container.ItemIndex + 1 %></div>
+                        <div class="quiz-question-text"><%# Eval("QuestionText") %></div>
+
+                        <%# Eval("QuestionType").ToString() == "truefalse" ?
+                            RenderTrueFalse((int)Eval("QuestionID")) :
+                            RenderOptions((int)Eval("QuestionID")) %>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <div class="text-muted small">
+                    <i class="fa-solid fa-circle-info me-1"></i>Answer all questions before submitting.
+                </div>
+                <asp:Button ID="btnSubmit" runat="server" Text="Submit Quiz"
+                    CssClass="btn btn-primary btn-lg"
+                    OnClick="btnSubmit_Click"
+                    OnClientClick="return validateAllAnswered();" />
+            </div>
+
+        </div>
     </div>
+
 </asp:Content>
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
 <script>
+    // Timer (counts up while quiz is active)
+    (function () {
+        var start = Date.now();
+        var el = document.getElementById('timerDisplay');
+        if (!el) return;
+        function tick() {
+            var diff = Math.floor((Date.now() - start) / 1000);
+            var m = String(Math.floor(diff / 60)).padStart(2, '0');
+            var s = String(diff % 60).padStart(2, '0');
+            el.textContent = m + ':' + s;
+        }
+        setInterval(tick, 1000);
+        tick();
+    })();
+
     function validateAllAnswered() {
         var cards = document.querySelectorAll('.quiz-question-card');
         for (var i = 0; i < cards.length; i++) {
@@ -78,16 +123,13 @@
     // Highlight selected option
     document.addEventListener('change', function (e) {
         if (e.target && e.target.type === 'radio') {
-            var options = e.target.closest('.quiz-question-card').querySelectorAll('.quiz-option');
-            options.forEach(function (opt) {
-                opt.style.borderColor = '';
-                opt.style.background  = '';
+            var card = e.target.closest('.quiz-question-card');
+            if (!card) return;
+            card.querySelectorAll('.quiz-option').forEach(function (opt) {
+                opt.classList.remove('selected');
             });
             var parentOpt = e.target.closest('.quiz-option');
-            if (parentOpt) {
-                parentOpt.style.borderColor = '#6C5CE7';
-                parentOpt.style.background  = 'rgba(108,92,231,0.06)';
-            }
+            if (parentOpt) parentOpt.classList.add('selected');
         }
     });
 </script>

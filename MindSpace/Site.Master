@@ -4,169 +4,140 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%: Page.Title %> - MindSpace</title>
+    <title><%: Page.Title %> &middot; MindSpace</title>
     <link rel="icon" type="image/svg+xml" href="<%: ResolveUrl("~/favicon.svg") %>" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=3.2" rel="stylesheet" />
+    <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=4.0" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
-<body>
+<body class='<%= pnlUserNav.Visible || pnlAdminNav.Visible ? "is-auth" : "is-guest" %>'>
     <form id="frmMain" runat="server">
 
-        <!-- ===== NAVIGATION ===== -->
-        <nav class="navbar navbar-expand-lg mindspace-navbar">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center gap-2" href="<%: ResolveUrl("~/Default.aspx") %>">
-                    <i class="fas fa-brain"></i>
-                    <span>MindSpace</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
-                        aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navMain">
-
-                    <!-- GUEST NAV -->
-                    <asp:Panel ID="pnlGuestNav" runat="server" CssClass="d-flex align-items-center ms-auto gap-2 flex-wrap">
-                        <a class="nav-link text-white" href="<%: ResolveUrl("~/Default.aspx") %>">Home</a>
-                        <a class="nav-link text-white" href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>">Courses</a>
-                        <a class="btn btn-nav-outline ms-2" href="<%: ResolveUrl("~/Login.aspx") %>">Login</a>
-                        <a class="btn btn-nav-solid" href="<%: ResolveUrl("~/Register.aspx") %>">Register</a>
-                    </asp:Panel>
-
-                    <!-- LEARNER NAV -->
-                    <asp:Panel ID="pnlUserNav" runat="server" Visible="false" CssClass="navbar-nav ms-auto align-items-center flex-row gap-1">
-                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/User/UserHome.aspx") %>"><i class="fas fa-home me-1"></i>Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>"><i class="fas fa-book-open me-1"></i>Courses</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/User/Discussions.aspx") %>"><i class="fas fa-comments me-1"></i>Discussions</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/User/ProgressTracking.aspx") %>"><i class="fas fa-chart-line me-1"></i>Progress</a></li>
-                        <li class="nav-item dropdown ms-2">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-user-circle"></i>
-                                <asp:Label ID="lblNavName" runat="server" />
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end shadow">
-                                <li><a class="dropdown-item" href="<%: ResolveUrl("~/User/Profile.aspx") %>"><i class="fas fa-user-edit me-2 text-primary"></i>Profile</a></li>
-                                <li><a class="dropdown-item" href="<%: ResolveUrl("~/ChangePassword.aspx") %>"><i class="fas fa-key me-2 text-warning"></i>Change Password</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li>
-                                    <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="dropdown-item text-danger" OnClick="lbtnLogout_Click">
-                                        <i class="fas fa-sign-out-alt me-2"></i>Logout
-                                    </asp:LinkButton>
-                                </li>
-                            </ul>
-                        </li>
-                    </asp:Panel>
-
-                    <!-- ADMIN NAV -->
-                    <asp:Panel ID="pnlAdminNav" runat="server" Visible="false" CssClass="navbar-nav ms-auto align-items-center flex-row gap-1">
-                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Admin/AdminHome.aspx") %>"><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Admin/UserManagement.aspx") %>"><i class="fas fa-users me-1"></i>Users</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<%: ResolveUrl("~/Admin/CourseManagement.aspx") %>"><i class="fas fa-graduation-cap me-1"></i>Courses</a></li>
-                        <li class="nav-item dropdown ms-2">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-user-shield"></i>Admin
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end shadow">
-                                <li><a class="dropdown-item" href="<%: ResolveUrl("~/ChangePassword.aspx") %>"><i class="fas fa-key me-2 text-warning"></i>Change Password</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li>
-                                    <asp:LinkButton ID="lbtnAdminLogout" runat="server" CssClass="dropdown-item text-danger" OnClick="lbtnLogout_Click">
-                                        <i class="fas fa-sign-out-alt me-2"></i>Logout
-                                    </asp:LinkButton>
-                                </li>
-                            </ul>
-                        </li>
-                    </asp:Panel>
-
+        <%-- ====== GUEST TOP NAVBAR (Default, Login, Register, public CourseList preview) ====== --%>
+        <asp:Panel ID="pnlGuestNav" runat="server">
+            <nav class="guest-navbar">
+                <div class="navbar-inner">
+                    <a class="guest-brand" href="<%: ResolveUrl("~/Default.aspx") %>">
+                        <span class="guest-brand-icon"><i class="fa-solid fa-brain"></i></span>
+                        <span>MindSpace</span>
+                    </a>
+                    <div class="guest-nav-links">
+                        <a class="nav-link-plain" href="<%: ResolveUrl("~/Default.aspx") %>">Home</a>
+                        <a class="nav-link-plain" href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>">Courses</a>
+                        <a class="btn btn-outline-primary btn-sm" href="<%: ResolveUrl("~/Login.aspx") %>">Sign In</a>
+                        <a class="btn btn-primary btn-sm" href="<%: ResolveUrl("~/Register.aspx") %>">Get Started</a>
+                    </div>
                 </div>
+            </nav>
+        </asp:Panel>
+
+        <%-- ====== APP SHELL (single MainContent for both guest + auth) ====== --%>
+        <div class='<%= pnlUserNav.Visible || pnlAdminNav.Visible ? "app-shell" : "guest-page-wrap" %>'>
+
+            <%-- LEARNER SIDEBAR --%>
+            <asp:Panel ID="pnlUserNav" runat="server" Visible="false">
+                <nav id="sidebar">
+                    <div class="sidebar-brand">
+                        <span class="sidebar-brand-icon"><i class="fa-solid fa-brain"></i></span>
+                        <span class="sidebar-brand-name">MindSpace</span>
+                    </div>
+                    <ul class="sidebar-nav">
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/UserHome.aspx") %>"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a></li>
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>"><i class="fa-solid fa-book-open"></i><span>Courses</span></a></li>
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/ProgressTracking.aspx") %>"><i class="fa-solid fa-chart-line"></i><span>Progress</span></a></li>
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/Discussions.aspx") %>"><i class="fa-solid fa-comments"></i><span>Discussions</span></a></li>
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/Forum.aspx") %>"><i class="fa-solid fa-users"></i><span>Forum</span></a></li>
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/Profile.aspx") %>"><i class="fa-solid fa-user"></i><span>Profile</span></a></li>
+                    </ul>
+                    <div class="sidebar-bottom">
+                        <a class="sidebar-link" href="<%: ResolveUrl("~/ChangePassword.aspx") %>"><i class="fa-solid fa-key"></i><span>Settings</span></a>
+                        <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="sidebar-link text-danger" OnClick="lbtnLogout_Click">
+                            <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
+                        </asp:LinkButton>
+                    </div>
+                </nav>
+            </asp:Panel>
+
+            <%-- ADMIN SIDEBAR --%>
+            <asp:Panel ID="pnlAdminNav" runat="server" Visible="false">
+                <nav id="sidebar">
+                    <div class="sidebar-brand">
+                        <span class="sidebar-brand-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                        <span class="sidebar-brand-name">Admin</span>
+                    </div>
+                    <ul class="sidebar-nav">
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/Admin/AdminHome.aspx") %>"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a></li>
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/Admin/UserManagement.aspx") %>"><i class="fa-solid fa-users"></i><span>Users</span></a></li>
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/Admin/CourseManagement.aspx") %>"><i class="fa-solid fa-graduation-cap"></i><span>Courses</span></a></li>
+                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/Discussions.aspx") %>"><i class="fa-solid fa-comments"></i><span>Discussions</span></a></li>
+                    </ul>
+                    <div class="sidebar-bottom">
+                        <a class="sidebar-link" href="<%: ResolveUrl("~/ChangePassword.aspx") %>"><i class="fa-solid fa-key"></i><span>Settings</span></a>
+                        <asp:LinkButton ID="lbtnAdminLogout" runat="server" CssClass="sidebar-link text-danger" OnClick="lbtnLogout_Click">
+                            <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
+                        </asp:LinkButton>
+                    </div>
+                </nav>
+            </asp:Panel>
+
+            <%-- MAIN COLUMN --%>
+            <div class='<%= pnlUserNav.Visible || pnlAdminNav.Visible ? "app-main" : "guest-main" %>'>
+
+                <%-- AUTH TOPBAR (only when logged in) --%>
+                <% if (pnlUserNav.Visible || pnlAdminNav.Visible) { %>
+                <header class="app-topbar">
+                    <button class="sidebar-toggle-mobile" type="button" onclick="document.getElementById('sidebar').classList.toggle('open');"><i class="fa-solid fa-bars"></i></button>
+                    <div class="topbar-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search courses, topics..." />
+                    </div>
+                    <div class="topbar-actions">
+                        <button type="button" class="topbar-icon-btn" title="Notifications">
+                            <i class="fa-regular fa-bell"></i>
+                            <span class="badge-dot"></span>
+                        </button>
+                        <span class="topbar-username"><asp:Label ID="lblNavName" runat="server" /></span>
+                        <a href="<%: ResolveUrl("~/User/Profile.aspx") %>" class="topbar-avatar" title="Profile">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                    </div>
+                </header>
+                <% } %>
+
+                <%-- PAGE CONTENT --%>
+                <main class='<%= pnlUserNav.Visible || pnlAdminNav.Visible ? "app-content" : "guest-content" %>'>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </main>
             </div>
-        </nav>
-
-        <!-- ===== MAIN CONTENT ===== -->
-        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-
-        <!-- ===== FOOTER ===== -->
-        <footer class="mindspace-footer py-5 mt-5">
-            <div class="container position-relative" style="z-index:1;">
-                <div class="row g-4 g-md-5">
-                    <div class="col-md-5 col-lg-4">
-                        <h5 class="d-flex align-items-center gap-2">
-                            <i class="fas fa-brain"></i><span>MindSpace</span>
-                        </h5>
-                        <p class="small mb-3" style="color:rgba(255,255,255,0.55);max-width:300px;line-height:1.7;">
-                            A premium learning platform dedicated to mental wellness literacy for students and young adults &mdash; evidence-based, self-paced, free.
-                        </p>
-                        <div class="d-flex gap-2">
-                            <span class="d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);color:rgba(255,255,255,0.7);"><i class="fab fa-twitter"></i></span>
-                            <span class="d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);color:rgba(255,255,255,0.7);"><i class="fab fa-instagram"></i></span>
-                            <span class="d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);color:rgba(255,255,255,0.7);"><i class="fab fa-linkedin"></i></span>
-                            <span class="d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);color:rgba(255,255,255,0.7);"><i class="fab fa-youtube"></i></span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
-                        <h6>Platform</h6>
-                        <ul class="list-unstyled small mb-0">
-                            <li class="mb-2"><a href="<%: ResolveUrl("~/Default.aspx") %>">Home</a></li>
-                            <li class="mb-2"><a href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>">Browse Courses</a></li>
-                            <li class="mb-2"><a href="<%: ResolveUrl("~/Register.aspx") %>">Register Free</a></li>
-                            <li class="mb-2"><a href="<%: ResolveUrl("~/Login.aspx") %>">Sign In</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-6 col-md-4 col-lg-2">
-                        <h6>Topics</h6>
-                        <ul class="list-unstyled small mb-0" style="color:rgba(255,255,255,0.55);">
-                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#8B5CF6;"></i>Stress</li>
-                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#10B981;"></i>Mindfulness</li>
-                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#3B82F6;"></i>Anxiety</li>
-                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#A78BFA;"></i>Sleep</li>
-                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#F472B6;"></i>Resilience</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-12 col-lg-3">
-                        <h6>Stay Well</h6>
-                        <p class="small mb-3" style="color:rgba(255,255,255,0.55);line-height:1.65;">
-                            One short wellness tip in your inbox each week. No spam.
-                        </p>
-                        <div class="d-flex gap-2" style="max-width:320px;">
-                            <input type="email" class="form-control form-control-sm" placeholder="your@email.com" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;border-radius:10px;" />
-                            <button type="button" class="btn btn-nav-solid btn-sm" style="white-space:nowrap;">Subscribe</button>
-                        </div>
-                    </div>
-                </div>
-                <hr style="border-color:rgba(255,255,255,0.08);margin-top:2.5rem;" />
-                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small" style="color:rgba(255,255,255,0.45);">
-                    <p class="mb-2 mb-md-0">&copy; 2026 MindSpace. Crafted with care for mental wellness.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                        <a href="#">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        </div>
 
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="<%: ResolveUrl("~/Scripts/validation.js") %>"></script>
     <script>
-        // Reveal-on-scroll with eager + safety fallback
+        // Mark active sidebar link by URL match
+        (function () {
+            var links = document.querySelectorAll('.sidebar-link');
+            var current = window.location.pathname.toLowerCase();
+            links.forEach(function (a) {
+                var href = (a.getAttribute('href') || '').toLowerCase();
+                if (!href) return;
+                var leaf = href.replace(/^.*\//, '');
+                if (leaf && current.indexOf(leaf) !== -1) a.classList.add('active');
+            });
+        })();
+        // Reveal-on-scroll fallback (so .reveal works on all pages)
         (function () {
             var els = document.querySelectorAll('.reveal');
-            if (els.length === 0) return;
-            var showAll = function () { els.forEach(function(e){ e.classList.add('is-visible'); }); };
-            // Eager: mark already-on-screen items visible immediately
+            if (!els.length) return;
+            var showAll = function () { els.forEach(function (e) { e.classList.add('is-visible'); }); };
             var vh = window.innerHeight || 800;
             els.forEach(function (el) {
                 var r = el.getBoundingClientRect();
                 if (r.top < vh + 200) el.classList.add('is-visible');
             });
-            // Final fallback after 800ms in case any are still hidden
             setTimeout(showAll, 800);
             if (!('IntersectionObserver' in window)) { showAll(); return; }
             var io = new IntersectionObserver(function (entries) {
@@ -175,16 +146,6 @@
                 });
             }, { threshold: 0.02, rootMargin: '200px 0px 200px 0px' });
             els.forEach(function (el) { io.observe(el); });
-        })();
-        // Button ripple cursor tracking
-        (function () {
-            document.addEventListener('mousemove', function (e) {
-                var btn = e.target.closest && e.target.closest('.btn');
-                if (!btn) return;
-                var r = btn.getBoundingClientRect();
-                btn.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-                btn.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-            });
         })();
     </script>
     <asp:ContentPlaceHolder ID="ScriptContent" runat="server" />

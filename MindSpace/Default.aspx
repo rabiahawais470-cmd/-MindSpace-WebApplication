@@ -3,212 +3,324 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- ===== HERO ===== -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-7">
-                    <div class="hero-eyebrow">
-                        <span class="pulse"></span>
-                        <span>Mental Wellness &middot; Learning Platform</span>
+    <section class="home-hero">
+        <div class="home-hero-grid">
+            <div class="home-hero-text">
+                <span class="home-hero-eyebrow">
+                    <span class="dot"></span> Mental Wellness, Reimagined
+                </span>
+                <h1 class="home-hero-title">
+                    Quiet your mind.<br/>
+                    Learn to live <span class="accent">unhurried</span>.
+                </h1>
+                <p class="home-hero-sub">
+                    Evidence-based micro-courses on stress, sleep, anxiety and self-compassion &mdash; built with care for students and young adults navigating real life.
+                </p>
+                <div class="home-hero-cta">
+                    <a href="Register.aspx" class="btn btn-primary btn-lg">
+                        Begin for free
+                        <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </a>
+                    <a href="Courses/CourseList.aspx" class="btn btn-outline-primary btn-lg">Browse courses</a>
+                </div>
+                <div class="home-hero-meta">
+                    <div class="home-hero-meta-item">
+                        <div class="num">6</div>
+                        <div class="lbl">Courses</div>
                     </div>
-                    <h1 class="hero-title">
-                        Your journey to <span>mental wellness</span> starts here.
-                    </h1>
-                    <p class="hero-subtitle">
-                        Expert-curated micro-courses on stress, mindfulness, anxiety,
-                        sleep and resilience &mdash; designed for students and young adults,
-                        delivered free and at your own pace.
-                    </p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <a href="Register.aspx" class="btn btn-warning btn-lg">
-                            <i class="fas fa-arrow-right me-2"></i>Start Learning Free
-                        </a>
-                        <a href="Courses/CourseList.aspx" class="btn btn-outline-light btn-lg">
-                            <i class="fas fa-book-open me-2"></i>Browse Courses
-                        </a>
+                    <div class="home-hero-meta-item">
+                        <div class="num">75</div>
+                        <div class="lbl">Quiz Questions</div>
                     </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat-item">
-                            <div class="hero-stat-num">6+</div>
-                            <div class="hero-stat-label">Expert Courses</div>
-                        </div>
-                        <div class="hero-stat-item">
-                            <div class="hero-stat-num">100%</div>
-                            <div class="hero-stat-label">Free Forever</div>
-                        </div>
-                        <div class="hero-stat-item">
-                            <div class="hero-stat-num">75</div>
-                            <div class="hero-stat-label">Quiz Questions</div>
-                        </div>
-                        <div class="hero-stat-item">
-                            <div class="hero-stat-num">5<i class="fas fa-star" style="font-size:1.4rem;color:#FCD34D;vertical-align:0.15em;margin-left:0.1em;"></i></div>
-                            <div class="hero-stat-label">Evidence Based</div>
-                        </div>
+                    <div class="home-hero-meta-item">
+                        <div class="num">100%</div>
+                        <div class="lbl">Free Forever</div>
+                    </div>
+                    <div class="home-hero-meta-item">
+                        <div class="num">5min</div>
+                        <div class="lbl">To Start</div>
                     </div>
                 </div>
-                <div class="col-lg-5 d-none d-lg-block">
-                    <div class="hero-visual">
-                        <div class="hero-orb">
-                            <div class="hero-orb-inner">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                        </div>
-                        <div class="hero-chip c1"><i class="fas fa-spa"></i>Mindfulness</div>
-                        <div class="hero-chip c2"><i class="fas fa-leaf"></i>Resilience</div>
-                        <div class="hero-chip c3"><i class="fas fa-moon"></i>Sleep</div>
-                        <div class="hero-chip c4"><i class="fas fa-heart"></i>Self-Care</div>
+            </div>
+            <div class="home-hero-cluster">
+                <div class="home-hero-photo p1"></div>
+                <div class="home-hero-photo p3"></div>
+                <div class="home-hero-photo p2"></div>
+                <div class="home-hero-badge b1">
+                    <span class="home-hero-badge-icon green"><i class="fa-solid fa-leaf"></i></span>
+                    <div class="home-hero-badge-text">
+                        <div class="t1">Self-paced</div>
+                        <div class="t2">Learn at your own rhythm</div>
+                    </div>
+                </div>
+                <div class="home-hero-badge b2">
+                    <span class="home-hero-badge-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                    <div class="home-hero-badge-text">
+                        <div class="t1">Private</div>
+                        <div class="t2">Your data, your eyes only</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== FEATURES ===== -->
-    <section class="py-5" style="padding-top:6rem !important;padding-bottom:5rem !important;">
-        <div class="container">
-            <div class="section-heading reveal">
-                <span class="eyebrow">Why MindSpace</span>
-                <h2>Everything you need to build <span>mental health literacy</span></h2>
-                <div class="section-divider"></div>
-                <p>Six pillars of an evidence-based learning experience &mdash; thoughtfully designed for the way you actually learn.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-purple">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h5>Structured Learning</h5>
-                        <p>Evidence-based courses designed by mental health professionals covering all key areas of wellbeing.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-green">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h5>Progress Tracking</h5>
-                        <p>Monitor your learning journey with personal dashboards, quiz scores, and completion analytics.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-blue">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h5>Community Support</h5>
-                        <p>Connect with peers in the discussion forum to share experiences and support each other's growth.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-purple">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h5>Self-Assessments</h5>
-                        <p>Interactive quizzes with instant feedback help reinforce learning and measure understanding.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-warm">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h5>Rich Multimedia</h5>
-                        <p>Articles, embedded videos, guided exercises, and downloadable resources for every learning style.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 reveal">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-rose">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h5>Safe &amp; Private</h5>
-                        <p>Your data is secure with encrypted passwords and private progress tracking for your eyes only.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FEATURED COURSES ===== -->
-    <section class="py-5 home-courses-section" style="padding-top:5rem !important;padding-bottom:5rem !important;">
-        <div class="container">
-            <div class="section-heading reveal">
-                <span class="eyebrow">Curated Path</span>
-                <h2>Featured <span>courses</span></h2>
-                <div class="section-divider"></div>
-                <p>Start your mental health learning journey with our most popular courses, each ~30-45 minutes.</p>
-            </div>
-            <asp:Repeater ID="rptCourses" runat="server">
-                <HeaderTemplate>
-                    <div class="row g-4">
-                </HeaderTemplate>
-                <ItemTemplate>
-                    <div class="col-md-6 col-lg-4 reveal">
-                        <div class="course-card cat-<%# GetCatClass(Eval("Category").ToString()) %>-bar">
-                            <div class="course-card-header">
-                                <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>">
-                                    <%# Eval("Category") %>
-                                </span>
-                                <div class="course-icon"><%# GetCourseIcon(Eval("Category").ToString()) %></div>
-                                <h5 class="course-card-title"><%# Eval("Title") %></h5>
-                            </div>
-                            <div class="course-card-body">
-                                <p class="course-card-desc"><%# Eval("Description") %></p>
-                                <div class="course-card-meta">
-                                    <span><i class="fas fa-signal me-1"></i><%# Eval("DifficultyLevel") %></span>
-                                    <span><i class="fas fa-clock me-1"></i><%# Eval("Duration") %></span>
-                                </div>
-                            </div>
-                            <div class="course-card-footer">
-                                <span class="text-muted small">
-                                    <i class="fas fa-users me-1"></i><%# Eval("EnrollmentCount") %> enrolled
-                                </span>
-                                <a href="<%: ResolveUrl("~/Courses/CourseDetail.aspx") %>?id=<%# Eval("CourseID") %>"
-                                   class="btn btn-primary btn-sm">View Course<i class="fas fa-arrow-right ms-1"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </ItemTemplate>
-                <FooterTemplate>
-                    </div>
-                </FooterTemplate>
-            </asp:Repeater>
-            <div class="text-center mt-5">
-                <a href="Courses/CourseList.aspx" class="btn btn-outline-primary btn-lg px-5">
-                    <i class="fas fa-th-large me-2"></i>View All Courses
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CTA ===== -->
-    <section class="py-5 home-cta-section" style="padding-top:5rem !important;padding-bottom:5rem !important;">
-        <div class="container text-center text-white position-relative" style="z-index:2;">
-            <div class="hero-eyebrow mx-auto mb-3">
-                <span class="pulse"></span><span>Free &middot; Self-paced &middot; Evidence-based</span>
-            </div>
-            <h2 class="fw-bold mb-3" style="font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.035em;background:linear-gradient(135deg,#fff,#C7D2FE);-webkit-background-clip:text;background-clip:text;color:transparent;">
-                Ready to prioritise your mental health?
-            </h2>
-            <p class="mb-4 mx-auto" style="color:rgba(255,255,255,0.70);max-width:560px;font-size:1.05rem;">
-                Join students and young adults already learning with MindSpace. It's free, evidence-based, and self-paced.
+    <!-- ===== MANIFESTO ===== -->
+    <section class="home-manifesto">
+        <div class="home-manifesto-inner reveal">
+            <div class="home-manifesto-eyebrow">Our quiet manifesto</div>
+            <p class="home-manifesto-quote">
+                Mental health isn&rsquo;t a destination, it&rsquo;s a <span class="accent">practice</span>.
+                Small habits, repeated gently, change the shape of a week &mdash; and over time, the shape of a life.
             </p>
+            <div class="home-manifesto-signature">
+                <span>The MindSpace team</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="home-steps">
+        <div class="section-head-split reveal">
+            <div>
+                <span class="section-eyebrow">In Three Quiet Steps</span>
+                <h2 class="section-title">A <span class="accent">gentle</span> path to start</h2>
+            </div>
+            <p class="section-intro mb-0">No long sign-ups. No noisy gamification. Just a clear way in.</p>
+        </div>
+        <div class="home-steps-grid">
+            <div class="home-step reveal">
+                <div class="home-step-num">01</div>
+                <h5>Create a free account</h5>
+                <p>Username, email, and a password. That&rsquo;s all we ask for. No upsells.</p>
+            </div>
+            <div class="home-step reveal">
+                <div class="home-step-num">02</div>
+                <h5>Pick a topic that fits</h5>
+                <p>Stress, sleep, anxiety, self-care &mdash; start where life is asking for attention.</p>
+            </div>
+            <div class="home-step reveal">
+                <div class="home-step-num">03</div>
+                <h5>Practice in small doses</h5>
+                <p>Short readings, guided videos, and reflective quizzes. Five to ten minutes is enough.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BENTO CATEGORY GRID ===== -->
+    <section class="home-bento">
+        <div class="section-head-split reveal">
+            <div>
+                <span class="section-eyebrow">Explore By Topic</span>
+                <h2 class="section-title">Choose where to <span class="accent">begin</span></h2>
+            </div>
+            <a href="Courses/CourseList.aspx" class="btn btn-outline-primary">All topics <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+        <div class="home-bento-grid">
+            <a href="Courses/CourseList.aspx" class="bento-tile t1 lg">
+                <div class="bento-tile-inner">
+                    <span class="bento-tile-eyebrow">Most popular</span>
+                    <div>
+                        <h3 class="bento-tile-title">Mindfulness &amp; Meditation</h3>
+                        <div class="bento-tile-meta">Stay present, breathe, and notice without judgement.</div>
+                    </div>
+                </div>
+            </a>
+            <a href="Courses/CourseList.aspx" class="bento-tile t2">
+                <div class="bento-tile-inner">
+                    <span class="bento-tile-eyebrow">Care for yourself</span>
+                    <div>
+                        <h3 class="bento-tile-title">Self-Care</h3>
+                        <div class="bento-tile-meta">Daily rituals to recharge.</div>
+                    </div>
+                </div>
+            </a>
+            <a href="Courses/CourseList.aspx" class="bento-tile t3">
+                <div class="bento-tile-inner">
+                    <span class="bento-tile-eyebrow">Rest deeply</span>
+                    <div>
+                        <h3 class="bento-tile-title">Sleep Hygiene</h3>
+                        <div class="bento-tile-meta">Habits for restorative sleep.</div>
+                    </div>
+                </div>
+            </a>
+            <a href="Courses/CourseList.aspx" class="bento-tile t4">
+                <div class="bento-tile-inner">
+                    <span class="bento-tile-eyebrow">Soften worry</span>
+                    <div>
+                        <h3 class="bento-tile-title">Anxiety</h3>
+                        <div class="bento-tile-meta">Tools to ground yourself.</div>
+                    </div>
+                </div>
+            </a>
+            <a href="Courses/CourseList.aspx" class="bento-tile t5">
+                <div class="bento-tile-inner">
+                    <span class="bento-tile-eyebrow">Bounce forward</span>
+                    <div>
+                        <h3 class="bento-tile-title">Resilience</h3>
+                        <div class="bento-tile-meta">Strength after setbacks.</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED COURSES (magazine: big + side stack) ===== -->
+    <section class="home-featured">
+        <div class="section-head-split reveal">
+            <div>
+                <span class="section-eyebrow">Curated For This Month</span>
+                <h2 class="section-title">Start with a <span class="accent">handpicked</span> course</h2>
+            </div>
+            <a href="Courses/CourseList.aspx" class="btn btn-outline-primary">View all <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+        <asp:Repeater ID="rptCourses" runat="server">
+            <HeaderTemplate><div class="home-featured-grid"></HeaderTemplate>
+            <ItemTemplate>
+                <asp:PlaceHolder runat="server" Visible='<%# Container.ItemIndex == 0 %>'>
+                    <a class='feature-course-big cat-<%# GetCatClass(Eval("Category").ToString()) %>'
+                       href='<%# "Courses/CourseDetail.aspx?id=" + Eval("CourseID") %>'>
+                        <div class="feature-course-big-body">
+                            <span style="display:inline-block; background:rgba(255,255,255,0.18); backdrop-filter:blur(8px); padding:5px 14px; border-radius:99px; font-size:0.7rem; font-weight:600; color:#fff; text-transform:uppercase; letter-spacing:0.08em;">
+                                <%# Eval("Category") %>
+                            </span>
+                            <h3><%# Eval("Title") %></h3>
+                            <p><%# Eval("Description") %></p>
+                            <span class="btn btn-light btn-sm" style="color:var(--color-primary); font-weight:700;">
+                                Start course <i class="fa-solid fa-arrow-right ms-1"></i>
+                            </span>
+                        </div>
+                    </a>
+                </asp:PlaceHolder>
+                <asp:PlaceHolder runat="server" Visible='<%# Container.ItemIndex > 0 %>'>
+                    <a class="feature-course-side"
+                       href='<%# "Courses/CourseDetail.aspx?id=" + Eval("CourseID") %>'>
+                        <div class='feature-course-side-img cat-<%# GetCatClass(Eval("Category").ToString()) %>'></div>
+                        <div class="feature-course-side-body">
+                            <span class="cat-tag"><%# Eval("Category") %></span>
+                            <h6><%# Eval("Title") %></h6>
+                            <div class="meta"><i class="fa-regular fa-clock me-1"></i><%# Eval("Duration") %> &middot; <%# Eval("DifficultyLevel") %></div>
+                        </div>
+                    </a>
+                </asp:PlaceHolder>
+            </ItemTemplate>
+            <FooterTemplate></div></FooterTemplate>
+        </asp:Repeater>
+    </section>
+
+    <!-- ===== VOICES / TESTIMONIALS ===== -->
+    <section class="home-voices">
+        <div class="section-head-split reveal" style="justify-content: center; text-align: center;">
+            <div>
+                <span class="section-eyebrow">In Their Words</span>
+                <h2 class="section-title">Voices from <span class="accent">our community</span></h2>
+            </div>
+        </div>
+        <div class="home-voices-grid">
+            <div class="voice-card reveal">
+                <p class="voice-quote">
+                    The Sleep Hygiene course rewired my late-night doom-scrolling. I&rsquo;m sleeping seven hours again for the first time in two semesters.
+                </p>
+                <div class="voice-author">
+                    <div class="voice-author-avatar">M</div>
+                    <div class="voice-author-info">
+                        <div class="name">Maya R.</div>
+                        <div class="role">Final-year student</div>
+                    </div>
+                </div>
+            </div>
+            <div class="voice-card reveal">
+                <p class="voice-quote">
+                    Short, evidence-based, no fluff. I dip in for ten minutes between lectures and actually feel a little calmer.
+                </p>
+                <div class="voice-author">
+                    <div class="voice-author-avatar">J</div>
+                    <div class="voice-author-info">
+                        <div class="name">Jonas K.</div>
+                        <div class="role">Computer science major</div>
+                    </div>
+                </div>
+            </div>
+            <div class="voice-card reveal">
+                <p class="voice-quote">
+                    The resilience module helped me name what I was going through. Naming it was the first step out of the spiral.
+                </p>
+                <div class="voice-author">
+                    <div class="voice-author-avatar">S</div>
+                    <div class="voice-author-info">
+                        <div class="name">Sarah C.</div>
+                        <div class="role">Postgraduate researcher</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OUTRO CTA ===== -->
+    <section class="home-outro">
+        <div class="home-outro-inner reveal">
+            <h2>Begin a quieter <span class="accent">five minutes</span> today.</h2>
+            <p>Free, private, self-paced. The kindest thing you can do for yourself this week takes less time than scrolling.</p>
             <asp:Panel ID="pnlCTAGuest" runat="server">
-                <a href="Register.aspx" class="btn btn-warning btn-lg px-5 me-2 mb-2">
-                    <i class="fas fa-user-plus me-2"></i>Create Free Account
-                </a>
-                <a href="Login.aspx" class="btn btn-outline-light btn-lg px-5 mb-2">
-                    <i class="fas fa-sign-in-alt me-2"></i>Sign In
-                </a>
+                <a href="Register.aspx" class="btn btn-primary btn-lg me-2">Create free account</a>
+                <a href="Login.aspx" class="btn btn-outline-light btn-lg">Sign in</a>
             </asp:Panel>
             <asp:Panel ID="pnlCTAUser" runat="server" Visible="false">
-                <a href="User/UserHome.aspx" class="btn btn-warning btn-lg px-5">
-                    <i class="fas fa-tachometer-alt me-2"></i>Go to My Dashboard
-                </a>
+                <a href="User/UserHome.aspx" class="btn btn-primary btn-lg">Go to my dashboard</a>
             </asp:Panel>
         </div>
     </section>
 
+    <!-- ===== FOOTER ===== -->
+    <footer class="landing-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-5 col-lg-4">
+                    <h6 style="margin-bottom: 16px; display:flex; align-items:center; gap:10px;">
+                        <span style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#7C6FCD,#9D8FE0);display:inline-flex;align-items:center;justify-content:center;"><i class="fa-solid fa-brain"></i></span>
+                        MindSpace
+                    </h6>
+                    <p style="font-size: var(--text-sm); line-height: 1.7; max-width: 320px;">
+                        A quiet learning platform for mental wellness literacy &mdash; evidence-based, self-paced, free.
+                    </p>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6>Platform</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="<%: ResolveUrl("~/Default.aspx") %>">Home</a></li>
+                        <li><a href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>">Courses</a></li>
+                        <li><a href="<%: ResolveUrl("~/Register.aspx") %>">Register</a></li>
+                        <li><a href="<%: ResolveUrl("~/Login.aspx") %>">Sign In</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <h6>Topics</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="Courses/CourseList.aspx">Stress Management</a></li>
+                        <li><a href="Courses/CourseList.aspx">Mindfulness</a></li>
+                        <li><a href="Courses/CourseList.aspx">Anxiety</a></li>
+                        <li><a href="Courses/CourseList.aspx">Sleep Hygiene</a></li>
+                        <li><a href="Courses/CourseList.aspx">Resilience</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-12 col-lg-3">
+                    <h6>Contact</h6>
+                    <p style="font-size: var(--text-sm); margin: 0; line-height: 1.7;">
+                        Questions? Reach out at<br />
+                        <a href="mailto:hello@mindspace.io">hello@mindspace.io</a>
+                    </p>
+                </div>
+            </div>
+            <div class="landing-footer-bottom">
+                &copy; 2026 MindSpace &mdash; Crafted with care for mental wellness.
+            </div>
+        </div>
+    </footer>
+
+</asp:Content>
+
+<asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
+<script>
+    // Image rendering for the featured course cards is server-side via inline expressions;
+    // see RenderBigCourse / RenderSideCourse helpers below (markup-only inline funcs).
+</script>
 </asp:Content>
