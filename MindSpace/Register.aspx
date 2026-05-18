@@ -33,14 +33,11 @@
                 <label class="form-label">Username <span class="text-danger">*</span></label>
                 <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"
                     placeholder="Choose a username (letters, numbers, _)" MaxLength="50" />
-                <asp:RequiredFieldValidator ID="rfvUsername" runat="server"
-                    ControlToValidate="txtUsername" ErrorMessage="Username is required."
-                    CssClass="validation-error" Display="Dynamic" />
-                <asp:RegularExpressionValidator ID="revUsername" runat="server"
+                <asp:CustomValidator ID="cvUsername" runat="server"
                     ControlToValidate="txtUsername"
-                    ValidationExpression="^[A-Za-z0-9_]{3,50}$"
-                    ErrorMessage="Username must be 3-50 characters: letters, numbers, or underscore."
-                    CssClass="validation-error" Display="Dynamic" />
+                    ErrorMessage="Invalid username."
+                    CssClass="validation-error" Display="Dynamic"
+                    OnServerValidate="ValidateUsername" />
                 <span id="usernameFeedback" class="validation-error"></span>
             </div>
 
@@ -49,14 +46,11 @@
                 <label class="form-label">Email Address <span class="text-danger">*</span></label>
                 <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" CssClass="form-control"
                     placeholder="your@email.com" MaxLength="100" />
-                <asp:RequiredFieldValidator ID="rfvEmail" runat="server"
-                    ControlToValidate="txtEmail" ErrorMessage="Email is required."
-                    CssClass="validation-error" Display="Dynamic" />
-                <asp:RegularExpressionValidator ID="revEmail" runat="server"
+                <asp:CustomValidator ID="cvEmail" runat="server"
                     ControlToValidate="txtEmail"
-                    ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$"
-                    ErrorMessage="Please enter a valid email address."
-                    CssClass="validation-error" Display="Dynamic" />
+                    ErrorMessage="Invalid email."
+                    CssClass="validation-error" Display="Dynamic"
+                    OnServerValidate="ValidateEmail" />
                 <span id="emailFeedback" class="validation-error"></span>
             </div>
 
@@ -71,14 +65,11 @@
                         <i class="fas fa-eye" id="eyeReg1"></i>
                     </button>
                 </div>
-                <asp:RequiredFieldValidator ID="rfvPassword" runat="server"
-                    ControlToValidate="txtPassword" ErrorMessage="Password is required."
-                    CssClass="validation-error" Display="Dynamic" />
-                <asp:RegularExpressionValidator ID="revPassword" runat="server"
+                <asp:CustomValidator ID="cvPassword" runat="server"
                     ControlToValidate="txtPassword"
-                    ValidationExpression=".&#123;8,&#125;"
-                    ErrorMessage="Password must be at least 8 characters."
-                    CssClass="validation-error" Display="Dynamic" />
+                    ErrorMessage="Invalid password."
+                    CssClass="validation-error" Display="Dynamic"
+                    OnServerValidate="ValidatePassword" />
                 <!-- Password strength bar -->
                 <div class="progress mt-2" style="height:5px;" title="Password strength">
                     <div id="pwdStrengthBar" class="progress-bar" style="width:0%;transition:width 0.3s;"></div>
@@ -100,13 +91,11 @@
                         <i class="fas fa-eye" id="eyeReg2"></i>
                     </button>
                 </div>
-                <asp:RequiredFieldValidator ID="rfvConfirmPassword" runat="server"
-                    ControlToValidate="txtConfirmPassword" ErrorMessage="Please confirm your password."
-                    CssClass="validation-error" Display="Dynamic" />
-                <asp:CompareValidator ID="cvPassword" runat="server"
-                    ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword"
-                    ErrorMessage="Passwords do not match."
-                    CssClass="validation-error" Display="Dynamic" />
+                <asp:CustomValidator ID="cvConfirmPassword" runat="server"
+                    ControlToValidate="txtConfirmPassword"
+                    ErrorMessage="Invalid confirmation."
+                    CssClass="validation-error" Display="Dynamic"
+                    OnServerValidate="ValidateConfirmPassword" />
                 <span id="confirmFeedback" class="validation-error"></span>
             </div>
 
@@ -139,6 +128,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+        // Make all validation error elements visible (with !important to override inline styles)
+        var errors = document.querySelectorAll('.validation-error');
+        errors.forEach(function(el) {
+            el.style.setProperty('visibility', 'visible', 'important');
+        });
+
         var pwdField = document.getElementById('<%: txtPassword.ClientID %>');
         var bar      = document.getElementById('pwdStrengthBar');
         var label    = document.getElementById('pwdStrengthLabel');

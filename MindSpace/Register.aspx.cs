@@ -1,7 +1,9 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace MindSpace
 {
@@ -17,6 +19,91 @@ namespace MindSpace
                     Response.Redirect(role == "admin" ? "~/Admin/AdminHome.aspx" : "~/User/UserHome.aspx");
                 }
             }
+        }
+
+        protected void ValidateUsername(object source, ServerValidateEventArgs e)
+        {
+            string username = e.Value.Trim();
+            var validator = (CustomValidator)source;
+            if (string.IsNullOrEmpty(username))
+            {
+                e.IsValid = false;
+                validator.ErrorMessage = "Username is required.";
+                validator.Style["visibility"] = "visible";
+                return;
+            }
+            if (!Regex.IsMatch(username, @"^[A-Za-z0-9_]{3,50}$"))
+            {
+                e.IsValid = false;
+                validator.ErrorMessage = "Username must be 3-50 characters: letters, numbers, or underscore.";
+                validator.Style["visibility"] = "visible";
+                return;
+            }
+            e.IsValid = true;
+        }
+
+        protected void ValidateEmail(object source, ServerValidateEventArgs e)
+        {
+            string email = e.Value.Trim();
+            var validator = (CustomValidator)source;
+            if (string.IsNullOrEmpty(email))
+            {
+                e.IsValid = false;
+                validator.ErrorMessage = "Email is required.";
+                validator.Style["visibility"] = "visible";
+                return;
+            }
+            if (!Regex.IsMatch(email, @"^[^\s@]+@[^\s@]+\.[^\s@]+$"))
+            {
+                e.IsValid = false;
+                validator.ErrorMessage = "Please enter a valid email address.";
+                validator.Style["visibility"] = "visible";
+                return;
+            }
+            e.IsValid = true;
+        }
+
+        protected void ValidatePassword(object source, ServerValidateEventArgs e)
+        {
+            string password = e.Value;
+            var validator = (CustomValidator)source;
+            if (string.IsNullOrEmpty(password))
+            {
+                e.IsValid = false;
+                validator.ErrorMessage = "Password is required.";
+                validator.Style["visibility"] = "visible";
+                return;
+            }
+            if (password.Length < 8)
+            {
+                e.IsValid = false;
+                validator.ErrorMessage = "Password must be at least 8 characters.";
+                validator.Style["visibility"] = "visible";
+                return;
+            }
+            e.IsValid = true;
+        }
+
+        protected void ValidateConfirmPassword(object source, ServerValidateEventArgs e)
+        {
+            string password = txtPassword.Text;
+            string confirm = e.Value;
+            var validator = (CustomValidator)source;
+            if (string.IsNullOrEmpty(confirm))
+            {
+                e.IsValid = false;
+                validator.ErrorMessage = "Please confirm your password.";
+                validator.Style["visibility"] = "visible";
+                return;
+            }
+            if (password != confirm)
+            {
+                e.IsValid = false;
+                validator.ErrorMessage = "Passwords do not match.";
+                validator.Style["visibility"] = "visible";
+                return;
+            }
+            e.IsValid = true;
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)

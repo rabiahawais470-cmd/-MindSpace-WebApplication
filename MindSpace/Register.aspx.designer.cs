@@ -7,18 +7,14 @@
 namespace MindSpace {
     public partial class RegisterPage {
         protected global::System.Web.UI.WebControls.Button btnRegister;
-        protected global::System.Web.UI.WebControls.CompareValidator cvPassword;
+        protected global::System.Web.UI.WebControls.CustomValidator cvUsername;
+        protected global::System.Web.UI.WebControls.CustomValidator cvEmail;
+        protected global::System.Web.UI.WebControls.CustomValidator cvPassword;
+        protected global::System.Web.UI.WebControls.CustomValidator cvConfirmPassword;
         protected global::System.Web.UI.WebControls.Literal litError;
         protected global::System.Web.UI.Control MainContent;
         protected global::System.Web.UI.WebControls.Panel pnlError;
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmail;
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revPassword;
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revUsername;
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvConfirmPassword;
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFullName;
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsername;
         protected global::System.Web.UI.Control ScriptContent;
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
         protected global::System.Web.UI.WebControls.TextBox txtEmail;

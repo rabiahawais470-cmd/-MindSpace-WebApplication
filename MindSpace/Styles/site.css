@@ -2064,7 +2064,8 @@ body::before {
 .text-primary-ms    { color: var(--ms-primary) !important; }
 .bg-primary-ms      { background: var(--ms-primary) !important; }
 .border-primary-ms  { border-color: var(--ms-primary) !important; }
-.validation-error   { color: var(--ms-danger); font-size: 0.78rem; display: block; margin-top: 0.3rem; font-weight: 500; }
+.validation-error   { color: var(--ms-danger); font-size: 0.78rem; display: block; margin-top: 0.3rem; font-weight: 500; visibility: visible !important; }
+.validation-error:empty { display: none !important; }
 
 .text-gradient {
     background: var(--grad-primary);
