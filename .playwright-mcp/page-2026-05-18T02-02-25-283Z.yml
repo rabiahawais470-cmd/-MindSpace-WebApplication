@@ -1,0 +1,402 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - listitem [ref=e10]:
+          - link " Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /User/UserHome.aspx
+            - generic [ref=e12]: 
+            - text: Dashboard
+        - listitem [ref=e13]:
+          - link " Courses" [ref=e14] [cursor=pointer]:
+            - /url: /Courses/CourseList.aspx
+            - generic [ref=e15]: 
+            - text: Courses
+        - listitem [ref=e16]:
+          - link " Discussions" [ref=e17] [cursor=pointer]:
+            - /url: /User/Discussions.aspx
+            - generic [ref=e18]: 
+            - text: Discussions
+        - listitem [ref=e19]:
+          - link " Progress" [ref=e20] [cursor=pointer]:
+            - /url: /User/ProgressTracking.aspx
+            - generic [ref=e21]: 
+            - text: Progress
+        - listitem [ref=e22]:
+          - button " Alex Johnson" [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]: 
+            - generic [ref=e25]: Alex Johnson
+          - text:   
+  - generic [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e32]: Learning Analytics
+      - heading "My Learning Progress" [level=2] [ref=e33]
+      - paragraph [ref=e34]: Track your journey and celebrate every milestone.
+    - generic [ref=e35]:
+      - link " Dashboard" [ref=e36] [cursor=pointer]:
+        - /url: UserHome.aspx
+        - generic [ref=e37]: 
+        - text: Dashboard
+      - link "+ Explore Courses" [ref=e38] [cursor=pointer]:
+        - /url: ../Courses/CourseList.aspx
+        - generic [ref=e39]: +
+        - text: Explore Courses
+  - generic [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e43]:
+        - generic [ref=e45]: "%"
+        - generic [ref=e46]:
+          - generic [ref=e47]: 72%
+          - generic [ref=e48]: Overall Progress
+      - generic [ref=e50]:
+        - generic [ref=e52]: 
+        - generic [ref=e53]:
+          - generic [ref=e54]: "2"
+          - generic [ref=e55]: Quizzes Taken
+      - generic [ref=e57]:
+        - generic [ref=e59]: 
+        - generic [ref=e60]:
+          - generic [ref=e61]: "3"
+          - generic [ref=e62]: Forum Contributions
+      - generic [ref=e64]:
+        - generic [ref=e66]: 
+        - generic [ref=e67]:
+          - generic [ref=e68]: 2.5h
+          - generic [ref=e69]: Time on Platform
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - heading " Course Progress" [level=5] [ref=e73]:
+            - generic [ref=e74]: 
+            - text: Course Progress
+          - link "Browse all →" [ref=e75] [cursor=pointer]:
+            - /url: ../Courses/CourseList.aspx
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - generic [ref=e79]: Self-Care
+              - heading "Self-Care & Emotional Wellbeing" [level=6] [ref=e80]:
+                - link "Self-Care & Emotional Wellbeing" [ref=e81] [cursor=pointer]:
+                  - /url: ../Courses/CourseDetail.aspx?id=7
+            - generic [ref=e83]: 50% done
+          - progressbar [ref=e85]
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - generic [ref=e88]: 
+              - text: 0/1 quiz(zes) passed •
+              - generic [ref=e89]: 
+              - text: 50% complete •
+              - generic [ref=e90]: 
+              - text: Enrolled 17 May 2026
+            - link "Continue " [ref=e91] [cursor=pointer]:
+              - /url: ../Courses/CourseDetail.aspx?id=7
+              - text: Continue
+              - generic [ref=e92]: 
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - generic [ref=e96]: Mindfulness
+              - heading "Mindfulness & Meditation" [level=6] [ref=e97]:
+                - link "Mindfulness & Meditation" [ref=e98] [cursor=pointer]:
+                  - /url: ../Courses/CourseDetail.aspx?id=2
+            - generic [ref=e100]: 40% done
+          - progressbar [ref=e102]
+          - generic [ref=e103]:
+            - generic [ref=e104]:
+              - generic [ref=e105]: 
+              - text: 0/1 quiz(zes) passed •
+              - generic [ref=e106]: 
+              - text: 40% complete •
+              - generic [ref=e107]: 
+              - text: Enrolled 16 May 2026
+            - link "Continue " [ref=e108] [cursor=pointer]:
+              - /url: ../Courses/CourseDetail.aspx?id=2
+              - text: Continue
+              - generic [ref=e109]: 
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - generic [ref=e113]: Anxiety
+              - heading "Understanding Anxiety" [level=6] [ref=e114]:
+                - link "Understanding Anxiety" [ref=e115] [cursor=pointer]:
+                  - /url: ../Courses/CourseDetail.aspx?id=3
+            - generic [ref=e117]:
+              - generic [ref=e118]: 
+              - text: Completed
+          - progressbar [ref=e120]
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - generic [ref=e123]: 
+              - text: 1/1 quiz(zes) passed •
+              - generic [ref=e124]: 
+              - text: 100% complete •
+              - generic [ref=e125]: 
+              - text: Enrolled 16 May 2026
+            - link "Review " [ref=e126] [cursor=pointer]:
+              - /url: ../Courses/CourseDetail.aspx?id=3
+              - text: Review
+              - generic [ref=e127]: 
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - generic [ref=e130]:
+              - generic [ref=e131]: Stress Management
+              - heading "Stress Management Fundamentals" [level=6] [ref=e132]:
+                - link "Stress Management Fundamentals" [ref=e133] [cursor=pointer]:
+                  - /url: ../Courses/CourseDetail.aspx?id=1
+            - generic [ref=e135]:
+              - generic [ref=e136]: 
+              - text: Completed
+          - progressbar [ref=e138]
+          - generic [ref=e139]:
+            - generic [ref=e140]:
+              - generic [ref=e141]: 
+              - text: 1/1 quiz(zes) passed •
+              - generic [ref=e142]: 
+              - text: 100% complete •
+              - generic [ref=e143]: 
+              - text: Enrolled 16 May 2026
+            - link "Review " [ref=e144] [cursor=pointer]:
+              - /url: ../Courses/CourseDetail.aspx?id=1
+              - text: Review
+              - generic [ref=e145]: 
+        - generic [ref=e147]:
+          - heading " Quiz Score History" [level=6] [ref=e148]:
+            - generic [ref=e149]: 
+            - text: Quiz Score History
+          - link "Take a quiz →" [ref=e150] [cursor=pointer]:
+            - /url: ../Courses/CourseList.aspx
+        - generic [ref=e153]:
+          - heading " Recent Activity" [level=6] [ref=e154]:
+            - generic [ref=e155]: 
+            - text: Recent Activity
+          - generic [ref=e156]:
+            - generic [ref=e158]: 
+            - generic [ref=e159]:
+              - generic [ref=e160]: "Viewed resources: Self-Care & Emotional Wellbeing"
+              - generic [ref=e161]: Content viewed • 17 May 2026, 20:05
+          - generic [ref=e162]:
+            - generic [ref=e164]: 
+            - generic [ref=e165]:
+              - generic [ref=e166]: Enrolled in Self-Care & Emotional Wellbeing
+              - generic [ref=e167]: Self-Care • 17 May 2026, 20:05
+          - generic [ref=e168]:
+            - generic [ref=e170]: 
+            - generic [ref=e171]:
+              - generic [ref=e172]: "Passed: Stress Management"
+              - generic [ref=e173]: 100% (3/3) • 16 May 2026, 18:39
+          - generic [ref=e174]:
+            - generic [ref=e176]: 
+            - generic [ref=e177]:
+              - generic [ref=e178]: "Passed: Understanding Anxiety"
+              - generic [ref=e179]: 100% (3/3) • 16 May 2026, 18:36
+          - generic [ref=e180]:
+            - generic [ref=e182]: 
+            - generic [ref=e183]:
+              - generic [ref=e184]: Enrolled in Understanding Anxiety
+              - generic [ref=e185]: Anxiety • 16 May 2026, 18:35
+          - generic [ref=e186]:
+            - generic [ref=e188]: 
+            - generic [ref=e189]:
+              - generic [ref=e190]: "Replied in: Has anyone tried the 4-7-8 breathing technique?"
+              - generic [ref=e191]: Forum discussion reply • 16 May 2026, 17:43
+          - generic [ref=e192]:
+            - generic [ref=e194]: 
+            - generic [ref=e195]:
+              - generic [ref=e196]: "Replied in: Managing anxiety during exam season - share your tips!"
+              - generic [ref=e197]: Forum discussion reply • 16 May 2026, 17:43
+          - generic [ref=e198]:
+            - generic [ref=e200]: 
+            - generic [ref=e201]:
+              - generic [ref=e202]: "Posted: What mindfulness technique works best for you?"
+              - generic [ref=e203]: New discussion thread • 16 May 2026, 17:43
+          - generic [ref=e204]:
+            - generic [ref=e206]: 
+            - generic [ref=e207]:
+              - generic [ref=e208]: Enrolled in Mindfulness & Meditation
+              - generic [ref=e209]: Mindfulness • 16 May 2026, 17:43
+          - generic [ref=e210]:
+            - generic [ref=e212]: 
+            - generic [ref=e213]:
+              - generic [ref=e214]: Enrolled in Stress Management Fundamentals
+              - generic [ref=e215]: Stress Management • 16 May 2026, 17:43
+      - generic [ref=e216]:
+        - generic [ref=e217]:
+          - heading " Quiz Performance" [level=6] [ref=e218]:
+            - generic [ref=e219]: 
+            - text: Quiz Performance
+          - generic [ref=e221]:
+            - generic [ref=e222]: 100%
+            - generic [ref=e223]: Avg Score
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - generic [ref=e226]:
+                - generic [ref=e227]: 
+                - text: Best Score
+              - generic [ref=e228]: 100%
+            - generic [ref=e229]:
+              - generic [ref=e230]:
+                - generic [ref=e231]: 
+                - text: Quizzes Passed
+              - generic [ref=e232]: "2"
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - generic [ref=e235]: "%"
+                - text: Pass Rate
+              - generic [ref=e236]: 100%
+        - generic [ref=e237]:
+          - heading " vs. Class Average" [level=6] [ref=e238]:
+            - generic [ref=e239]: 
+            - text: vs. Class Average
+          - generic [ref=e240]:
+            - generic [ref=e241]:
+              - generic [ref=e242]: Course Progress
+              - generic [ref=e243]:
+                - generic [ref=e244]: 
+                - text: Above avg
+            - generic [ref=e246]:
+              - generic [ref=e247]:
+                - text: You
+                - strong [ref=e248]: 72%
+              - generic [ref=e249]:
+                - text: Class avg
+                - strong [ref=e250]: 63%
+          - generic [ref=e255]:
+            - generic [ref=e256]:
+              - generic [ref=e257]: Quiz Score
+              - generic [ref=e258]:
+                - generic [ref=e259]: 
+                - text: Above avg
+            - generic [ref=e261]:
+              - generic [ref=e262]:
+                - text: You
+                - strong [ref=e263]: 100%
+              - generic [ref=e264]:
+                - text: Class avg
+                - strong [ref=e265]: 73%
+          - generic [ref=e270]:
+            - generic [ref=e271]: Forum Participation
+            - generic [ref=e272]: 3 contributions (above avg)
+          - generic [ref=e273]:
+            - generic [ref=e274]: You
+            - generic [ref=e276]: Class average
+        - generic [ref=e278]:
+          - heading " Achievements" [level=6] [ref=e279]:
+            - generic [ref=e280]: 
+            - text: Achievements
+          - generic [ref=e282]: 7/10 earned
+          - generic [ref=e283]:
+            - generic [ref=e284]: 🌱
+            - generic [ref=e285]:
+              - generic [ref=e286]: First Steps
+              - generic [ref=e287]: Enrolled in your first course
+          - generic [ref=e288]:
+            - generic [ref=e289]: 🎓
+            - generic [ref=e290]:
+              - generic [ref=e291]: Graduate
+              - generic [ref=e292]: Completed your first course
+          - generic [ref=e293]:
+            - generic [ref=e294]: 📚
+            - generic [ref=e295]:
+              - generic [ref=e296]: Avid Learner
+              - generic [ref=e297]: Enrolled in 3 or more courses
+          - generic [ref=e298]:
+            - generic [ref=e299]: 🏆
+            - generic [ref=e300]:
+              - generic [ref=e301]: Course Champion
+              - generic [ref=e302]: Completed 3 or more courses
+          - generic [ref=e303]:
+            - generic [ref=e304]: ✏️
+            - generic [ref=e305]:
+              - generic [ref=e306]: Quiz Taker
+              - generic [ref=e307]: Attempted your first quiz
+          - generic [ref=e308]:
+            - generic [ref=e309]: ✅
+            - generic [ref=e310]:
+              - generic [ref=e311]: Quiz Passer
+              - generic [ref=e312]: Passed your first quiz
+          - generic [ref=e313]:
+            - generic [ref=e314]: ⭐
+            - generic [ref=e315]:
+              - generic [ref=e316]: High Achiever
+              - generic [ref=e317]: Scored 70%+ on 3 or more quizzes
+          - generic [ref=e318]:
+            - generic [ref=e319]: 💬
+            - generic [ref=e320]:
+              - generic [ref=e321]: Community Voice
+              - generic [ref=e322]: Made your first forum post
+          - generic [ref=e323]:
+            - generic [ref=e324]: 🤝
+            - generic [ref=e325]:
+              - generic [ref=e326]: Forum Regular
+              - generic [ref=e327]: Made 5+ forum contributions
+          - generic [ref=e328]:
+            - generic [ref=e329]: 🔥
+            - generic [ref=e330]:
+              - generic [ref=e331]: Dedicated Learner
+              - generic [ref=e332]: Completed a quiz after 3 enrollments
+  - contentinfo [ref=e333]:
+    - generic [ref=e334]:
+      - generic [ref=e335]:
+        - generic [ref=e336]:
+          - heading " MindSpace" [level=5] [ref=e337]:
+            - generic [ref=e338]: 
+            - generic [ref=e339]: MindSpace
+          - paragraph [ref=e340]: A premium learning platform dedicated to mental wellness literacy for students and young adults — evidence-based, self-paced, free.
+          - generic [ref=e341]:
+            - generic [ref=e343]: 
+            - generic [ref=e345]: 
+            - generic [ref=e347]: 
+            - generic [ref=e349]: 
+        - generic [ref=e350]:
+          - heading "Platform" [level=6] [ref=e351]
+          - list [ref=e352]:
+            - listitem [ref=e353]:
+              - link "Home" [ref=e354] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e355]:
+              - link "Browse Courses" [ref=e356] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e357]:
+              - link "Register Free" [ref=e358] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e359]:
+              - link "Sign In" [ref=e360] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e361]:
+          - heading "Topics" [level=6] [ref=e362]
+          - list [ref=e363]:
+            - listitem [ref=e364]:
+              - generic [ref=e365]: 
+              - text: Stress
+            - listitem [ref=e366]:
+              - generic [ref=e367]: 
+              - text: Mindfulness
+            - listitem [ref=e368]:
+              - generic [ref=e369]: 
+              - text: Anxiety
+            - listitem [ref=e370]:
+              - generic [ref=e371]: 
+              - text: Sleep
+            - listitem [ref=e372]:
+              - generic [ref=e373]: 
+              - text: Resilience
+        - generic [ref=e374]:
+          - heading "Stay Well" [level=6] [ref=e375]
+          - paragraph [ref=e376]: One short wellness tip in your inbox each week. No spam.
+          - generic [ref=e377]:
+            - textbox "your@email.com" [ref=e378]
+            - button "Subscribe" [ref=e379] [cursor=pointer]
+      - separator [ref=e380]
+      - generic [ref=e381]:
+        - paragraph [ref=e382]: © 2026 MindSpace. Crafted with care for mental wellness.
+        - generic [ref=e383]:
+          - link "Privacy" [ref=e384] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms" [ref=e385] [cursor=pointer]:
+            - /url: "#"
+          - link "Contact" [ref=e386] [cursor=pointer]:
+            - /url: "#"

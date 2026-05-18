@@ -1,0 +1,210 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /Default.aspx
+        - link "Courses" [ref=e11] [cursor=pointer]:
+          - /url: /Courses/CourseList.aspx
+        - link "Login" [ref=e12] [cursor=pointer]:
+          - /url: /Login.aspx
+        - link "Register" [ref=e13] [cursor=pointer]:
+          - /url: /Register.aspx
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]: Resilience
+      - heading "Building Emotional Resilience" [level=1] [ref=e19]
+      - paragraph [ref=e20]: Develop the skills to bounce back from adversity, manage difficult emotions, and thrive under pressure. This course teaches resilience frameworks used by mental health professionals.
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: 
+          - text: Intermediate
+        - generic [ref=e24]:
+          - generic [ref=e25]: 
+          - text: 8 weeks
+        - generic [ref=e26]:
+          - generic [ref=e27]: 
+          - text: 1 enrolled
+    - generic [ref=e28]:
+      - generic [ref=e29]: 💪
+      - link " Login to Enroll" [ref=e31] [cursor=pointer]:
+        - /url: ../Login.aspx
+        - generic [ref=e32]: 
+        - text: Login to Enroll
+  - generic [ref=e33]:
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - heading " Learning Resources" [level=4] [ref=e36]:
+          - generic [ref=e37]: 
+          - text: Learning Resources
+        - generic [ref=e39]:
+          - generic [ref=e41]: 
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - heading "What is Emotional Resilience?" [level=6] [ref=e44]
+              - generic [ref=e45]: article
+            - paragraph [ref=e46]: "Emotional resilience is the ability to adapt positively in the face of adversity, trauma, or significant stress. Resilient people do not avoid difficult emotions -- they process them effectively and grow from experience. Key dimensions: emotional regulation (manage emotions without being overwhelmed); cognitive flexibility (reframe situations and find alternative interpretations); social connectedness (strong relationships are the most powerful predictor of resilience); self-efficacy (belief in your ability to cope, built through experience); and purpose and meaning (a sense of why buffers against stress). Martin Seligman's PERMA model identifies five pillars of wellbeing: Positive Emotion, Engagement, Relationships, Meaning, and Accomplishment."
+        - generic [ref=e48]:
+          - generic [ref=e50]: 
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - heading "Building Your Resilience Toolkit" [level=6] [ref=e53]
+              - generic [ref=e54]: article
+            - paragraph [ref=e55]: "Resilience is a set of learnable skills. Evidence-based strategies: (1) Growth mindset -- view challenges as learning opportunities; replace \"I cannot do this\" with \"I cannot do this yet\"; (2) Gratitude practice -- write 3 specific things you appreciate daily, shown to increase wellbeing within 2-4 weeks; (3) Build your support network -- identify 3-5 people you can call when struggling; (4) Emotional vocabulary -- label emotions precisely rather than just \"bad\" (e.g. \"disappointed\", \"overwhelmed\", \"embarrassed\"); (5) Accept what you cannot control -- distinguish between what is and is not within your control; (6) Physical self-care -- sleep, exercise, and nutrition are foundational to resilience; (7) Post-traumatic growth journaling -- write about what happened, how you felt, what you learned, and how it has shaped you."
+        - generic [ref=e57]:
+          - generic [ref=e59]: 
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - heading "The Three Secrets of Resilient People - Lucy Hone (TEDx)" [level=6] [ref=e62]
+              - generic [ref=e63]: video
+            - iframe [ref=e65]:
+              - generic "YouTube Video Player" [ref=f21e3]:
+                - alert [ref=f21e4]:
+                  - generic [ref=f21e5]:
+                    - generic [ref=f21e6]:
+                      - img
+                    - generic [ref=f21e7]:
+                      - generic [ref=f21e8]: Video unavailable
+                      - generic [ref=f21e9]: This video is unavailable
+                  - link "Visit YouTube to search for more videos" [ref=f21e10] [cursor=pointer]:
+                    - /url: https://www.youtube.com
+                    - img
+        - generic [ref=e67]:
+          - generic [ref=e69]: 
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - heading "Resilience Self-Assessment Worksheet" [level=6] [ref=e72]
+              - generic [ref=e73]: download
+            - paragraph [ref=e74]: Download this resilience self-assessment to identify your current strengths, areas for growth, and create a personalised resilience-building action plan.
+            - link " Download Resource" [ref=e75] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e76]: 
+              - text: Download Resource
+      - generic [ref=e78]:
+        - heading " Available Quizzes" [level=5] [ref=e79]:
+          - generic [ref=e80]: 
+          - text: Available Quizzes
+        - generic [ref=e82]:
+          - generic [ref=e83]: 
+          - link "Login" [ref=e84] [cursor=pointer]:
+            - /url: ../Login.aspx
+          - text: and enroll to take quizzes.
+        - generic [ref=e85]:
+          - heading "Emotional Resilience" [level=6] [ref=e86]
+          - paragraph [ref=e87]: Assess your understanding of emotional resilience and coping mechanisms.
+          - generic [ref=e88]:
+            - generic [ref=e89]: "Pass: 70%"
+            - link " Take Quiz" [ref=e90] [cursor=pointer]:
+              - /url: /Courses/Quiz.aspx?quizID=5
+              - generic [ref=e91]: 
+              - text: Take Quiz
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - heading " Success Stories" [level=4] [ref=e94]:
+          - generic [ref=e95]: 
+          - text: Success Stories
+        - generic [ref=e96]: Hear from students who completed this course
+      - generic [ref=e97]:
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]: F
+            - generic [ref=e102]:
+              - generic [ref=e103]: Fatimah R.
+              - generic [ref=e104]: 17 May 2026
+          - generic [ref=e105]:
+            - generic [ref=e106]: 
+            - text: Bounced Back from Failure
+          - paragraph [ref=e107]:
+            - emphasis [ref=e108]: "\"After failing two subjects I thought my academic life was over. The growth mindset module reframed failure as data, not identity.\""
+          - generic [ref=e109]:
+            - generic [ref=e110]: 
+            - text: I retook both subjects and passed. More importantly I no longer fear failure. I treat it as a signal to adjust my strategy.
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: L
+            - generic [ref=e115]:
+              - generic [ref=e116]: Lucas M.
+              - generic [ref=e117]: 17 May 2026
+          - generic [ref=e118]:
+            - generic [ref=e119]: 
+            - text: Gratitude Rewired My Brain
+          - paragraph [ref=e120]:
+            - emphasis [ref=e121]: "\"I was deeply sceptical about gratitude journaling. Writing three specific things daily felt forced for a week, then something shifted.\""
+          - generic [ref=e122]:
+            - generic [ref=e123]: 
+            - text: After 21 days I naturally noticed positives throughout the day. My baseline mood lifted measurably. My friends noticed before I did.
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - generic [ref=e127]: A
+            - generic [ref=e128]:
+              - generic [ref=e129]: Amara D.
+              - generic [ref=e130]: 17 May 2026
+          - generic [ref=e131]:
+            - generic [ref=e132]: 
+            - text: Built My Support Network
+          - paragraph [ref=e133]:
+            - emphasis [ref=e134]: "\"The course made me realise I was trying to be resilient alone, which is exhausting. I identified five people I could be vulnerable with.\""
+          - generic [ref=e135]:
+            - generic [ref=e136]: 
+            - text: Having a support network means struggles feel temporary rather than permanent. I reach out now instead of isolating.
+        - generic [ref=e138]:
+          - generic [ref=e139]:
+            - generic [ref=e140]: K
+            - generic [ref=e141]:
+              - generic [ref=e142]: Kevin O.
+              - generic [ref=e143]: 17 May 2026
+          - generic [ref=e144]:
+            - generic [ref=e145]: 
+            - text: Post-Traumatic Growth
+          - paragraph [ref=e146]:
+            - emphasis [ref=e147]: "\"The journaling framework for processing difficult experiences helped me make sense of a really hard year. Writing it down externalised the pain.\""
+          - generic [ref=e148]:
+            - generic [ref=e149]: 
+            - text: I can talk about what happened without distress now. The experience became part of my story rather than a wound I carried.
+  - contentinfo [ref=e150]:
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - heading " MindSpace" [level=5] [ref=e154]:
+            - generic [ref=e155]: 
+            - text: MindSpace
+          - paragraph [ref=e156]: Empowering students and young adults with accessible mental health literacy resources.
+        - generic [ref=e157]:
+          - heading "Quick Links" [level=6] [ref=e158]
+          - list [ref=e159]:
+            - listitem [ref=e160]:
+              - link "Home" [ref=e161] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e162]:
+              - link "Browse Courses" [ref=e163] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e164]:
+              - link "Register Free" [ref=e165] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e166]:
+              - link "Login" [ref=e167] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e168]:
+          - heading "Mental Health Topics" [level=6] [ref=e169]
+          - list [ref=e170]:
+            - listitem [ref=e171]:
+              - generic [ref=e172]: 
+              - text: Stress Management
+            - listitem [ref=e173]:
+              - generic [ref=e174]: 
+              - text: Mindfulness & Meditation
+            - listitem [ref=e175]:
+              - generic [ref=e176]: 
+              - text: Anxiety Management
+            - listitem [ref=e177]:
+              - generic [ref=e178]: 
+              - text: Sleep Hygiene
+            - listitem [ref=e179]:
+              - generic [ref=e180]: 
+              - text: Emotional Resilience
+      - separator [ref=e181]
+      - paragraph [ref=e182]: © 2026 MindSpace — APU Web Applications Assignment — Group G29

@@ -1,0 +1,169 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /Default.aspx
+        - link "Courses" [ref=e11] [cursor=pointer]:
+          - /url: /Courses/CourseList.aspx
+        - link "Login" [ref=e12] [cursor=pointer]:
+          - /url: /Login.aspx
+        - link "Register" [ref=e13] [cursor=pointer]:
+          - /url: /Register.aspx
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]: Mindfulness
+      - heading "Mindfulness & Meditation" [level=1] [ref=e19]
+      - paragraph [ref=e20]: Explore the practice of mindfulness and meditation to cultivate present-moment awareness, reduce anxiety, and improve focus. Includes guided exercises and daily practice routines.
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: 
+          - text: Beginner
+        - generic [ref=e24]:
+          - generic [ref=e25]: 
+          - text: 6 weeks
+        - generic [ref=e26]:
+          - generic [ref=e27]: 
+          - text: 3 enrolled
+    - generic [ref=e28]:
+      - generic [ref=e29]: 🌿
+      - link " Login to Enroll" [ref=e31] [cursor=pointer]:
+        - /url: ../Login.aspx
+        - generic [ref=e32]: 
+        - text: Login to Enroll
+  - generic [ref=e34]:
+    - generic [ref=e35]:
+      - heading " Learning Resources" [level=4] [ref=e36]:
+        - generic [ref=e37]: 
+        - text: Learning Resources
+      - generic [ref=e39]:
+        - generic [ref=e41]: 
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - heading "Introduction to Mindfulness" [level=6] [ref=e44]
+            - generic [ref=e45]: article
+          - paragraph [ref=e46]:
+            - text: Mindfulness is the practice of intentionally directing your attention to the present moment with openness and without judgment. Rooted in Buddhist traditions but thoroughly validated by modern neuroscience, mindfulness has been shown to reduce anxiety, depression, and stress while improving focus, emotional regulation, and overall wellbeing.
+            - text: "Core mindfulness principles:"
+            - text: "- Present-moment awareness: focusing on what's happening now, not past regrets or future worries"
+            - text: "- Non-judgment: observing thoughts and feelings without labelling them as good or bad"
+            - text: "- Acceptance: allowing experiences to be as they are without fighting them"
+            - text: "- Beginner's mind: approaching each moment with curiosity and openness"
+            - text: Research from Harvard, Oxford, and other leading institutions confirms that regular mindfulness practice (as little as 10 minutes per day) can physically change brain structure, increasing grey matter in areas associated with learning, memory, and emotional regulation.
+      - generic [ref=e48]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - heading "All It Takes Is 10 Mindful Minutes - Andy Puddicombe (TED)" [level=6] [ref=e53]
+            - generic [ref=e54]: video
+          - iframe [ref=e56]:
+            - generic [active] [ref=f5e1]:
+              - generic "YouTube Video Player" [ref=f5e3]
+              - generic [ref=f5e5]:
+                - generic:
+                  - generic:
+                    - button "Play video" [ref=f5e10] [cursor=pointer]
+                    - button "Hide player controls" [ref=f5e12] [cursor=pointer]
+                    - generic [ref=f5e14]:
+                      - generic [ref=f5e19]:
+                        - generic [ref=f5e20]:
+                          - link "All it takes is 10 mindful minutes | Andy Puddicombe | TED" [ref=f5e21] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=qzR62JJCMBQ
+                          - link "TED" [ref=f5e22] [cursor=pointer]:
+                            - /url: /channel/UCAuUUnT6oDeKwE6v1NGQxug
+                            - generic [ref=f5e23]: TED
+                        - generic [ref=f5e24]:
+                          - button [ref=f5e25] [cursor=pointer]
+                          - generic [ref=f5e27]:
+                            - generic: TED
+                            - generic: 27.4M subscribers
+                      - generic [ref=f5e28]:
+                        - button "Share" [ref=f5e31] [cursor=pointer]:
+                          - generic [ref=f5e35]:
+                            - img
+                        - link "Watch on YouTube" [ref=f5e42] [cursor=pointer]:
+                          - /url: https://www.youtube.com/watch?v=qzR62JJCMBQ
+                          - generic [ref=f5e45]:
+                            - text: Watch on
+                            - img [ref=f5e47]:
+                              - generic [ref=f5e49]:
+                                - img
+      - generic [ref=e58]:
+        - generic [ref=e60]: 
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - heading "Mindfulness for Students - Guide" [level=6] [ref=e63]
+            - generic [ref=e64]: article
+          - paragraph [ref=e65]:
+            - text: "As a student, your mind is constantly pulled in multiple directions: lectures, assignments, social pressures, and future concerns. Mindfulness gives you the ability to choose where to direct your attention."
+            - text: "Simple mindfulness practices for students:"
+            - text: "1. Mindful morning routine (5 minutes): Before checking your phone, take 5 deep breaths and set a positive intention for the day."
+            - text: "2. Mindful eating: During at least one meal, put away devices and eat slowly, noticing flavours, textures, and sensations."
+            - text: "3. Study mindfulness: Before studying, take 3 deep breaths. Notice when your mind wanders and gently redirect attention to the material."
+            - text: "4. Mindful walking: During breaks between classes, walk slowly and notice the sensation of each step."
+            - text: "5. Evening reflection (3 minutes): Before sleep, reflect on 3 things you're grateful for from the day."
+    - generic [ref=e67]:
+      - heading " Available Quizzes" [level=5] [ref=e68]:
+        - generic [ref=e69]: 
+        - text: Available Quizzes
+      - generic [ref=e71]:
+        - generic [ref=e72]: 
+        - link "Login" [ref=e73] [cursor=pointer]:
+          - /url: ../Login.aspx
+        - text: and enroll to take quizzes.
+      - generic [ref=e74]:
+        - heading "Mindfulness & Meditation" [level=6] [ref=e75]
+        - paragraph [ref=e76]: Test your understanding of mindfulness principles and meditation practices.
+        - generic [ref=e77]:
+          - generic [ref=e78]: "Pass: 70%"
+          - link " Take Quiz" [ref=e79] [cursor=pointer]:
+            - /url: /Courses/Quiz.aspx?quizID=2
+            - generic [ref=e80]: 
+            - text: Take Quiz
+  - contentinfo [ref=e81]:
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - heading " MindSpace" [level=5] [ref=e85]:
+            - generic [ref=e86]: 
+            - text: MindSpace
+          - paragraph [ref=e87]: Empowering students and young adults with accessible mental health literacy resources.
+        - generic [ref=e88]:
+          - heading "Quick Links" [level=6] [ref=e89]
+          - list [ref=e90]:
+            - listitem [ref=e91]:
+              - link "Home" [ref=e92] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e93]:
+              - link "Browse Courses" [ref=e94] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e95]:
+              - link "Register Free" [ref=e96] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e97]:
+              - link "Login" [ref=e98] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e99]:
+          - heading "Mental Health Topics" [level=6] [ref=e100]
+          - list [ref=e101]:
+            - listitem [ref=e102]:
+              - generic [ref=e103]: 
+              - text: Stress Management
+            - listitem [ref=e104]:
+              - generic [ref=e105]: 
+              - text: Mindfulness & Meditation
+            - listitem [ref=e106]:
+              - generic [ref=e107]: 
+              - text: Anxiety Management
+            - listitem [ref=e108]:
+              - generic [ref=e109]: 
+              - text: Sleep Hygiene
+            - listitem [ref=e110]:
+              - generic [ref=e111]: 
+              - text: Emotional Resilience
+      - separator [ref=e112]
+      - paragraph [ref=e113]: © 2026 MindSpace — APU Web Applications Assignment — Group G29

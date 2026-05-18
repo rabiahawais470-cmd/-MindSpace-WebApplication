@@ -1,0 +1,81 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /Default.aspx
+        - link "Courses" [ref=e11] [cursor=pointer]:
+          - /url: /Courses/CourseList.aspx
+        - link "Login" [ref=e12] [cursor=pointer]:
+          - /url: /Login.aspx
+        - link "Register" [ref=e13] [cursor=pointer]:
+          - /url: /Register.aspx
+  - generic [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]: 
+      - heading "Welcome Back" [level=2] [ref=e18]
+      - paragraph [ref=e19]: Sign in to continue your mental wellness journey
+    - generic [ref=e21]:
+      - generic [ref=e22]: 
+      - text: Invalid username/email or password. Please try again.
+    - generic [ref=e23]:
+      - generic [ref=e24]: Username or Email
+      - textbox "Enter username or email" [ref=e25]: admin
+    - generic [ref=e26]:
+      - generic [ref=e27]: Password
+      - generic [ref=e28]:
+        - textbox "Enter password" [ref=e29]
+        - button "" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: 
+    - button "Sign In" [ref=e32] [cursor=pointer]
+    - generic [ref=e33]:
+      - text: Don't have an account?
+      - link "Create one free" [ref=e34] [cursor=pointer]:
+        - /url: Register.aspx
+  - contentinfo [ref=e35]:
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - heading " MindSpace" [level=5] [ref=e39]:
+            - generic [ref=e40]: 
+            - text: MindSpace
+          - paragraph [ref=e41]: Empowering students and young adults with accessible mental health literacy resources.
+        - generic [ref=e42]:
+          - heading "Quick Links" [level=6] [ref=e43]
+          - list [ref=e44]:
+            - listitem [ref=e45]:
+              - link "Home" [ref=e46] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e47]:
+              - link "Browse Courses" [ref=e48] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e49]:
+              - link "Register Free" [ref=e50] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e51]:
+              - link "Login" [ref=e52] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e53]:
+          - heading "Mental Health Topics" [level=6] [ref=e54]
+          - list [ref=e55]:
+            - listitem [ref=e56]:
+              - generic [ref=e57]: 
+              - text: Stress Management
+            - listitem [ref=e58]:
+              - generic [ref=e59]: 
+              - text: Mindfulness & Meditation
+            - listitem [ref=e60]:
+              - generic [ref=e61]: 
+              - text: Anxiety Management
+            - listitem [ref=e62]:
+              - generic [ref=e63]: 
+              - text: Sleep Hygiene
+            - listitem [ref=e64]:
+              - generic [ref=e65]: 
+              - text: Emotional Resilience
+      - separator [ref=e66]
+      - paragraph [ref=e67]: © 2026 MindSpace — APU Web Applications Assignment — Group G29

@@ -7,10 +7,11 @@
     <title><%: Page.Title %> - MindSpace</title>
     <link rel="icon" type="image/svg+xml" href="<%: ResolveUrl("~/favicon.svg") %>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<%: ResolveUrl("~/Styles/site.css") %>" rel="stylesheet" />
+    <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=3.2" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body>
@@ -91,40 +92,61 @@
 
         <!-- ===== FOOTER ===== -->
         <footer class="mindspace-footer py-5 mt-5">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-md-4">
+            <div class="container position-relative" style="z-index:1;">
+                <div class="row g-4 g-md-5">
+                    <div class="col-md-5 col-lg-4">
                         <h5 class="d-flex align-items-center gap-2">
-                            <i class="fas fa-brain text-warning"></i> MindSpace
+                            <i class="fas fa-brain"></i><span>MindSpace</span>
                         </h5>
-                        <p class="small" style="color:#b2bec3;">
-                            Empowering students and young adults with accessible mental health literacy resources.
+                        <p class="small mb-3" style="color:rgba(255,255,255,0.55);max-width:300px;line-height:1.7;">
+                            A premium learning platform dedicated to mental wellness literacy for students and young adults &mdash; evidence-based, self-paced, free.
                         </p>
+                        <div class="d-flex gap-2">
+                            <span class="d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);color:rgba(255,255,255,0.7);"><i class="fab fa-twitter"></i></span>
+                            <span class="d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);color:rgba(255,255,255,0.7);"><i class="fab fa-instagram"></i></span>
+                            <span class="d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);color:rgba(255,255,255,0.7);"><i class="fab fa-linkedin"></i></span>
+                            <span class="d-inline-flex align-items-center justify-content-center" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);color:rgba(255,255,255,0.7);"><i class="fab fa-youtube"></i></span>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <h6>Quick Links</h6>
+                    <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+                        <h6>Platform</h6>
                         <ul class="list-unstyled small mb-0">
-                            <li class="mb-1"><a href="<%: ResolveUrl("~/Default.aspx") %>">Home</a></li>
-                            <li class="mb-1"><a href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>">Browse Courses</a></li>
-                            <li class="mb-1"><a href="<%: ResolveUrl("~/Register.aspx") %>">Register Free</a></li>
-                            <li class="mb-1"><a href="<%: ResolveUrl("~/Login.aspx") %>">Login</a></li>
+                            <li class="mb-2"><a href="<%: ResolveUrl("~/Default.aspx") %>">Home</a></li>
+                            <li class="mb-2"><a href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>">Browse Courses</a></li>
+                            <li class="mb-2"><a href="<%: ResolveUrl("~/Register.aspx") %>">Register Free</a></li>
+                            <li class="mb-2"><a href="<%: ResolveUrl("~/Login.aspx") %>">Sign In</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4">
-                        <h6>Mental Health Topics</h6>
-                        <ul class="list-unstyled small mb-0" style="color:#b2bec3;">
-                            <li class="mb-1"><i class="fas fa-circle-dot me-1" style="font-size:0.5rem;vertical-align:middle;color:#6C5CE7;"></i>Stress Management</li>
-                            <li class="mb-1"><i class="fas fa-circle-dot me-1" style="font-size:0.5rem;vertical-align:middle;color:#6C5CE7;"></i>Mindfulness &amp; Meditation</li>
-                            <li class="mb-1"><i class="fas fa-circle-dot me-1" style="font-size:0.5rem;vertical-align:middle;color:#6C5CE7;"></i>Anxiety Management</li>
-                            <li class="mb-1"><i class="fas fa-circle-dot me-1" style="font-size:0.5rem;vertical-align:middle;color:#6C5CE7;"></i>Sleep Hygiene</li>
-                            <li class="mb-1"><i class="fas fa-circle-dot me-1" style="font-size:0.5rem;vertical-align:middle;color:#6C5CE7;"></i>Emotional Resilience</li>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <h6>Topics</h6>
+                        <ul class="list-unstyled small mb-0" style="color:rgba(255,255,255,0.55);">
+                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#8B5CF6;"></i>Stress</li>
+                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#10B981;"></i>Mindfulness</li>
+                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#3B82F6;"></i>Anxiety</li>
+                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#A78BFA;"></i>Sleep</li>
+                            <li class="mb-2"><i class="fas fa-circle me-2" style="font-size:0.35rem;vertical-align:middle;color:#F472B6;"></i>Resilience</li>
                         </ul>
+                    </div>
+                    <div class="col-md-12 col-lg-3">
+                        <h6>Stay Well</h6>
+                        <p class="small mb-3" style="color:rgba(255,255,255,0.55);line-height:1.65;">
+                            One short wellness tip in your inbox each week. No spam.
+                        </p>
+                        <div class="d-flex gap-2" style="max-width:320px;">
+                            <input type="email" class="form-control form-control-sm" placeholder="your@email.com" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;border-radius:10px;" />
+                            <button type="button" class="btn btn-nav-solid btn-sm" style="white-space:nowrap;">Subscribe</button>
+                        </div>
                     </div>
                 </div>
-                <hr style="border-color:rgba(255,255,255,0.1);" />
-                <p class="text-center mb-0 small" style="color:#636E72;">
-                    &copy; 2026 MindSpace. All rights reserved.
-                </p>
+                <hr style="border-color:rgba(255,255,255,0.08);margin-top:2.5rem;" />
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small" style="color:rgba(255,255,255,0.45);">
+                    <p class="mb-2 mb-md-0">&copy; 2026 MindSpace. Crafted with care for mental wellness.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
             </div>
         </footer>
 
@@ -132,6 +154,39 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="<%: ResolveUrl("~/Scripts/validation.js") %>"></script>
+    <script>
+        // Reveal-on-scroll with eager + safety fallback
+        (function () {
+            var els = document.querySelectorAll('.reveal');
+            if (els.length === 0) return;
+            var showAll = function () { els.forEach(function(e){ e.classList.add('is-visible'); }); };
+            // Eager: mark already-on-screen items visible immediately
+            var vh = window.innerHeight || 800;
+            els.forEach(function (el) {
+                var r = el.getBoundingClientRect();
+                if (r.top < vh + 200) el.classList.add('is-visible');
+            });
+            // Final fallback after 800ms in case any are still hidden
+            setTimeout(showAll, 800);
+            if (!('IntersectionObserver' in window)) { showAll(); return; }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+                });
+            }, { threshold: 0.02, rootMargin: '200px 0px 200px 0px' });
+            els.forEach(function (el) { io.observe(el); });
+        })();
+        // Button ripple cursor tracking
+        (function () {
+            document.addEventListener('mousemove', function (e) {
+                var btn = e.target.closest && e.target.closest('.btn');
+                if (!btn) return;
+                var r = btn.getBoundingClientRect();
+                btn.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+                btn.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+            });
+        })();
+    </script>
     <asp:ContentPlaceHolder ID="ScriptContent" runat="server" />
 </body>
 </html>

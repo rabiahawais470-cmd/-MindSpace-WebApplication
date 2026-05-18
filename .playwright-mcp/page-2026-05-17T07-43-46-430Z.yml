@@ -1,0 +1,146 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /Default.aspx
+        - link "Courses" [ref=e11] [cursor=pointer]:
+          - /url: /Courses/CourseList.aspx
+        - link "Login" [ref=e12] [cursor=pointer]:
+          - /url: /Login.aspx
+        - link "Register" [ref=e13] [cursor=pointer]:
+          - /url: /Register.aspx
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]: Resilience
+      - heading "Building Emotional Resilience" [level=1] [ref=e19]
+      - paragraph [ref=e20]: Develop the skills to bounce back from adversity, manage difficult emotions, and thrive under pressure. This course teaches resilience frameworks used by mental health professionals.
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: 
+          - text: Intermediate
+        - generic [ref=e24]:
+          - generic [ref=e25]: 
+          - text: 8 weeks
+        - generic [ref=e26]:
+          - generic [ref=e27]: 
+          - text: 1 enrolled
+    - generic [ref=e28]:
+      - generic [ref=e29]: 💪
+      - link " Login to Enroll" [ref=e31] [cursor=pointer]:
+        - /url: ../Login.aspx
+        - generic [ref=e32]: 
+        - text: Login to Enroll
+  - generic [ref=e34]:
+    - generic [ref=e35]:
+      - heading " Learning Resources" [level=4] [ref=e36]:
+        - generic [ref=e37]: 
+        - text: Learning Resources
+      - generic [ref=e39]:
+        - generic [ref=e41]: 
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - heading "What is Emotional Resilience?" [level=6] [ref=e44]
+            - generic [ref=e45]: article
+          - paragraph [ref=e46]: "Emotional resilience is the ability to adapt positively in the face of adversity, trauma, or significant stress. Resilient people do not avoid difficult emotions -- they process them effectively and grow from experience. Key dimensions: emotional regulation (manage emotions without being overwhelmed); cognitive flexibility (reframe situations and find alternative interpretations); social connectedness (strong relationships are the most powerful predictor of resilience); self-efficacy (belief in your ability to cope, built through experience); and purpose and meaning (a sense of why buffers against stress). Martin Seligman's PERMA model identifies five pillars of wellbeing: Positive Emotion, Engagement, Relationships, Meaning, and Accomplishment."
+      - generic [ref=e48]:
+        - generic [ref=e50]: 
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - heading "Building Your Resilience Toolkit" [level=6] [ref=e53]
+            - generic [ref=e54]: article
+          - paragraph [ref=e55]: "Resilience is a set of learnable skills. Evidence-based strategies: (1) Growth mindset -- view challenges as learning opportunities; replace \"I cannot do this\" with \"I cannot do this yet\"; (2) Gratitude practice -- write 3 specific things you appreciate daily, shown to increase wellbeing within 2-4 weeks; (3) Build your support network -- identify 3-5 people you can call when struggling; (4) Emotional vocabulary -- label emotions precisely rather than just \"bad\" (e.g. \"disappointed\", \"overwhelmed\", \"embarrassed\"); (5) Accept what you cannot control -- distinguish between what is and is not within your control; (6) Physical self-care -- sleep, exercise, and nutrition are foundational to resilience; (7) Post-traumatic growth journaling -- write about what happened, how you felt, what you learned, and how it has shaped you."
+      - generic [ref=e57]:
+        - generic [ref=e59]: 
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - heading "The Three Secrets of Resilient People - Lucy Hone (TEDx)" [level=6] [ref=e62]
+            - generic [ref=e63]: video
+          - iframe [ref=e65]:
+            - generic "YouTube Video Player" [ref=f11e3]:
+              - alert [ref=f11e4]:
+                - generic [ref=f11e5]:
+                  - generic [ref=f11e6]:
+                    - img
+                  - generic [ref=f11e7]:
+                    - generic [ref=f11e8]: Video unavailable
+                    - generic [ref=f11e9]: This video is unavailable
+                - link "Visit YouTube to search for more videos" [ref=f11e10] [cursor=pointer]:
+                  - /url: https://www.youtube.com
+                  - img
+      - generic [ref=e67]:
+        - generic [ref=e69]: 
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - heading "Resilience Self-Assessment Worksheet" [level=6] [ref=e72]
+            - generic [ref=e73]: download
+          - paragraph [ref=e74]: Download this resilience self-assessment to identify your current strengths, areas for growth, and create a personalised resilience-building action plan.
+          - link " Download Resource" [ref=e75] [cursor=pointer]:
+            - /url: "#"
+            - generic [ref=e76]: 
+            - text: Download Resource
+    - generic [ref=e78]:
+      - heading " Available Quizzes" [level=5] [ref=e79]:
+        - generic [ref=e80]: 
+        - text: Available Quizzes
+      - generic [ref=e82]:
+        - generic [ref=e83]: 
+        - link "Login" [ref=e84] [cursor=pointer]:
+          - /url: ../Login.aspx
+        - text: and enroll to take quizzes.
+      - generic [ref=e85]:
+        - heading "Emotional Resilience" [level=6] [ref=e86]
+        - paragraph [ref=e87]: Assess your understanding of emotional resilience and coping mechanisms.
+        - generic [ref=e88]:
+          - generic [ref=e89]: "Pass: 70%"
+          - link " Take Quiz" [ref=e90] [cursor=pointer]:
+            - /url: /Courses/Quiz.aspx?quizID=5
+            - generic [ref=e91]: 
+            - text: Take Quiz
+  - contentinfo [ref=e92]:
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - heading " MindSpace" [level=5] [ref=e96]:
+            - generic [ref=e97]: 
+            - text: MindSpace
+          - paragraph [ref=e98]: Empowering students and young adults with accessible mental health literacy resources.
+        - generic [ref=e99]:
+          - heading "Quick Links" [level=6] [ref=e100]
+          - list [ref=e101]:
+            - listitem [ref=e102]:
+              - link "Home" [ref=e103] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e104]:
+              - link "Browse Courses" [ref=e105] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e106]:
+              - link "Register Free" [ref=e107] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e108]:
+              - link "Login" [ref=e109] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e110]:
+          - heading "Mental Health Topics" [level=6] [ref=e111]
+          - list [ref=e112]:
+            - listitem [ref=e113]:
+              - generic [ref=e114]: 
+              - text: Stress Management
+            - listitem [ref=e115]:
+              - generic [ref=e116]: 
+              - text: Mindfulness & Meditation
+            - listitem [ref=e117]:
+              - generic [ref=e118]: 
+              - text: Anxiety Management
+            - listitem [ref=e119]:
+              - generic [ref=e120]: 
+              - text: Sleep Hygiene
+            - listitem [ref=e121]:
+              - generic [ref=e122]: 
+              - text: Emotional Resilience
+      - separator [ref=e123]
+      - paragraph [ref=e124]: © 2026 MindSpace — APU Web Applications Assignment — Group G29

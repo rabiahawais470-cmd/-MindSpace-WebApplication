@@ -1,0 +1,218 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - button "Toggle navigation" [ref=e8] [cursor=pointer]
+      - text:      
+  - generic [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e16]: Mental Wellness · Learning Platform
+      - heading "Your journey to mental wellness starts here." [level=1] [ref=e17]:
+        - text: Your journey to
+        - generic [ref=e18]: mental wellness
+        - text: starts here.
+      - paragraph [ref=e19]: Expert-curated micro-courses on stress, mindfulness, anxiety, sleep and resilience — designed for students and young adults, delivered free and at your own pace.
+      - generic [ref=e20]:
+        - link " Start Learning Free" [ref=e21] [cursor=pointer]:
+          - /url: Register.aspx
+          - generic [ref=e22]: 
+          - text: Start Learning Free
+        - link " Browse Courses" [ref=e23] [cursor=pointer]:
+          - /url: Courses/CourseList.aspx
+          - generic [ref=e24]: 
+          - text: Browse Courses
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e27]: 6+
+          - generic [ref=e28]: Expert Courses
+        - generic [ref=e29]:
+          - generic [ref=e30]: 100%
+          - generic [ref=e31]: Free Forever
+        - generic [ref=e32]:
+          - generic [ref=e33]: "75"
+          - generic [ref=e34]: Quiz Questions
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - text: "5"
+            - generic [ref=e37]: 
+          - generic [ref=e38]: Evidence Based
+    - text:     
+  - generic [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]: Why MindSpace
+      - heading "Everything you need to build mental health literacy" [level=2] [ref=e43]
+      - paragraph [ref=e45]: Six pillars of an evidence-based learning experience — thoughtfully designed for the way you actually learn.
+    - generic [ref=e46]:
+      - generic [ref=e48]:
+        - generic [ref=e50]: 
+        - heading "Structured Learning" [level=5] [ref=e51]
+        - paragraph [ref=e52]: Evidence-based courses designed by mental health professionals covering all key areas of wellbeing.
+      - generic [ref=e54]:
+        - generic [ref=e56]: 
+        - heading "Progress Tracking" [level=5] [ref=e57]
+        - paragraph [ref=e58]: Monitor your learning journey with personal dashboards, quiz scores, and completion analytics.
+      - generic [ref=e60]:
+        - generic [ref=e62]: 
+        - heading "Community Support" [level=5] [ref=e63]
+        - paragraph [ref=e64]: Connect with peers in the discussion forum to share experiences and support each other's growth.
+      - generic [ref=e66]:
+        - generic [ref=e68]: 
+        - heading "Self-Assessments" [level=5] [ref=e69]
+        - paragraph [ref=e70]: Interactive quizzes with instant feedback help reinforce learning and measure understanding.
+      - generic [ref=e72]:
+        - generic [ref=e74]: 
+        - heading "Rich Multimedia" [level=5] [ref=e75]
+        - paragraph [ref=e76]: Articles, embedded videos, guided exercises, and downloadable resources for every learning style.
+      - generic [ref=e78]:
+        - generic [ref=e80]: 
+        - heading "Safe & Private" [level=5] [ref=e81]
+        - paragraph [ref=e82]: Your data is secure with encrypted passwords and private progress tracking for your eyes only.
+  - generic [ref=e84]:
+    - generic [ref=e85]:
+      - generic [ref=e86]: Curated Path
+      - heading "Featured courses" [level=2] [ref=e87]
+      - paragraph [ref=e89]: Start your mental health learning journey with our most popular courses, each ~30-45 minutes.
+    - generic [ref=e90]:
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - generic [ref=e94]: Self-Care
+          - generic [ref=e95]: 📚
+          - heading "Self-Care & Emotional Wellbeing" [level=5] [ref=e96]
+        - generic [ref=e97]:
+          - paragraph [ref=e98]: Discover the science and practice of self-care as a foundation for mental health. This course covers evidence-based self-care strategies including boundary setting, emotional needs, rest and recovery, and building sustainable daily routines for lasting wellbeing.
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - generic [ref=e101]: 
+              - text: Beginner
+            - generic [ref=e102]:
+              - generic [ref=e103]: 
+              - text: 3 weeks
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]: 
+            - text: 1 enrolled
+          - link "View Course " [ref=e107] [cursor=pointer]:
+            - /url: /Courses/CourseDetail.aspx?id=7
+            - text: View Course
+            - generic [ref=e108]: 
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - generic [ref=e112]: Stress Management
+          - generic [ref=e113]: 🧘
+          - heading "Stress Management Fundamentals" [level=5] [ref=e114]
+        - generic [ref=e115]:
+          - paragraph [ref=e116]: Learn evidence-based techniques to identify, manage, and reduce stress in your daily life. This course covers the science of stress, practical coping strategies, time management, and relaxation techniques.
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - generic [ref=e119]: 
+              - text: Beginner
+            - generic [ref=e120]:
+              - generic [ref=e121]: 
+              - text: 4 weeks
+        - generic [ref=e122]:
+          - generic [ref=e123]:
+            - generic [ref=e124]: 
+            - text: 3 enrolled
+          - link "View Course " [ref=e125] [cursor=pointer]:
+            - /url: /Courses/CourseDetail.aspx?id=1
+            - text: View Course
+            - generic [ref=e126]: 
+      - generic [ref=e128]:
+        - generic [ref=e129]:
+          - generic [ref=e130]: Mindfulness
+          - generic [ref=e131]: 🌿
+          - heading "Mindfulness & Meditation" [level=5] [ref=e132]
+        - generic [ref=e133]:
+          - paragraph [ref=e134]: Explore the practice of mindfulness and meditation to cultivate present-moment awareness, reduce anxiety, and improve focus. Includes guided exercises and daily practice routines.
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - generic [ref=e137]: 
+              - text: Beginner
+            - generic [ref=e138]:
+              - generic [ref=e139]: 
+              - text: 6 weeks
+        - generic [ref=e140]:
+          - generic [ref=e141]:
+            - generic [ref=e142]: 
+            - text: 3 enrolled
+          - link "View Course " [ref=e143] [cursor=pointer]:
+            - /url: /Courses/CourseDetail.aspx?id=2
+            - text: View Course
+            - generic [ref=e144]: 
+    - link " View All Courses" [ref=e146] [cursor=pointer]:
+      - /url: Courses/CourseList.aspx
+      - generic [ref=e147]: 
+      - text: View All Courses
+  - generic [ref=e149]:
+    - generic [ref=e152]: Free · Self-paced · Evidence-based
+    - heading "Ready to prioritise your mental health?" [level=2] [ref=e153]
+    - paragraph [ref=e154]: Join students and young adults already learning with MindSpace. It's free, evidence-based, and self-paced.
+    - link " Go to My Dashboard" [ref=e156] [cursor=pointer]:
+      - /url: User/UserHome.aspx
+      - generic [ref=e157]: 
+      - text: Go to My Dashboard
+  - contentinfo [ref=e158]:
+    - generic [ref=e159]:
+      - generic [ref=e160]:
+        - generic [ref=e161]:
+          - heading " MindSpace" [level=5] [ref=e162]:
+            - generic [ref=e163]: 
+            - generic [ref=e164]: MindSpace
+          - paragraph [ref=e165]: A premium learning platform dedicated to mental wellness literacy for students and young adults — evidence-based, self-paced, free.
+          - generic [ref=e166]:
+            - generic [ref=e168]: 
+            - generic [ref=e170]: 
+            - generic [ref=e172]: 
+            - generic [ref=e174]: 
+        - generic [ref=e175]:
+          - heading "Platform" [level=6] [ref=e176]
+          - list [ref=e177]:
+            - listitem [ref=e178]:
+              - link "Home" [ref=e179] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e180]:
+              - link "Browse Courses" [ref=e181] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e182]:
+              - link "Register Free" [ref=e183] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e184]:
+              - link "Sign In" [ref=e185] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e186]:
+          - heading "Topics" [level=6] [ref=e187]
+          - list [ref=e188]:
+            - listitem [ref=e189]:
+              - generic [ref=e190]: 
+              - text: Stress
+            - listitem [ref=e191]:
+              - generic [ref=e192]: 
+              - text: Mindfulness
+            - listitem [ref=e193]:
+              - generic [ref=e194]: 
+              - text: Anxiety
+            - listitem [ref=e195]:
+              - generic [ref=e196]: 
+              - text: Sleep
+            - listitem [ref=e197]:
+              - generic [ref=e198]: 
+              - text: Resilience
+        - generic [ref=e199]:
+          - heading "Stay Well" [level=6] [ref=e200]
+          - paragraph [ref=e201]: One short wellness tip in your inbox each week. No spam.
+          - generic [ref=e202]:
+            - textbox "your@email.com" [ref=e203]
+            - button "Subscribe" [ref=e204] [cursor=pointer]
+      - separator [ref=e205]
+      - generic [ref=e206]:
+        - paragraph [ref=e207]: © 2026 MindSpace. Crafted with care for mental wellness.
+        - generic [ref=e208]:
+          - link "Privacy" [ref=e209] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms" [ref=e210] [cursor=pointer]:
+            - /url: "#"
+          - link "Contact" [ref=e211] [cursor=pointer]:
+            - /url: "#"

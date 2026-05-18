@@ -1,0 +1,169 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - listitem [ref=e10]:
+          - link " Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /User/UserHome.aspx
+            - generic [ref=e12]: 
+            - text: Dashboard
+        - listitem [ref=e13]:
+          - link " Courses" [ref=e14] [cursor=pointer]:
+            - /url: /Courses/CourseList.aspx
+            - generic [ref=e15]: 
+            - text: Courses
+        - listitem [ref=e16]:
+          - link " Forum" [ref=e17] [cursor=pointer]:
+            - /url: /User/Forum.aspx
+            - generic [ref=e18]: 
+            - text: Forum
+        - listitem [ref=e19]:
+          - link " Discussions" [ref=e20] [cursor=pointer]:
+            - /url: /User/Discussions.aspx
+            - generic [ref=e21]: 
+            - text: Discussions
+        - listitem [ref=e22]:
+          - link " Progress" [ref=e23] [cursor=pointer]:
+            - /url: /User/ProgressTracking.aspx
+            - generic [ref=e24]: 
+            - text: Progress
+        - listitem [ref=e25]:
+          - button " rabiah" [ref=e26] [cursor=pointer]:
+            - generic [ref=e27]: 
+            - generic [ref=e28]: rabiah
+          - text:   
+  - generic [ref=e31]:
+    - generic [ref=e32]:
+      - generic [ref=e33]: Anxiety
+      - heading "Understanding Anxiety" [level=1] [ref=e34]
+      - paragraph [ref=e35]: A comprehensive guide to understanding anxiety disorders, their causes, symptoms, and effective management strategies. Learn cognitive-behavioural techniques to challenge anxious thoughts.
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]: 
+          - text: Intermediate
+        - generic [ref=e39]:
+          - generic [ref=e40]: 
+          - text: 5 weeks
+        - generic [ref=e41]:
+          - generic [ref=e42]: 
+          - text: 2 enrolled
+    - generic [ref=e43]:
+      - generic [ref=e44]: 💙
+      - button "Enroll Now - Free!" [ref=e46] [cursor=pointer]
+  - generic [ref=e48]:
+    - generic [ref=e49]:
+      - heading " Learning Resources" [level=4] [ref=e50]:
+        - generic [ref=e51]: 
+        - text: Learning Resources
+      - generic [ref=e53]:
+        - generic [ref=e55]: 
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - heading "What is Anxiety? Types and Symptoms" [level=6] [ref=e58]
+            - generic [ref=e59]: article
+          - paragraph [ref=e60]: "Anxiety is a natural response to perceived threat or uncertainty. It becomes a disorder when persistent, excessive, and interfering with daily life. Main anxiety disorders include: Generalised Anxiety Disorder (GAD) -- persistent worry about many topics; Panic Disorder -- recurrent unexpected panic attacks with physical symptoms; Social Anxiety Disorder -- intense fear of social situations; and Specific Phobias -- irrational fear of a specific object or situation. Common physical signs: racing heart, sweating, trembling, dry mouth, nausea. Cognitive signs: catastrophic thinking, overestimating danger, difficulty concentrating."
+      - generic [ref=e62]:
+        - generic [ref=e64]: 
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - heading "Cognitive-Behavioural Techniques for Anxiety" [level=6] [ref=e67]
+            - generic [ref=e68]: article
+          - paragraph [ref=e69]: "Cognitive-Behavioural Therapy (CBT) is the gold-standard treatment for anxiety. Key CBT techniques: (1) Thought Records -- write the situation, automatic thought, evidence for/against, and a balanced alternative thought; (2) Behavioural Experiments -- test anxious predictions against reality through gradual exposure; (3) Exposure Hierarchy -- list feared situations from least to most anxiety-provoking, then face them gradually; (4) Cognitive Restructuring -- challenge catastrophising, mind-reading, and overestimating probability; (5) Relaxation -- diaphragmatic breathing, progressive muscle relaxation, and mindfulness reduce the physical component of anxiety."
+      - generic [ref=e71]:
+        - generic [ref=e73]: 
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - heading "How to Cope with Anxiety - Olivia Remes (TEDx)" [level=6] [ref=e76]
+            - generic [ref=e77]: video
+          - iframe [ref=e79]:
+            - generic [active] [ref=f63e1]:
+              - generic "YouTube Video Player" [ref=f63e3]
+              - generic [ref=f63e5]:
+                - generic:
+                  - generic:
+                    - button "Play video" [ref=f63e10] [cursor=pointer]
+                    - button "Hide player controls" [ref=f63e12] [cursor=pointer]
+                    - generic [ref=f63e14]:
+                      - generic [ref=f63e19]:
+                        - generic [ref=f63e20]:
+                          - link "How to stop feeling anxious about anxiety | Tim Box | TEDxFolkestone" [ref=f63e21] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=ZidGozDhOjg
+                          - link "TEDx Talks" [ref=f63e22] [cursor=pointer]:
+                            - /url: /channel/UCsT0YIqwnpJCM-mx7-gSA4Q
+                            - generic [ref=f63e23]: TEDx Talks
+                        - generic [ref=f63e24]:
+                          - button [ref=f63e25] [cursor=pointer]
+                          - generic [ref=f63e27]:
+                            - generic: TEDx Talks
+                            - generic: 44.3M subscribers
+                      - generic [ref=f63e28]:
+                        - button "Share" [ref=f63e31] [cursor=pointer]:
+                          - generic [ref=f63e35]:
+                            - img
+                        - link "Watch on YouTube" [ref=f63e42] [cursor=pointer]:
+                          - /url: https://www.youtube.com/watch?v=ZidGozDhOjg
+                          - generic [ref=f63e45]:
+                            - text: Watch on
+                            - img [ref=f63e47]:
+                              - generic [ref=f63e49]:
+                                - img
+    - generic [ref=e81]:
+      - heading " Available Quizzes" [level=5] [ref=e82]:
+        - generic [ref=e83]: 
+        - text: Available Quizzes
+      - generic [ref=e84]:
+        - heading "Understanding Anxiety" [level=6] [ref=e85]
+        - paragraph [ref=e86]: Test your knowledge about anxiety, its causes, and management techniques.
+        - generic [ref=e87]:
+          - generic [ref=e88]: "Pass: 70%"
+          - link " Take Quiz" [ref=e89] [cursor=pointer]:
+            - /url: /Courses/Quiz.aspx?quizID=1
+            - generic [ref=e90]: 
+            - text: Take Quiz
+  - contentinfo [ref=e91]:
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - generic [ref=e94]:
+          - heading " MindSpace" [level=5] [ref=e95]:
+            - generic [ref=e96]: 
+            - text: MindSpace
+          - paragraph [ref=e97]: Empowering students and young adults with accessible mental health literacy resources.
+        - generic [ref=e98]:
+          - heading "Quick Links" [level=6] [ref=e99]
+          - list [ref=e100]:
+            - listitem [ref=e101]:
+              - link "Home" [ref=e102] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e103]:
+              - link "Browse Courses" [ref=e104] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e105]:
+              - link "Register Free" [ref=e106] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e107]:
+              - link "Login" [ref=e108] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e109]:
+          - heading "Mental Health Topics" [level=6] [ref=e110]
+          - list [ref=e111]:
+            - listitem [ref=e112]:
+              - generic [ref=e113]: 
+              - text: Stress Management
+            - listitem [ref=e114]:
+              - generic [ref=e115]: 
+              - text: Mindfulness & Meditation
+            - listitem [ref=e116]:
+              - generic [ref=e117]: 
+              - text: Anxiety Management
+            - listitem [ref=e118]:
+              - generic [ref=e119]: 
+              - text: Sleep Hygiene
+            - listitem [ref=e120]:
+              - generic [ref=e121]: 
+              - text: Emotional Resilience
+      - separator [ref=e122]
+      - paragraph [ref=e123]: © 2026 MindSpace — APU Web Applications Assignment — Group G29

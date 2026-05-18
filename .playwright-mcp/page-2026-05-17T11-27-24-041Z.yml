@@ -1,0 +1,247 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - button "Guide" [active] [pressed] [ref=e9] [cursor=pointer]:
+            - generic [ref=e12]:
+              - img
+          - generic [ref=e13]:
+            - link "YouTube Home" [ref=e14] [cursor=pointer]:
+              - /url: /
+              - generic [ref=e19]:
+                - img
+            - generic [ref=e20]: MY
+          - button "Skip navigation" [ref=e24] [cursor=pointer]:
+            - generic [ref=e25]: Skip navigation
+        - generic [ref=e29]:
+          - search [ref=e30]:
+            - generic [ref=e31]:
+              - generic [ref=e32]:
+                - combobox "Search" [expanded] [ref=e34]: how to make self-care sustainable TED talk
+                - button "Clear search query" [ref=e36] [cursor=pointer]:
+                  - generic [ref=e39]:
+                    - img
+              - button "Search" [ref=e43] [cursor=pointer]:
+                - generic [ref=e46]:
+                  - img
+          - generic [ref=e48]:
+            - button "Search with your voice" [ref=e50] [cursor=pointer]
+            - tooltip "tooltip"
+    - navigation [ref=e61]
+    - main [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e71]:
+          - tablist [ref=e76]:
+            - tab "All" [selected] [ref=e80] [cursor=pointer]:
+              - generic [ref=e82]: All
+            - tab "Shorts" [ref=e89] [cursor=pointer]:
+              - generic [ref=e91]: Shorts
+            - tab "Unwatched" [ref=e98] [cursor=pointer]:
+              - generic [ref=e100]: Unwatched
+            - tab "Watched" [ref=e107] [cursor=pointer]:
+              - generic [ref=e109]: Watched
+            - tab "Videos" [ref=e116] [cursor=pointer]:
+              - generic [ref=e118]: Videos
+            - tab "Recently uploaded" [ref=e125] [cursor=pointer]:
+              - generic [ref=e127]: Recently uploaded
+            - tab "Live" [ref=e134] [cursor=pointer]:
+              - generic [ref=e136]: Live
+          - generic [ref=e141]:
+            - button "Search filters" [ref=e143] [cursor=pointer]:
+              - generic [ref=e144]: Filters
+            - tooltip "tooltip"
+        - generic [ref=e155]:
+          - generic [ref=e164] [cursor=pointer]:
+            - link [ref=e165]:
+              - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CC-WCGaYJat2TBejijNAP3sSj8A7uu5ryhgGIhIqGyRVkEAEgAGDLw7aOjBeCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABmcn1iiuoAwSqBM4CT9BF6iMDsi_xCPFY5qC6c5ABsimReJH-iMtWMaCqaoqHKigIgoCV8d2d-zqm2ADmBZ-X4PzZsfDFNhKRSmhu9JJ7fiNh4XdP5iJQFQp0LpKaH23saXDH1QCXC9lX0QpTqZpxHvu8fqya9nD7ye_zcOTQH2X5zR6y1J4FlfHNfRCnbjx7N6wD36hRquvU4Df3ctht_XupKMvzxQa1AC_W-BNK9R-UDCkavji1nIQLTQIUDWmHQxNfN9j7duATSta1gNTe1ZszVjZja--mwWFbfAc0TYcu811wczk-5M-7sb_YdDOuPImHlWFwaYFVAyUdgLjT0Z0MDJ1hLlsKcjBrXxwWfSjkZrK39kv3cphUil-_ep-hH6ztanyWT62at_yxDN5m6rd2C2ESQaBygO1V4rInCim_9AFX2SyGXTEizKphdtELbX7J_uJ7IAbL44gF_6vWuVeSBQ0IEjCo_9vNhZ2zyIwBkgUICBN41OTWhwOgBlWAB823vIUDkAcEqAfywLECqAe4xLECqAfhtrECqAelz7ECqAfnnbECqAfonbECqAfvtbECqAfwtbECqAf507ECqAfJ2rECqAep4LECqAeECKgHptSxAqgHqNIbqAe2B6gHsdwbqAewm7ECqAeusbECqAfmvLECqAf9srECqAf3uLECqAf4uLECqAfIz7ECqAfJz7ECqAfNx7ECqAfx0bECqAf81bECqAf71bECqAeM1rECqAeL1rECqAea4rECqAeb4rECqAea4bECqAed17ECqAed1LECqAeBxhuoB_yvsQKoB9XOG6gHvtmxAqgHq8UbqAeVCKgHnNwbqAe3obECqAfVqbECqAfn2rECqAfetbECqAfqsbECqAe-t7ECqAeZtbECqAeFwbECqAfrpbECqAfKqbECkggLakpETTZGbTJfNmeoCAHSCCwIgEEQARheMgKCAjoPgEKAwICAgICAgAKqgIAQSNmg0jVQFFiQ8dDVm8CUA5oJKmh0dHBzOi8vd3d3Lm1pbmR2YWxsZXkuY29tL3VsdHJhbWluZC9zYWxlc7EJIEDaG3_WT8jICRfICY8ByAmQAcgJwgGYCwG6Cz8IAxAFGBYgBygBMBxAAUgAWH1gAGgAcAGIAQCYAQGiAQgKAKgCAdgCAqgBAdgBAYACAYgCCboDB3Zpc2lucmLQCxKiDEMqCgoIjt-xApXisQJiGgoYY29tLm1pbmR2YWxsZXkubXZhY2FkZW15ahQKEmNvbS5taW5kdmFsbGV5Lm12YXgAiAEA0gwCEAHaDCYKCxCAhcvxkP28psMBEgIBAxoNGP-r1rlXIOnL_oLIBUABSgIQH5oNARKqDQJNWcgNAdINsgFodHRwczovL3d3dy5taW5kdmFsbGV5LmNvbS91bHRyYW1pbmQvc2FsZXM_dXRtX3NvdXJjZT1nb29nbGUtcGFpZCZ1dG1fbWVkaXVtPW9jcG0mb3RhZz1bZ2ctYWRzXS1bdnNsXS1bMjM0Nzk0MDQ5MzRdLVs2NjYxMTg0OTE5XS1bXS1bc3Vtc10mZ2FkX3NvdXJjZT0yJmdhZF9jYW1wYWlnbmlkPTIzNDc0ODM2OTkxsA6Xu6boGLgT____________AbAUA8AVgYCAQNAVAdgVAZgWAeIWAggBgBcBihcWCAMYASABKAEwATgBQAFIAVABWAFgAqAXAakXXy8Mkx-mOFS6FwYoADAAOAHQGAHwGAHCGQIIAQ&ase=2&gclid=EAIaIQobChMInYTR1ZvAlAMVaDEDBB1e4gjuEAEYASAAEgJyvfD_BwE&num=1&cid=CAASwwHkaMgAIKGQOWywClA8bbb0DMFETMuJuBLJGTgKXYpdv5RksNbRfLFayin6vHDWgJrn9LTh4eJ-VuXQndaxNX5be9fFJfs110ncFCyG2A1Z0mZc2w8rxljm8_Yk6GC6ugBqjAG-mGnXocB-TtnFycY0aV6XKLrF0M55rINpRyIyV7n0wx4Mc1NTt_wV1kdzeYAjpdjXbF4m1qQintzPeMIrhhM4R_TfcZwoRcOSP64Gfi9wUG5auswdiMTnyB6K2Kvtr-g&ad_cpn=%5BCPN%5D&sig=AOD64_0R_Iln3Khbhm8rRD92GB84dS0N_w&ctype=110&video_id=jJDM6Fm2_6g&label=video_click_to_advertiser_site&ms=%5BCLICK_MS%5D
+              - button [ref=e170]
+            - generic [ref=e176]:
+              - generic [ref=e177]:
+                - generic [ref=e178]:
+                  - link "Learn How To Manifest Abundance Through The Silva Ultramind System" [ref=e181]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CC-WCGaYJat2TBejijNAP3sSj8A7uu5ryhgGIhIqGyRVkEAEgAGDLw7aOjBeCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABmcn1iiuoAwSqBM4CT9BF6iMDsi_xCPFY5qC6c5ABsimReJH-iMtWMaCqaoqHKigIgoCV8d2d-zqm2ADmBZ-X4PzZsfDFNhKRSmhu9JJ7fiNh4XdP5iJQFQp0LpKaH23saXDH1QCXC9lX0QpTqZpxHvu8fqya9nD7ye_zcOTQH2X5zR6y1J4FlfHNfRCnbjx7N6wD36hRquvU4Df3ctht_XupKMvzxQa1AC_W-BNK9R-UDCkavji1nIQLTQIUDWmHQxNfN9j7duATSta1gNTe1ZszVjZja--mwWFbfAc0TYcu811wczk-5M-7sb_YdDOuPImHlWFwaYFVAyUdgLjT0Z0MDJ1hLlsKcjBrXxwWfSjkZrK39kv3cphUil-_ep-hH6ztanyWT62at_yxDN5m6rd2C2ESQaBygO1V4rInCim_9AFX2SyGXTEizKphdtELbX7J_uJ7IAbL44gF_6vWuVeSBQ0IEjCo_9vNhZ2zyIwBkgUICBN41OTWhwOgBlWAB823vIUDkAcEqAfywLECqAe4xLECqAfhtrECqAelz7ECqAfnnbECqAfonbECqAfvtbECqAfwtbECqAf507ECqAfJ2rECqAep4LECqAeECKgHptSxAqgHqNIbqAe2B6gHsdwbqAewm7ECqAeusbECqAfmvLECqAf9srECqAf3uLECqAf4uLECqAfIz7ECqAfJz7ECqAfNx7ECqAfx0bECqAf81bECqAf71bECqAeM1rECqAeL1rECqAea4rECqAeb4rECqAea4bECqAed17ECqAed1LECqAeBxhuoB_yvsQKoB9XOG6gHvtmxAqgHq8UbqAeVCKgHnNwbqAe3obECqAfVqbECqAfn2rECqAfetbECqAfqsbECqAe-t7ECqAeZtbECqAeFwbECqAfrpbECqAfKqbECkggLakpETTZGbTJfNmeoCAHSCCwIgEEQARheMgKCAjoPgEKAwICAgICAgAKqgIAQSNmg0jVQFFiQ8dDVm8CUA5oJKmh0dHBzOi8vd3d3Lm1pbmR2YWxsZXkuY29tL3VsdHJhbWluZC9zYWxlc7EJIEDaG3_WT8jICRfICY8ByAmQAcgJwgGYCwG6Cz8IAxAFGBYgBygBMBxAAUgAWH1gAGgAcAGIAQCYAQGiAQgKAKgCAdgCAqgBAdgBAYACAYgCCboDB3Zpc2lucmLQCxKiDEMqCgoIjt-xApXisQJiGgoYY29tLm1pbmR2YWxsZXkubXZhY2FkZW15ahQKEmNvbS5taW5kdmFsbGV5Lm12YXgAiAEA0gwCEAHaDCYKCxCAhcvxkP28psMBEgIBAxoNGP-r1rlXIOnL_oLIBUABSgIQH5oNARKqDQJNWcgNAdINsgFodHRwczovL3d3dy5taW5kdmFsbGV5LmNvbS91bHRyYW1pbmQvc2FsZXM_dXRtX3NvdXJjZT1nb29nbGUtcGFpZCZ1dG1fbWVkaXVtPW9jcG0mb3RhZz1bZ2ctYWRzXS1bdnNsXS1bMjM0Nzk0MDQ5MzRdLVs2NjYxMTg0OTE5XS1bXS1bc3Vtc10mZ2FkX3NvdXJjZT0yJmdhZF9jYW1wYWlnbmlkPTIzNDc0ODM2OTkxsA6Xu6boGLgT____________AbAUA8AVgYCAQNAVAdgVAZgWAeIWAggBgBcBihcWCAMYASABKAEwATgBQAFIAVABWAFgAqAXAakXXy8Mkx-mOFS6FwYoADAAOAHQGAHwGAHCGQIIAQ&ase=2&gclid=EAIaIQobChMInYTR1ZvAlAMVaDEDBB1e4gjuEAEYASAAEgJyvfD_BwE&num=1&cid=CAASwwHkaMgAIKGQOWywClA8bbb0DMFETMuJuBLJGTgKXYpdv5RksNbRfLFayin6vHDWgJrn9LTh4eJ-VuXQndaxNX5be9fFJfs110ncFCyG2A1Z0mZc2w8rxljm8_Yk6GC6ugBqjAG-mGnXocB-TtnFycY0aV6XKLrF0M55rINpRyIyV7n0wx4Mc1NTt_wV1kdzeYAjpdjXbF4m1qQintzPeMIrhhM4R_TfcZwoRcOSP64Gfi9wUG5auswdiMTnyB6K2Kvtr-g&ad_cpn=%5BCPN%5D&sig=AOD64_0R_Iln3Khbhm8rRD92GB84dS0N_w&ctype=110&video_id=jJDM6Fm2_6g&label=video_click_to_advertiser_site&ms=%5BCLICK_MS%5D
+                  - link "Transform Your Reality With Silva Ultramind System" [ref=e184]:
+                    - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CC-WCGaYJat2TBejijNAP3sSj8A7uu5ryhgGIhIqGyRVkEAEgAGDLw7aOjBeCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABmcn1iiuoAwSqBM4CT9BF6iMDsi_xCPFY5qC6c5ABsimReJH-iMtWMaCqaoqHKigIgoCV8d2d-zqm2ADmBZ-X4PzZsfDFNhKRSmhu9JJ7fiNh4XdP5iJQFQp0LpKaH23saXDH1QCXC9lX0QpTqZpxHvu8fqya9nD7ye_zcOTQH2X5zR6y1J4FlfHNfRCnbjx7N6wD36hRquvU4Df3ctht_XupKMvzxQa1AC_W-BNK9R-UDCkavji1nIQLTQIUDWmHQxNfN9j7duATSta1gNTe1ZszVjZja--mwWFbfAc0TYcu811wczk-5M-7sb_YdDOuPImHlWFwaYFVAyUdgLjT0Z0MDJ1hLlsKcjBrXxwWfSjkZrK39kv3cphUil-_ep-hH6ztanyWT62at_yxDN5m6rd2C2ESQaBygO1V4rInCim_9AFX2SyGXTEizKphdtELbX7J_uJ7IAbL44gF_6vWuVeSBQ0IEjCo_9vNhZ2zyIwBkgUICBN41OTWhwOgBlWAB823vIUDkAcEqAfywLECqAe4xLECqAfhtrECqAelz7ECqAfnnbECqAfonbECqAfvtbECqAfwtbECqAf507ECqAfJ2rECqAep4LECqAeECKgHptSxAqgHqNIbqAe2B6gHsdwbqAewm7ECqAeusbECqAfmvLECqAf9srECqAf3uLECqAf4uLECqAfIz7ECqAfJz7ECqAfNx7ECqAfx0bECqAf81bECqAf71bECqAeM1rECqAeL1rECqAea4rECqAeb4rECqAea4bECqAed17ECqAed1LECqAeBxhuoB_yvsQKoB9XOG6gHvtmxAqgHq8UbqAeVCKgHnNwbqAe3obECqAfVqbECqAfn2rECqAfetbECqAfqsbECqAe-t7ECqAeZtbECqAeFwbECqAfrpbECqAfKqbECkggLakpETTZGbTJfNmeoCAHSCCwIgEEQARheMgKCAjoPgEKAwICAgICAgAKqgIAQSNmg0jVQFFiQ8dDVm8CUA5oJKmh0dHBzOi8vd3d3Lm1pbmR2YWxsZXkuY29tL3VsdHJhbWluZC9zYWxlc7EJIEDaG3_WT8jICRfICY8ByAmQAcgJwgGYCwG6Cz8IAxAFGBYgBygBMBxAAUgAWH1gAGgAcAGIAQCYAQGiAQgKAKgCAdgCAqgBAdgBAYACAYgCCboDB3Zpc2lucmLQCxKiDEMqCgoIjt-xApXisQJiGgoYY29tLm1pbmR2YWxsZXkubXZhY2FkZW15ahQKEmNvbS5taW5kdmFsbGV5Lm12YXgAiAEA0gwCEAHaDCYKCxCAhcvxkP28psMBEgIBAxoNGP-r1rlXIOnL_oLIBUABSgIQH5oNARKqDQJNWcgNAdINsgFodHRwczovL3d3dy5taW5kdmFsbGV5LmNvbS91bHRyYW1pbmQvc2FsZXM_dXRtX3NvdXJjZT1nb29nbGUtcGFpZCZ1dG1fbWVkaXVtPW9jcG0mb3RhZz1bZ2ctYWRzXS1bdnNsXS1bMjM0Nzk0MDQ5MzRdLVs2NjYxMTg0OTE5XS1bXS1bc3Vtc10mZ2FkX3NvdXJjZT0yJmdhZF9jYW1wYWlnbmlkPTIzNDc0ODM2OTkxsA6Xu6boGLgT____________AbAUA8AVgYCAQNAVAdgVAZgWAeIWAggBgBcBihcWCAMYASABKAEwATgBQAFIAVABWAFgAqAXAakXXy8Mkx-mOFS6FwYoADAAOAHQGAHwGAHCGQIIAQ&ase=2&gclid=EAIaIQobChMInYTR1ZvAlAMVaDEDBB1e4gjuEAEYASAAEgJyvfD_BwE&num=1&cid=CAASwwHkaMgAIKGQOWywClA8bbb0DMFETMuJuBLJGTgKXYpdv5RksNbRfLFayin6vHDWgJrn9LTh4eJ-VuXQndaxNX5be9fFJfs110ncFCyG2A1Z0mZc2w8rxljm8_Yk6GC6ugBqjAG-mGnXocB-TtnFycY0aV6XKLrF0M55rINpRyIyV7n0wx4Mc1NTt_wV1kdzeYAjpdjXbF4m1qQintzPeMIrhhM4R_TfcZwoRcOSP64Gfi9wUG5auswdiMTnyB6K2Kvtr-g&ad_cpn=%5BCPN%5D&sig=AOD64_0R_Iln3Khbhm8rRD92GB84dS0N_w&ctype=110&video_id=jJDM6Fm2_6g&label=video_click_to_advertiser_site&ms=%5BCLICK_MS%5D
+                  - generic [ref=e185]:
+                    - button "Mindvalley" [ref=e189]
+                    - generic [ref=e193]:
+                      - generic [ref=e194]: Sponsored
+                      - text: ·
+                    - generic [ref=e196]: Mindvalley
+                - button "My Ad Center" [ref=e199]
+              - generic [ref=e207]:
+                - link "Watch" [ref=e210]:
+                  - /url: /watch?v=jJDM6Fm2_6g
+                  - generic [ref=e211]: Watch
+                - link "Learn more" [ref=e217]:
+                  - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CC-WCGaYJat2TBejijNAP3sSj8A7uu5ryhgGIhIqGyRVkEAEgAGDLw7aOjBeCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABmcn1iiuoAwSqBM4CT9BF6iMDsi_xCPFY5qC6c5ABsimReJH-iMtWMaCqaoqHKigIgoCV8d2d-zqm2ADmBZ-X4PzZsfDFNhKRSmhu9JJ7fiNh4XdP5iJQFQp0LpKaH23saXDH1QCXC9lX0QpTqZpxHvu8fqya9nD7ye_zcOTQH2X5zR6y1J4FlfHNfRCnbjx7N6wD36hRquvU4Df3ctht_XupKMvzxQa1AC_W-BNK9R-UDCkavji1nIQLTQIUDWmHQxNfN9j7duATSta1gNTe1ZszVjZja--mwWFbfAc0TYcu811wczk-5M-7sb_YdDOuPImHlWFwaYFVAyUdgLjT0Z0MDJ1hLlsKcjBrXxwWfSjkZrK39kv3cphUil-_ep-hH6ztanyWT62at_yxDN5m6rd2C2ESQaBygO1V4rInCim_9AFX2SyGXTEizKphdtELbX7J_uJ7IAbL44gF_6vWuVeSBQ0IEjCo_9vNhZ2zyIwBkgUICBN41OTWhwOgBlWAB823vIUDkAcEqAfywLECqAe4xLECqAfhtrECqAelz7ECqAfnnbECqAfonbECqAfvtbECqAfwtbECqAf507ECqAfJ2rECqAep4LECqAeECKgHptSxAqgHqNIbqAe2B6gHsdwbqAewm7ECqAeusbECqAfmvLECqAf9srECqAf3uLECqAf4uLECqAfIz7ECqAfJz7ECqAfNx7ECqAfx0bECqAf81bECqAf71bECqAeM1rECqAeL1rECqAea4rECqAeb4rECqAea4bECqAed17ECqAed1LECqAeBxhuoB_yvsQKoB9XOG6gHvtmxAqgHq8UbqAeVCKgHnNwbqAe3obECqAfVqbECqAfn2rECqAfetbECqAfqsbECqAe-t7ECqAeZtbECqAeFwbECqAfrpbECqAfKqbECkggLakpETTZGbTJfNmeoCAHSCCwIgEEQARheMgKCAjoPgEKAwICAgICAgAKqgIAQSNmg0jVQFFiQ8dDVm8CUA5oJKmh0dHBzOi8vd3d3Lm1pbmR2YWxsZXkuY29tL3VsdHJhbWluZC9zYWxlc7EJIEDaG3_WT8jICRfICY8ByAmQAcgJwgGYCwG6Cz8IAxAFGBYgBygBMBxAAUgAWH1gAGgAcAGIAQCYAQGiAQgKAKgCAdgCAqgBAdgBAYACAYgCCboDB3Zpc2lucmLQCxKiDEMqCgoIjt-xApXisQJiGgoYY29tLm1pbmR2YWxsZXkubXZhY2FkZW15ahQKEmNvbS5taW5kdmFsbGV5Lm12YXgAiAEA0gwCEAHaDCYKCxCAhcvxkP28psMBEgIBAxoNGP-r1rlXIOnL_oLIBUABSgIQH5oNARKqDQJNWcgNAdINsgFodHRwczovL3d3dy5taW5kdmFsbGV5LmNvbS91bHRyYW1pbmQvc2FsZXM_dXRtX3NvdXJjZT1nb29nbGUtcGFpZCZ1dG1fbWVkaXVtPW9jcG0mb3RhZz1bZ2ctYWRzXS1bdnNsXS1bMjM0Nzk0MDQ5MzRdLVs2NjYxMTg0OTE5XS1bXS1bc3Vtc10mZ2FkX3NvdXJjZT0yJmdhZF9jYW1wYWlnbmlkPTIzNDc0ODM2OTkxsA6Xu6boGLgT____________AbAUA8AVgYCAQNAVAdgVAZgWAeIWAggBgBcBihcWCAMYASABKAEwATgBQAFIAVABWAFgAqAXAakXXy8Mkx-mOFS6FwYoADAAOAHQGAHwGAHCGQIIAQ&ase=2&gclid=EAIaIQobChMInYTR1ZvAlAMVaDEDBB1e4gjuEAEYASAAEgJyvfD_BwE&num=1&cid=CAASwwHkaMgAIKGQOWywClA8bbb0DMFETMuJuBLJGTgKXYpdv5RksNbRfLFayin6vHDWgJrn9LTh4eJ-VuXQndaxNX5be9fFJfs110ncFCyG2A1Z0mZc2w8rxljm8_Yk6GC6ugBqjAG-mGnXocB-TtnFycY0aV6XKLrF0M55rINpRyIyV7n0wx4Mc1NTt_wV1kdzeYAjpdjXbF4m1qQintzPeMIrhhM4R_TfcZwoRcOSP64Gfi9wUG5auswdiMTnyB6K2Kvtr-g&ad_cpn=%5BCPN%5D&sig=AOD64_0R_Iln3Khbhm8rRD92GB84dS0N_w&ctype=110&video_id=jJDM6Fm2_6g&label=video_click_to_advertiser_site&ms=%5BCLICK_MS%5D
+                  - generic [ref=e218]: Learn more
+          - generic [ref=e223]:
+            - link [ref=e225] [cursor=pointer]:
+              - /url: /watch?v=Eupk56SG76M&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+              - img [ref=e227]
+              - img [ref=e230]:
+                - generic [ref=e231]: 11:20
+              - generic:
+                - generic: Now playing
+                - generic:
+                  - img
+            - generic [ref=e232] [cursor=pointer]:
+              - generic [ref=e233]:
+                - heading "The Missing Ingredient in Self Care | Portia Jackson-Preston | TEDxCrenshaw 11 minutes, 20 seconds" [level=3] [ref=e235]:
+                  - link "The Missing Ingredient in Self Care | Portia Jackson-Preston | TEDxCrenshaw 11 minutes, 20 seconds" [ref=e236]:
+                    - /url: /watch?v=Eupk56SG76M&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+                    - text: The Missing Ingredient in Self Care | Portia Jackson-Preston | TEDxCrenshaw
+                - generic [ref=e239]:
+                  - generic [ref=e240]: 272K views
+                  - generic [ref=e241]: •6 years ago
+              - generic [ref=e242]:
+                - link "Go to channel TEDx Talks" [ref=e243]:
+                  - /url: /@TEDx
+                - generic [ref=e245]:
+                  - link "TEDx Talks" [ref=e249]:
+                    - /url: /@TEDx
+                  - img "Verified" [ref=e254]
+              - generic [ref=e256]:
+                - generic [ref=e257]: What happens if you push yourself too hard? What happens when your body tells you to stop yet, you keep going? Portia shares ...
+                - tooltip "tooltip"
+              - generic [ref=e260]:
+                - generic [ref=e261]:
+                  - generic [ref=e265]: 6 moments
+                  - button "Categories of Self-Care | Physical Self Care | Professional Self-Care | The Problem with Self-Care | The Social Ecological Model | The Missing Ingredient in Self-Care Is a Multi-Level Approach" [ref=e266]
+                - button "More" [ref=e271]
+          - generic [ref=e278]:
+            - link [ref=e280] [cursor=pointer]:
+              - /url: /watch?v=cohKoXx4jgg&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+              - img [ref=e282]
+            - generic [ref=e283] [cursor=pointer]:
+              - generic [ref=e284]:
+                - heading "Re-train Your Brain With Self-Care | Dima Abou Chaaban | TEDxUNBSaintJohn 12 minutes, 55 seconds" [level=3] [ref=e286]:
+                  - link "Re-train Your Brain With Self-Care | Dima Abou Chaaban | TEDxUNBSaintJohn 12 minutes, 55 seconds" [ref=e287]:
+                    - /url: /watch?v=cohKoXx4jgg&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+                    - text: Re-train Your Brain With Self-Care | Dima Abou Chaaban | TEDxUNBSaintJohn
+                - generic [ref=e290]:
+                  - generic [ref=e291]: 167K views
+                  - generic [ref=e292]: •6 years ago
+              - generic [ref=e293]:
+                - link "Go to channel TEDx Talks" [ref=e294]:
+                  - /url: /@TEDx
+                - generic [ref=e296]:
+                  - link "TEDx Talks" [ref=e300]:
+                    - /url: /@TEDx
+                  - img "Verified" [ref=e305]
+              - generic [ref=e307]:
+                - generic [ref=e308]: Dima combines neuroscience and self-care. She looks at how the science we have can impact our well being and improve the ...
+                - tooltip "tooltip"
+              - generic [ref=e311]:
+                - generic [ref=e312]:
+                  - generic [ref=e316]: 8 chapters
+                  - button "Introduction | What makes us feel good | When we delay selfcare | Neuroscience | Caffeine | Neurons | SelfCare | The Role of the amygdala" [ref=e317]
+                - button "More" [ref=e322]
+          - generic [ref=e332]:
+            - img [ref=e338]
+            - generic [ref=e340] [cursor=pointer]:
+              - generic [ref=e341]:
+                - link "Seedance2.0&Dreamina 高清清晰" [ref=e344]:
+                  - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CZNn4GaYJat2TBejijNAP3sSj8A6h_qSHhwHPydeG3hVkEAIgAGDLw7aOjBeCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABxNmEvz2oAwTIAwqqBMkCT9D6ai8jsr3xIPGKnoaQYKIWsDOzdrPbm-UNDPKMQJm1PSoSoI632dukyiifzQH3HZvI1a7_m-P3IRCLalJrjYQpWA12wnVTyyVfHhM7BdybDHroU3D91hCDDcgP3FV1s6pAENT2d_OH52L33OPPJJCYQHjo3xKn2IsFkcuNDBC5bjp5NK0DwK1OtOrKYgZKBKBtpHXoJNDz0xb5Bm7YTX_fgyeUVSdbsiO1ipRHS0MaTXbNQgNANsewdroBXdSvvM30wZwvGScxdKulhT5ZNgEwDZFg7F4xdnUv4Jat77_ZZi6hNIWKkiZBB5E7M28FilS6UAcP3Sdv4pkEtvrPRHBcxNQC5vTfhdE5t5BUqj4mqpU5lZYAOIKQjKqa49jYGsVm_akUZ2E6UB2DXdJ08wGrnuSab8W4YQsKh7z060Olnho10J5ILMeIBcnQueBYkgUICBN4hpKMpR2gBqQBgAef37qFHZAHBKgH8sCxAqgHuMSxAqgH4baxAqgHpc-xAqgH552xAqgH6J2xAqgH77WxAqgH8LWxAqgH-dOxAqgHydqxAqgHqeCxAqgHhAioB6bUsQKoB6jSG6gHtgeoB7HcG6gHsJuxAqgHrrGxAqgH5ryxAqgH_bKxAqgH97ixAqgH-LixAqgHyM-xAqgHyc-xAqgHzcexAqgH8dGxAqgH_NWxAqgH-9WxAqgHjNaxAqgHi9axAqgHmuKxAqgHm-KxAqgHmuGxAqgHndexAqgHndSxAqgHgcYbqAf8r7ECqAe-2bECqAerxRuoB7ehsQKoB9WpsQKoB961sQKoB-qxsQKoB763sQKoB5m1sQKoB4XBsQKoB-ulsQKoB8qpsQLSCCwIgEEQARheMgKCAjoPgEKAwICAgICAgAKqgIAQSNmg0jVQFFiQ8dDVm8CUA5oJMGh0dHBzOi8vd3d3LmJ5dGVwbHVzLmNvbS9lbi9hY3Rpdml0eS9zZWVkYW5jZTItMLEJH7Cpxjd8Cl7ICQCYCwG6Cz8IAxAFGBYgCCgBMBxAAUgAWE5gAGgAcAGIAQCYAQGiAQgKAKgCAdgCAqgBAdgBAYACAYgCBroDB3Zpc2lucmLQCxKiDC4qCgoIjt-xApXisQJqGwoZY29tLmJ5dGVwbHVzLmJ5dGVwbHVzbGl2ZXgAiAEA0gwCEAHaDCYKCxDwwpy605rP6rsBEgIBAxoNGMnQueBYIJ_wiYjmBUABSgIQH5oNARKqDQJNWcgNAdIN7QFodHRwczovL3d3dy5ieXRlcGx1cy5jb20vZW4vYWN0aXZpdHkvc2VlZGFuY2UyLTA_dXRtX3NvdXJjZT1nb29nbGUmdXRtX21lZGl1bT1wbWF4JnV0bV9jYW1wYWlnbj1zaWdudXBfc2VlZGFuY2VfZWFfY2hpbmVzZV8yMDI2MDUwOF9mbGYmdXRtX3Rlcm09MjAyNjA1MDhfY29tcHJlaGVuc2l2ZV9zZWVkYW5jZTIuMCZ1dG1fY29udGVudD10ZWNkbyZnYWRfc291cmNlPTImZ2FkX2NhbXBhaWduaWQ9MjM4MjQ1OTA5MjGwDsaN_v8YuBP___________8BiBQBsBQDwBWBgIBA0BUB2BUBmBYB4hYCCAGAFwGKFxYIAxgBIAEoATABOAFAAUgBUAFYAWACoBcBqRdjh25UVA9wiroXBigAMAA4AdAYAfAYAcIZAggB&ase=2&gclid=EAIaIQobChMInYTR1ZvAlAMVaDEDBB1e4gjuEAEYAiAAEgIkJ_D_BwE&num=2&cid=CAASwwHkaMgAIKGQOWywClA8bbb0DMFETMuJuBLJGTgKXYpdv5RksNbRfLFayin6vHDWgJrn9LTh4eJ-VuXQndaxNX5be9fFJfs110ncFCyG2A1Z0mZc2w8rxljm8_Yk6GC6ugBqjAG-mGnXocB-TtnFycY0aV6XKLrF0M55rINpRyIyV7n0wx4Mc1NTt_wV1kdzeYAjpdjXbF4m1qQintzPeMIrhhM4R_TfcZwoRcOSP64Gfi9wUG5auswdiMTnyB6K2Kvtr-g&sig=AOD64_2alKAWT-rYyCXirAQAfFgM9ukMrw&ms=%5BCLICK_MS%5D&nb=0&nx=%5BNX%5D&ny=%5BNY%5D&dim=%5BDIM%5D
+                - link "智能色彩优化提亮整体色调，呈现鲜活通透的光影画面。" [ref=e347]:
+                  - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CZNn4GaYJat2TBejijNAP3sSj8A6h_qSHhwHPydeG3hVkEAIgAGDLw7aOjBeCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABxNmEvz2oAwTIAwqqBMkCT9D6ai8jsr3xIPGKnoaQYKIWsDOzdrPbm-UNDPKMQJm1PSoSoI632dukyiifzQH3HZvI1a7_m-P3IRCLalJrjYQpWA12wnVTyyVfHhM7BdybDHroU3D91hCDDcgP3FV1s6pAENT2d_OH52L33OPPJJCYQHjo3xKn2IsFkcuNDBC5bjp5NK0DwK1OtOrKYgZKBKBtpHXoJNDz0xb5Bm7YTX_fgyeUVSdbsiO1ipRHS0MaTXbNQgNANsewdroBXdSvvM30wZwvGScxdKulhT5ZNgEwDZFg7F4xdnUv4Jat77_ZZi6hNIWKkiZBB5E7M28FilS6UAcP3Sdv4pkEtvrPRHBcxNQC5vTfhdE5t5BUqj4mqpU5lZYAOIKQjKqa49jYGsVm_akUZ2E6UB2DXdJ08wGrnuSab8W4YQsKh7z060Olnho10J5ILMeIBcnQueBYkgUICBN4hpKMpR2gBqQBgAef37qFHZAHBKgH8sCxAqgHuMSxAqgH4baxAqgHpc-xAqgH552xAqgH6J2xAqgH77WxAqgH8LWxAqgH-dOxAqgHydqxAqgHqeCxAqgHhAioB6bUsQKoB6jSG6gHtgeoB7HcG6gHsJuxAqgHrrGxAqgH5ryxAqgH_bKxAqgH97ixAqgH-LixAqgHyM-xAqgHyc-xAqgHzcexAqgH8dGxAqgH_NWxAqgH-9WxAqgHjNaxAqgHi9axAqgHmuKxAqgHm-KxAqgHmuGxAqgHndexAqgHndSxAqgHgcYbqAf8r7ECqAe-2bECqAerxRuoB7ehsQKoB9WpsQKoB961sQKoB-qxsQKoB763sQKoB5m1sQKoB4XBsQKoB-ulsQKoB8qpsQLSCCwIgEEQARheMgKCAjoPgEKAwICAgICAgAKqgIAQSNmg0jVQFFiQ8dDVm8CUA5oJMGh0dHBzOi8vd3d3LmJ5dGVwbHVzLmNvbS9lbi9hY3Rpdml0eS9zZWVkYW5jZTItMLEJH7Cpxjd8Cl7ICQCYCwG6Cz8IAxAFGBYgCCgBMBxAAUgAWE5gAGgAcAGIAQCYAQGiAQgKAKgCAdgCAqgBAdgBAYACAYgCBroDB3Zpc2lucmLQCxKiDC4qCgoIjt-xApXisQJqGwoZY29tLmJ5dGVwbHVzLmJ5dGVwbHVzbGl2ZXgAiAEA0gwCEAHaDCYKCxDwwpy605rP6rsBEgIBAxoNGMnQueBYIJ_wiYjmBUABSgIQH5oNARKqDQJNWcgNAdIN7QFodHRwczovL3d3dy5ieXRlcGx1cy5jb20vZW4vYWN0aXZpdHkvc2VlZGFuY2UyLTA_dXRtX3NvdXJjZT1nb29nbGUmdXRtX21lZGl1bT1wbWF4JnV0bV9jYW1wYWlnbj1zaWdudXBfc2VlZGFuY2VfZWFfY2hpbmVzZV8yMDI2MDUwOF9mbGYmdXRtX3Rlcm09MjAyNjA1MDhfY29tcHJlaGVuc2l2ZV9zZWVkYW5jZTIuMCZ1dG1fY29udGVudD10ZWNkbyZnYWRfc291cmNlPTImZ2FkX2NhbXBhaWduaWQ9MjM4MjQ1OTA5MjGwDsaN_v8YuBP___________8BiBQBsBQDwBWBgIBA0BUB2BUBmBYB4hYCCAGAFwGKFxYIAxgBIAEoATABOAFAAUgBUAFYAWACoBcBqRdjh25UVA9wiroXBigAMAA4AdAYAfAYAcIZAggB&ase=2&gclid=EAIaIQobChMInYTR1ZvAlAMVaDEDBB1e4gjuEAEYAiAAEgIkJ_D_BwE&num=2&cid=CAASwwHkaMgAIKGQOWywClA8bbb0DMFETMuJuBLJGTgKXYpdv5RksNbRfLFayin6vHDWgJrn9LTh4eJ-VuXQndaxNX5be9fFJfs110ncFCyG2A1Z0mZc2w8rxljm8_Yk6GC6ugBqjAG-mGnXocB-TtnFycY0aV6XKLrF0M55rINpRyIyV7n0wx4Mc1NTt_wV1kdzeYAjpdjXbF4m1qQintzPeMIrhhM4R_TfcZwoRcOSP64Gfi9wUG5auswdiMTnyB6K2Kvtr-g&sig=AOD64_2alKAWT-rYyCXirAQAfFgM9ukMrw&ms=%5BCLICK_MS%5D&nb=7&nx=%5BNX%5D&ny=%5BNY%5D&dim=%5BDIM%5D
+                - generic [ref=e348]:
+                  - generic [ref=e350]:
+                    - generic [ref=e351]: Sponsored
+                    - text: ·
+                  - generic [ref=e353]: BytePlus
+              - button "My Ad Center" [ref=e356]
+          - generic [ref=e363]:
+            - link [ref=e365] [cursor=pointer]:
+              - /url: /watch?v=dBn0ETS6XDk&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+            - generic [ref=e367] [cursor=pointer]:
+              - generic [ref=e368]:
+                - 'heading "Self Care: What It Really Is | Susannah Winters | TEDxHiltonHeadWomen 9 minutes, 59 seconds" [level=3] [ref=e370]':
+                  - 'link "Self Care: What It Really Is | Susannah Winters | TEDxHiltonHeadWomen 9 minutes, 59 seconds" [ref=e371]':
+                    - /url: /watch?v=dBn0ETS6XDk&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+                    - text: "Self Care: What It Really Is | Susannah Winters | TEDxHiltonHeadWomen"
+                - generic [ref=e374]:
+                  - generic [ref=e375]: 499K views
+                  - generic [ref=e376]: •7 years ago
+              - generic [ref=e377]:
+                - link "Go to channel TEDx Talks" [ref=e378]:
+                  - /url: /@TEDx
+                - generic [ref=e379]:
+                  - link "TEDx Talks" [ref=e383]:
+                    - /url: /@TEDx
+                  - img "Verified" [ref=e388]
+              - generic [ref=e390]:
+                - generic [ref=e391]: Self Care breaks the myth that self care is a wine party, Netflix binge, or pedicure social. Self care is what's needed for your ...
+                - tooltip "tooltip"
+              - img "4K" [ref=e396]:
+                - generic [ref=e397]: 4K
+              - generic [ref=e400]:
+                - generic [ref=e401]:
+                  - generic [ref=e405]: 4 moments
+                  - button "How To Practice Self-Care | Starting a Powerful Meditation | Movement | Time in Nature" [ref=e406]
+                - button "More" [ref=e411]
+          - generic [ref=e418]:
+            - link [ref=e420] [cursor=pointer]:
+              - /url: /watch?v=DCNOJmmHLkQ&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+            - generic [ref=e422] [cursor=pointer]:
+              - generic [ref=e423]:
+                - heading "Self-Love, be Intentional | Caitlyn Roux | TEDxYouth@CapeTown 8 minutes, 54 seconds" [level=3] [ref=e425]:
+                  - link "Self-Love, be Intentional | Caitlyn Roux | TEDxYouth@CapeTown 8 minutes, 54 seconds" [ref=e426]:
+                    - /url: /watch?v=DCNOJmmHLkQ&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+                    - text: Self-Love, be Intentional | Caitlyn Roux | TEDxYouth@CapeTown
+                - generic [ref=e429]:
+                  - generic [ref=e430]: 2M views
+                  - generic [ref=e431]: •8 years ago
+              - generic [ref=e432]:
+                - link "Go to channel TEDx Talks" [ref=e433]:
+                  - /url: /@TEDx
+                - generic [ref=e434]:
+                  - link "TEDx Talks" [ref=e438]:
+                    - /url: /@TEDx
+                  - img "Verified" [ref=e443]
+              - generic [ref=e445]:
+                - generic [ref=e446]: Self-Love, be Intentional Self-Love, be intentional This talk was given at a TEDx event using the TED conference format but ...
+                - tooltip "tooltip"
+              - generic [ref=e449]:
+                - generic [ref=e450]:
+                  - generic [ref=e453]: Summary
+                  - button "Caitlyn Roux shares a personal journey of overcoming self-doubt, eating disorders, and dependency on others for happiness. By focusing on intentional self-discovery and positive affirmations, a new path toward self-love and personal growth is forged." [ref=e454]
+                  - text: ·
+                - button "More" [ref=e459]
+          - generic [ref=e466]:
+            - link [ref=e468] [cursor=pointer]:
+              - /url: /watch?v=Gg6ct9N1vfQ&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+            - generic [ref=e470] [cursor=pointer]:
+              - generic [ref=e471]:
+                - heading "The Power of Reframing Exercise as Self-Care | Mike Stanlaw | TEDxBayonne 15 minutes" [level=3] [ref=e473]:
+                  - link "The Power of Reframing Exercise as Self-Care | Mike Stanlaw | TEDxBayonne 15 minutes" [ref=e474]:
+                    - /url: /watch?v=Gg6ct9N1vfQ&pp=ygUqaG93IHRvIG1ha2Ugc2VsZi1jYXJlIHN1c3RhaW5hYmxlIFRFRCB0YWxr
+                    - text: The Power of Reframing Exercise as Self-Care | Mike Stanlaw | TEDxBayonne
+                - generic [ref=e477]:
+                  - generic [ref=e478]: 119K views
+                  - generic [ref=e479]: •3 years ago
+              - generic [ref=e480]:
+                - link "Go to channel TEDx Talks" [ref=e481]:
+                  - /url: /@TEDx
+                - generic [ref=e482]:
+                  - link "TEDx Talks" [ref=e486]:
+                    - /url: /@TEDx
+                  - img "Verified" [ref=e491]
+              - generic [ref=e493]:
+                - generic [ref=e494]: Did you know that 95% of people do not get the recommended 30 minutes of physical activity daily? This means that this ...
+                - tooltip "tooltip"
+              - generic [ref=e497]:
+                - generic [ref=e498]:
+                  - generic [ref=e502]: 23 chapters
+                  - button "Intro | The Most Common Motivation | Reframing Exercise as SelfCare | Interesting Fact about SelfCare | My Most Pivotal Moment | Get Your 30 | Studio Shutdown | Personal Training | Angelas Story | What Happened to Angela | She Didnt Quit | Training Montage | Angelas Journey | Angelas Results | Youre Good | Take a Break | What is SelfCare | Physical SelfCare | Mental SelfCare | SelfCare | Best motivation doesnt last | Work on your selfcare every single day | Conclusion" [ref=e503]
+                - button "More" [ref=e508]
+  - generic [ref=e539]:
+    - link:
+      - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CC-WCGaYJat2TBejijNAP3sSj8A7uu5ryhgGIhIqGyRVkEAEgAGDLw7aOjBeCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABmcn1iiuoAwSqBM4CT9BF6iMDsi_xCPFY5qC6c5ABsimReJH-iMtWMaCqaoqHKigIgoCV8d2d-zqm2ADmBZ-X4PzZsfDFNhKRSmhu9JJ7fiNh4XdP5iJQFQp0LpKaH23saXDH1QCXC9lX0QpTqZpxHvu8fqya9nD7ye_zcOTQH2X5zR6y1J4FlfHNfRCnbjx7N6wD36hRquvU4Df3ctht_XupKMvzxQa1AC_W-BNK9R-UDCkavji1nIQLTQIUDWmHQxNfN9j7duATSta1gNTe1ZszVjZja--mwWFbfAc0TYcu811wczk-5M-7sb_YdDOuPImHlWFwaYFVAyUdgLjT0Z0MDJ1hLlsKcjBrXxwWfSjkZrK39kv3cphUil-_ep-hH6ztanyWT62at_yxDN5m6rd2C2ESQaBygO1V4rInCim_9AFX2SyGXTEizKphdtELbX7J_uJ7IAbL44gF_6vWuVeSBQ0IEjCo_9vNhZ2zyIwBkgUICBN41OTWhwOgBlWAB823vIUDkAcEqAfywLECqAe4xLECqAfhtrECqAelz7ECqAfnnbECqAfonbECqAfvtbECqAfwtbECqAf507ECqAfJ2rECqAep4LECqAeECKgHptSxAqgHqNIbqAe2B6gHsdwbqAewm7ECqAeusbECqAfmvLECqAf9srECqAf3uLECqAf4uLECqAfIz7ECqAfJz7ECqAfNx7ECqAfx0bECqAf81bECqAf71bECqAeM1rECqAeL1rECqAea4rECqAeb4rECqAea4bECqAed17ECqAed1LECqAeBxhuoB_yvsQKoB9XOG6gHvtmxAqgHq8UbqAeVCKgHnNwbqAe3obECqAfVqbECqAfn2rECqAfetbECqAfqsbECqAe-t7ECqAeZtbECqAeFwbECqAfrpbECqAfKqbECkggLakpETTZGbTJfNmeoCAHSCCwIgEEQARheMgKCAjoPgEKAwICAgICAgAKqgIAQSNmg0jVQFFiQ8dDVm8CUA5oJKmh0dHBzOi8vd3d3Lm1pbmR2YWxsZXkuY29tL3VsdHJhbWluZC9zYWxlc7EJIEDaG3_WT8jICRfICY8ByAmQAcgJwgGYCwG6Cz8IAxAFGBYgBygBMBxAAUgAWH1gAGgAcAGIAQCYAQGiAQgKAKgCAdgCAqgBAdgBAYACAYgCCboDB3Zpc2lucmLQCxKiDEMqCgoIjt-xApXisQJiGgoYY29tLm1pbmR2YWxsZXkubXZhY2FkZW15ahQKEmNvbS5taW5kdmFsbGV5Lm12YXgAiAEA0gwCEAHaDCYKCxCAhcvxkP28psMBEgIBAxoNGP-r1rlXIOnL_oLIBUABSgIQH5oNARKqDQJNWcgNAdINsgFodHRwczovL3d3dy5taW5kdmFsbGV5LmNvbS91bHRyYW1pbmQvc2FsZXM_dXRtX3NvdXJjZT1nb29nbGUtcGFpZCZ1dG1fbWVkaXVtPW9jcG0mb3RhZz1bZ2ctYWRzXS1bdnNsXS1bMjM0Nzk0MDQ5MzRdLVs2NjYxMTg0OTE5XS1bXS1bc3Vtc10mZ2FkX3NvdXJjZT0yJmdhZF9jYW1wYWlnbmlkPTIzNDc0ODM2OTkxsA6Xu6boGLgT____________AbAUA8AVgYCAQNAVAdgVAZgWAeIWAggBgBcBihcWCAMYASABKAEwATgBQAFIAVABWAFgAqAXAakXXy8Mkx-mOFS6FwYoADAAOAHQGAHwGAHCGQIIAQ&ase=2&gclid=EAIaIQobChMInYTR1ZvAlAMVaDEDBB1e4gjuEAEYASAAEgJyvfD_BwE&num=1&cid=CAASwwHkaMgAIKGQOWywClA8bbb0DMFETMuJuBLJGTgKXYpdv5RksNbRfLFayin6vHDWgJrn9LTh4eJ-VuXQndaxNX5be9fFJfs110ncFCyG2A1Z0mZc2w8rxljm8_Yk6GC6ugBqjAG-mGnXocB-TtnFycY0aV6XKLrF0M55rINpRyIyV7n0wx4Mc1NTt_wV1kdzeYAjpdjXbF4m1qQintzPeMIrhhM4R_TfcZwoRcOSP64Gfi9wUG5auswdiMTnyB6K2Kvtr-g&ad_cpn=%5BCPN%5D&sig=AOD64_0R_Iln3Khbhm8rRD92GB84dS0N_w&ctype=110&video_id=jJDM6Fm2_6g&label=video_click_to_advertiser_site&ms=%5BCLICK_MS%5D
+      - generic [ref=e540] [cursor=pointer]:
+        - generic:
+          - generic:
+            - generic:
+              - img

@@ -1,0 +1,245 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - listitem [ref=e10]:
+          - link " Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /Admin/AdminHome.aspx
+            - generic [ref=e12]: 
+            - text: Dashboard
+        - listitem [ref=e13]:
+          - link " Users" [ref=e14] [cursor=pointer]:
+            - /url: /Admin/UserManagement.aspx
+            - generic [ref=e15]: 
+            - text: Users
+        - listitem [ref=e16]:
+          - link " Courses" [ref=e17] [cursor=pointer]:
+            - /url: /Admin/CourseManagement.aspx
+            - generic [ref=e18]: 
+            - text: Courses
+        - listitem [ref=e19]:
+          - button " Admin" [ref=e20] [cursor=pointer]:
+            - generic [ref=e21]: 
+            - text: Admin
+          - text:  
+  - generic [ref=e23]:
+    - heading " Admin Dashboard" [level=1] [ref=e24]:
+      - generic [ref=e25]: 
+      - text: Admin Dashboard
+    - paragraph [ref=e26]:
+      - text: Welcome back,
+      - strong [ref=e27]: System Administrator
+      - text: — here's an overview of MindSpace
+  - generic [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e31]:
+        - generic [ref=e33]: 
+        - generic [ref=e34]:
+          - generic [ref=e35]: "5"
+          - generic [ref=e36]: Registered Learners
+      - generic [ref=e38]:
+        - generic [ref=e40]: 
+        - generic [ref=e41]:
+          - generic [ref=e42]: "6"
+          - generic [ref=e43]: Active Courses
+      - generic [ref=e45]:
+        - generic [ref=e47]: 
+        - generic [ref=e48]:
+          - generic [ref=e49]: "10"
+          - generic [ref=e50]: Total Enrollments
+      - generic [ref=e52]:
+        - generic [ref=e54]: 
+        - generic [ref=e55]:
+          - generic [ref=e56]: "4"
+          - generic [ref=e57]: Forum Posts
+    - generic [ref=e58]:
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - generic [ref=e63]: 
+            - text: Recent Users
+          - link "Manage All" [ref=e64] [cursor=pointer]:
+            - /url: UserManagement.aspx
+        - table [ref=e67]:
+          - rowgroup [ref=e68]:
+            - row "Name Username Role Registered" [ref=e69]:
+              - columnheader "Name" [ref=e70]
+              - columnheader "Username" [ref=e71]
+              - columnheader "Role" [ref=e72]
+              - columnheader "Registered" [ref=e73]
+            - row "rabiah Ruby learner 17 May 2026" [ref=e74]:
+              - cell "rabiah" [ref=e75]
+              - cell "Ruby" [ref=e76]
+              - cell "learner" [ref=e77]:
+                - generic [ref=e78]: learner
+              - cell "17 May 2026" [ref=e79]
+            - row "rabiah Rabiah learner 17 May 2026" [ref=e80]:
+              - cell "rabiah" [ref=e81]
+              - cell "Rabiah" [ref=e82]
+              - cell "learner" [ref=e83]:
+                - generic [ref=e84]: learner
+              - cell "17 May 2026" [ref=e85]
+            - row "Mohammed Ali mohammedali learner 16 May 2026" [ref=e86]:
+              - cell "Mohammed Ali" [ref=e87]
+              - cell "mohammedali" [ref=e88]
+              - cell "learner" [ref=e89]:
+                - generic [ref=e90]: learner
+              - cell "16 May 2026" [ref=e91]
+            - row "Sarah Chen sarahc learner 16 May 2026" [ref=e92]:
+              - cell "Sarah Chen" [ref=e93]
+              - cell "sarahc" [ref=e94]
+              - cell "learner" [ref=e95]:
+                - generic [ref=e96]: learner
+              - cell "16 May 2026" [ref=e97]
+            - row "Alex Johnson alexj learner 16 May 2026" [ref=e98]:
+              - cell "Alex Johnson" [ref=e99]
+              - cell "alexj" [ref=e100]
+              - cell "learner" [ref=e101]:
+                - generic [ref=e102]: learner
+              - cell "16 May 2026" [ref=e103]
+            - row "System Administrator admin admin 16 May 2026" [ref=e104]:
+              - cell "System Administrator" [ref=e105]
+              - cell "admin" [ref=e106]
+              - cell "admin" [ref=e107]:
+                - generic [ref=e108]: admin
+              - cell "16 May 2026" [ref=e109]
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: 
+            - text: Courses Overview
+          - link "Manage All" [ref=e115] [cursor=pointer]:
+            - /url: CourseManagement.aspx
+        - table [ref=e118]:
+          - rowgroup [ref=e119]:
+            - row "Course Category Enrolled Status" [ref=e120]:
+              - columnheader "Course" [ref=e121]
+              - columnheader "Category" [ref=e122]
+              - columnheader "Enrolled" [ref=e123]
+              - columnheader "Status" [ref=e124]
+            - row "Self-Care & Emotional Wellbeing Self-Care 1 Active" [ref=e125]:
+              - cell "Self-Care & Emotional Wellbeing" [ref=e126]
+              - cell "Self-Care" [ref=e127]
+              - cell "1" [ref=e128]
+              - cell "Active" [ref=e129]:
+                - generic [ref=e130]: Active
+            - row "Stress Management Fundamentals Stress Management 3 Active" [ref=e131]:
+              - cell "Stress Management Fundamentals" [ref=e132]
+              - cell "Stress Management" [ref=e133]
+              - cell "3" [ref=e134]
+              - cell "Active" [ref=e135]:
+                - generic [ref=e136]: Active
+            - row "Mindfulness & Meditation Mindfulness 3 Active" [ref=e137]:
+              - cell "Mindfulness & Meditation" [ref=e138]
+              - cell "Mindfulness" [ref=e139]
+              - cell "3" [ref=e140]
+              - cell "Active" [ref=e141]:
+                - generic [ref=e142]: Active
+            - row "Understanding Anxiety Anxiety 2 Active" [ref=e143]:
+              - cell "Understanding Anxiety" [ref=e144]
+              - cell "Anxiety" [ref=e145]
+              - cell "2" [ref=e146]
+              - cell "Active" [ref=e147]:
+                - generic [ref=e148]: Active
+            - row "Sleep Hygiene & Restoration Sleep Hygiene 0 Active" [ref=e149]:
+              - cell "Sleep Hygiene & Restoration" [ref=e150]
+              - cell "Sleep Hygiene" [ref=e151]
+              - cell "0" [ref=e152]
+              - cell "Active" [ref=e153]:
+                - generic [ref=e154]: Active
+            - row "Building Emotional Resilience Resilience 1 Active" [ref=e155]:
+              - cell "Building Emotional Resilience" [ref=e156]
+              - cell "Resilience" [ref=e157]
+              - cell "1" [ref=e158]
+              - cell "Active" [ref=e159]:
+                - generic [ref=e160]: Active
+    - generic [ref=e161]:
+      - heading " Quick Actions" [level=5] [ref=e163]:
+        - generic [ref=e164]: 
+        - text: Quick Actions
+      - link " Add New User" [ref=e166] [cursor=pointer]:
+        - /url: UserManagement.aspx
+        - generic [ref=e167]:
+          - generic [ref=e168]: 
+          - generic [ref=e169]: Add New User
+      - link " Add New Course" [ref=e171] [cursor=pointer]:
+        - /url: CourseManagement.aspx
+        - generic [ref=e172]:
+          - generic [ref=e173]: 
+          - generic [ref=e174]: Add New Course
+      - link " View Discussions" [ref=e176] [cursor=pointer]:
+        - /url: ../User/Discussions.aspx
+        - generic [ref=e177]:
+          - generic [ref=e178]: 
+          - generic [ref=e179]: View Discussions
+      - link " Change Password" [ref=e181] [cursor=pointer]:
+        - /url: ../ChangePassword.aspx
+        - generic [ref=e182]:
+          - generic [ref=e183]: 
+          - generic [ref=e184]: Change Password
+  - contentinfo [ref=e185]:
+    - generic [ref=e186]:
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - heading " MindSpace" [level=5] [ref=e189]:
+            - generic [ref=e190]: 
+            - generic [ref=e191]: MindSpace
+          - paragraph [ref=e192]: A premium learning platform dedicated to mental wellness literacy for students and young adults — evidence-based, self-paced, free.
+          - generic [ref=e193]:
+            - generic [ref=e195]: 
+            - generic [ref=e197]: 
+            - generic [ref=e199]: 
+            - generic [ref=e201]: 
+        - generic [ref=e202]:
+          - heading "Platform" [level=6] [ref=e203]
+          - list [ref=e204]:
+            - listitem [ref=e205]:
+              - link "Home" [ref=e206] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e207]:
+              - link "Browse Courses" [ref=e208] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e209]:
+              - link "Register Free" [ref=e210] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e211]:
+              - link "Sign In" [ref=e212] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e213]:
+          - heading "Topics" [level=6] [ref=e214]
+          - list [ref=e215]:
+            - listitem [ref=e216]:
+              - generic [ref=e217]: 
+              - text: Stress
+            - listitem [ref=e218]:
+              - generic [ref=e219]: 
+              - text: Mindfulness
+            - listitem [ref=e220]:
+              - generic [ref=e221]: 
+              - text: Anxiety
+            - listitem [ref=e222]:
+              - generic [ref=e223]: 
+              - text: Sleep
+            - listitem [ref=e224]:
+              - generic [ref=e225]: 
+              - text: Resilience
+        - generic [ref=e226]:
+          - heading "Stay Well" [level=6] [ref=e227]
+          - paragraph [ref=e228]: One short wellness tip in your inbox each week. No spam.
+          - generic [ref=e229]:
+            - textbox "your@email.com" [ref=e230]
+            - button "Subscribe" [ref=e231] [cursor=pointer]
+      - separator [ref=e232]
+      - generic [ref=e233]:
+        - paragraph [ref=e234]: © 2026 MindSpace. Crafted with care for mental wellness.
+        - generic [ref=e235]:
+          - link "Privacy" [ref=e236] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms" [ref=e237] [cursor=pointer]:
+            - /url: "#"
+          - link "Contact" [ref=e238] [cursor=pointer]:
+            - /url: "#"

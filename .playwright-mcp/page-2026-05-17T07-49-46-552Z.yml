@@ -1,0 +1,230 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /Default.aspx
+        - link "Courses" [ref=e11] [cursor=pointer]:
+          - /url: /Courses/CourseList.aspx
+        - link "Login" [ref=e12] [cursor=pointer]:
+          - /url: /Login.aspx
+        - link "Register" [ref=e13] [cursor=pointer]:
+          - /url: /Register.aspx
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]: Sleep Hygiene
+      - heading "Sleep Hygiene & Restoration" [level=1] [ref=e19]
+      - paragraph [ref=e20]: Discover the critical role of sleep in mental health and learn practical strategies to improve sleep quality, establish healthy routines, and overcome common sleep challenges.
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: 
+          - text: Beginner
+        - generic [ref=e24]:
+          - generic [ref=e25]: 
+          - text: 3 weeks
+        - generic [ref=e26]:
+          - generic [ref=e27]: 
+          - text: 0 enrolled
+    - generic [ref=e28]:
+      - generic [ref=e29]: 🌙
+      - link " Login to Enroll" [ref=e31] [cursor=pointer]:
+        - /url: ../Login.aspx
+        - generic [ref=e32]: 
+        - text: Login to Enroll
+  - generic [ref=e33]:
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - heading " Learning Resources" [level=4] [ref=e36]:
+          - generic [ref=e37]: 
+          - text: Learning Resources
+        - generic [ref=e39]:
+          - generic [ref=e41]: 
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - heading "The Science of Sleep and Mental Health" [level=6] [ref=e44]
+              - generic [ref=e45]: article
+            - paragraph [ref=e46]: Sleep is one of the most active processes your brain undergoes each night. The brain consolidates memories, clears metabolic waste products, and regulates emotional responses during sleep. Sleep cycles (~90 minutes each) alternate between NREM Stage 1-2 (light sleep), NREM Stage 3 (deep slow-wave sleep -- tissue repair, immune strengthening), and REM sleep (vivid dreaming, emotional memory processing). Sleep deprivation increases amygdala reactivity by up to 60%, making you emotionally reactive. Chronic poor sleep is one of the strongest predictors of depression and anxiety. Adults need 7-9 hours per night.
+        - generic [ref=e48]:
+          - generic [ref=e50]: 
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - heading "Building a Sleep-Friendly Environment and Routine" [level=6] [ref=e53]
+              - generic [ref=e54]: article
+            - paragraph [ref=e55]: "Sleep hygiene covers habits and environmental conditions that promote high-quality sleep. Environment: keep your bedroom at 16-20 degrees C (60-68 F) -- core body temperature must drop to initiate sleep; use blackout curtains since even small amounts of light suppress melatonin; use your bed only for sleep to strengthen the mental association. Behavioural strategies: wake at the same time every day (including weekends) to anchor your circadian rhythm; follow a 30-60 minute wind-down routine with dim lights and no screens; avoid caffeine after 2pm (half-life is 5-6 hours); avoid alcohol before bed as it fragments sleep and suppresses REM; exercise regularly but avoid vigorous workouts within 2 hours of bedtime."
+        - generic [ref=e57]:
+          - generic [ref=e59]: 
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - heading "Sleep Is Your Superpower - Matthew Walker (TED)" [level=6] [ref=e62]
+              - generic [ref=e63]: video
+            - iframe [ref=e65]:
+              - generic [active] [ref=f19e1]:
+                - generic "YouTube Video Player" [ref=f19e3]
+                - generic [ref=f19e5]:
+                  - generic:
+                    - generic:
+                      - button "Play video" [ref=f19e10] [cursor=pointer]
+                      - button "Hide player controls" [ref=f19e12] [cursor=pointer]
+                      - generic [ref=f19e14]:
+                        - generic [ref=f19e19]:
+                          - generic [ref=f19e20]:
+                            - link "Sleep Is Your Superpower | Matt Walker | TED" [ref=f19e21] [cursor=pointer]:
+                              - /url: https://www.youtube.com/watch?v=5MuIMqhT8DM
+                            - link "TED" [ref=f19e22] [cursor=pointer]:
+                              - /url: /channel/UCAuUUnT6oDeKwE6v1NGQxug
+                              - generic [ref=f19e23]: TED
+                          - generic [ref=f19e24]:
+                            - button [ref=f19e25] [cursor=pointer]
+                            - generic [ref=f19e27]:
+                              - generic: TED
+                              - generic: 27.4M subscribers
+                        - generic [ref=f19e28]:
+                          - button "Share" [ref=f19e31] [cursor=pointer]:
+                            - generic [ref=f19e35]:
+                              - img
+                          - link "Watch on YouTube" [ref=f19e42] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=5MuIMqhT8DM
+                            - generic [ref=f19e45]:
+                              - text: Watch on
+                              - img [ref=f19e47]:
+                                - generic [ref=f19e49]:
+                                  - img
+        - generic [ref=e67]:
+          - generic [ref=e69]: 
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - heading "Sleep Quality Tracker Template" [level=6] [ref=e72]
+              - generic [ref=e73]: download
+            - paragraph [ref=e74]: Download this sleep quality tracker to monitor your sleep schedule, bedtime habits, and energy levels. Tracking for two weeks helps identify patterns that improve or disrupt your sleep.
+            - link " Download Resource" [ref=e75] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e76]: 
+              - text: Download Resource
+      - generic [ref=e78]:
+        - heading " Available Quizzes" [level=5] [ref=e79]:
+          - generic [ref=e80]: 
+          - text: Available Quizzes
+        - generic [ref=e82]:
+          - generic [ref=e83]: 
+          - link "Login" [ref=e84] [cursor=pointer]:
+            - /url: ../Login.aspx
+          - text: and enroll to take quizzes.
+        - generic [ref=e85]:
+          - heading "Sleep Hygiene" [level=6] [ref=e86]
+          - paragraph [ref=e87]: Test your knowledge about healthy sleep habits and rest optimization.
+          - generic [ref=e88]:
+            - generic [ref=e89]: "Pass: 70%"
+            - link " Take Quiz" [ref=e90] [cursor=pointer]:
+              - /url: /Courses/Quiz.aspx?quizID=4
+              - generic [ref=e91]: 
+              - text: Take Quiz
+    - generic [ref=e92]:
+      - generic [ref=e93]:
+        - heading " Success Stories" [level=4] [ref=e94]:
+          - generic [ref=e95]: 
+          - text: Success Stories
+        - generic [ref=e96]: Hear from students who completed this course
+      - generic [ref=e97]:
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]: M
+            - generic [ref=e102]:
+              - generic [ref=e103]: Mei L.
+              - generic [ref=e104]: 17 May 2026
+          - generic [ref=e105]:
+            - generic [ref=e106]: 
+            - text: From 5hrs to 8hrs Sleep
+          - paragraph [ref=e107]:
+            - emphasis [ref=e108]: "\"I had no idea light and temperature affected sleep so much. Blackout curtains and dropping room temperature added 90 minutes of sleep.\""
+          - generic [ref=e109]:
+            - generic [ref=e110]: 
+            - text: I wake up alert, skip the 3pm energy crash, and my mood has completely stabilised.
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: T
+            - generic [ref=e115]:
+              - generic [ref=e116]: Tom K.
+              - generic [ref=e117]: 17 May 2026
+          - generic [ref=e118]:
+            - generic [ref=e119]: 
+            - text: No More Scrolling in Bed
+          - paragraph [ref=e120]:
+            - emphasis [ref=e121]: "\"The bed association principle was simple but powerful. I stopped using my phone in bed entirely and my brain now links bed with sleep only.\""
+          - generic [ref=e122]:
+            - generic [ref=e123]: 
+            - text: Fall-asleep time went from 45 minutes to under 15 minutes. I have not taken a sleeping tablet in 3 months.
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - generic [ref=e127]: "N"
+            - generic [ref=e128]:
+              - generic [ref=e129]: Nadia S.
+              - generic [ref=e130]: 17 May 2026
+          - generic [ref=e131]:
+            - generic [ref=e132]: 
+            - text: Consistent Wake Time Wins
+          - paragraph [ref=e133]:
+            - emphasis [ref=e134]: "\"The hardest change was waking at the same time on weekends. After two weeks my circadian rhythm adjusted and I naturally felt tired at 10pm.\""
+          - generic [ref=e135]:
+            - generic [ref=e136]: 
+            - text: I have not used an alarm to drag myself out of bed in 6 weeks. My body wakes up on its own, rested and ready.
+        - generic [ref=e138]:
+          - generic [ref=e139]:
+            - generic [ref=e140]: B
+            - generic [ref=e141]:
+              - generic [ref=e142]: Ben C.
+              - generic [ref=e143]: 17 May 2026
+          - generic [ref=e144]:
+            - generic [ref=e145]: 
+            - text: Caffeine Audit Changed Sleep
+          - paragraph [ref=e146]:
+            - emphasis [ref=e147]: "\"I discovered I was drinking coffee at 4pm well within the 5-6 hour half-life window. Cutting off at noon made an immediate difference.\""
+          - generic [ref=e148]:
+            - generic [ref=e149]: 
+            - text: Deep sleep on my fitness tracker increased about 25% within the first week of the caffeine cut-off change.
+  - contentinfo [ref=e150]:
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - heading " MindSpace" [level=5] [ref=e154]:
+            - generic [ref=e155]: 
+            - text: MindSpace
+          - paragraph [ref=e156]: Empowering students and young adults with accessible mental health literacy resources.
+        - generic [ref=e157]:
+          - heading "Quick Links" [level=6] [ref=e158]
+          - list [ref=e159]:
+            - listitem [ref=e160]:
+              - link "Home" [ref=e161] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e162]:
+              - link "Browse Courses" [ref=e163] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e164]:
+              - link "Register Free" [ref=e165] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e166]:
+              - link "Login" [ref=e167] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e168]:
+          - heading "Mental Health Topics" [level=6] [ref=e169]
+          - list [ref=e170]:
+            - listitem [ref=e171]:
+              - generic [ref=e172]: 
+              - text: Stress Management
+            - listitem [ref=e173]:
+              - generic [ref=e174]: 
+              - text: Mindfulness & Meditation
+            - listitem [ref=e175]:
+              - generic [ref=e176]: 
+              - text: Anxiety Management
+            - listitem [ref=e177]:
+              - generic [ref=e178]: 
+              - text: Sleep Hygiene
+            - listitem [ref=e179]:
+              - generic [ref=e180]: 
+              - text: Emotional Resilience
+      - separator [ref=e181]
+      - paragraph [ref=e182]: © 2026 MindSpace — APU Web Applications Assignment — Group G29

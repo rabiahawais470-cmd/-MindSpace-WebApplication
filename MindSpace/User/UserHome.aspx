@@ -3,24 +3,27 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- ===== WELCOME BANNER ===== -->
-    <div style="background:linear-gradient(135deg,#6C5CE7,#5541d0);color:#fff;padding:2rem 0;">
-        <div class="container">
+    <div class="dash-banner">
+        <div class="container position-relative" style="z-index:2;">
             <div class="row align-items-center g-3">
                 <div class="col d-flex align-items-center gap-3">
                     <div class="dash-avatar">
                         <asp:Literal ID="litAvatarInitial" runat="server" />
                     </div>
                     <div>
-                        <h2 class="fw-bold mb-1" style="font-size:1.5rem;">
-                            Welcome back, <asp:Literal ID="litWelcome" runat="server" />!
+                        <div class="hero-eyebrow mb-2" style="margin-bottom:0.5rem !important;">
+                            <span class="pulse"></span><span>Active Learner</span>
+                        </div>
+                        <h2 class="fw-bold mb-1" style="font-family:var(--font-display);font-size:1.75rem;letter-spacing:-0.03em;background:linear-gradient(135deg,#fff,#C7D2FE);-webkit-background-clip:text;background-clip:text;color:transparent;">
+                            Welcome back, <asp:Literal ID="litWelcome" runat="server" />
                         </h2>
-                        <p class="mb-0" style="opacity:0.85;font-size:0.9rem;">
-                            Member since <asp:Literal ID="litMemberSince" runat="server" /> &mdash; Keep up the great work!
+                        <p class="mb-0" style="color:rgba(255,255,255,0.65);font-size:0.9rem;">
+                            Member since <asp:Literal ID="litMemberSince" runat="server" /> &mdash; Keep up the great work.
                         </p>
                     </div>
                 </div>
                 <div class="col-auto">
-                    <a href="../Courses/CourseList.aspx" class="btn btn-warning fw-bold btn-sm">
+                    <a href="../Courses/CourseList.aspx" class="btn btn-warning">
                         <i class="fas fa-plus me-1"></i>Explore Courses
                     </a>
                 </div>

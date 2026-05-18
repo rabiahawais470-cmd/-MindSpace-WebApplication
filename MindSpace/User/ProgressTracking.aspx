@@ -3,15 +3,16 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- ===== BANNER ===== -->
-    <div style="background:linear-gradient(135deg,#6C5CE7,#5541d0);color:#fff;padding:2rem 0;">
-        <div class="container">
+    <div class="dash-banner">
+        <div class="container position-relative" style="z-index:2;">
             <div class="row align-items-center g-3">
                 <div class="col">
-                    <h2 class="fw-bold mb-1" style="font-size:1.5rem;">
-                        <i class="fas fa-chart-line me-2"></i>My Learning Progress
+                    <div class="hero-eyebrow mb-2"><span class="pulse"></span><span>Learning Analytics</span></div>
+                    <h2 class="fw-bold mb-1" style="font-family:var(--font-display);font-size:1.75rem;letter-spacing:-0.03em;background:linear-gradient(135deg,#fff,#C7D2FE);-webkit-background-clip:text;background-clip:text;color:transparent;">
+                        My Learning Progress
                     </h2>
-                    <p class="mb-0" style="opacity:0.85;font-size:0.9rem;">
-                        Track your journey and celebrate every milestone
+                    <p class="mb-0" style="color:rgba(255,255,255,0.65);font-size:0.9rem;">
+                        Track your journey and celebrate every milestone.
                     </p>
                 </div>
                 <div class="col-auto d-flex gap-2">

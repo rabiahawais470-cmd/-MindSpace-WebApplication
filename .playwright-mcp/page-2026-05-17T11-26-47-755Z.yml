@@ -1,0 +1,215 @@
+- generic [ref=e1]:
+  - dialog "Cookie Consent Banner" [ref=e2]:
+    - button "Close this dialog" [active] [ref=e3] [cursor=pointer]:
+      - img "Close this dialog" [ref=e4]
+    - generic [ref=e5]:
+      - generic [ref=e6]: "This website utilizes technologies such as cookies to enable essential site functionality, as well as for analytics, personalization, and targeted advertising. To learn more, view the following link:"
+      - link "Privacy Policy" [ref=e7] [cursor=pointer]:
+        - /url: https://www.ted.com/about/our-organization/our-policies-terms/privacy-policy
+    - button "Manage Preferences" [ref=e9] [cursor=pointer]
+  - generic [ref=e12]:
+    - navigation [ref=e13]:
+      - link "TED Ideas change everything" [ref=e14] [cursor=pointer]:
+        - /url: /
+        - img "TED" [ref=e15]
+        - generic [ref=e19]: Ideas change everything
+      - menubar [ref=e20]:
+        - menuitem "Watch" [ref=e21] [cursor=pointer]
+        - menuitem "Discover" [ref=e22] [cursor=pointer]
+        - menuitem "Attend" [ref=e23] [cursor=pointer]
+        - menuitem "Participate" [ref=e24] [cursor=pointer]
+        - menuitem "About" [ref=e25] [cursor=pointer]
+        - link "Membership" [ref=e26] [cursor=pointer]:
+          - /url: /membership?utm_medium=website&utm_source=main-nav-header&utm_campaign=membership-ted
+      - link "Sign in" [ref=e28] [cursor=pointer]:
+        - /url: /session/new?context=ted.www%2Fmain-nav&referer=https%3A%2F%2Fwww.ted.com%2Fspeakers%2Fkc_davis_TEDxMileHigh20220806-51475
+      - button "Search" [ref=e31] [cursor=pointer]:
+        - img "Search" [ref=e32]
+      - generic [ref=e34]:
+        - generic [ref=e36]:
+          - generic [ref=e37]: "Search:"
+          - textbox [ref=e38]:
+            - /placeholder: Type to search
+        - button [ref=e39] [cursor=pointer]:
+          - img [ref=e40]
+    - main [ref=e42]:
+      - generic [ref=e56]:
+        - list [ref=e58]:
+          - listitem [ref=e59]:
+            - link "TED Speaker" [ref=e60] [cursor=pointer]:
+              - /url: /speakers
+        - generic [ref=e62]:
+          - heading "KC Davis" [level=1] [ref=e63]
+          - generic [ref=e64]: Therapist and author
+        - generic [ref=e66]:
+          - link " strugglecare.com" [ref=e67] [cursor=pointer]:
+            - /url: https://www.strugglecare.com/
+          - link " TikTok" [ref=e68] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@domesticblisters
+      - generic [ref=e71]:
+        - navigation [ref=e73]:
+          - list [ref=e74]:
+            - listitem [ref=e75]:
+              - link "TED Speaker" [ref=e76] [cursor=pointer]:
+                - /url: /speakers/kc_davis_TEDxMileHigh20220806-51475
+        - generic [ref=e77]:
+          - generic [ref=e79]:
+            - generic [ref=e80]: KC Davis offers a compassionate and practical approach to self and home care for those dealing with mental health, physical illness and hard seasons of life
+            - generic [ref=e81]:
+              - heading "Why you should listen" [level=3] [ref=e82]
+              - text: KC Davis began her therapy journey at 16 when she entered treatment for drug addiction and mental health issues. After getting sober she became a therapist advocate for mental health, and has drawn millions of followers online and which spurred the book,
+              - link "How to Keep House While Drowning" [ref=e83] [cursor=pointer]:
+                - /url: http://target.georiot.com/Proxy.ashx?TSID=12033&GR_URL=https%3A%2F%2Fwww.amazon.com/How-Keep-House-While-Drowning/dp/1668002841
+                - emphasis [ref=e84]: How to Keep House While Drowning
+              - text: .
+          - generic [ref=e85]:
+            - heading "KC Davis’ TED Talks" [level=2] [ref=e86]
+            - generic [ref=e88]:
+              - generic [ref=e91]:
+                - link "12:52" [ref=e93] [cursor=pointer]:
+                  - /url: /talks/kc_davis_how_to_do_laundry_when_you_re_depressed
+                  - generic [ref=e97]: 12:52
+                - generic [ref=e98]:
+                  - heading "KC Davis" [level=4] [ref=e99]
+                  - heading "How to do laundry when you're depressed" [level=4] [ref=e100]:
+                    - link "How to do laundry when you're depressed" [ref=e101] [cursor=pointer]:
+                      - /url: /talks/kc_davis_how_to_do_laundry_when_you_re_depressed
+                  - generic [ref=e103]: Posted Oct 2022
+              - generic [ref=e106]:
+                - link "12:54" [ref=e108] [cursor=pointer]:
+                  - /url: /talks/kc_davis_how_to_do_laundry_when_you_re_depressed_sep_2022
+                  - generic [ref=e112]: 12:54
+                - generic [ref=e113]:
+                  - heading "KC Davis" [level=4] [ref=e114]
+                  - heading "How to do laundry when you're depressed" [level=4] [ref=e115]:
+                    - link "How to do laundry when you're depressed" [ref=e116] [cursor=pointer]:
+                      - /url: /talks/kc_davis_how_to_do_laundry_when_you_re_depressed_sep_2022
+                  - generic [ref=e118]: Posted Jan 2023
+          - generic [ref=e119]:
+            - heading "More news and ideas from KC Davis" [level=2] [ref=e121]
+            - article [ref=e123]:
+              - generic [ref=e124]:
+                - generic [ref=e125]: News
+                - heading "New “TED Radio Hour” three-part series explores “Mind, Body, Spirit”" [level=4] [ref=e126]:
+                  - link "New “TED Radio Hour” three-part series explores “Mind, Body, Spirit”" [ref=e127] [cursor=pointer]:
+                    - /url: https://blog.ted.com/new-ted-radio-hour-three-part-series-explores-mind-body-spirit/
+                - generic [ref=e128]: March 31, 2023
+                - paragraph [ref=e129]: "For millennia, humans have debated the connection between the mind, body and spirit. But today, the phrase sounds trite — a hallmark of the #selfcare industry. Over three episodes of this special series on TED Radio Hour, TED speakers will investigate fresh perspectives on how we think, move and feel. In the first hour: the […]"
+                - link "Continue reading" [ref=e130] [cursor=pointer]:
+                  - /url: https://blog.ted.com/new-ted-radio-hour-three-part-series-explores-mind-body-spirit/
+    - contentinfo [ref=e131]:
+      - generic [ref=e133]:
+        - link "TED" [ref=e134] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e135]:
+          - navigation [ref=e136]:
+            - heading "Programs & initiatives" [level=3] [ref=e137]
+            - list [ref=e138]:
+              - listitem [ref=e139]:
+                - link "TEDx" [ref=e140] [cursor=pointer]:
+                  - /url: /about/programs-initiatives/tedx-program
+              - listitem [ref=e141]:
+                - link "TED Fellows" [ref=e142] [cursor=pointer]:
+                  - /url: /about/programs-initiatives/ted-fellows-program
+              - listitem [ref=e143]:
+                - link "TED Ed" [ref=e144] [cursor=pointer]:
+                  - /url: /about/programs-initiatives/ted-ed
+              - listitem [ref=e145]:
+                - link "TED Translators" [ref=e146] [cursor=pointer]:
+                  - /url: /about/programs-initiatives/ted-translators
+              - listitem [ref=e147]:
+                - link "TED Institute" [ref=e148] [cursor=pointer]:
+                  - /url: /about/programs-initiatives/ted-institute
+              - listitem [ref=e149]:
+                - link "The Audacious Project" [ref=e150] [cursor=pointer]:
+                  - /url: /about/programs-initiatives/the-audacious-project
+              - listitem [ref=e151]:
+                - link "TED@Work" [ref=e152] [cursor=pointer]:
+                  - /url: https://tedatwork.ted.com
+              - listitem [ref=e153]:
+                - link "TED Courses" [ref=e154] [cursor=pointer]:
+                  - /url: https://courses.ted.com
+          - navigation [ref=e155]:
+            - heading "Ways to get TED" [level=3] [ref=e156]
+            - list [ref=e157]:
+              - listitem [ref=e158]:
+                - link "Podcasts" [ref=e159] [cursor=pointer]:
+                  - /url: /podcasts
+              - listitem [ref=e160]:
+                - link "More ways to get TED" [ref=e161] [cursor=pointer]:
+                  - /url: /about/programs-initiatives/ted-talks/ways-to-get-ted-talks
+          - navigation [ref=e162]:
+            - heading "Follow TED" [level=3] [ref=e163]
+            - list [ref=e164]:
+              - listitem [ref=e165]:
+                - link "Facebook" [ref=e166] [cursor=pointer]:
+                  - /url: https://www.facebook.com/TED
+              - listitem [ref=e167]:
+                - link "Twitter" [ref=e168] [cursor=pointer]:
+                  - /url: https://twitter.com/tedtalks
+              - listitem [ref=e169]:
+                - link "Instagram" [ref=e170] [cursor=pointer]:
+                  - /url: https://instagram.com/ted
+              - listitem [ref=e171]:
+                - link "YouTube" [ref=e172] [cursor=pointer]:
+                  - /url: https://www.youtube.com/ted
+              - listitem [ref=e173]:
+                - link "LinkedIn" [ref=e174] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/ted-conferences/
+              - listitem [ref=e175]:
+                - link "TED Blog" [ref=e176] [cursor=pointer]:
+                  - /url: https://blog.ted.com
+          - navigation [ref=e177]:
+            - heading "Our community" [level=3] [ref=e178]
+            - list [ref=e179]:
+              - listitem [ref=e180]:
+                - link "TED Speakers" [ref=e181] [cursor=pointer]:
+                  - /url: /people/speakers
+              - listitem [ref=e182]:
+                - link "TED Fellows" [ref=e183] [cursor=pointer]:
+                  - /url: /people/fellows
+              - listitem [ref=e184]:
+                - link "TED Translators" [ref=e185] [cursor=pointer]:
+                  - /url: /people/translators
+              - listitem [ref=e186]:
+                - link "TEDx Organizers" [ref=e187] [cursor=pointer]:
+                  - /url: /people/tedx
+              - listitem [ref=e188]:
+                - link "TED Community" [ref=e189] [cursor=pointer]:
+                  - /url: /people
+        - generic [ref=e191]:
+          - heading "TED Newsletters" [level=3] [ref=e192]
+          - generic [ref=e193]: Get the latest TED Talks delivered daily, right to your inbox
+          - link "Sign up now" [ref=e194] [cursor=pointer]:
+            - /url: /newsletters
+      - generic [ref=e196]:
+        - navigation:
+          - list:
+            - listitem:
+              - link "TED Talks Usage Policy" [ref=e197] [cursor=pointer]:
+                - /url: /about/our-organization/our-policies-terms/ted-talks-usage-policy
+            - listitem:
+              - link "Privacy Policy" [ref=e198] [cursor=pointer]:
+                - /url: /about/our-organization/our-policies-terms/privacy-policy
+            - listitem:
+              - link "Advertising / Partnership" [ref=e199] [cursor=pointer]:
+                - /url: /about/partner-with-ted
+            - listitem:
+              - link "TED.com Terms of Use" [ref=e200] [cursor=pointer]:
+                - /url: /about/our-organization/our-policies-terms/ted-com-terms-of-use
+            - listitem:
+              - link "Jobs" [ref=e201] [cursor=pointer]:
+                - /url: /about/our-organization/jobs-at-ted
+            - listitem:
+              - link "Press" [ref=e202] [cursor=pointer]:
+                - /url: /about/our-organization/contact-us/press-and-media-information
+            - listitem:
+              - link "Help" [ref=e203] [cursor=pointer]:
+                - /url: "https://support.ted.com "
+            - listitem:
+              - button "Privacy Preferences" [ref=e204] [cursor=pointer]
+            - listitem:
+              - link "Membership" [ref=e205] [cursor=pointer]:
+                - /url: /membership?utm_medium=website&utm_source=footer&utm_campaign=membership-ted
+        - contentinfo [ref=e206]: © TED Conferences, LLC. All rights reserved.
+  - iframe

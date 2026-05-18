@@ -1,0 +1,220 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - listitem [ref=e10]:
+          - link " Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /User/UserHome.aspx
+            - generic [ref=e12]: 
+            - text: Dashboard
+        - listitem [ref=e13]:
+          - link " Courses" [ref=e14] [cursor=pointer]:
+            - /url: /Courses/CourseList.aspx
+            - generic [ref=e15]: 
+            - text: Courses
+        - listitem [ref=e16]:
+          - link " Discussions" [ref=e17] [cursor=pointer]:
+            - /url: /User/Discussions.aspx
+            - generic [ref=e18]: 
+            - text: Discussions
+        - listitem [ref=e19]:
+          - link " Progress" [ref=e20] [cursor=pointer]:
+            - /url: /User/ProgressTracking.aspx
+            - generic [ref=e21]: 
+            - text: Progress
+        - listitem [ref=e22]:
+          - button " Alex Johnson" [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]: 
+            - generic [ref=e25]: Alex Johnson
+          - text:   
+  - generic [ref=e27]:
+    - heading " Community Discussions" [level=1] [ref=e28]:
+      - generic [ref=e29]: 
+      - text: Community Discussions
+    - paragraph [ref=e30]: Share experiences, ask questions, and support each other's mental wellness journey
+  - generic [ref=e32]:
+    - generic [ref=e33]:
+      - generic [ref=e35]:
+        - textbox "Search discussions by title or content..." [ref=e36]
+        - button "Search" [ref=e37] [cursor=pointer]
+        - button "Clear" [ref=e38] [cursor=pointer]
+        - combobox [ref=e39]:
+          - option "Newest First" [selected]
+          - option "Most Replies"
+          - option "Most Views"
+      - generic [ref=e40]:
+        - generic [ref=e41] [cursor=pointer]:
+          - heading "HELLO" [level=6] [ref=e43]:
+            - link "HELLO" [ref=e44]:
+              - /url: javascript:__doPostBack('ctl00$MainContent$rptPosts$ctl00$lbtnView','')
+          - paragraph [ref=e45]: HELLO
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - generic [ref=e48]: 
+              - text: rabiah
+            - generic [ref=e49]:
+              - generic [ref=e50]: 
+              - text: 17 May 2026
+            - generic [ref=e51]:
+              - generic [ref=e52]: 
+              - text: 0 replies
+            - generic [ref=e53]:
+              - generic [ref=e54]: 
+              - text: 0 views
+        - generic [ref=e55] [cursor=pointer]:
+          - heading "What mindfulness technique works best for you?" [level=6] [ref=e57]:
+            - link "What mindfulness technique works best for you?" [ref=e58]:
+              - /url: javascript:__doPostBack('ctl00$MainContent$rptPosts$ctl01$lbtnView','')
+          - paragraph [ref=e59]: Hi everyone! I've been struggling with exam stress lately and started practising mindfulness. I've tried the body scan meditation and find it helpful before bed. What techniques have worked best for you? Any tips for beginners?
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - generic [ref=e62]: 
+              - text: Alex Johnson
+            - generic [ref=e63]:
+              - generic [ref=e64]: 
+              - text: 16 May 2026
+            - generic [ref=e65]:
+              - generic [ref=e66]: 
+              - text: 2 replies
+            - generic [ref=e67]:
+              - generic [ref=e68]: 
+              - text: 0 views
+        - generic [ref=e69] [cursor=pointer]:
+          - heading "Managing anxiety during exam season - share your tips!" [level=6] [ref=e71]:
+            - link "Managing anxiety during exam season - share your tips!" [ref=e72]:
+              - /url: javascript:__doPostBack('ctl00$MainContent$rptPosts$ctl02$lbtnView','')
+          - paragraph [ref=e73]: "As final exams approach, I know many of us are feeling the pressure. I wanted to create a space for us to share what's been helping us cope. For me, it's been: 1) Breaking study sessions into 25-minute blocks (Pomodoro), 2) Daily 10-minute morning walks, and 3) Limiting caffeine after 2pm. What works for you?"
+          - generic [ref=e74]:
+            - generic [ref=e75]:
+              - generic [ref=e76]: 
+              - text: Sarah Chen
+            - generic [ref=e77]:
+              - generic [ref=e78]: 
+              - text: 16 May 2026
+            - generic [ref=e79]:
+              - generic [ref=e80]: 
+              - text: 1 replies
+            - generic [ref=e81]:
+              - generic [ref=e82]: 
+              - text: 0 views
+        - generic [ref=e83] [cursor=pointer]:
+          - heading "Has anyone tried the 4-7-8 breathing technique?" [level=6] [ref=e85]:
+            - link "Has anyone tried the 4-7-8 breathing technique?" [ref=e86]:
+              - /url: javascript:__doPostBack('ctl00$MainContent$rptPosts$ctl03$lbtnView','')
+          - paragraph [ref=e87]: I just learned about the 4-7-8 breathing technique from the Stress Management course and I'm amazed at how quickly it works! Within a couple of minutes I feel calmer. I've started using it before presentations and it's really helped with my nerves. Has anyone else tried this? What's your experience?
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]: 
+              - text: Mohammed Ali
+            - generic [ref=e91]:
+              - generic [ref=e92]: 
+              - text: 16 May 2026
+            - generic [ref=e93]:
+              - generic [ref=e94]: 
+              - text: 1 replies
+            - generic [ref=e95]:
+              - generic [ref=e96]: 
+              - text: 0 views
+    - generic [ref=e97]:
+      - generic [ref=e99]:
+        - generic [ref=e101]: 
+        - generic [ref=e102]: Alex Johnson
+        - generic [ref=e103]: "@alexj"
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]: "3"
+            - generic [ref=e107]: Posts
+          - generic [ref=e108]:
+            - generic [ref=e109]: May 2026
+            - generic [ref=e110]: Joined
+      - generic [ref=e112]:
+        - heading " Start a Discussion" [level=6] [ref=e113]:
+          - generic [ref=e114]: 
+          - text: Start a Discussion
+        - generic [ref=e115]:
+          - generic [ref=e116]: Title *
+          - textbox "What's on your mind?" [ref=e117]
+        - generic [ref=e118]:
+          - generic [ref=e119]: Message *
+          - generic [ref=e120]:
+            - button "B" [ref=e121] [cursor=pointer]
+            - button "I" [ref=e122] [cursor=pointer]
+            - button "🔗 Link" [ref=e123] [cursor=pointer]
+          - textbox "Share your experience, ask a question, or offer advice..." [ref=e124]
+        - button "Post Discussion" [ref=e125] [cursor=pointer]
+      - generic [ref=e126]:
+        - heading " Community Guidelines" [level=6] [ref=e127]:
+          - generic [ref=e128]: 
+          - text: Community Guidelines
+        - list [ref=e129]:
+          - listitem [ref=e130]: Be kind and supportive to fellow members
+          - listitem [ref=e131]: Share evidence-based information when possible
+          - listitem [ref=e132]: Respect privacy and confidentiality
+          - listitem [ref=e133]: Avoid giving medical diagnoses
+          - listitem [ref=e134]: In crisis? Contact a mental health professional
+  - contentinfo [ref=e135]:
+    - generic [ref=e136]:
+      - generic [ref=e137]:
+        - generic [ref=e138]:
+          - heading " MindSpace" [level=5] [ref=e139]:
+            - generic [ref=e140]: 
+            - generic [ref=e141]: MindSpace
+          - paragraph [ref=e142]: A premium learning platform dedicated to mental wellness literacy for students and young adults — evidence-based, self-paced, free.
+          - generic [ref=e143]:
+            - generic [ref=e145]: 
+            - generic [ref=e147]: 
+            - generic [ref=e149]: 
+            - generic [ref=e151]: 
+        - generic [ref=e152]:
+          - heading "Platform" [level=6] [ref=e153]
+          - list [ref=e154]:
+            - listitem [ref=e155]:
+              - link "Home" [ref=e156] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e157]:
+              - link "Browse Courses" [ref=e158] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e159]:
+              - link "Register Free" [ref=e160] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e161]:
+              - link "Sign In" [ref=e162] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e163]:
+          - heading "Topics" [level=6] [ref=e164]
+          - list [ref=e165]:
+            - listitem [ref=e166]:
+              - generic [ref=e167]: 
+              - text: Stress
+            - listitem [ref=e168]:
+              - generic [ref=e169]: 
+              - text: Mindfulness
+            - listitem [ref=e170]:
+              - generic [ref=e171]: 
+              - text: Anxiety
+            - listitem [ref=e172]:
+              - generic [ref=e173]: 
+              - text: Sleep
+            - listitem [ref=e174]:
+              - generic [ref=e175]: 
+              - text: Resilience
+        - generic [ref=e176]:
+          - heading "Stay Well" [level=6] [ref=e177]
+          - paragraph [ref=e178]: One short wellness tip in your inbox each week. No spam.
+          - generic [ref=e179]:
+            - textbox "your@email.com" [ref=e180]
+            - button "Subscribe" [ref=e181] [cursor=pointer]
+      - separator [ref=e182]
+      - generic [ref=e183]:
+        - paragraph [ref=e184]: © 2026 MindSpace. Crafted with care for mental wellness.
+        - generic [ref=e185]:
+          - link "Privacy" [ref=e186] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms" [ref=e187] [cursor=pointer]:
+            - /url: "#"
+          - link "Contact" [ref=e188] [cursor=pointer]:
+            - /url: "#"

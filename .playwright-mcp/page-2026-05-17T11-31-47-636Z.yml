@@ -1,0 +1,400 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - banner [ref=e4]:
+        - generic [ref=e7]:
+          - text: 
+          - link "TED Homepage - Ideas change everything" [ref=e9] [cursor=pointer]:
+            - /url: /
+            - img [ref=e10]
+            - generic [ref=e12]: Ideas change everything
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - navigation [ref=e15]:
+                - list [ref=e16]:
+                  - listitem [ref=e17]:
+                    - button "WATCH" [ref=e18] [cursor=pointer]:
+                      - generic [ref=e19]: WATCH
+                    - menu
+                  - listitem [ref=e20]:
+                    - button "DISCOVER" [ref=e21] [cursor=pointer]:
+                      - generic [ref=e22]: DISCOVER
+                    - menu
+                  - listitem [ref=e23]:
+                    - button "ATTEND" [ref=e24] [cursor=pointer]:
+                      - generic [ref=e25]: ATTEND
+                    - menu
+                  - listitem [ref=e26]:
+                    - button "PARTICIPATE" [ref=e27] [cursor=pointer]:
+                      - generic [ref=e28]: PARTICIPATE
+                    - menu
+                  - listitem [ref=e29]:
+                    - button "ABOUT" [ref=e30] [cursor=pointer]:
+                      - generic [ref=e31]: ABOUT
+                    - menu
+              - link "SIGN IN" [ref=e32] [cursor=pointer]:
+                - /url: https://auth.ted.com/users/new?context=ted.www%2Fnav
+                - generic [ref=e33]: SIGN IN
+              - button "MEMBERSHIP" [ref=e34] [cursor=pointer]:
+                - generic [ref=e37]: MEMBERSHIP
+            - generic [ref=e39]:
+              - button "Type to search" [ref=e40] [cursor=pointer]:
+                - generic [ref=e41]: 
+              - generic:
+                - generic [ref=e42]: Type to search
+                - searchbox "Type to search" [disabled] [ref=e43]
+                - button "Cancel" [disabled] [ref=e44]:
+                  - generic [ref=e45]: 
+      - main [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e53]:
+            - generic [ref=e54]:
+              - generic [ref=e55]: Playlist
+              - heading "The importance of self-care" [level=1] [ref=e56]
+              - paragraph [ref=e57]: Too busy to take care of yourself? These talks offer simple ways to stay healthy -- both emotionally and physically.
+            - generic [ref=e58]:
+              - link "Watch now" [ref=e59] [cursor=pointer]:
+                - /url: /talks/guy_winch_why_we_all_need_to_practice_emotional_first_aid
+                - img [ref=e60]
+                - generic [ref=e63]: Watch now
+              - link "Add to list" [ref=e65] [cursor=pointer]:
+                - /url: https://auth.ted.com/session/new?context=ted.www%2Fwatch-later&referrer=https%3A%2F%2Fwww.ted.com%2Fplaylists%2F299%2Fthe_importance_of_self_care
+                - img [ref=e68]
+                - generic [ref=e69]: Add to list
+          - generic [ref=e76]:
+            - generic [ref=e78]:
+              - heading "Talks in this playlist" [level=2] [ref=e79]
+              - generic [ref=e80]:
+                - generic [ref=e85]:
+                  - link [ref=e86] [cursor=pointer]:
+                    - /url: /talks/guy_winch_why_we_all_need_to_practice_emotional_first_aid
+                    - generic [ref=e89]:
+                      - img [ref=e90]
+                      - img [ref=e92]
+                      - generic [ref=e96]: 17:14
+                  - generic [ref=e97]:
+                    - paragraph [ref=e98]:
+                      - link "Guy Winch" [ref=e100] [cursor=pointer]:
+                        - /url: /speakers/guy_winch
+                    - 'link "Why we all need to practice emotional first aid 17 minutes 14 seconds We''ll go to the doctor when we feel flu-ish or a nagging pain. So why don''t we see a health professional when we feel emotional pain: guilt, loss, loneliness? Too many of us deal with common psychological-health issues on our own, says Guy Winch. But we don''t have to. He makes a compelling case to practice emotional hygiene — taking care of our emotions, our minds, with the same diligence we take care of our bodies." [ref=e101] [cursor=pointer]':
+                      - /url: /talks/guy_winch_why_we_all_need_to_practice_emotional_first_aid
+                      - paragraph [ref=e102]: Why we all need to practice emotional first aid
+                      - generic [ref=e103]: 17 minutes 14 seconds
+                      - generic [ref=e105]: "We'll go to the doctor when we feel flu-ish or a nagging pain. So why don't we see a health professional when we feel emotional pain: guilt, loss, loneliness? Too many of us deal with common psychological-health issues on our own, says Guy Winch. But we don't have to. He makes a compelling case to practice emotional hygiene — taking care of our emotions, our minds, with the same diligence we take care of our bodies."
+                - generic [ref=e108]:
+                  - link [ref=e109] [cursor=pointer]:
+                    - /url: /talks/brene_brown_the_power_of_vulnerability
+                    - generic [ref=e112]:
+                      - img [ref=e113]
+                      - generic [ref=e115]: 20:02
+                  - generic [ref=e116]:
+                    - paragraph [ref=e117]:
+                      - link "Brené Brown" [ref=e119] [cursor=pointer]:
+                        - /url: /speakers/brene_brown
+                    - link "The power of vulnerability 20 minutes 2 seconds Brené Brown studies human connection -- our ability to empathize, belong, love. In a poignant, funny talk, she shares a deep insight from her research, one that sent her on a personal quest to know herself as well as to understand humanity. A talk to share." [ref=e120] [cursor=pointer]:
+                      - /url: /talks/brene_brown_the_power_of_vulnerability
+                      - paragraph [ref=e121]: The power of vulnerability
+                      - generic [ref=e122]: 20 minutes 2 seconds
+                      - generic [ref=e124]: Brené Brown studies human connection -- our ability to empathize, belong, love. In a poignant, funny talk, she shares a deep insight from her research, one that sent her on a personal quest to know herself as well as to understand humanity. A talk to share.
+                - generic [ref=e127]:
+                  - link [ref=e128] [cursor=pointer]:
+                    - /url: /talks/rabbi_lord_jonathan_sacks_how_we_can_navigate_the_coronavirus_pandemic_with_courage_and_hope
+                    - generic [ref=e131]:
+                      - img [ref=e132]
+                      - generic [ref=e134]: 01:04:29
+                  - generic [ref=e135]:
+                    - paragraph [ref=e136]:
+                      - generic [ref=e137]:
+                        - link "Rabbi Lord Jonathan Sacks" [ref=e138] [cursor=pointer]:
+                          - /url: /speakers/rabbi_lord_jonathan_sacks
+                        - text: ","
+                      - generic [ref=e139]:
+                        - link "Chris Anderson" [ref=e140] [cursor=pointer]:
+                          - /url: /speakers/chris_anderson_ted
+                        - text: ","
+                      - link "Helen Walters" [ref=e142] [cursor=pointer]:
+                        - /url: /speakers/helen_walters
+                    - link "How we can navigate the coronavirus pandemic with courage and hope 1 hour 4 minutes 29 seconds Rabbi Lord Jonathan Sacks offers thoughts on how we can navigate the coronavirus pandemic with courage, hope and empathy. With wisdom and clarity, he speaks on leadership, fear, death, hope and how we could use this moment to build a more just world. Watch for a special, impromptu prayer about halfway through the conversation. (This virtual conversation is part of the TED Connects series, hosted by head of TED Chris Anderson and head of curation Helen Walters. Recorded March 30, 2020)" [ref=e143] [cursor=pointer]:
+                      - /url: /talks/rabbi_lord_jonathan_sacks_how_we_can_navigate_the_coronavirus_pandemic_with_courage_and_hope
+                      - paragraph [ref=e144]: How we can navigate the coronavirus pandemic with courage and hope
+                      - generic [ref=e145]: 1 hour 4 minutes 29 seconds
+                      - generic [ref=e147]: Rabbi Lord Jonathan Sacks offers thoughts on how we can navigate the coronavirus pandemic with courage, hope and empathy. With wisdom and clarity, he speaks on leadership, fear, death, hope and how we could use this moment to build a more just world. Watch for a special, impromptu prayer about halfway through the conversation. (This virtual conversation is part of the TED Connects series, hosted by head of TED Chris Anderson and head of curation Helen Walters. Recorded March 30, 2020)
+                - generic [ref=e150]:
+                  - link [ref=e151] [cursor=pointer]:
+                    - /url: /talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy
+                    - generic [ref=e154]:
+                      - img [ref=e155]
+                      - generic [ref=e157]: 12:08
+                  - generic [ref=e158]:
+                    - paragraph [ref=e159]:
+                      - link "Emily Esfahani Smith" [ref=e161] [cursor=pointer]:
+                        - /url: /speakers/emily_esfahani_smith
+                    - link "There's more to life than being happy 12 minutes 8 seconds Our culture is obsessed with happiness, but what if there's a more fulfilling path? Happiness comes and goes, says writer Emily Esfahani Smith, but having meaning in life -- serving something beyond yourself and developing the best within you -- gives you something to hold onto. Learn more about the difference between being happy and having meaning as Smith offers four pillars of a meaningful life." [ref=e162] [cursor=pointer]:
+                      - /url: /talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy
+                      - paragraph [ref=e163]: There's more to life than being happy
+                      - generic [ref=e164]: 12 minutes 8 seconds
+                      - generic [ref=e166]: Our culture is obsessed with happiness, but what if there's a more fulfilling path? Happiness comes and goes, says writer Emily Esfahani Smith, but having meaning in life -- serving something beyond yourself and developing the best within you -- gives you something to hold onto. Learn more about the difference between being happy and having meaning as Smith offers four pillars of a meaningful life.
+                - generic [ref=e169]:
+                  - link [ref=e170] [cursor=pointer]:
+                    - /url: /talks/andy_puddicombe_all_it_takes_is_10_mindful_minutes
+                    - generic [ref=e173]:
+                      - img [ref=e174]
+                      - generic [ref=e176]: 09:07
+                  - generic [ref=e177]:
+                    - paragraph [ref=e178]:
+                      - link "Andy Puddicombe" [ref=e180] [cursor=pointer]:
+                        - /url: /speakers/andy_puddicombe
+                    - 'link "All it takes is 10 mindful minutes 9 minutes 7 seconds When is the last time you did absolutely nothing for 10 whole minutes? Not texting, talking or even thinking? Mindfulness expert Andy Puddicombe describes the transformative power of doing just that: Refreshing your mind for 10 minutes a day, simply by being mindful and experiencing the present moment. (No need for incense or sitting in uncomfortable positions.)" [ref=e181] [cursor=pointer]':
+                      - /url: /talks/andy_puddicombe_all_it_takes_is_10_mindful_minutes
+                      - paragraph [ref=e182]: All it takes is 10 mindful minutes
+                      - generic [ref=e183]: 9 minutes 7 seconds
+                      - generic [ref=e185]: "When is the last time you did absolutely nothing for 10 whole minutes? Not texting, talking or even thinking? Mindfulness expert Andy Puddicombe describes the transformative power of doing just that: Refreshing your mind for 10 minutes a day, simply by being mindful and experiencing the present moment. (No need for incense or sitting in uncomfortable positions.)"
+                - generic [ref=e188]:
+                  - link [ref=e189] [cursor=pointer]:
+                    - /url: /talks/susan_david_how_to_be_your_best_self_in_times_of_crisis
+                    - generic [ref=e192]:
+                      - img [ref=e193]
+                      - generic [ref=e195]: 45:53
+                  - generic [ref=e196]:
+                    - paragraph [ref=e197]:
+                      - generic [ref=e198]:
+                        - link "Susan David" [ref=e199] [cursor=pointer]:
+                          - /url: /speakers/susan_david
+                        - text: ","
+                      - generic [ref=e200]:
+                        - link "Chris Anderson" [ref=e201] [cursor=pointer]:
+                          - /url: /speakers/chris_anderson_ted
+                        - text: ","
+                      - link "Whitney Pennington Rodgers" [ref=e203] [cursor=pointer]:
+                        - /url: /speakers/whitney_pennington_rodgers
+                    - link "How to be your best self in times of crisis 45 minutes 53 seconds \"Life's beauty is inseparable from its fragility,\" says psychologist Susan David. In a special virtual conversation, she shares wisdom on how to build resilience, courage and joy in the midst of the coronavirus pandemic. Responding to listeners' questions from across the globe, she offers ways to talk to your children about their emotions, keep focus during the crisis and help those working on the front lines. (This virtual conversation is part of the TED Connects series, hosted by head of TED Chris Anderson and current affairs curator Whitney Pennington Rodgers. Recorded March 23, 2020)" [ref=e204] [cursor=pointer]:
+                      - /url: /talks/susan_david_how_to_be_your_best_self_in_times_of_crisis
+                      - paragraph [ref=e205]: How to be your best self in times of crisis
+                      - generic [ref=e206]: 45 minutes 53 seconds
+                      - generic [ref=e208]: "\"Life's beauty is inseparable from its fragility,\" says psychologist Susan David. In a special virtual conversation, she shares wisdom on how to build resilience, courage and joy in the midst of the coronavirus pandemic. Responding to listeners' questions from across the globe, she offers ways to talk to your children about their emotions, keep focus during the crisis and help those working on the front lines. (This virtual conversation is part of the TED Connects series, hosted by head of TED Chris Anderson and current affairs curator Whitney Pennington Rodgers. Recorded March 23, 2020)"
+                - generic [ref=e211]:
+                  - link [ref=e212] [cursor=pointer]:
+                    - /url: /talks/david_steindl_rast_want_to_be_happy_be_grateful
+                    - generic [ref=e215]:
+                      - img [ref=e216]
+                      - generic [ref=e218]: 14:16
+                  - generic [ref=e219]:
+                    - paragraph [ref=e220]:
+                      - link "David Steindl-Rast" [ref=e222] [cursor=pointer]:
+                        - /url: /speakers/br_david_steindl_rast
+                    - link "Want to be happy? Be grateful 14 minutes 16 seconds The one thing all humans have in common is that each of us wants to be happy, says Brother David Steindl-Rast, a monk and interfaith scholar. And happiness, he suggests, is born from gratitude. An inspiring lesson in slowing down, looking where you're going, and above all, being grateful." [ref=e223] [cursor=pointer]:
+                      - /url: /talks/david_steindl_rast_want_to_be_happy_be_grateful
+                      - paragraph [ref=e224]: Want to be happy? Be grateful
+                      - generic [ref=e225]: 14 minutes 16 seconds
+                      - generic [ref=e227]: The one thing all humans have in common is that each of us wants to be happy, says Brother David Steindl-Rast, a monk and interfaith scholar. And happiness, he suggests, is born from gratitude. An inspiring lesson in slowing down, looking where you're going, and above all, being grateful.
+                - generic [ref=e230]:
+                  - link [ref=e231] [cursor=pointer]:
+                    - /url: /talks/priya_parker_how_to_create_meaningful_connections_while_apart
+                    - generic [ref=e234]:
+                      - img [ref=e235]
+                      - generic [ref=e237]: 50:00
+                  - generic [ref=e238]:
+                    - paragraph [ref=e239]:
+                      - generic [ref=e240]:
+                        - link "Priya Parker" [ref=e241] [cursor=pointer]:
+                          - /url: /speakers/priya_parker
+                        - text: ","
+                      - generic [ref=e242]:
+                        - link "Chris Anderson" [ref=e243] [cursor=pointer]:
+                          - /url: /speakers/chris_anderson_ted
+                        - text: ","
+                      - link "Whitney Pennington Rodgers" [ref=e245] [cursor=pointer]:
+                        - /url: /speakers/whitney_pennington_rodgers
+                    - link "How to create meaningful connections while apart 50 minutes Author Priya Parker shares tools for creating meaningful connections with friends, family and coworkers during the coronavirus pandemic -- and shows how we can take advantage of gatherings that are unique to this moment of social distancing. \"We don't necessarily need to gather more,\" she says. \"We need to gather better.\" (This virtual conversation is part of the TED Connects series, hosted by head of TED Chris Anderson and current affairs curator Whitney Pennington Rodgers. Recorded March 27, 2020)" [ref=e246] [cursor=pointer]:
+                      - /url: /talks/priya_parker_how_to_create_meaningful_connections_while_apart
+                      - paragraph [ref=e247]: How to create meaningful connections while apart
+                      - generic [ref=e248]: 50 minutes
+                      - generic [ref=e250]: Author Priya Parker shares tools for creating meaningful connections with friends, family and coworkers during the coronavirus pandemic -- and shows how we can take advantage of gatherings that are unique to this moment of social distancing. "We don't necessarily need to gather more," she says. "We need to gather better." (This virtual conversation is part of the TED Connects series, hosted by head of TED Chris Anderson and current affairs curator Whitney Pennington Rodgers. Recorded March 27, 2020)
+                - generic [ref=e253]:
+                  - link [ref=e254] [cursor=pointer]:
+                    - /url: /talks/kelly_mcgonigal_how_to_make_stress_your_friend
+                    - generic [ref=e257]:
+                      - img [ref=e258]
+                      - generic [ref=e260]: 14:15
+                  - generic [ref=e261]:
+                    - paragraph [ref=e262]:
+                      - link "Kelly McGonigal" [ref=e264] [cursor=pointer]:
+                        - /url: /speakers/kelly_mcgonigal
+                    - 'link "How to make stress your friend 14 minutes 15 seconds Stress. It makes your heart pound, your breathing quicken and your forehead sweat. But while stress has been made into a public health enemy, new research suggests that stress may only be bad for you if you believe that to be the case. Psychologist Kelly McGonigal urges us to see stress as a positive, and introduces us to an unsung mechanism for stress reduction: reaching out to others." [ref=e265] [cursor=pointer]':
+                      - /url: /talks/kelly_mcgonigal_how_to_make_stress_your_friend
+                      - paragraph [ref=e266]: How to make stress your friend
+                      - generic [ref=e267]: 14 minutes 15 seconds
+                      - generic [ref=e269]: "Stress. It makes your heart pound, your breathing quicken and your forehead sweat. But while stress has been made into a public health enemy, new research suggests that stress may only be bad for you if you believe that to be the case. Psychologist Kelly McGonigal urges us to see stress as a positive, and introduces us to an unsung mechanism for stress reduction: reaching out to others."
+                - generic [ref=e272]:
+                  - link [ref=e273] [cursor=pointer]:
+                    - /url: /talks/carl_honore_in_praise_of_slowness
+                    - generic [ref=e276]:
+                      - img [ref=e277]
+                      - generic [ref=e279]: 19:00
+                  - generic [ref=e280]:
+                    - paragraph [ref=e281]:
+                      - link "Carl Honoré" [ref=e283] [cursor=pointer]:
+                        - /url: /speakers/carl_honore
+                    - link "In praise of slowness 19 minutes Journalist Carl Honoré believes the Western world's emphasis on speed erodes health, productivity and quality of life. But there's a backlash brewing, as everyday people start putting the brakes on their all-too-modern lives." [ref=e284] [cursor=pointer]:
+                      - /url: /talks/carl_honore_in_praise_of_slowness
+                      - paragraph [ref=e285]: In praise of slowness
+                      - generic [ref=e286]: 19 minutes
+                      - generic [ref=e288]: Journalist Carl Honoré believes the Western world's emphasis on speed erodes health, productivity and quality of life. But there's a backlash brewing, as everyday people start putting the brakes on their all-too-modern lives.
+                - generic [ref=e291]:
+                  - link [ref=e292] [cursor=pointer]:
+                    - /url: /talks/nilofer_merchant_got_a_meeting_take_a_walk
+                    - generic [ref=e295]:
+                      - img [ref=e296]
+                      - generic [ref=e298]: 03:14
+                  - generic [ref=e299]:
+                    - paragraph [ref=e300]:
+                      - link "Nilofer Merchant" [ref=e302] [cursor=pointer]:
+                        - /url: /speakers/nilofer_merchant
+                    - 'link "Got a meeting? Take a walk 3 minutes 14 seconds Nilofer Merchant suggests a small idea that just might have a big impact on your life and health: Next time you have a one-on-one meeting, make it into a \"walking meeting\" -- and let ideas flow while you walk and talk." [ref=e303] [cursor=pointer]':
+                      - /url: /talks/nilofer_merchant_got_a_meeting_take_a_walk
+                      - paragraph [ref=e304]: Got a meeting? Take a walk
+                      - generic [ref=e305]: 3 minutes 14 seconds
+                      - generic [ref=e307]: "Nilofer Merchant suggests a small idea that just might have a big impact on your life and health: Next time you have a one-on-one meeting, make it into a \"walking meeting\" -- and let ideas flow while you walk and talk."
+            - navigation "Pagination Navigation" [ref=e308]:
+              - button "Page 1, current" [disabled] [ref=e310]:
+                - generic [ref=e311]: "1"
+              - button "Page 2" [ref=e312] [cursor=pointer]:
+                - generic [ref=e313]: "2"
+              - button "Next page" [ref=e315] [cursor=pointer]:
+                - img [ref=e316]
+            - generic [ref=e321]: TED is supported by ads and partners
+      - contentinfo [ref=e322]:
+        - contentinfo [ref=e323]:
+          - generic [ref=e325]:
+            - img [ref=e326]
+            - generic [ref=e329]:
+              - navigation [ref=e332]:
+                - generic [ref=e333]:
+                  - generic [ref=e336]:
+                    - generic [ref=e337]: Explore
+                    - list [ref=e338]:
+                      - listitem [ref=e339]:
+                        - link "TEDx" [ref=e341] [cursor=pointer]:
+                          - /url: /about/programs-initiatives/tedx-program
+                      - listitem [ref=e342]:
+                        - link "TED Fellows" [ref=e344] [cursor=pointer]:
+                          - /url: https://fellows.ted.com
+                      - listitem [ref=e345]:
+                        - link "TED Ed" [ref=e347] [cursor=pointer]:
+                          - /url: /about/programs/ted-ed
+                      - listitem [ref=e348]:
+                        - link "TED Translators" [ref=e350] [cursor=pointer]:
+                          - /url: /about/programs-initiatives/ted-translators
+                      - listitem [ref=e351]:
+                        - link "TED Institute" [ref=e353] [cursor=pointer]:
+                          - /url: /about/programs-initiatives/ted-institute
+                      - listitem [ref=e354]:
+                        - link "The Audacious Project" [ref=e356] [cursor=pointer]:
+                          - /url: /about/programs-initiatives/the-audacious-project
+                      - listitem [ref=e357]:
+                        - link "TED@Work" [ref=e359] [cursor=pointer]:
+                          - /url: https://tedatwork.ted.com
+                      - listitem [ref=e360]:
+                        - link "Podcasts" [ref=e362] [cursor=pointer]:
+                          - /url: /podcasts
+                      - listitem [ref=e363]:
+                        - link "TED Blog" [ref=e365] [cursor=pointer]:
+                          - /url: https://blog.ted.com
+                      - listitem [ref=e366]:
+                        - link "More ways to get TED" [ref=e368] [cursor=pointer]:
+                          - /url: /about/programs-initiatives/ted-talks/ways-to-get-ted-talks
+                  - generic [ref=e371]:
+                    - generic [ref=e372]: Our community
+                    - list [ref=e373]:
+                      - listitem [ref=e374]:
+                        - link "TED Speakers" [ref=e376] [cursor=pointer]:
+                          - /url: /people/speakers
+                      - listitem [ref=e377]:
+                        - link "TED Fellows" [ref=e379] [cursor=pointer]:
+                          - /url: https://fellows.ted.com/directory
+                      - listitem [ref=e380]:
+                        - link "TED Translators" [ref=e382] [cursor=pointer]:
+                          - /url: /people/translators
+                      - listitem [ref=e383]:
+                        - link "TEDx Organizers" [ref=e385] [cursor=pointer]:
+                          - /url: /people/tedx
+                      - listitem [ref=e386]:
+                        - link "TED Community" [ref=e388] [cursor=pointer]:
+                          - /url: /people
+              - generic [ref=e390]:
+                - generic [ref=e391]: Newsletters
+                - generic [ref=e392]:
+                  - img [ref=e393]
+                  - generic [ref=e397]: Get the latest talks
+                - generic [ref=e398]: Get a daily email featuring the latest talk, plus a quick mix of trending content.
+                - generic [ref=e400]:
+                  - textbox "What's your email?" [ref=e402]
+                  - button "Subscribe" [ref=e404] [cursor=pointer]:
+                    - paragraph [ref=e405]: Subscribe
+                - generic [ref=e406]:
+                  - text: By subscribing, you understand and agree that we will store, process and manage your personal information according to our
+                  - link "Privacy Policy" [ref=e407] [cursor=pointer]:
+                    - /url: /about/our-organization/our-policies-terms/privacy-policy
+              - generic [ref=e411]:
+                - generic [ref=e414]:
+                  - button "Become a TED Member" [ref=e416] [cursor=pointer]:
+                    - generic [ref=e417]: Become a TED Member
+                    - img [ref=e419]
+                  - generic [ref=e421]: TED Members help billions of people worldwide access inspiring ideas. Plus, they get exclusive benefits like invite-only events with speakers. Join today for a brighter future - and a better you.
+                - generic [ref=e423]:
+                  - generic [ref=e424]: Follow TED
+                  - generic [ref=e425]:
+                    - link "LinkedIn" [ref=e426] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/ted-conferences/
+                      - img "LinkedIn" [ref=e427]
+                    - link "Twitter" [ref=e430] [cursor=pointer]:
+                      - /url: https://twitter.com/tedtalks
+                      - img "Twitter" [ref=e431]
+                    - link "Instagram" [ref=e434] [cursor=pointer]:
+                      - /url: https://instagram.com/ted
+                      - img "Instagram" [ref=e435]
+                    - link "YouTube" [ref=e440] [cursor=pointer]:
+                      - /url: https://www.youtube.com/ted
+                      - img "YouTube" [ref=e441]
+                    - link "Facebook" [ref=e445] [cursor=pointer]:
+                      - /url: https://www.facebook.com/TED
+                      - img "Facebook" [ref=e446]
+                  - generic [ref=e450]:
+                    - generic [ref=e451]: Download the TED App
+                    - generic [ref=e452]:
+                      - link "Google Play" [ref=e453] [cursor=pointer]:
+                        - /url: https://play.google.com/store/apps/details?id=com.ted.android&utm_medium=email&utm_source=ted_talks_daily_newsletter&utm_campaign=daily&user_email_address=f325af12e52a26ff58bb171ffc448307
+                        - img "Google Play" [ref=e454]
+                      - link "Apple Store" [ref=e471] [cursor=pointer]:
+                        - /url: https://apps.apple.com/app/apple-store/id376183339?user_email_address=f325af12e52a26ff58bb171ffc448307&utm_campaign=daily&utm_medium=email&utm_source=ted_talks_daily_newsletter
+                        - img "Apple Store" [ref=e472]
+          - generic [ref=e510]:
+            - navigation [ref=e513]:
+              - list [ref=e514]:
+                - listitem [ref=e515]:
+                  - link "TED Talks Usage Policy" [ref=e517] [cursor=pointer]:
+                    - /url: /about/our-organization/our-policies-terms/ted-talks-usage-policy
+                - listitem [ref=e518]:
+                  - link "Privacy Policy" [ref=e520] [cursor=pointer]:
+                    - /url: /about/our-organization/our-policies-terms/privacy-policy
+                - listitem [ref=e521]:
+                  - link "Advertising / Partnership" [ref=e523] [cursor=pointer]:
+                    - /url: /about/partner-with-ted
+                - listitem [ref=e524]:
+                  - link "TED.com Terms of Use" [ref=e526] [cursor=pointer]:
+                    - /url: /about/our-organization/our-policies-terms/ted-com-terms-of-use
+                - listitem [ref=e527]:
+                  - link "Jobs" [ref=e529] [cursor=pointer]:
+                    - /url: /about/our-organization/jobs-at-ted
+                - listitem [ref=e530]:
+                  - link "Press" [ref=e532] [cursor=pointer]:
+                    - /url: /about/our-organization/contact-us/press-and-media-information
+                - listitem [ref=e533]:
+                  - link "Help" [ref=e535] [cursor=pointer]:
+                    - /url: https://support.ted.com
+                - listitem [ref=e536]:
+                  - button "Privacy Preferences" [ref=e538] [cursor=pointer]
+            - generic [ref=e542]: © TED Conferences, LLC. All rights reserved.
+    - region "Notifications alt+T"
+  - iframe
+  - alert [ref=e543]

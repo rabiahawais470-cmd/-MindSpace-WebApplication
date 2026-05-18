@@ -1,0 +1,205 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - listitem [ref=e10]:
+          - link " Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /User/UserHome.aspx
+            - generic [ref=e12]: 
+            - text: Dashboard
+        - listitem [ref=e13]:
+          - link " Courses" [ref=e14] [cursor=pointer]:
+            - /url: /Courses/CourseList.aspx
+            - generic [ref=e15]: 
+            - text: Courses
+        - listitem [ref=e16]:
+          - link " Discussions" [ref=e17] [cursor=pointer]:
+            - /url: /User/Discussions.aspx
+            - generic [ref=e18]: 
+            - text: Discussions
+        - listitem [ref=e19]:
+          - link " Progress" [ref=e20] [cursor=pointer]:
+            - /url: /User/ProgressTracking.aspx
+            - generic [ref=e21]: 
+            - text: Progress
+        - listitem [ref=e22]:
+          - button " Alex Johnson" [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]: 
+            - generic [ref=e25]: Alex Johnson
+          - text:   
+  - generic [ref=e28]:
+    - generic [ref=e29]:
+      - heading "Your Journey to Mental Wellness Starts Here" [level=1] [ref=e30]
+      - paragraph [ref=e31]: MindSpace is a free learning platform for students and young adults. Access expert-curated courses on stress management, mindfulness, anxiety, sleep hygiene, and resilience — at your own pace.
+      - generic [ref=e32]:
+        - link " Get Started Free" [ref=e33] [cursor=pointer]:
+          - /url: Register.aspx
+          - generic [ref=e34]: 
+          - text: Get Started Free
+        - link " Browse Courses" [ref=e35] [cursor=pointer]:
+          - /url: Courses/CourseList.aspx
+          - generic [ref=e36]: 
+          - text: Browse Courses
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]: 5+
+          - generic [ref=e40]: Expert Courses
+        - generic [ref=e41]:
+          - generic [ref=e42]: 100%
+          - generic [ref=e43]: Free Access
+        - generic [ref=e44]:
+          - generic [ref=e45]: Evidence
+          - generic [ref=e46]: Based Content
+    - generic [ref=e48]: Ã°Å¸Â§Â
+  - generic [ref=e50]:
+    - generic [ref=e51]:
+      - heading "Why Choose MindSpace?" [level=2] [ref=e52]
+      - paragraph [ref=e54]: Everything you need to build mental health literacy in one place
+    - generic [ref=e55]:
+      - generic [ref=e57]:
+        - generic [ref=e59]: 
+        - heading "Structured Learning" [level=5] [ref=e60]
+        - paragraph [ref=e61]: Evidence-based courses designed by mental health professionals covering all key areas of wellbeing.
+      - generic [ref=e63]:
+        - generic [ref=e65]: 
+        - heading "Progress Tracking" [level=5] [ref=e66]
+        - paragraph [ref=e67]: Monitor your learning journey with personal dashboards, quiz scores, and completion tracking.
+      - generic [ref=e69]:
+        - generic [ref=e71]: 
+        - heading "Community Support" [level=5] [ref=e72]
+        - paragraph [ref=e73]: Connect with peers in the discussion forum to share experiences and support each other's growth.
+      - generic [ref=e75]:
+        - generic [ref=e77]: 
+        - heading "Self-Assessments" [level=5] [ref=e78]
+        - paragraph [ref=e79]: Interactive quizzes with instant feedback help reinforce learning and measure understanding.
+      - generic [ref=e81]:
+        - generic [ref=e83]: 
+        - heading "Multimedia Content" [level=5] [ref=e84]
+        - paragraph [ref=e85]: Articles, embedded videos, guided exercises, and downloadable resources for every learning style.
+      - generic [ref=e87]:
+        - generic [ref=e89]: 
+        - heading "Safe & Private" [level=5] [ref=e90]
+        - paragraph [ref=e91]: Your data is secure with encrypted passwords and private progress tracking for your eyes only.
+  - generic [ref=e93]:
+    - generic [ref=e94]:
+      - heading "Featured Courses" [level=2] [ref=e95]
+      - paragraph [ref=e97]: Start your mental health learning journey with our most popular courses
+    - generic [ref=e98]:
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - generic [ref=e102]: Self-Care
+          - generic [ref=e103]: 📚
+          - heading "Self-Care & Emotional Wellbeing" [level=5] [ref=e104]
+        - generic [ref=e105]:
+          - paragraph [ref=e106]: Discover the science and practice of self-care as a foundation for mental health. This course covers evidence-based self-care strategies including boundary setting, emotional needs, rest and recovery, and building sustainable daily routines for lasting wellbeing.
+          - generic [ref=e107]:
+            - generic [ref=e108]:
+              - generic [ref=e109]: 
+              - text: Beginner
+            - generic [ref=e110]:
+              - generic [ref=e111]: 
+              - text: 3 weeks
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: 
+            - text: 1 enrolled
+          - link "View Course" [ref=e115] [cursor=pointer]:
+            - /url: /Courses/CourseDetail.aspx?id=7
+      - generic [ref=e117]:
+        - generic [ref=e118]:
+          - generic [ref=e119]: Stress Management
+          - generic [ref=e120]: 🧘
+          - heading "Stress Management Fundamentals" [level=5] [ref=e121]
+        - generic [ref=e122]:
+          - paragraph [ref=e123]: Learn evidence-based techniques to identify, manage, and reduce stress in your daily life. This course covers the science of stress, practical coping strategies, time management, and relaxation techniques.
+          - generic [ref=e124]:
+            - generic [ref=e125]:
+              - generic [ref=e126]: 
+              - text: Beginner
+            - generic [ref=e127]:
+              - generic [ref=e128]: 
+              - text: 4 weeks
+        - generic [ref=e129]:
+          - generic [ref=e130]:
+            - generic [ref=e131]: 
+            - text: 3 enrolled
+          - link "View Course" [ref=e132] [cursor=pointer]:
+            - /url: /Courses/CourseDetail.aspx?id=1
+      - generic [ref=e134]:
+        - generic [ref=e135]:
+          - generic [ref=e136]: Mindfulness
+          - generic [ref=e137]: 🌿
+          - heading "Mindfulness & Meditation" [level=5] [ref=e138]
+        - generic [ref=e139]:
+          - paragraph [ref=e140]: Explore the practice of mindfulness and meditation to cultivate present-moment awareness, reduce anxiety, and improve focus. Includes guided exercises and daily practice routines.
+          - generic [ref=e141]:
+            - generic [ref=e142]:
+              - generic [ref=e143]: 
+              - text: Beginner
+            - generic [ref=e144]:
+              - generic [ref=e145]: 
+              - text: 6 weeks
+        - generic [ref=e146]:
+          - generic [ref=e147]:
+            - generic [ref=e148]: 
+            - text: 3 enrolled
+          - link "View Course" [ref=e149] [cursor=pointer]:
+            - /url: /Courses/CourseDetail.aspx?id=2
+    - link " View All Courses" [ref=e151] [cursor=pointer]:
+      - /url: Courses/CourseList.aspx
+      - generic [ref=e152]: 
+      - text: View All Courses
+  - generic [ref=e154]:
+    - heading "Ready to Prioritise Your Mental Health?" [level=2] [ref=e155]
+    - paragraph [ref=e156]: Join students and young adults already learning with MindSpace. It's free, evidence-based, and self-paced.
+    - link " Go to My Dashboard" [ref=e158] [cursor=pointer]:
+      - /url: User/UserHome.aspx
+      - generic [ref=e159]: 
+      - text: Go to My Dashboard
+  - contentinfo [ref=e160]:
+    - generic [ref=e161]:
+      - generic [ref=e162]:
+        - generic [ref=e163]:
+          - heading " MindSpace" [level=5] [ref=e164]:
+            - generic [ref=e165]: 
+            - text: MindSpace
+          - paragraph [ref=e166]: Empowering students and young adults with accessible mental health literacy resources.
+        - generic [ref=e167]:
+          - heading "Quick Links" [level=6] [ref=e168]
+          - list [ref=e169]:
+            - listitem [ref=e170]:
+              - link "Home" [ref=e171] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e172]:
+              - link "Browse Courses" [ref=e173] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e174]:
+              - link "Register Free" [ref=e175] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e176]:
+              - link "Login" [ref=e177] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e178]:
+          - heading "Mental Health Topics" [level=6] [ref=e179]
+          - list [ref=e180]:
+            - listitem [ref=e181]:
+              - generic [ref=e182]: 
+              - text: Stress Management
+            - listitem [ref=e183]:
+              - generic [ref=e184]: 
+              - text: Mindfulness & Meditation
+            - listitem [ref=e185]:
+              - generic [ref=e186]: 
+              - text: Anxiety Management
+            - listitem [ref=e187]:
+              - generic [ref=e188]: 
+              - text: Sleep Hygiene
+            - listitem [ref=e189]:
+              - generic [ref=e190]: 
+              - text: Emotional Resilience
+      - separator [ref=e191]
+      - paragraph [ref=e192]: © 2026 MindSpace. All rights reserved.

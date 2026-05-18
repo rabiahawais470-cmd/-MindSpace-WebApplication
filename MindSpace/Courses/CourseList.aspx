@@ -62,8 +62,8 @@
         <asp:Repeater ID="rptCourses" runat="server">
             <HeaderTemplate><div class="row g-4"></HeaderTemplate>
             <ItemTemplate>
-                <div class="col-md-6 col-xl-4">
-                    <div class="course-card">
+                <div class="col-md-6 col-xl-4 reveal">
+                    <div class="course-card cat-<%# GetCatClass(Eval("Category").ToString()) %>-bar">
                         <div class="course-card-header">
                             <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>">
                                 <%# Eval("Category") %>

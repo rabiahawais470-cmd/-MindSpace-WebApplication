@@ -1,0 +1,180 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link " MindSpace" [ref=e5] [cursor=pointer]:
+        - /url: /Default.aspx
+        - generic [ref=e6]: 
+        - generic [ref=e7]: MindSpace
+      - generic [ref=e9]:
+        - listitem [ref=e10]:
+          - link " Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /User/UserHome.aspx
+            - generic [ref=e12]: 
+            - text: Dashboard
+        - listitem [ref=e13]:
+          - link " Courses" [ref=e14] [cursor=pointer]:
+            - /url: /Courses/CourseList.aspx
+            - generic [ref=e15]: 
+            - text: Courses
+        - listitem [ref=e16]:
+          - link " Forum" [ref=e17] [cursor=pointer]:
+            - /url: /User/Forum.aspx
+            - generic [ref=e18]: 
+            - text: Forum
+        - listitem [ref=e19]:
+          - link " Discussions" [ref=e20] [cursor=pointer]:
+            - /url: /User/Discussions.aspx
+            - generic [ref=e21]: 
+            - text: Discussions
+        - listitem [ref=e22]:
+          - link " Progress" [ref=e23] [cursor=pointer]:
+            - /url: /User/ProgressTracking.aspx
+            - generic [ref=e24]: 
+            - text: Progress
+        - listitem [ref=e25]:
+          - button " rabiah" [ref=e26] [cursor=pointer]:
+            - generic [ref=e27]: 
+            - generic [ref=e28]: rabiah
+          - text:   
+  - generic [ref=e31]:
+    - generic [ref=e32]:
+      - generic [ref=e33]: Sleep Hygiene
+      - heading "Sleep Hygiene & Restoration" [level=1] [ref=e34]
+      - paragraph [ref=e35]: Discover the critical role of sleep in mental health and learn practical strategies to improve sleep quality, establish healthy routines, and overcome common sleep challenges.
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]: 
+          - text: Beginner
+        - generic [ref=e39]:
+          - generic [ref=e40]: 
+          - text: 3 weeks
+        - generic [ref=e41]:
+          - generic [ref=e42]: 
+          - text: 0 enrolled
+    - generic [ref=e43]:
+      - generic [ref=e44]: 🌙
+      - button "Enroll Now - Free!" [ref=e46] [cursor=pointer]
+  - generic [ref=e48]:
+    - generic [ref=e49]:
+      - heading " Learning Resources" [level=4] [ref=e50]:
+        - generic [ref=e51]: 
+        - text: Learning Resources
+      - generic [ref=e53]:
+        - generic [ref=e55]: 
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - heading "The Science of Sleep and Mental Health" [level=6] [ref=e58]
+            - generic [ref=e59]: article
+          - paragraph [ref=e60]: Sleep is one of the most active processes your brain undergoes each night. The brain consolidates memories, clears metabolic waste products, and regulates emotional responses during sleep. Sleep cycles (~90 minutes each) alternate between NREM Stage 1-2 (light sleep), NREM Stage 3 (deep slow-wave sleep -- tissue repair, immune strengthening), and REM sleep (vivid dreaming, emotional memory processing). Sleep deprivation increases amygdala reactivity by up to 60%, making you emotionally reactive. Chronic poor sleep is one of the strongest predictors of depression and anxiety. Adults need 7-9 hours per night.
+      - generic [ref=e62]:
+        - generic [ref=e64]: 
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - heading "Building a Sleep-Friendly Environment and Routine" [level=6] [ref=e67]
+            - generic [ref=e68]: article
+          - paragraph [ref=e69]: "Sleep hygiene covers habits and environmental conditions that promote high-quality sleep. Environment: keep your bedroom at 16-20 degrees C (60-68 F) -- core body temperature must drop to initiate sleep; use blackout curtains since even small amounts of light suppress melatonin; use your bed only for sleep to strengthen the mental association. Behavioural strategies: wake at the same time every day (including weekends) to anchor your circadian rhythm; follow a 30-60 minute wind-down routine with dim lights and no screens; avoid caffeine after 2pm (half-life is 5-6 hours); avoid alcohol before bed as it fragments sleep and suppresses REM; exercise regularly but avoid vigorous workouts within 2 hours of bedtime."
+      - generic [ref=e71]:
+        - generic [ref=e73]: 
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - heading "Sleep Is Your Superpower - Matthew Walker (TED)" [level=6] [ref=e76]
+            - generic [ref=e77]: video
+          - iframe [ref=e79]:
+            - generic [active] [ref=f65e1]:
+              - generic "YouTube Video Player" [ref=f65e3]
+              - generic [ref=f65e5]:
+                - generic:
+                  - generic:
+                    - button "Play video" [ref=f65e10] [cursor=pointer]
+                    - button "Hide player controls" [ref=f65e12] [cursor=pointer]
+                    - generic [ref=f65e14]:
+                      - generic [ref=f65e19]:
+                        - generic [ref=f65e20]:
+                          - link "Sleep Is Your Superpower | Matt Walker | TED" [ref=f65e21] [cursor=pointer]:
+                            - /url: https://www.youtube.com/watch?v=5MuIMqhT8DM
+                          - link "TED" [ref=f65e22] [cursor=pointer]:
+                            - /url: /channel/UCAuUUnT6oDeKwE6v1NGQxug
+                            - generic [ref=f65e23]: TED
+                        - generic [ref=f65e24]:
+                          - button [ref=f65e25] [cursor=pointer]
+                          - generic [ref=f65e27]:
+                            - generic: TED
+                            - generic: 27.4M subscribers
+                      - generic [ref=f65e28]:
+                        - button "Share" [ref=f65e31] [cursor=pointer]:
+                          - generic [ref=f65e35]:
+                            - img
+                        - link "Watch on YouTube" [ref=f65e42] [cursor=pointer]:
+                          - /url: https://www.youtube.com/watch?v=5MuIMqhT8DM
+                          - generic [ref=f65e45]:
+                            - text: Watch on
+                            - img [ref=f65e47]:
+                              - generic [ref=f65e49]:
+                                - img
+      - generic [ref=e81]:
+        - generic [ref=e83]: 
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - heading "Sleep Quality Tracker Template" [level=6] [ref=e86]
+            - generic [ref=e87]: download
+          - paragraph [ref=e88]: Download this sleep quality tracker to monitor your sleep schedule, bedtime habits, and energy levels. Tracking for two weeks helps identify patterns that improve or disrupt your sleep.
+          - link " Download Resource" [ref=e89] [cursor=pointer]:
+            - /url: /Content/Downloads/sleep-quality-tracker.html
+            - generic [ref=e90]: 
+            - text: Download Resource
+    - generic [ref=e92]:
+      - heading " Available Quizzes" [level=5] [ref=e93]:
+        - generic [ref=e94]: 
+        - text: Available Quizzes
+      - generic [ref=e95]:
+        - heading "Sleep Hygiene" [level=6] [ref=e96]
+        - paragraph [ref=e97]: Test your knowledge about healthy sleep habits and rest optimization.
+        - generic [ref=e98]:
+          - generic [ref=e99]: "Pass: 70%"
+          - link " Take Quiz" [ref=e100] [cursor=pointer]:
+            - /url: /Courses/Quiz.aspx?quizID=4
+            - generic [ref=e101]: 
+            - text: Take Quiz
+  - contentinfo [ref=e102]:
+    - generic [ref=e103]:
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - heading " MindSpace" [level=5] [ref=e106]:
+            - generic [ref=e107]: 
+            - text: MindSpace
+          - paragraph [ref=e108]: Empowering students and young adults with accessible mental health literacy resources.
+        - generic [ref=e109]:
+          - heading "Quick Links" [level=6] [ref=e110]
+          - list [ref=e111]:
+            - listitem [ref=e112]:
+              - link "Home" [ref=e113] [cursor=pointer]:
+                - /url: /Default.aspx
+            - listitem [ref=e114]:
+              - link "Browse Courses" [ref=e115] [cursor=pointer]:
+                - /url: /Courses/CourseList.aspx
+            - listitem [ref=e116]:
+              - link "Register Free" [ref=e117] [cursor=pointer]:
+                - /url: /Register.aspx
+            - listitem [ref=e118]:
+              - link "Login" [ref=e119] [cursor=pointer]:
+                - /url: /Login.aspx
+        - generic [ref=e120]:
+          - heading "Mental Health Topics" [level=6] [ref=e121]
+          - list [ref=e122]:
+            - listitem [ref=e123]:
+              - generic [ref=e124]: 
+              - text: Stress Management
+            - listitem [ref=e125]:
+              - generic [ref=e126]: 
+              - text: Mindfulness & Meditation
+            - listitem [ref=e127]:
+              - generic [ref=e128]: 
+              - text: Anxiety Management
+            - listitem [ref=e129]:
+              - generic [ref=e130]: 
+              - text: Sleep Hygiene
+            - listitem [ref=e131]:
+              - generic [ref=e132]: 
+              - text: Emotional Resilience
+      - separator [ref=e133]
+      - paragraph [ref=e134]: © 2026 MindSpace — APU Web Applications Assignment — Group G29
