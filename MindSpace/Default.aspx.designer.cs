@@ -9,6 +9,6 @@ namespace MindSpace {
         protected global::System.Web.UI.Control MainContent;
         protected global::System.Web.UI.WebControls.Panel pnlCTAGuest;
         protected global::System.Web.UI.WebControls.Panel pnlCTAUser;
-        protected global::System.Web.UI.WebControls.Repeater rptCourses;
+        protected global::System.Web.UI.Control ScriptContent;
     }
 }

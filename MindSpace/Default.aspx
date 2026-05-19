@@ -95,31 +95,6 @@
         </div>
     </section>
 
-    <!-- ===== FEATURED COURSES (backend-wired, NO category photos) ===== -->
-    <section class="ah-features" style="background: var(--color-bg-2); padding-top: clamp(40px, 6vw, 70px);">
-        <div class="ah-features-head">
-            <div class="ah-features-eyebrow">Curated For This Month</div>
-            <h2 class="ah-features-title">start with a handpicked course.</h2>
-        </div>
-        <asp:Repeater ID="rptCourses" runat="server">
-            <HeaderTemplate><div class="ah-features-grid" style="max-width: 1100px; grid-template-columns: repeat(3, 1fr);"></HeaderTemplate>
-            <ItemTemplate>
-                <a class="ah-feature-tile" href='<%# "Courses/CourseDetail.aspx?id=" + Eval("CourseID") %>' style="text-decoration: none; color: inherit;">
-                    <div class="ah-feature-icon" style="background: var(--color-primary);">
-                        <i class="fa-solid fa-book-open"></i>
-                    </div>
-                    <h3 class="ah-feature-title"><%# Eval("Title") %></h3>
-                    <p class="ah-feature-body" style="margin-bottom: 16px;"><%# Eval("Description") %></p>
-                    <span class="btn btn-outline-primary btn-sm">View course <i class="fa-solid fa-arrow-right ms-1"></i></span>
-                </a>
-            </ItemTemplate>
-            <FooterTemplate></div></FooterTemplate>
-        </asp:Repeater>
-        <div style="text-align: center; margin-top: 36px;">
-            <a href="Courses/CourseList.aspx" class="btn btn-primary">Browse all courses <i class="fa-solid fa-arrow-right ms-2"></i></a>
-        </div>
-    </section>
-
     <!-- ===== OUTRO CTA ===== -->
     <section class="home-outro">
         <div class="home-outro-inner">

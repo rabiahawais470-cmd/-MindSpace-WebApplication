@@ -8,20 +8,6 @@
         <p class="cl-header-sub">Short, evidence-based courses across six wellness topics &mdash; built for real life.</p>
     </div>
 
-    <!-- VISUAL CATEGORY STRIP -->
-    <div class="cl-cat-strip">
-        <a href="javascript:void(0)" class="cl-cat-chip all" data-cat=""><span class="cl-cat-chip-name">All Topics</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-stress" data-cat="Stress Management"><span class="cl-cat-chip-name">Stress</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-mindfulness" data-cat="Mindfulness"><span class="cl-cat-chip-name">Mindfulness</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-anxiety" data-cat="Anxiety"><span class="cl-cat-chip-name">Anxiety</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-sleep" data-cat="Sleep Hygiene"><span class="cl-cat-chip-name">Sleep</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-resilience" data-cat="Resilience"><span class="cl-cat-chip-name">Resilience</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-selfcare" data-cat="Self-Care"><span class="cl-cat-chip-name">Self-Care</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-cognitive" data-cat="Cognitive Therapy"><span class="cl-cat-chip-name">Cognitive Therapy</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-trauma" data-cat="Trauma Recovery"><span class="cl-cat-chip-name">Trauma</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-regulation" data-cat="Emotional Regulation"><span class="cl-cat-chip-name">Emotional Regulation</span></a>
-        <a href="javascript:void(0)" class="cl-cat-chip cat-positive" data-cat="Positive Psychology"><span class="cl-cat-chip-name">Positive Psychology</span></a>
-    </div>
 
     <!-- INLINE FILTER BAR -->
     <div class="cl-filter-bar">
@@ -64,40 +50,33 @@
         </span>
     </div>
 
-    <!-- COURSE GRID (wider, more breathing room) -->
+    <!-- COURSE GRID (blogs-card style) -->
     <asp:Repeater ID="rptCourses" runat="server">
         <HeaderTemplate>
-            <div class="cl-grid">
+            <div class="ms-blog-grid">
         </HeaderTemplate>
         <ItemTemplate>
-            <div class="course-card">
-                <div class="course-card-cover cat-<%# GetCatClass(Eval("Category").ToString()) %>">
-                    <div style="position:absolute; bottom:14px; left:14px; right:14px; z-index:2; display:flex; justify-content:space-between; align-items:end;">
-                        <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>" style="background:rgba(255,255,255,0.95); color:var(--color-text-primary);">
-                            <%# Eval("Category") %>
+            <a class="ms-blog-card" href='<%: ResolveUrl("~/Courses/CourseDetail.aspx") %>?id=<%# Eval("CourseID") %>'>
+                <div class='ms-blog-card-img cat-<%# GetCatClass(Eval("Category").ToString()) %>'>
+                    <span class="ms-blog-card-tag">#<%# Eval("Category").ToString().Replace(" ", "").ToUpper() %></span>
+                </div>
+                <div class="ms-blog-card-body">
+                    <h3 class="ms-blog-card-title"><%# Eval("Title") %></h3>
+                    <p class="ms-blog-card-desc"><%# Eval("Description") %></p>
+                    <div class="ms-blog-card-footer">
+                        <span class="ms-blog-card-more">
+                            <span class="ms-blog-card-more-icon">
+                                <i class="fa-solid fa-arrow-right arr-a"></i>
+                                <i class="fa-solid fa-arrow-right arr-b"></i>
+                            </span>
+                            <%# Convert.ToBoolean(Eval("IsEnrolled")) ? "Continue learning" : "Read more" %>
                         </span>
-                        <span style="background:rgba(28,28,46,0.75); color:#fff; padding:4px 10px; border-radius:99px; font-size:0.7rem; font-weight:600; backdrop-filter:blur(8px);">
-                            <%# Eval("DifficultyLevel") %>
+                        <span class="ms-blog-card-date">
+                            <%# Eval("DifficultyLevel") %> &middot; <%# Eval("Duration") %>
                         </span>
                     </div>
                 </div>
-                <div class="course-card-body">
-                    <div class="course-card-meta-top">
-                        <i class="fa-solid fa-users"></i>
-                        <span><%# Eval("EnrollmentCount") %> enrolled</span>
-                        <i class="fa-regular fa-clock star" style="color:var(--color-text-secondary);"></i>
-                        <span><%# Eval("Duration") %></span>
-                    </div>
-                    <h6 class="course-card-title"><%# Eval("Title") %></h6>
-                    <p class="course-card-desc"><%# Eval("Description") %></p>
-                    <div class="course-card-footer-row" style="justify-content:space-between;">
-                        <%# Convert.ToBoolean(Eval("IsEnrolled")) ? "<span class='badge bg-success'><i class='fa-solid fa-check me-1'></i>Enrolled</span>" : "<span style='color:var(--color-text-secondary); font-size:0.72rem;'><i class='fa-regular fa-bookmark'></i></span>" %>
-                    </div>
-                    <a href='<%: ResolveUrl("~/Courses/CourseDetail.aspx") %>?id=<%# Eval("CourseID") %>' class="btn btn-primary btn-sm">
-                        <%# Convert.ToBoolean(Eval("IsEnrolled")) ? "Continue learning" : "View course" %>
-                    </a>
-                </div>
-            </div>
+            </a>
         </ItemTemplate>
         <FooterTemplate></div></FooterTemplate>
     </asp:Repeater>
@@ -116,27 +95,4 @@
 </asp:Content>
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
-<script>
-    (function () {
-        var dropdown = document.querySelector('select[id$="ddlCategory"]');
-        // Highlight currently active chip
-        if (dropdown) {
-            var sel = dropdown.value;
-            document.querySelectorAll('.cl-cat-chip').forEach(function (c) {
-                if ((c.getAttribute('data-cat') || '') === sel) c.classList.add('active');
-            });
-        }
-        // Wire chip clicks: set dropdown value, dispatch change to trigger AutoPostBack
-        document.querySelectorAll('.cl-cat-chip').forEach(function (chip) {
-            chip.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (!dropdown) return;
-                dropdown.value = chip.getAttribute('data-cat') || '';
-                var evt = document.createEvent('HTMLEvents');
-                evt.initEvent('change', true, true);
-                dropdown.dispatchEvent(evt);
-            });
-        });
-    })();
-</script>
 </asp:Content>

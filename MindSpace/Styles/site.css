@@ -1919,6 +1919,162 @@ a:hover { color: var(--color-orange); }
 .rich-toolbar .btn-xs:hover { background: var(--color-primary-light); color: var(--color-primary); }
 
 /* ==========================================================
+   Blog-style course cards
+   (Ported from a React blogs.tsx component to vanilla CSS)
+   Image at top, category tag overlay, title, description,
+   animated read-more arrow + publish date with line separator.
+   ========================================================== */
+.ms-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: clamp(20px, 3vw, 32px);
+    margin: 0 auto;
+}
+.ms-blog-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.12);
+    box-shadow: none;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+}
+.ms-blog-card:hover {
+    box-shadow: 0 8px 26px rgba(0,0,0,0.10);
+    transform: translateY(-2px);
+}
+.ms-blog-card-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-bg-2);
+    overflow: hidden;
+}
+.ms-blog-card-img.cat-stress      { background-image: url('https://images.unsplash.com/photo-1499728603263-13726abce5fd?w=720&q=75'); }
+.ms-blog-card-img.cat-mindfulness { background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=720&q=75'); }
+.ms-blog-card-img.cat-anxiety     { background-image: url('https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=720&q=75'); }
+.ms-blog-card-img.cat-sleep       { background-image: url('https://images.unsplash.com/photo-1604881991720-f91add269bed?w=720&q=75'); }
+.ms-blog-card-img.cat-resilience  { background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=720&q=75'); }
+.ms-blog-card-img.cat-selfcare    { background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=720&q=75'); }
+.ms-blog-card-img.cat-cognitive   { background-image: url('https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=720&q=75'); }
+.ms-blog-card-img.cat-trauma      { background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=720&q=75'); }
+.ms-blog-card-img.cat-regulation  { background-image: url('https://images.unsplash.com/photo-1518602164578-cd0074062767?w=720&q=75'); }
+.ms-blog-card-img.cat-positive    { background-image: url('https://images.unsplash.com/photo-1502230831726-fe5549140034?w=720&q=75'); }
+.ms-blog-card-tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: #000;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 6px 12px;
+    line-height: 1.2;
+}
+.ms-blog-card-body {
+    padding: 18px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+.ms-blog-card-title {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+    margin: 0;
+    text-transform: none;
+}
+.ms-blog-card-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+}
+.ms-blog-card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+@media (min-width: 540px) {
+    .ms-blog-card-footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.ms-blog-card-more {
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.ms-blog-card-more:hover { color: var(--color-text-secondary); }
+.ms-blog-card-more-icon {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #E5E7EB;
+    margin-right: 10px;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.ms-blog-card-more:hover .ms-blog-card-more-icon {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+.ms-blog-card-more-icon .arr-a,
+.ms-blog-card-more-icon .arr-b {
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    font-size: 0.8rem;
+}
+.ms-blog-card-more-icon .arr-a { transform: translateX(0); opacity: 1; }
+.ms-blog-card-more-icon .arr-b { transform: translateX(-2rem); opacity: 0; }
+.ms-blog-card-more:hover .ms-blog-card-more-icon .arr-a {
+    transform: translateX(2rem); opacity: 0;
+}
+.ms-blog-card-more:hover .ms-blog-card-more-icon .arr-b {
+    transform: translateX(0); opacity: 1;
+}
+.ms-blog-card-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text-muted);
+    font-size: 0.72rem;
+}
+.ms-blog-card-date::after {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    background: rgba(0,0,0,0.18);
+}
+
+/* ==========================================================
    Animated Hero (centered, cycling word)
    ========================================================== */
 .ah-hero {
@@ -1929,6 +2085,33 @@ a:hover { color: var(--color-orange); }
     justify-content: center;
     padding: clamp(60px, 10vw, 140px) 24px;
     background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+/* Soft shader/gradient ONLY at the bottom edge of the hero,
+   fading into the next section's bg-2 colour */
+.ah-hero::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 240px;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse 60% 100% at 25% 100%, rgba(139, 92, 246, 0.16), transparent 65%),
+        radial-gradient(ellipse 60% 100% at 75% 100%, rgba(255, 103, 32, 0.10), transparent 65%),
+        linear-gradient(to bottom, transparent 0%, var(--color-bg-2) 100%);
+    animation: ms-shader-drift 14s ease-in-out infinite alternate;
+    filter: blur(2px);
+}
+.ah-hero .ah-hero-inner { position: relative; z-index: 1; }
+@keyframes ms-shader-drift {
+    0%   { background-position: 0% 100%, 100% 100%, 0 0; }
+    50%  { background-position: 20% 100%, 80% 100%, 0 0; }
+    100% { background-position: -10% 100%, 110% 100%, 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .ah-hero::after { animation: none; }
 }
 .ah-hero-inner {
     max-width: 880px;
