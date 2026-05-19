@@ -2,269 +2,135 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ===== HERO ===== -->
-    <section class="home-hero">
-        <div class="home-hero-grid">
-            <div class="home-hero-text">
-                <span class="home-hero-eyebrow">
-                    <span class="dot"></span> Mental Wellness, Reimagined
+    <!-- ===== ANIMATED HERO ===== -->
+    <section class="ah-hero">
+        <div class="ah-hero-inner">
+            <a href="Courses/CourseList.aspx" class="ah-hero-eyebrow">
+                Read our latest research <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <h1 class="ah-hero-title">
+                <span class="static-line">Mental wellness is</span>
+                <span class="cycle-line" id="ahWords">
+                    <span class="ah-hero-word active" data-i="0">quiet</span>
+                    <span class="ah-hero-word" data-i="1">honest</span>
+                    <span class="ah-hero-word" data-i="2">human</span>
+                    <span class="ah-hero-word" data-i="3">gentle</span>
+                    <span class="ah-hero-word" data-i="4">yours</span>
                 </span>
-                <h1 class="home-hero-title">
-                    Quiet your mind.<br/>
-                    Learn to live <span class="accent">unhurried</span>.
-                </h1>
-                <p class="home-hero-sub">
-                    Evidence-based micro-courses on stress, sleep, anxiety and self-compassion &mdash; built with care for students and young adults navigating real life.
-                </p>
-                <div class="home-hero-cta">
-                    <a href="Register.aspx" class="btn btn-primary btn-lg">
-                        Begin for free
-                        <i class="fa-solid fa-arrow-right ms-2"></i>
+            </h1>
+
+            <p class="ah-hero-sub">
+                Short, evidence-based courses on stress, sleep, anxiety, resilience, and self-compassion &mdash;
+                built for students and young adults who want real tools without the noise.
+            </p>
+
+            <div class="ah-hero-cta">
+                <asp:Panel ID="pnlCTAGuest" runat="server">
+                    <a href="Courses/CourseList.aspx" class="btn btn-outline-primary btn-lg">
+                        <i class="fa-regular fa-compass"></i> Browse courses
                     </a>
-                    <a href="Courses/CourseList.aspx" class="btn btn-outline-primary btn-lg">Browse courses</a>
-                </div>
-                <div class="home-hero-meta">
-                    <div class="home-hero-meta-item">
-                        <div class="num">6</div>
-                        <div class="lbl">Courses</div>
-                    </div>
-                    <div class="home-hero-meta-item">
-                        <div class="num">75</div>
-                        <div class="lbl">Quiz Questions</div>
-                    </div>
-                    <div class="home-hero-meta-item">
-                        <div class="num">100%</div>
-                        <div class="lbl">Free Forever</div>
-                    </div>
-                    <div class="home-hero-meta-item">
-                        <div class="num">5min</div>
-                        <div class="lbl">To Start</div>
-                    </div>
-                </div>
-            </div>
-            <div class="home-hero-cluster">
-                <div class="home-hero-photo p1"></div>
-                <div class="home-hero-photo p3"></div>
-                <div class="home-hero-photo p2"></div>
-                <div class="home-hero-badge b1">
-                    <span class="home-hero-badge-icon green"><i class="fa-solid fa-leaf"></i></span>
-                    <div class="home-hero-badge-text">
-                        <div class="t1">Self-paced</div>
-                        <div class="t2">Learn at your own rhythm</div>
-                    </div>
-                </div>
-                <div class="home-hero-badge b2">
-                    <span class="home-hero-badge-icon"><i class="fa-solid fa-shield-halved"></i></span>
-                    <div class="home-hero-badge-text">
-                        <div class="t1">Private</div>
-                        <div class="t2">Your data, your eyes only</div>
-                    </div>
-                </div>
+                    <a href="Register.aspx" class="btn btn-primary btn-lg">
+                        Sign up free <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </asp:Panel>
+                <asp:Panel ID="pnlCTAUser" runat="server" Visible="false">
+                    <a href="User/UserHome.aspx" class="btn btn-primary btn-lg">
+                        Go to my dashboard <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </asp:Panel>
             </div>
         </div>
     </section>
 
-    <!-- ===== PARALLAX FEATURE INTRO ===== -->
-    <section class="ms-pfeature-intro">
-        <h2>explore by <span class="accent">topic</span>.</h2>
-        <span class="scroll-cue">Scroll <i class="fa-solid fa-arrow-down"></i></span>
-    </section>
-
-    <!-- ===== PARALLAX FEATURE PANELS ===== -->
-    <div class="ms-pfeature-track">
-        <section class="ms-pfeature-section" data-pfeature>
-            <div class="ms-pfeature-copy">
-                <h3>stress, softened</h3>
-                <p>Short evidence-based practices for the days that feel too full. Breath, body, mind &mdash; one small reset at a time, repeated until it sticks.</p>
-            </div>
-            <div class="ms-pfeature-img-wrap" data-pfeature-img>
-                <img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?w=960&q=75" alt="Stress management course imagery" />
-            </div>
-        </section>
-
-        <section class="ms-pfeature-section reverse" data-pfeature>
-            <div class="ms-pfeature-copy">
-                <h3>anxiety, named</h3>
-                <p>Cognitive-behavioural tools to put words on the worry, examine it, and choose a calmer response. Built on six decades of clinical research.</p>
-            </div>
-            <div class="ms-pfeature-img-wrap" data-pfeature-img>
-                <img src="https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=960&q=75" alt="Anxiety course imagery" />
-            </div>
-        </section>
-
-        <section class="ms-pfeature-section" data-pfeature>
-            <div class="ms-pfeature-copy">
-                <h3>resilience, rebuilt</h3>
-                <p>Setbacks happen. The work is what comes after. Frameworks for emotional regulation, meaning-making, and the slow, quiet repair of a hard week.</p>
-            </div>
-            <div class="ms-pfeature-img-wrap" data-pfeature-img>
-                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=960&q=75" alt="Resilience course imagery" />
-            </div>
-        </section>
-    </div>
-
-    <!-- ===== TEXT PARALLAX STICKY SECTIONS ===== -->
-    <div class="ms-text-parallax-track">
-
-        <div class="ms-text-parallax-block" data-tp-block>
-            <div class="ms-text-parallax-sticky"
-                 data-tp-sticky
-                 style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&q=80');"></div>
-            <div class="ms-text-parallax-overlay" data-tp-overlay>
-                <p class="sub">evidence-based</p>
-                <h2>built on science.</h2>
-            </div>
-        </div>
-        <div class="ms-text-parallax-content">
-            <h3>Every course traces back to peer-reviewed research.</h3>
-            <div class="body">
-                <p>Our courses draw on cognitive-behavioural therapy, dialectical behaviour therapy, polyvagal theory, and positive psychology &mdash; methods with decades of randomised-trial evidence behind them.</p>
-                <p>No fluff, no quick fixes. Just the techniques clinicians actually use, translated into something a student can practise in five minutes between lectures.</p>
-                <a href="Courses/CourseList.aspx" class="btn btn-primary">Browse the library <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></a>
-            </div>
-        </div>
-
-        <div class="ms-text-parallax-block" data-tp-block>
-            <div class="ms-text-parallax-sticky"
-                 data-tp-sticky
-                 style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=80');"></div>
-            <div class="ms-text-parallax-overlay" data-tp-overlay>
-                <p class="sub">self-paced</p>
-                <h2>learn at your rhythm.</h2>
-            </div>
-        </div>
-        <div class="ms-text-parallax-content">
-            <h3>Five minutes today. Five minutes tomorrow. That is enough.</h3>
-            <div class="body">
-                <p>Each course breaks down into bite-sized articles, short guided videos, and reflective quizzes. Pick up where you left off whenever life makes space.</p>
-                <p>No streak shaming, no notification spam. Progress tracking that's there when you want it and quiet when you don't.</p>
-                <a href="Register.aspx" class="btn btn-primary">Create a free account <i class="fa-solid fa-arrow-right ms-2"></i></a>
-            </div>
-        </div>
-
-        <div class="ms-text-parallax-block" data-tp-block>
-            <div class="ms-text-parallax-sticky"
-                 data-tp-sticky
-                 style="background-image: url('https://images.unsplash.com/photo-1518602164578-cd0074062767?w=1600&q=80');"></div>
-            <div class="ms-text-parallax-overlay" data-tp-overlay>
-                <p class="sub">private</p>
-                <h2>your data, your eyes only.</h2>
-            </div>
-        </div>
-        <div class="ms-text-parallax-content">
-            <h3>What you read, write, and rate stays with you.</h3>
-            <div class="body">
-                <p>Your progress, your journal entries, your quiz scores &mdash; visible only to you. We do not sell data, we do not surface your activity to other learners, and we do not need a phone number to let you in.</p>
-                <p>Encrypted at rest, transmitted over HTTPS, deletable on request.</p>
-                <a href="Default.aspx#voices" class="btn btn-outline-primary">Hear from learners <i class="fa-solid fa-arrow-down ms-2"></i></a>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- ===== FEATURED COURSES (magazine: big + side stack) ===== -->
-    <section class="home-featured">
-        <div class="section-head-split reveal">
+    <!-- ===== STAT BAND ===== -->
+    <section class="ah-stats">
+        <div class="ah-stats-grid">
             <div>
-                <span class="section-eyebrow">Curated For This Month</span>
-                <h2 class="section-title">Start with a <span class="accent">handpicked</span> course</h2>
+                <div class="ah-stat-num">10<span class="accent">+</span></div>
+                <div class="ah-stat-label">Courses</div>
             </div>
-            <a href="Courses/CourseList.aspx" class="btn btn-outline-primary">View all <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            <div>
+                <div class="ah-stat-num">150<span class="accent">+</span></div>
+                <div class="ah-stat-label">Quiz Questions</div>
+            </div>
+            <div>
+                <div class="ah-stat-num">100<span class="accent">%</span></div>
+                <div class="ah-stat-label">Free Forever</div>
+            </div>
+            <div>
+                <div class="ah-stat-num">5<span class="accent">min</span></div>
+                <div class="ah-stat-label">To Get Started</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ICON FEATURE TILES (no photos) ===== -->
+    <section class="ah-features">
+        <div class="ah-features-head">
+            <div class="ah-features-eyebrow">Why MindSpace</div>
+            <h2 class="ah-features-title">a quieter way to learn about yourself.</h2>
+        </div>
+        <div class="ah-features-grid">
+            <div class="ah-feature-tile">
+                <div class="ah-feature-icon"><i class="fa-solid fa-flask"></i></div>
+                <h3 class="ah-feature-title">evidence-based</h3>
+                <p class="ah-feature-body">Every course traces back to peer-reviewed research &mdash; CBT, DBT, polyvagal, positive psychology.</p>
+            </div>
+            <div class="ah-feature-tile">
+                <div class="ah-feature-icon bg-orange"><i class="fa-regular fa-clock"></i></div>
+                <h3 class="ah-feature-title">self-paced</h3>
+                <p class="ah-feature-body">Five minutes is enough. Pick up where you left off whenever life makes the space.</p>
+            </div>
+            <div class="ah-feature-tile">
+                <div class="ah-feature-icon bg-cyan"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3 class="ah-feature-title">private by default</h3>
+                <p class="ah-feature-body">Your journal entries, quiz scores, and progress stay yours. No selling, no surfacing.</p>
+            </div>
+            <div class="ah-feature-tile">
+                <div class="ah-feature-icon bg-magenta"><i class="fa-regular fa-heart"></i></div>
+                <h3 class="ah-feature-title">made for real life</h3>
+                <p class="ah-feature-body">Built for students and young adults navigating exams, work, relationships, and a noisy world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED COURSES (backend-wired, NO category photos) ===== -->
+    <section class="ah-features" style="background: var(--color-bg-2); padding-top: clamp(40px, 6vw, 70px);">
+        <div class="ah-features-head">
+            <div class="ah-features-eyebrow">Curated For This Month</div>
+            <h2 class="ah-features-title">start with a handpicked course.</h2>
         </div>
         <asp:Repeater ID="rptCourses" runat="server">
-            <HeaderTemplate><div class="home-featured-grid"></HeaderTemplate>
+            <HeaderTemplate><div class="ah-features-grid" style="max-width: 1100px; grid-template-columns: repeat(3, 1fr);"></HeaderTemplate>
             <ItemTemplate>
-                <asp:PlaceHolder runat="server" Visible='<%# Container.ItemIndex == 0 %>'>
-                    <a class='feature-course-big cat-<%# GetCatClass(Eval("Category").ToString()) %>'
-                       href='<%# "Courses/CourseDetail.aspx?id=" + Eval("CourseID") %>'>
-                        <div class="feature-course-big-body">
-                            <span style="display:inline-block; background:rgba(255,255,255,0.18); backdrop-filter:blur(8px); padding:5px 14px; border-radius:99px; font-size:0.7rem; font-weight:600; color:#fff; text-transform:uppercase; letter-spacing:0.08em;">
-                                <%# Eval("Category") %>
-                            </span>
-                            <h3><%# Eval("Title") %></h3>
-                            <p><%# Eval("Description") %></p>
-                            <span class="btn btn-light btn-sm" style="color:var(--color-primary); font-weight:700;">
-                                Start course <i class="fa-solid fa-arrow-right ms-1"></i>
-                            </span>
-                        </div>
-                    </a>
-                </asp:PlaceHolder>
-                <asp:PlaceHolder runat="server" Visible='<%# Container.ItemIndex > 0 %>'>
-                    <a class="feature-course-side"
-                       href='<%# "Courses/CourseDetail.aspx?id=" + Eval("CourseID") %>'>
-                        <div class='feature-course-side-img cat-<%# GetCatClass(Eval("Category").ToString()) %>'></div>
-                        <div class="feature-course-side-body">
-                            <span class="cat-tag"><%# Eval("Category") %></span>
-                            <h6><%# Eval("Title") %></h6>
-                            <div class="meta"><i class="fa-regular fa-clock me-1"></i><%# Eval("Duration") %> &middot; <%# Eval("DifficultyLevel") %></div>
-                        </div>
-                    </a>
-                </asp:PlaceHolder>
+                <a class="ah-feature-tile" href='<%# "Courses/CourseDetail.aspx?id=" + Eval("CourseID") %>' style="text-decoration: none; color: inherit;">
+                    <div class="ah-feature-icon" style="background: var(--color-primary);">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="ah-feature-title"><%# Eval("Title") %></h3>
+                    <p class="ah-feature-body" style="margin-bottom: 16px;"><%# Eval("Description") %></p>
+                    <span class="btn btn-outline-primary btn-sm">View course <i class="fa-solid fa-arrow-right ms-1"></i></span>
+                </a>
             </ItemTemplate>
             <FooterTemplate></div></FooterTemplate>
         </asp:Repeater>
-    </section>
-
-    <!-- ===== VOICES / TESTIMONIALS ===== -->
-    <section class="home-voices">
-        <div class="section-head-split reveal" style="justify-content: center; text-align: center;">
-            <div>
-                <span class="section-eyebrow">In Their Words</span>
-                <h2 class="section-title">Voices from <span class="accent">our community</span></h2>
-            </div>
-        </div>
-        <div class="home-voices-grid">
-            <div class="voice-card reveal">
-                <p class="voice-quote">
-                    The Sleep Hygiene course rewired my late-night doom-scrolling. I&rsquo;m sleeping seven hours again for the first time in two semesters.
-                </p>
-                <div class="voice-author">
-                    <div class="voice-author-avatar">M</div>
-                    <div class="voice-author-info">
-                        <div class="name">Maya R.</div>
-                        <div class="role">Final-year student</div>
-                    </div>
-                </div>
-            </div>
-            <div class="voice-card reveal">
-                <p class="voice-quote">
-                    Short, evidence-based, no fluff. I dip in for ten minutes between lectures and actually feel a little calmer.
-                </p>
-                <div class="voice-author">
-                    <div class="voice-author-avatar">J</div>
-                    <div class="voice-author-info">
-                        <div class="name">Jonas K.</div>
-                        <div class="role">Computer science major</div>
-                    </div>
-                </div>
-            </div>
-            <div class="voice-card reveal">
-                <p class="voice-quote">
-                    The resilience module helped me name what I was going through. Naming it was the first step out of the spiral.
-                </p>
-                <div class="voice-author">
-                    <div class="voice-author-avatar">S</div>
-                    <div class="voice-author-info">
-                        <div class="name">Sarah C.</div>
-                        <div class="role">Postgraduate researcher</div>
-                    </div>
-                </div>
-            </div>
+        <div style="text-align: center; margin-top: 36px;">
+            <a href="Courses/CourseList.aspx" class="btn btn-primary">Browse all courses <i class="fa-solid fa-arrow-right ms-2"></i></a>
         </div>
     </section>
 
     <!-- ===== OUTRO CTA ===== -->
     <section class="home-outro">
-        <div class="home-outro-inner reveal">
-            <h2>Begin a quieter <span class="accent">five minutes</span> today.</h2>
+        <div class="home-outro-inner">
+            <h2>begin a quieter <span class="accent">five minutes</span> today.</h2>
             <p>Free, private, self-paced. The kindest thing you can do for yourself this week takes less time than scrolling.</p>
-            <asp:Panel ID="pnlCTAGuest" runat="server">
+            <% if (Session["UserID"] == null) { %>
                 <a href="Register.aspx" class="btn btn-primary btn-lg me-2">Create free account</a>
                 <a href="Login.aspx" class="btn btn-outline-light btn-lg">Sign in</a>
-            </asp:Panel>
-            <asp:Panel ID="pnlCTAUser" runat="server" Visible="false">
+            <% } else { %>
                 <a href="User/UserHome.aspx" class="btn btn-primary btn-lg">Go to my dashboard</a>
-            </asp:Panel>
+            <% } %>
         </div>
     </section>
 
@@ -274,7 +140,7 @@
             <div class="row g-4">
                 <div class="col-md-5 col-lg-4">
                     <h6 style="margin-bottom: 16px; display:flex; align-items:center; gap:10px;">
-                        <span style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#7C6FCD,#9D8FE0);display:inline-flex;align-items:center;justify-content:center;"><i class="fa-solid fa-brain"></i></span>
+                        <span style="width:32px;height:32px;border-radius:8px;background:var(--color-orange);display:inline-flex;align-items:center;justify-content:center;"><i class="fa-solid fa-brain"></i></span>
                         MindSpace
                     </h6>
                     <p style="font-size: var(--text-sm); line-height: 1.7; max-width: 320px;">
@@ -318,69 +184,62 @@
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
 <script>
-/* ===== Parallax scroll tracking (vanilla equivalent of framer-motion useScroll/useTransform) ===== */
+/* ===== Animated hero: cycling word ===== */
 (function () {
-    var clamp = function (v, lo, hi) { return Math.max(lo, Math.min(hi, v)); };
+    var words = document.querySelectorAll('#ahWords .ah-hero-word');
+    if (!words.length) return;
+    var active = 0;
+    var INTERVAL = 2200;
 
-    // --- Parallax-feature panels ---
-    // p = 0 when section bottom is at viewport bottom (section just entering)
-    // p = 1 when section center reaches viewport top (well past midpoint)
-    var pfeatures = document.querySelectorAll('[data-pfeature]');
-    function updatePFeatures() {
-        var vh = window.innerHeight || 800;
-        pfeatures.forEach(function (sec) {
-            var r = sec.getBoundingClientRect();
-            // start: section top at viewport bottom  -> r.top === vh
-            // end:   section center at viewport top  -> r.top + r.height/2 === 0
-            var start = vh;
-            var end   = -r.height / 2;
-            var p = (start - r.top) / (start - end);
-            sec.style.setProperty('--p', clamp(p, 0, 1).toFixed(3));
+    function step() {
+        var prev = active;
+        active = (active + 1) % words.length;
+        words.forEach(function (w, i) {
+            w.classList.remove('active', 'past');
+            if (i === active) w.classList.add('active');
+            else if (i === prev) w.classList.add('past');
         });
     }
 
-    // --- Text-parallax sticky blocks ---
-    // For each .ms-text-parallax-block we drive two progresses:
-    //   sp (sticky): 0 when block bottom enters bottom of viewport,
-    //                1 when block bottom leaves top of viewport (image scales/fades)
-    //   op (overlay): 0 at start (block top at bottom) -> 0.5 at middle -> 1 at end
-    var tpBlocks = document.querySelectorAll('[data-tp-block]');
-    function updateTPBlocks() {
-        var vh = window.innerHeight || 800;
-        tpBlocks.forEach(function (block) {
-            var r = block.getBoundingClientRect();
-            var bottom = r.bottom;
-            var top    = r.top;
-            // sticky: progress as block bottom passes through viewport
-            var spStart = vh;       // bottom of block at bottom of viewport
-            var spEnd   = 0;        // bottom of block at top of viewport
-            var sp = clamp((spStart - bottom) / (spStart - spEnd), 0, 1);
-            // overlay: progress across full scroll (start: top at bottom, end: bottom at top)
-            var opStart = vh;        // top at bottom of viewport
-            var opEnd   = -r.height; // top at -block height (block fully above viewport)
-            var op = clamp((opStart - top) / (opStart - opEnd), 0, 1);
-            var sticky  = block.querySelector('[data-tp-sticky]');
-            var overlay = block.querySelector('[data-tp-overlay]');
-            if (sticky)  sticky.style.setProperty('--sp', sp.toFixed(3));
-            if (overlay) overlay.style.setProperty('--op', op.toFixed(3));
-        });
+    setInterval(step, INTERVAL);
+})();
+
+/* ===== Stat counter — count up when visible ===== */
+(function () {
+    var nums = document.querySelectorAll('.ah-stat-num');
+    if (!nums.length || !('IntersectionObserver' in window)) return;
+
+    function animate(el) {
+        var raw = el.textContent.trim();
+        // Match leading integer
+        var m = raw.match(/^(\d+)/);
+        if (!m) return;
+        var target = parseInt(m[1], 10);
+        var suffix = raw.substring(m[1].length);
+        // Preserve a possible <span class="accent"> inside
+        var accentMatch = el.querySelector('.accent');
+        var accentText = accentMatch ? accentMatch.outerHTML : suffix;
+        var dur = 900;
+        var start = performance.now();
+        function tick(now) {
+            var p = Math.min(1, (now - start) / dur);
+            var eased = 1 - Math.pow(1 - p, 3);
+            var v = Math.round(target * eased);
+            el.innerHTML = v + accentText;
+            if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
     }
 
-    var ticking = false;
-    function onScroll() {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(function () {
-            updatePFeatures();
-            updateTPBlocks();
-            ticking = false;
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) {
+                animate(e.target);
+                io.unobserve(e.target);
+            }
         });
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    // Initial paint
-    onScroll();
+    }, { threshold: 0.4 });
+    nums.forEach(function (n) { io.observe(n); });
 })();
 </script>
 </asp:Content>
