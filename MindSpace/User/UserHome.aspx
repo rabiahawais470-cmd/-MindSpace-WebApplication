@@ -2,286 +2,237 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <!-- ===== GREETING BANNER ===== -->
-    <div class="dash-banner">
-        <div class="row align-items-center g-3">
-            <div class="col d-flex align-items-center gap-3">
-                <div class="dash-avatar">
-                    <asp:Literal ID="litAvatarInitial" runat="server" />
-                </div>
-                <div>
-                    <h2>Good day, <asp:Literal ID="litWelcome" runat="server" />.</h2>
-                    <p>Continue your wellness journey &mdash; member since <asp:Literal ID="litMemberSince" runat="server" />.</p>
-                </div>
-            </div>
-            <div class="col-auto">
-                <a href="../Courses/CourseList.aspx" class="btn btn-light">
-                    <i class="fa-solid fa-plus me-1"></i>Explore Courses
-                </a>
-            </div>
+<div class="dash-page">
+
+    <!-- ====== HEADER ====== -->
+    <div class="dash-header">
+        <div>
+            <h1 class="dash-header-title">dashboard</h1>
+            <p class="dash-header-sub">Welcome back, <asp:Literal ID="litWelcome" runat="server" /> &mdash; member since <asp:Literal ID="litMemberSince" runat="server" />.</p>
+        </div>
+        <div class="dash-header-actions">
+            <a class="dash-icon-btn" href="../Courses/CourseList.aspx" title="Browse courses">
+                <i class="fa-regular fa-bell"></i>
+                <span class="dot"></span>
+            </a>
+            <a class="dash-icon-btn" href="Profile.aspx" title="Profile">
+                <i class="fa-regular fa-user"></i>
+            </a>
         </div>
     </div>
 
-    <!-- ===== QUICK STATS STRIP (4 cards) ===== -->
-    <div class="row g-3 mb-4">
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon purple"><i class="fa-solid fa-book-open"></i></div>
-                <div>
-                    <div class="stat-num"><asp:Literal ID="litEnrolled" runat="server">0</asp:Literal></div>
-                    <div class="stat-label">Enrolled</div>
-                </div>
+    <!-- ====== STAT CARDS (4) ====== -->
+    <div class="dash-stats-grid">
+        <div class="dash-stat-card">
+            <div class="dash-stat-head">
+                <div class="dash-stat-icon color-blue"><i class="fa-solid fa-book-open"></i></div>
+                <span class="dash-stat-trend"><i class="fa-solid fa-arrow-trend-up"></i></span>
             </div>
+            <p class="dash-stat-label">Enrolled</p>
+            <p class="dash-stat-value"><asp:Literal ID="litEnrolled" runat="server">0</asp:Literal></p>
+            <p class="dash-stat-change muted">Courses you&rsquo;re currently learning</p>
         </div>
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon green"><i class="fa-solid fa-check-circle"></i></div>
-                <div>
-                    <div class="stat-num"><asp:Literal ID="litCompleted" runat="server">0</asp:Literal></div>
-                    <div class="stat-label">Completed</div>
-                </div>
+
+        <div class="dash-stat-card">
+            <div class="dash-stat-head">
+                <div class="dash-stat-icon color-green"><i class="fa-solid fa-circle-check"></i></div>
+                <span class="dash-stat-trend"><i class="fa-solid fa-arrow-trend-up"></i></span>
             </div>
+            <p class="dash-stat-label">Completed</p>
+            <p class="dash-stat-value"><asp:Literal ID="litCompleted" runat="server">0</asp:Literal></p>
+            <p class="dash-stat-change">Keep the streak going</p>
         </div>
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon blue"><i class="fa-solid fa-clipboard-check"></i></div>
-                <div>
-                    <div class="stat-num"><asp:Literal ID="litQuizzesTaken" runat="server">0</asp:Literal></div>
-                    <div class="stat-label">Quizzes</div>
-                </div>
+
+        <div class="dash-stat-card">
+            <div class="dash-stat-head">
+                <div class="dash-stat-icon color-purple"><i class="fa-solid fa-clipboard-check"></i></div>
+                <span class="dash-stat-trend"><i class="fa-solid fa-arrow-trend-up"></i></span>
             </div>
+            <p class="dash-stat-label">Quizzes Taken</p>
+            <p class="dash-stat-value"><asp:Literal ID="litQuizzesTaken" runat="server">0</asp:Literal></p>
+            <p class="dash-stat-change muted">Across all your courses</p>
         </div>
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon orange"><i class="fa-solid fa-comments"></i></div>
-                <div>
-                    <div class="stat-num"><asp:Literal ID="litForumPosts" runat="server">0</asp:Literal></div>
-                    <div class="stat-label">Forum Posts</div>
-                </div>
+
+        <div class="dash-stat-card">
+            <div class="dash-stat-head">
+                <div class="dash-stat-icon color-orange"><i class="fa-regular fa-comments"></i></div>
+                <span class="dash-stat-trend"><i class="fa-solid fa-arrow-trend-up"></i></span>
             </div>
+            <p class="dash-stat-label">Forum Posts</p>
+            <p class="dash-stat-value"><asp:Literal ID="litForumPosts" runat="server">0</asp:Literal></p>
+            <p class="dash-stat-change muted">Your community contributions</p>
         </div>
     </div>
 
-    <div class="row g-4">
+    <!-- ====== BODY: ACTIVITY (left) + QUICK STATS / TOP COURSES (right) ====== -->
+    <div class="dash-body-grid">
 
-        <!-- ===== LEFT COLUMN ===== -->
-        <div class="col-lg-8">
-
-            <!-- MY COURSES -->
-            <div class="section-header">
-                <h6 class="fw-bold mb-0">My Courses</h6>
-                <a href="../Courses/CourseList.aspx" style="font-size: var(--text-sm); color: var(--color-primary);">View all &rarr;</a>
+        <!-- LEFT: Recent Activity -->
+        <div class="dash-panel">
+            <div class="dash-panel-head">
+                <h3 class="dash-panel-title">recent activity</h3>
+                <a class="dash-panel-link" href="Discussions.aspx">View all</a>
             </div>
 
-            <asp:Panel ID="pnlNoCourses" runat="server" Visible="false">
-                <div class="card p-4 text-center text-muted">
-                    <i class="fa-solid fa-book fa-3x mb-3" style="color: #E5E7EB;"></i>
-                    <p class="mb-3">You haven&rsquo;t enrolled in any courses yet.</p>
-                    <a href="../Courses/CourseList.aspx" class="btn btn-primary btn-sm">Browse Courses</a>
+            <asp:Panel ID="pnlNoActivity" runat="server" Visible="false">
+                <div class="text-center py-4 text-muted">
+                    <i class="fa-regular fa-comment fa-2x mb-2 d-block" style="color: #E5E7EB;"></i>
+                    <p class="mb-2 small">No discussion activity yet.</p>
+                    <a href="Discussions.aspx" class="dash-panel-link">Join a conversation &rarr;</a>
                 </div>
             </asp:Panel>
 
-            <asp:Repeater ID="rptEnrolled" runat="server">
-                <ItemTemplate>
-                    <div class="enrolled-course-item">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="rounded-2 d-flex align-items-center justify-content-center"
-                                 style="width: 48px; height: 48px; background: var(--color-primary-light); color: var(--color-primary); font-size: 1.25rem; flex-shrink: 0; border-radius: var(--radius-md);">
-                                <i class="fa-solid fa-brain"></i>
-                            </div>
-                            <div style="flex: 1; min-width: 0;">
-                                <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
-                                    <span class="course-cat-badge cat-<%# Eval("Category").ToString().ToLower() == "self-care" ? "selfcare" : GetCatClass(Eval("Category").ToString()) %>">
-                                        <%# System.Web.HttpUtility.HtmlEncode(Eval("Category").ToString()) %>
-                                    </span>
-                                    <%# Convert.ToBoolean(Eval("IsCompleted"))
-                                        ? "<span class='badge bg-success'>Completed</span>"
-                                        : "" %>
-                                </div>
-                                <div class="fw-semibold" style="font-size: var(--text-sm);">
-                                    <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>" style="color: var(--color-text-primary);">
-                                        <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
-                                    </a>
-                                </div>
-                                <div class="text-muted mt-1" style="font-size: 0.72rem;">Progress: <%# Eval("Progress") %>%</div>
-                                <div class="progress mt-1" style="height: 4px;">
-                                    <div class="progress-bar" style="width: <%# Eval("Progress") %>%;"></div>
-                                </div>
-                            </div>
-                            <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>"
-                               class="btn btn-sm btn-outline-primary">
-                                <%# Convert.ToBoolean(Eval("IsCompleted")) ? "Review" : "Continue" %>
-                            </a>
-                        </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
-
-            <!-- CERTIFICATES -->
-            <asp:Panel ID="pnlCertificates" runat="server" Visible="false">
-                <div class="section-header mt-4">
-                    <h6 class="fw-bold mb-0"><i class="fa-solid fa-award me-2" style="color: var(--color-warning);"></i>My Certificates</h6>
-                    <span class="text-muted" style="font-size: var(--text-sm);"><asp:Literal ID="litCertCount" runat="server" /> earned</span>
-                </div>
-                <div class="row g-3">
-                    <asp:Repeater ID="rptCertificates" runat="server">
-                        <ItemTemplate>
-                            <div class="col-md-6">
-                                <div class="certificate-card">
-                                    <div class="cert-icon">
-                                        <i class="fa-solid fa-award"></i>
-                                    </div>
-                                    <div style="flex: 1; min-width: 0;">
-                                        <div class="cert-title">
-                                            <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
-                                        </div>
-                                        <div class="cert-category">
-                                            <span class="course-cat-badge cat-<%# Eval("Category").ToString().ToLower() == "self-care" ? "selfcare" : GetCatClass(Eval("Category").ToString()) %>" style="font-size: 0.65rem;">
-                                                <%# System.Web.HttpUtility.HtmlEncode(Eval("Category").ToString()) %>
-                                            </span>
-                                        </div>
-                                        <div class="cert-date">
-                                            <i class="fa-regular fa-calendar-check me-1"></i>
-                                            <%# Convert.ToDateTime(Eval("EnrollDate")).ToString("dd MMM yyyy") %>
-                                        </div>
-                                        <div class="cert-number">CERT-<%# Eval("UserID") %>-<%# Eval("CourseID") %></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </div>
-            </asp:Panel>
-
-            <!-- DISCUSSION ACTIVITY -->
-            <div class="section-header mt-4">
-                <h6 class="fw-bold mb-0">Discussion Activity</h6>
-                <a href="Discussions.aspx" style="font-size: var(--text-sm); color: var(--color-primary);">Visit forum &rarr;</a>
-            </div>
-
-            <div class="card p-3">
-                <asp:Panel ID="pnlNoActivity" runat="server" Visible="false">
-                    <div class="text-center py-3 text-muted small">
-                        <i class="fa-regular fa-comment fa-2x mb-2 d-block" style="color: #E5E7EB;"></i>
-                        You haven&rsquo;t posted in the forum yet.
-                        <a href="Discussions.aspx" class="d-block mt-1" style="color: var(--color-primary);">Join the discussion &rarr;</a>
-                    </div>
-                </asp:Panel>
-
+            <div class="dash-activity-list">
                 <asp:Repeater ID="rptActivity" runat="server">
                     <ItemTemplate>
-                        <div class="activity-item">
-                            <div class="activity-type-icon <%# Eval("ActivityType").ToString() %>">
+                        <a class="dash-activity-item" href="Discussions.aspx">
+                            <div class='dash-activity-icon <%# Eval("ActivityType").ToString() == "post" ? "color-purple" : "color-cyan" %>'>
                                 <i class='fa-solid <%# Eval("ActivityType").ToString() == "post" ? "fa-pen" : "fa-reply" %>'></i>
                             </div>
-                            <div class="activity-label">
-                                <div class="activity-title">
-                                    <a href="Discussions.aspx" style="color: var(--color-text-primary);">
-                                        <%# System.Web.HttpUtility.HtmlEncode(Eval("Label").ToString()) %>
-                                    </a>
-                                </div>
-                                <div class="activity-meta">
-                                    <%# Eval("ActivityType").ToString() == "post"
-                                        ? "<i class='fa-solid fa-pen me-1'></i>New discussion"
-                                        : "<i class='fa-solid fa-reply me-1'></i>Reply in: " + System.Web.HttpUtility.HtmlEncode(Convert.ToString(Eval("Context"))) %>
-                                    &middot; <%# Convert.ToDateTime(Eval("DatePosted")).ToString("dd MMM yyyy") %>
-                                </div>
+                            <div class="dash-activity-body">
+                                <p class="dash-activity-title"><%# System.Web.HttpUtility.HtmlEncode(Eval("Label").ToString()) %></p>
+                                <p class="dash-activity-desc">
+                                    <%# Eval("ActivityType").ToString() == "post" ? "New discussion" : "Reply in: " + System.Web.HttpUtility.HtmlEncode(Convert.ToString(Eval("Context"))) %>
+                                </p>
                             </div>
-                        </div>
+                            <span class="dash-activity-time"><%# Convert.ToDateTime(Eval("DatePosted")).ToString("dd MMM") %></span>
+                        </a>
                     </ItemTemplate>
                 </asp:Repeater>
-            </div>
-
-        </div>
-
-        <!-- ===== RIGHT COLUMN ===== -->
-        <div class="col-lg-4">
-
-            <!-- PROFILE CARD -->
-            <div class="card p-4 mb-3 text-center">
-                <div class="avatar-lg">
-                    <asp:Literal ID="litProfileInitial" runat="server" />
-                </div>
-                <div class="fw-bold" style="font-size: var(--text-base);">
-                    <asp:Literal ID="litProfileName" runat="server" />
-                </div>
-                <div class="text-muted small mb-2">@<asp:Literal ID="litProfileUsername" runat="server" /></div>
-                <asp:Panel ID="pnlBio" runat="server" Visible="false">
-                    <p class="profile-bio-preview mb-3">
-                        <asp:Literal ID="litProfileBio" runat="server" />
-                    </p>
-                </asp:Panel>
-                <div class="d-flex gap-2 justify-content-center">
-                    <a href="Profile.aspx" class="btn btn-outline-primary btn-sm">
-                        <i class="fa-solid fa-user-pen me-1"></i>Edit
-                    </a>
-                    <a href="../ChangePassword.aspx" class="btn btn-outline-secondary btn-sm">
-                        <i class="fa-solid fa-key me-1"></i>Password
-                    </a>
-                </div>
-            </div>
-
-            <!-- ACHIEVEMENTS -->
-            <div class="card p-4 mb-3">
-                <h6 class="fw-bold mb-3"><i class="fa-solid fa-trophy me-2" style="color: var(--color-warning);"></i>Achievements</h6>
-                <asp:Literal ID="litAchievements" runat="server" />
-            </div>
-
-            <!-- RECENT QUIZ RESULTS -->
-            <div class="card p-3 mb-3">
-                <h6 class="fw-bold mb-3"><i class="fa-solid fa-clipboard-check me-2" style="color: var(--color-primary);"></i>Recent Quiz Results</h6>
-
-                <asp:Panel ID="pnlNoQuizzes" runat="server" Visible="false">
-                    <div class="text-center py-3 text-muted small">
-                        <i class="fa-solid fa-clipboard fa-2x mb-2 d-block" style="color: #E5E7EB;"></i>
-                        No quiz results yet.
-                    </div>
-                </asp:Panel>
 
                 <asp:Repeater ID="rptQuizResults" runat="server">
                     <ItemTemplate>
-                        <div class="d-flex justify-content-between align-items-center py-2" style="border-bottom: 1px solid var(--color-card-border);">
-                            <div style="flex: 1; min-width: 0;">
-                                <div class="fw-semibold small text-truncate">
-                                    <%# System.Web.HttpUtility.HtmlEncode(Eval("QuizTitle").ToString()) %>
-                                </div>
-                                <div class="text-muted" style="font-size: 0.7rem;">
-                                    <%# Convert.ToDateTime(Eval("DateTaken")).ToString("dd MMM yyyy") %>
-                                </div>
+                        <a class="dash-activity-item" href="ProgressTracking.aspx">
+                            <div class='dash-activity-icon <%# Convert.ToDecimal(Eval("Percentage")) >= 70 ? "color-green" : "color-orange" %>'>
+                                <i class="fa-solid fa-clipboard-check"></i>
                             </div>
-                            <div class="text-end">
-                                <div class="fw-bold small <%# Convert.ToDecimal(Eval("Percentage")) >= 70 ? "text-success" : "text-danger" %>">
-                                    <%# Eval("Score") %>/<%# Eval("TotalQuestions") %>
-                                </div>
-                                <small class="<%# Convert.ToDecimal(Eval("Percentage")) >= 70 ? "text-success" : "text-danger" %>" style="font-size: 0.7rem;">
-                                    <%# string.Format("{0:0}%", Eval("Percentage")) %>
-                                </small>
+                            <div class="dash-activity-body">
+                                <p class="dash-activity-title"><%# System.Web.HttpUtility.HtmlEncode(Eval("QuizTitle").ToString()) %></p>
+                                <p class="dash-activity-desc">Scored <%# Eval("Score") %>/<%# Eval("TotalQuestions") %> &middot; <%# string.Format("{0:0}%", Eval("Percentage")) %></p>
                             </div>
-                        </div>
+                            <span class="dash-activity-time"><%# Convert.ToDateTime(Eval("DateTaken")).ToString("dd MMM") %></span>
+                        </a>
                     </ItemTemplate>
                 </asp:Repeater>
-            </div>
 
-            <!-- QUICK ACTIONS -->
-            <div class="card p-3">
-                <h6 class="fw-bold mb-3"><i class="fa-solid fa-bolt me-2" style="color: var(--color-warning);"></i>Quick Actions</h6>
-                <div class="d-grid gap-2">
-                    <a href="ProgressTracking.aspx" class="btn btn-primary btn-sm text-start">
-                        <i class="fa-solid fa-chart-line me-2"></i>My Progress
-                    </a>
-                    <a href="../Courses/CourseList.aspx" class="btn btn-outline-primary btn-sm text-start">
-                        <i class="fa-solid fa-book-open me-2"></i>Browse Courses
-                    </a>
-                    <a href="Discussions.aspx" class="btn btn-outline-primary btn-sm text-start">
-                        <i class="fa-regular fa-comments me-2"></i>Discussions
-                    </a>
-                    <a href="Profile.aspx" class="btn btn-outline-secondary btn-sm text-start">
-                        <i class="fa-solid fa-user-pen me-2"></i>Edit Profile
-                    </a>
+                <asp:Panel ID="pnlNoQuizzes" runat="server" Visible="false">
+                    <%-- Empty state for quizzes; hidden by code-behind when results exist --%>
+                </asp:Panel>
+            </div>
+        </div>
+
+        <!-- RIGHT: Quick Stats + My Courses -->
+        <div>
+            <div class="dash-panel" style="margin-bottom: 24px;">
+                <div class="dash-panel-head">
+                    <h3 class="dash-panel-title">quick stats</h3>
+                </div>
+                <div class="dash-progress-row">
+                    <div class="dash-progress-label">
+                        <span class="left">Courses completed</span>
+                        <span class="right" id="qsCompletedVal">0%</span>
+                    </div>
+                    <div class="dash-progress-track">
+                        <div class="dash-progress-fill color-green" id="qsCompletedBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="dash-progress-row">
+                    <div class="dash-progress-label">
+                        <span class="left">Quizzes taken</span>
+                        <span class="right" id="qsQuizzesVal">0%</span>
+                    </div>
+                    <div class="dash-progress-track">
+                        <div class="dash-progress-fill color-purple" id="qsQuizzesBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="dash-progress-row">
+                    <div class="dash-progress-label">
+                        <span class="left">Community involvement</span>
+                        <span class="right" id="qsCommunityVal">0%</span>
+                    </div>
+                    <div class="dash-progress-track">
+                        <div class="dash-progress-fill color-orange" id="qsCommunityBar" style="width: 0%;"></div>
+                    </div>
                 </div>
             </div>
 
+            <div class="dash-panel">
+                <div class="dash-panel-head">
+                    <h3 class="dash-panel-title">my courses</h3>
+                    <a class="dash-panel-link" href="../Courses/CourseList.aspx">View all</a>
+                </div>
+                <asp:Panel ID="pnlNoCourses" runat="server" Visible="false">
+                    <div class="text-center py-3 text-muted small">
+                        <i class="fa-solid fa-book fa-2x mb-2 d-block" style="color: #E5E7EB;"></i>
+                        <p class="mb-2">You haven&rsquo;t enrolled in any courses yet.</p>
+                        <a href="../Courses/CourseList.aspx" class="btn btn-primary btn-sm">Browse Courses</a>
+                    </div>
+                </asp:Panel>
+                <div class="dash-top-list">
+                    <asp:Repeater ID="rptEnrolled" runat="server">
+                        <ItemTemplate>
+                            <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>" class="dash-top-row" style="text-decoration: none;">
+                                <span class="label" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 70%;">
+                                    <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
+                                </span>
+                                <span class="val"><%# Eval("Progress") %>%</span>
+                            </a>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
         </div>
     </div>
 
+    <%-- Hidden / kept-for-backend literals --%>
+    <asp:Literal ID="litAvatarInitial" runat="server" Visible="false" />
+    <asp:Literal ID="litProfileInitial" runat="server" Visible="false" />
+    <asp:Literal ID="litProfileName" runat="server" Visible="false" />
+    <asp:Literal ID="litProfileUsername" runat="server" Visible="false" />
+    <asp:Panel ID="pnlBio" runat="server" Visible="false">
+        <asp:Literal ID="litProfileBio" runat="server" />
+    </asp:Panel>
+    <asp:Literal ID="litAchievements" runat="server" Visible="false" />
+    <asp:Panel ID="pnlCertificates" runat="server" Visible="false">
+        <asp:Literal ID="litCertCount" runat="server" />
+        <asp:Repeater ID="rptCertificates" runat="server"></asp:Repeater>
+    </asp:Panel>
+
+</div>
+
+</asp:Content>
+
+<asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
+<script>
+/* ===== Quick Stats: compute progress percentages from stat-card values ===== */
+(function () {
+    function toInt(el) {
+        if (!el) return 0;
+        var t = (el.textContent || '').replace(/[^0-9]/g, '');
+        return parseInt(t || '0', 10);
+    }
+    var values = document.querySelectorAll('.dash-stat-value');
+    if (values.length < 4) return;
+    var enrolled    = toInt(values[0]);
+    var completed   = toInt(values[1]);
+    var quizzes     = toInt(values[2]);
+    var forumPosts  = toInt(values[3]);
+
+    var completedPct  = enrolled > 0 ? Math.round((completed / enrolled) * 100) : 0;
+    // Soft scale: 6 quizzes = 100% (3 quizzes per course on a 2-course pace)
+    var quizzesPct    = Math.min(100, Math.round((quizzes / 6) * 100));
+    // Soft scale: 10 forum interactions = 100%
+    var communityPct  = Math.min(100, Math.round((forumPosts / 10) * 100));
+
+    function set(barId, valId, pct) {
+        var bar = document.getElementById(barId);
+        var val = document.getElementById(valId);
+        if (bar) { setTimeout(function () { bar.style.width = pct + '%'; }, 80); }
+        if (val) { val.textContent = pct + '%'; }
+    }
+    set('qsCompletedBar', 'qsCompletedVal', completedPct);
+    set('qsQuizzesBar',   'qsQuizzesVal',   quizzesPct);
+    set('qsCommunityBar', 'qsCommunityVal', communityPct);
+})();
+</script>
 </asp:Content>

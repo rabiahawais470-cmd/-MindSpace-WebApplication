@@ -108,6 +108,11 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6, p, span, a, li, label, button {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
@@ -1919,6 +1924,306 @@ a:hover { color: var(--color-orange); }
 .rich-toolbar .btn-xs:hover { background: var(--color-primary-light); color: var(--color-primary); }
 
 /* ==========================================================
+   Dashboard pattern (ported from a React component)
+   Clean header, 4 stat cards with colored icon-tiles + trend,
+   activity list with icon-tiles, quick-stats progress bars.
+   ========================================================== */
+.dash-page {
+    padding: 4px 4px 28px;
+}
+.dash-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+.dash-header-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+    color: var(--color-text-primary);
+}
+.dash-header-sub {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    margin: 4px 0 0;
+}
+.dash-header-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+.dash-icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--color-card-border);
+    background: #fff;
+    color: var(--color-text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.18s, border-color 0.18s, transform 0.12s;
+}
+.dash-icon-btn:hover { color: var(--color-text-primary); border-color: var(--color-primary-soft); transform: translateY(-1px); }
+.dash-icon-btn .dot {
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--color-danger);
+    border: 2px solid #fff;
+}
+
+/* Stat cards row */
+.dash-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-bottom: 28px;
+}
+.dash-stat-card {
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid var(--color-card-border);
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s, transform 0.18s;
+}
+.dash-stat-card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.dash-stat-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+.dash-stat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+.dash-stat-icon.color-blue   { background: #DBEAFE; color: #1D4ED8; }
+.dash-stat-icon.color-green  { background: #DCFCE7; color: #15803D; }
+.dash-stat-icon.color-purple { background: #EDE9FE; color: var(--color-primary); }
+.dash-stat-icon.color-orange { background: #FFEDD5; color: #C2410C; }
+.dash-stat-icon.color-pink   { background: #FCE7F3; color: #BE185D; }
+.dash-stat-icon.color-cyan   { background: #CFFAFE; color: #0E7490; }
+.dash-stat-trend {
+    color: #15803D;
+    font-size: 0.95rem;
+}
+.dash-stat-trend.down { color: var(--color-danger); }
+.dash-stat-label {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0 0 6px;
+}
+.dash-stat-value {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+}
+.dash-stat-change {
+    color: #15803D;
+    font-size: 0.78rem;
+    margin: 0;
+}
+.dash-stat-change.muted { color: var(--color-text-muted); }
+
+/* Body grid */
+.dash-body-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+@media (max-width: 991px) {
+    .dash-body-grid { grid-template-columns: 1fr; }
+}
+
+.dash-panel {
+    background: #fff;
+    border: 1px solid var(--color-card-border);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.dash-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+.dash-panel-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    text-transform: lowercase;
+    letter-spacing: -0.01em;
+}
+.dash-panel-link {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.dash-panel-link:hover { color: var(--color-primary-hover); }
+
+/* Activity list */
+.dash-activity-list { display: flex; flex-direction: column; }
+.dash-activity-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 12px;
+    border-radius: 10px;
+    transition: background 0.18s;
+    text-decoration: none;
+    color: inherit;
+}
+.dash-activity-item:hover { background: var(--color-bg-2); }
+.dash-activity-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.92rem;
+    flex-shrink: 0;
+}
+.dash-activity-icon.color-blue   { background: #DBEAFE; color: #1D4ED8; }
+.dash-activity-icon.color-green  { background: #DCFCE7; color: #15803D; }
+.dash-activity-icon.color-purple { background: #EDE9FE; color: var(--color-primary); }
+.dash-activity-icon.color-orange { background: #FFEDD5; color: #C2410C; }
+.dash-activity-icon.color-pink   { background: #FCE7F3; color: #BE185D; }
+.dash-activity-icon.color-cyan   { background: #CFFAFE; color: #0E7490; }
+.dash-activity-body { flex: 1; min-width: 0; }
+.dash-activity-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dash-activity-desc {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dash-activity-time {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+}
+
+/* Progress bar (Quick Stats) */
+.dash-progress-row { margin-bottom: 14px; }
+.dash-progress-row:last-child { margin-bottom: 0; }
+.dash-progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 0.88rem;
+}
+.dash-progress-label .left { color: var(--color-text-secondary); }
+.dash-progress-label .right {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+.dash-progress-track {
+    width: 100%;
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background: var(--color-bg-2);
+    overflow: hidden;
+}
+.dash-progress-fill {
+    height: 100%;
+    border-radius: var(--radius-pill);
+    background: var(--color-primary);
+    transition: width 0.6s ease;
+}
+.dash-progress-fill.color-orange { background: #F97316; }
+.dash-progress-fill.color-green  { background: #16A34A; }
+.dash-progress-fill.color-cyan   { background: var(--color-cyan); }
+.dash-progress-fill.color-purple { background: var(--color-primary); }
+
+/* Top items list */
+.dash-top-list { display: flex; flex-direction: column; }
+.dash-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 0.92rem;
+    border-bottom: 1px solid var(--color-card-border);
+}
+.dash-top-row:last-child { border-bottom: 0; }
+.dash-top-row .label { color: var(--color-text-secondary); }
+.dash-top-row .val {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+/* Dashboard greeting (kept) */
+.dash-greeting {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+.dash-greeting h2 {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    margin: 0;
+    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+    text-transform: none;
+    letter-spacing: -0.01em;
+}
+.dash-greeting p {
+    color: rgba(255,255,255,0.85);
+    margin: 4px 0 0;
+    font-size: 0.92rem;
+}
+
+/* ==========================================================
    Blog-style course cards
    (Ported from a React blogs.tsx component to vanilla CSS)
    Image at top, category tag overlay, title, description,
@@ -2167,29 +2472,32 @@ a:hover { color: var(--color-orange); }
     justify-content: center;
     overflow: hidden;
     text-align: center;
-    padding: 8px 0;
-    height: 1.2em;
+    padding: 14px 18px 18px;
+    height: 1.45em;
+    line-height: 1.1;
 }
 .ah-hero-word {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateY(150%);
     font-weight: 700;
+    line-height: 1.05;
     opacity: 0;
-    transform: translateY(150%);
     transition: opacity 0.55s cubic-bezier(.16,1,.3,1), transform 0.6s cubic-bezier(.34, 1.4, .64, 1);
     background: linear-gradient(135deg, var(--color-primary), var(--color-orange));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    padding: 0 6px;
 }
 .ah-hero-word.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-50%) translateY(0);
 }
 .ah-hero-word.past {
     opacity: 0;
-    transform: translateY(-150%);
+    transform: translateY(-50%) translateY(-150%);
 }
-
 .ah-hero-sub {
     color: var(--color-text-secondary);
     font-size: clamp(1.05rem, 1.6vw, 1.25rem);
