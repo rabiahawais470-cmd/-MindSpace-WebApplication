@@ -54,7 +54,6 @@
                         <li><a class="sidebar-link" href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>"><i class="fa-solid fa-book-open"></i><span>Courses</span></a></li>
                         <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/ProgressTracking.aspx") %>"><i class="fa-solid fa-chart-line"></i><span>Progress</span></a></li>
                         <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/Discussions.aspx") %>"><i class="fa-solid fa-comments"></i><span>Discussions</span></a></li>
-                        <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/Forum.aspx") %>"><i class="fa-solid fa-users"></i><span>Forum</span></a></li>
                         <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/Profile.aspx") %>"><i class="fa-solid fa-user"></i><span>Profile</span></a></li>
                     </ul>
                     <div class="sidebar-bottom">

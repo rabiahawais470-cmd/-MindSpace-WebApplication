@@ -153,7 +153,7 @@
                     </div>
                 </asp:Panel>
 
-                <a href="../User/Forum.aspx" class="btn btn-outline-secondary btn-full mt-2">
+                <a href="../User/Discussions.aspx" class="btn btn-outline-secondary btn-full mt-2">
                     <i class="fa-regular fa-comments me-1"></i>Community Discussion
                 </a>
             </div>

@@ -63,7 +63,7 @@
                         <div class="hc-metric"><asp:Literal ID="litForumCount" runat="server">0</asp:Literal></div>
                         <div class="hc-metric-label">Total contributions</div>
                     </div>
-                    <a href="Forum.aspx" class="hc-btn">Visit</a>
+                    <a href="Discussions.aspx" class="hc-btn">Visit</a>
                 </div>
             </div>
         </div>

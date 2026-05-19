@@ -363,6 +363,105 @@
         </div>
     </div>
 
+    <!-- ====== ANIMATED TESTIMONIALS ====== -->
+    <section class="ms-testimonials">
+        <div class="ms-testimonials-grid">
+            <div class="ms-testimonials-left">
+                <span class="ms-testimonials-badge">
+                    <i class="fa-solid fa-star"></i> Loved by learners
+                </span>
+                <h2 class="ms-testimonials-title">voices from our community</h2>
+                <p class="ms-testimonials-sub">Real reflections from students and young adults using MindSpace to build small, repeatable mental-wellness habits.</p>
+                <div class="ms-testimonials-dots" id="msTestimonialDots">
+                    <button type="button" class="ms-testimonials-dot active" data-index="0" aria-label="View testimonial 1"></button>
+                    <button type="button" class="ms-testimonials-dot" data-index="1" aria-label="View testimonial 2"></button>
+                    <button type="button" class="ms-testimonials-dot" data-index="2" aria-label="View testimonial 3"></button>
+                    <button type="button" class="ms-testimonials-dot" data-index="3" aria-label="View testimonial 4"></button>
+                </div>
+            </div>
+            <div class="ms-testimonials-right" id="msTestimonialCards">
+                <article class="ms-testimonial-card active" data-index="0">
+                    <div class="ms-testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="ms-testimonial-quote-wrap">
+                        <i class="fa-solid fa-quote-left ms-testimonial-quote-icon"></i>
+                        <p class="ms-testimonial-quote">The Sleep Hygiene course rewired my late-night doom-scrolling. I&rsquo;m sleeping seven hours again for the first time in two semesters &mdash; small habits, quietly compounding.</p>
+                    </div>
+                    <div class="ms-testimonial-divider"></div>
+                    <div class="ms-testimonial-author">
+                        <div class="ms-testimonial-avatar">M</div>
+                        <div>
+                            <h3 class="ms-testimonial-name">Maya R.</h3>
+                            <p class="ms-testimonial-role">Final-year student, Engineering</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="ms-testimonial-card" data-index="1">
+                    <div class="ms-testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="ms-testimonial-quote-wrap">
+                        <i class="fa-solid fa-quote-left ms-testimonial-quote-icon"></i>
+                        <p class="ms-testimonial-quote">Short, evidence-based, no fluff. I dip into a course for ten minutes between lectures and actually walk out a little calmer than I went in.</p>
+                    </div>
+                    <div class="ms-testimonial-divider"></div>
+                    <div class="ms-testimonial-author">
+                        <div class="ms-testimonial-avatar color-cyan">J</div>
+                        <div>
+                            <h3 class="ms-testimonial-name">Jonas K.</h3>
+                            <p class="ms-testimonial-role">Computer science major</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="ms-testimonial-card" data-index="2">
+                    <div class="ms-testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="ms-testimonial-quote-wrap">
+                        <i class="fa-solid fa-quote-left ms-testimonial-quote-icon"></i>
+                        <p class="ms-testimonial-quote">The resilience module helped me name what I was going through. Naming it was the first step out of the spiral &mdash; everything got easier from there.</p>
+                    </div>
+                    <div class="ms-testimonial-divider"></div>
+                    <div class="ms-testimonial-author">
+                        <div class="ms-testimonial-avatar color-magenta">S</div>
+                        <div>
+                            <h3 class="ms-testimonial-name">Sarah C.</h3>
+                            <p class="ms-testimonial-role">Postgraduate researcher</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="ms-testimonial-card" data-index="3">
+                    <div class="ms-testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="ms-testimonial-quote-wrap">
+                        <i class="fa-solid fa-quote-left ms-testimonial-quote-icon"></i>
+                        <p class="ms-testimonial-quote">I joined the discussions to ask one quiet question, and ended up with a small group of people who check in on each other every week. The platform feels gentle.</p>
+                    </div>
+                    <div class="ms-testimonial-divider"></div>
+                    <div class="ms-testimonial-author">
+                        <div class="ms-testimonial-avatar color-orange">A</div>
+                        <div>
+                            <h3 class="ms-testimonial-name">Anika P.</h3>
+                            <p class="ms-testimonial-role">Community moderator</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="ms-testimonials-cloud">
+            <h3 class="ms-testimonials-cloud-title">Used by learners across</h3>
+            <div class="ms-testimonials-cloud-row">
+                <span class="ms-testimonials-cloud-item">apu</span>
+                <span class="ms-testimonials-cloud-item">sunway</span>
+                <span class="ms-testimonials-cloud-item">taylor&rsquo;s</span>
+                <span class="ms-testimonials-cloud-item">monash</span>
+                <span class="ms-testimonials-cloud-item">inti</span>
+            </div>
+        </div>
+    </section>
+
 </asp:Content>
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
@@ -417,6 +516,49 @@
         ta.focus();
         ta.scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
+}());
+
+/* ===== Animated testimonials: dot navigation + auto-rotate ===== */
+(function () {
+    var cards = document.querySelectorAll('#msTestimonialCards .ms-testimonial-card');
+    var dots  = document.querySelectorAll('#msTestimonialDots .ms-testimonials-dot');
+    if (!cards.length || !dots.length) return;
+
+    var active = 0;
+    var autoMs = 6000;
+    var timer  = null;
+
+    function setActive(idx) {
+        active = ((idx % cards.length) + cards.length) % cards.length;
+        cards.forEach(function (c, i) { c.classList.toggle('active', i === active); });
+        dots.forEach(function (d, i)  { d.classList.toggle('active', i === active); });
+    }
+
+    function start() { stop(); timer = setInterval(function () { setActive(active + 1); }, autoMs); }
+    function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+    dots.forEach(function (d) {
+        d.addEventListener('click', function () {
+            var idx = parseInt(d.getAttribute('data-index') || '0', 10);
+            setActive(idx);
+            start();
+        });
+    });
+
+    // Pause auto-rotate when section out of view (saves cycles)
+    if ('IntersectionObserver' in window) {
+        var section = document.querySelector('.ms-testimonials');
+        if (section) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+            }, { threshold: 0.2 });
+            io.observe(section);
+        } else {
+            start();
+        }
+    } else {
+        start();
+    }
 }());
 </script>
 </asp:Content>
