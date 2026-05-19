@@ -69,13 +69,17 @@ namespace MindSpace
         {
             switch (cat?.ToLower())
             {
-                case "stress management": return "stress";
-                case "mindfulness":       return "mindfulness";
-                case "anxiety":           return "anxiety";
-                case "sleep hygiene":     return "sleep";
-                case "resilience":        return "resilience";
-                case "self-care":         return "selfcare";
-                default:                  return "mindfulness";
+                case "stress management":    return "stress";
+                case "mindfulness":          return "mindfulness";
+                case "anxiety":              return "anxiety";
+                case "sleep hygiene":        return "sleep";
+                case "resilience":           return "resilience";
+                case "self-care":            return "selfcare";
+                case "cognitive therapy":    return "cognitive";
+                case "trauma recovery":      return "trauma";
+                case "emotional regulation": return "regulation";
+                case "positive psychology":  return "positive";
+                default:                     return "mindfulness";
             }
         }
 

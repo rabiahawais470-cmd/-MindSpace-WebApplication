@@ -287,15 +287,29 @@ a:hover { color: var(--color-primary-hover); }
 
 /* ---------- Main content area ---------- */
 .app-content {
-    flex: 1;
-    padding: 28px 28px 60px;
+    flex: 1 1 auto;
+    padding: 28px clamp(20px, 4vw, 40px) 60px;
     min-width: 0;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
-/* Guest page wrapper (no sidebar) — full-width passthrough */
+/* Guest page wrapper (no sidebar) — full-width passthrough.
+   Landing/auth pages render their own width-capped sections internally. */
 .guest-page-wrap { display: block; }
-.guest-main { display: block; }
-.guest-content { display: block; min-height: calc(100vh - 72px); }
+.guest-main      { display: block; }
+.guest-content   { display: block; min-height: calc(100vh - 72px); }
+
+/* Cap raw guest content as well so any future page rendered without
+   its own .container falls back to a sane reading width. */
+.guest-content > :not(section):not(footer):not(.auth-wrapper):not(.landing-hero):not(.landing-stats-bar) {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(20px, 4vw, 40px);
+    padding-right: clamp(20px, 4vw, 40px);
+}
 
 /* ---------- Guest navbar (public pages: Default, Login, Register) ---------- */
 .guest-navbar {
@@ -527,6 +541,10 @@ a:hover { color: var(--color-primary-hover); }
 .course-cat-badge.cat-sleep        { background: #EDE8F5; color: #6B21A8; }
 .course-cat-badge.cat-resilience   { background: #FCE7F3; color: #9D174D; }
 .course-cat-badge.cat-selfcare     { background: #FEF3C7; color: #92400E; }
+.course-cat-badge.cat-cognitive    { background: #E0E7FF; color: #3730A3; }
+.course-cat-badge.cat-trauma       { background: #FAE8FF; color: #6B21A8; }
+.course-cat-badge.cat-regulation   { background: #CCFBF1; color: #0F766E; }
+.course-cat-badge.cat-positive     { background: #FFEDD5; color: #C2410C; }
 
 /* ---------- Tables ---------- */
 .table {
@@ -1136,6 +1154,10 @@ a:hover { color: var(--color-primary-hover); }
 .course-card-cover.cat-sleep       { background-image: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(28,28,46,0.45)), url('https://images.unsplash.com/photo-1604881991720-f91add269bed?w=640&q=70'); }
 .course-card-cover.cat-resilience  { background-image: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(28,28,46,0.45)), url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=640&q=70'); }
 .course-card-cover.cat-selfcare    { background-image: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(28,28,46,0.45)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=640&q=70'); }
+.course-card-cover.cat-cognitive   { background-image: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(28,28,46,0.45)), url('https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=640&q=70'); }
+.course-card-cover.cat-trauma      { background-image: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(28,28,46,0.45)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=640&q=70'); }
+.course-card-cover.cat-regulation  { background-image: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(28,28,46,0.45)), url('https://images.unsplash.com/photo-1518602164578-cd0074062767?w=640&q=70'); }
+.course-card-cover.cat-positive    { background-image: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(28,28,46,0.45)), url('https://images.unsplash.com/photo-1502230831726-fe5549140034?w=640&q=70'); }
 .course-card-cover::before { display: none; }
 .course-card-cover .diff-badge {
     position: absolute;
@@ -2338,6 +2360,10 @@ hr { border-top: 1px solid var(--color-card-border); opacity: 1; }
 .cd-hero-image.cat-sleep       { background-image: url('https://images.unsplash.com/photo-1604881991720-f91add269bed?w=1400&q=80'); }
 .cd-hero-image.cat-resilience  { background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=1400&q=80'); }
 .cd-hero-image.cat-selfcare    { background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1400&q=80'); }
+.cd-hero-image.cat-cognitive   { background-image: url('https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=1400&q=80'); }
+.cd-hero-image.cat-trauma      { background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1400&q=80'); }
+.cd-hero-image.cat-regulation  { background-image: url('https://images.unsplash.com/photo-1518602164578-cd0074062767?w=1400&q=80'); }
+.cd-hero-image.cat-positive    { background-image: url('https://images.unsplash.com/photo-1502230831726-fe5549140034?w=1400&q=80'); }
 
 .cd-hero-body {
     padding: 28px 32px;
@@ -2702,7 +2728,7 @@ hr { border-top: 1px solid var(--color-card-border); opacity: 1; }
 /* Visual category strip — clickable chips with photo thumbs */
 .cl-cat-strip {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 12px;
     margin-bottom: 28px;
 }
@@ -2757,6 +2783,10 @@ hr { border-top: 1px solid var(--color-card-border); opacity: 1; }
 .cl-cat-chip.cat-sleep { background-image: url('https://images.unsplash.com/photo-1604881991720-f91add269bed?w=400&q=70'); }
 .cl-cat-chip.cat-resilience { background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&q=70'); }
 .cl-cat-chip.cat-selfcare { background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&q=70'); }
+.cl-cat-chip.cat-cognitive { background-image: url('https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=400&q=70'); }
+.cl-cat-chip.cat-trauma { background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&q=70'); }
+.cl-cat-chip.cat-regulation { background-image: url('https://images.unsplash.com/photo-1518602164578-cd0074062767?w=400&q=70'); }
+.cl-cat-chip.cat-positive { background-image: url('https://images.unsplash.com/photo-1502230831726-fe5549140034?w=400&q=70'); }
 @media (max-width: 991px) {
     .cl-cat-strip { grid-template-columns: repeat(3, 1fr); }
 }

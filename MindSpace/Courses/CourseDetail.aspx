@@ -248,7 +248,11 @@
         'cat-anxiety':     { author: 'Dr. Maya Patel',     role: 'CBT Specialist' },
         'cat-sleep':       { author: 'Dr. Liam Hartwell',  role: 'Sleep Science Lead' },
         'cat-resilience':  { author: 'Dr. Anna Hoffman',   role: 'Resilience Researcher' },
-        'cat-selfcare':    { author: 'Dr. Anika Joshi',    role: 'Wellbeing Editor' }
+        'cat-selfcare':    { author: 'Dr. Anika Joshi',    role: 'Wellbeing Editor' },
+        'cat-cognitive':   { author: 'Dr. Rohan Mehta',    role: 'Cognitive Therapy Lead' },
+        'cat-trauma':      { author: 'Dr. Elena Kowalski', role: 'Trauma Therapy Researcher' },
+        'cat-regulation':  { author: 'Dr. Priya Iyer',     role: 'DBT Programme Director' },
+        'cat-positive':    { author: 'Dr. Marcus Bennett', role: 'Positive Psychology Lead' }
     };
     var DEFAULT_BYLINE = { author: 'MindSpace Editorial Team', role: 'Reviewed by clinicians' };
 

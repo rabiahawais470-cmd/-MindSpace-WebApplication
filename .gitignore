@@ -45,3 +45,4 @@ course[0-9]*-*.png
 
 # One-off DB migration helpers (kept locally only)
 fix_articles.ps1
+add_advanced_courses.ps1

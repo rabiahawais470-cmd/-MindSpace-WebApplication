@@ -16,6 +16,11 @@
         <a href="javascript:void(0)" class="cl-cat-chip cat-anxiety" data-cat="Anxiety"><span class="cl-cat-chip-name">Anxiety</span></a>
         <a href="javascript:void(0)" class="cl-cat-chip cat-sleep" data-cat="Sleep Hygiene"><span class="cl-cat-chip-name">Sleep</span></a>
         <a href="javascript:void(0)" class="cl-cat-chip cat-resilience" data-cat="Resilience"><span class="cl-cat-chip-name">Resilience</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-selfcare" data-cat="Self-Care"><span class="cl-cat-chip-name">Self-Care</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-cognitive" data-cat="Cognitive Therapy"><span class="cl-cat-chip-name">Cognitive Therapy</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-trauma" data-cat="Trauma Recovery"><span class="cl-cat-chip-name">Trauma</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-regulation" data-cat="Emotional Regulation"><span class="cl-cat-chip-name">Emotional Regulation</span></a>
+        <a href="javascript:void(0)" class="cl-cat-chip cat-positive" data-cat="Positive Psychology"><span class="cl-cat-chip-name">Positive Psychology</span></a>
     </div>
 
     <!-- INLINE FILTER BAR -->
@@ -24,7 +29,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search courses by title or keyword..." />
         </div>
-        <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-select" style="max-width:200px;"
+        <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-select" style="max-width:220px;"
                 AutoPostBack="true" OnSelectedIndexChanged="btnSearch_Click">
             <asp:ListItem Value="">All Categories</asp:ListItem>
             <asp:ListItem Value="Stress Management">Stress Management</asp:ListItem>
@@ -33,6 +38,10 @@
             <asp:ListItem Value="Sleep Hygiene">Sleep Hygiene</asp:ListItem>
             <asp:ListItem Value="Resilience">Resilience</asp:ListItem>
             <asp:ListItem Value="Self-Care">Self-Care</asp:ListItem>
+            <asp:ListItem Value="Cognitive Therapy">Cognitive Therapy</asp:ListItem>
+            <asp:ListItem Value="Trauma Recovery">Trauma Recovery</asp:ListItem>
+            <asp:ListItem Value="Emotional Regulation">Emotional Regulation</asp:ListItem>
+            <asp:ListItem Value="Positive Psychology">Positive Psychology</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlLevel" runat="server" CssClass="form-select" style="max-width:160px;"
                 AutoPostBack="true" OnSelectedIndexChanged="btnSearch_Click">

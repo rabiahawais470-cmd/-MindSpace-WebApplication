@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flourishing Strengths &amp; Practices Workbook — MindSpace</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff7ed; color: #1c1c2e; }
+  .page { max-width: 880px; margin: 0 auto; padding: 24px; }
+  .header { background: linear-gradient(135deg, #F97316, #FB923C); color: #fff; border-radius: 14px 14px 0 0; padding: 30px 36px; text-align: center; }
+  .header h1 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .header p { opacity: 0.92; font-size: 0.92rem; }
+  .card { background: #fff; border: 1px solid #fed7aa; border-radius: 0 0 14px 14px; padding: 32px 36px; margin-bottom: 24px; }
+  .intro { background: #fff7ed; border-left: 4px solid #F97316; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 22px; font-size: 0.85rem; color: #4b5563; line-height: 1.65; }
+  .section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #C2410C; margin: 26px 0 10px; padding-bottom: 8px; border-bottom: 1px solid #fed7aa; }
+  .section-title:first-of-type { margin-top: 4px; }
+  .meta-row { display: flex; gap: 18px; margin-bottom: 8px; flex-wrap: wrap; }
+  .meta-field { flex: 1 1 180px; }
+  .meta-field label { display: block; font-size: 0.74rem; color: #6b7280; margin-bottom: 4px; font-weight: 500; }
+  .line { border-bottom: 1.5px solid #fed7aa; height: 34px; }
+  .field-group { margin-bottom: 18px; }
+  .field-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #1c1c2e; margin-bottom: 8px; }
+  .field-group .hint { display: block; font-size: 0.75rem; color: #6b7280; font-weight: 400; margin-bottom: 6px; font-style: italic; }
+  .textarea-box { border: 1.5px solid #fed7aa; border-radius: 8px; width: 100%; min-height: 70px; padding: 12px; font-size: 0.88rem; resize: vertical; background: #fffaf3; font-family: inherit; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .perma-card { border: 1.5px solid #fed7aa; border-radius: 10px; padding: 16px; margin-bottom: 12px; background: #fffaf3; }
+  .perma-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .perma-letter { min-width: 36px; min-height: 36px; border-radius: 50%; background: #F97316; color: #fff; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .perma-title { font-size: 0.95rem; font-weight: 700; color: #C2410C; line-height: 1.3; }
+  .perma-sub { font-size: 0.75rem; color: #6b7280; }
+  .scale { display: flex; gap: 8px; margin: 6px 0 12px; flex-wrap: wrap; }
+  .scale-item { flex: 1 1 70px; min-width: 60px; text-align: center; }
+  .scale-circle {
+      min-width: 42px; min-height: 42px;
+      border-radius: 50%; border: 2px solid #fed7aa;
+      margin: 0 auto 4px; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.92rem; color: #6b7280;
+      padding: 4px; box-sizing: border-box;
+  }
+  .scale-label { font-size: 0.66rem; color: #6b7280; line-height: 1.3; }
+  .insight-box { background: #fff7ed; border-left: 4px solid #F97316; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 14px; }
+  .insight-box .label { font-size: 0.7rem; color: #C2410C; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .insight-box .text { font-size: 0.83rem; color: #4b5563; line-height: 1.6; }
+  .footer { text-align: center; padding: 18px; font-size: 0.72rem; color: #9ca3af; }
+  .print-btn { display: block; text-align: center; margin: 16px 0 24px; }
+  .print-btn button { background: #F97316; color: #fff; border: 0; border-radius: 99px; padding: 11px 30px; font-size: 0.92rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .print-btn button:hover { background: #C2410C; }
+  @media print { body { background: #fff; } .print-btn { display: none; } .card { border: 1px solid #ccc; border-radius: 4px; } .header { border-radius: 4px 4px 0 0; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <h1>Flourishing Strengths &amp; Practices Workbook</h1>
+    <p>MindSpace &mdash; Positive Psychology &amp; Flourishing</p>
+  </div>
+  <div class="card">
+    <div class="print-btn"><button onclick="window.print()">Print this worksheet</button></div>
+
+    <div class="intro">
+      Positive psychology is the scientific study of what makes life worth living. This workbook helps you map your character strengths, assess your wellbeing across PERMA, and design small weekly practices that nudge you from languishing to flourishing.
+    </div>
+
+    <div class="section-title">Your Top Character Strengths</div>
+    <div class="field-group">
+      <span class="hint">List your top three character strengths (from the VIA survey or your own self-knowledge). Examples: curiosity, gratitude, hope, kindness, perseverance, perspective, social intelligence.</span>
+      <div class="meta-row">
+        <div class="meta-field"><label>Strength 1</label><div class="line"></div></div>
+        <div class="meta-field"><label>Strength 2</label><div class="line"></div></div>
+        <div class="meta-field"><label>Strength 3</label><div class="line"></div></div>
+      </div>
+    </div>
+    <div class="field-group">
+      <label>One way I will use a top strength in a new way this week:</label>
+      <textarea class="textarea-box"></textarea>
+    </div>
+
+    <div class="section-title">PERMA Self-Assessment</div>
+    <div class="field-group">
+      <span class="hint">Rate each pillar of wellbeing right now (1 = absent, 5 = abundant).</span>
+    </div>
+
+    <div class="perma-card">
+      <div class="perma-head">
+        <div class="perma-letter">P</div>
+        <div>
+          <div class="perma-title">Positive Emotion</div>
+          <div class="perma-sub">Joy, gratitude, contentment, hope, amusement.</div>
+        </div>
+      </div>
+      <div class="scale">
+        <div class="scale-item"><div class="scale-circle">1</div><div class="scale-label">Absent</div></div>
+        <div class="scale-item"><div class="scale-circle">2</div><div class="scale-label">Rare</div></div>
+        <div class="scale-item"><div class="scale-circle">3</div><div class="scale-label">Some</div></div>
+        <div class="scale-item"><div class="scale-circle">4</div><div class="scale-label">Frequent</div></div>
+        <div class="scale-item"><div class="scale-circle">5</div><div class="scale-label">Abundant</div></div>
+      </div>
+    </div>
+
+    <div class="perma-card">
+      <div class="perma-head">
+        <div class="perma-letter">E</div>
+        <div>
+          <div class="perma-title">Engagement</div>
+          <div class="perma-sub">Being absorbed in activities &mdash; the experience of &quot;flow&quot;.</div>
+        </div>
+      </div>
+      <div class="scale">
+        <div class="scale-item"><div class="scale-circle">1</div><div class="scale-label">Absent</div></div>
+        <div class="scale-item"><div class="scale-circle">2</div><div class="scale-label">Rare</div></div>
+        <div class="scale-item"><div class="scale-circle">3</div><div class="scale-label">Some</div></div>
+        <div class="scale-item"><div class="scale-circle">4</div><div class="scale-label">Frequent</div></div>
+        <div class="scale-item"><div class="scale-circle">5</div><div class="scale-label">Abundant</div></div>
+      </div>
+    </div>
+
+    <div class="perma-card">
+      <div class="perma-head">
+        <div class="perma-letter">R</div>
+        <div>
+          <div class="perma-title">Relationships</div>
+          <div class="perma-sub">Connection, belonging, support, love.</div>
+        </div>
+      </div>
+      <div class="scale">
+        <div class="scale-item"><div class="scale-circle">1</div><div class="scale-label">Absent</div></div>
+        <div class="scale-item"><div class="scale-circle">2</div><div class="scale-label">Rare</div></div>
+        <div class="scale-item"><div class="scale-circle">3</div><div class="scale-label">Some</div></div>
+        <div class="scale-item"><div class="scale-circle">4</div><div class="scale-label">Frequent</div></div>
+        <div class="scale-item"><div class="scale-circle">5</div><div class="scale-label">Abundant</div></div>
+      </div>
+    </div>
+
+    <div class="perma-card">
+      <div class="perma-head">
+        <div class="perma-letter">M</div>
+        <div>
+          <div class="perma-title">Meaning</div>
+          <div class="perma-sub">Serving something larger than yourself.</div>
+        </div>
+      </div>
+      <div class="scale">
+        <div class="scale-item"><div class="scale-circle">1</div><div class="scale-label">Absent</div></div>
+        <div class="scale-item"><div class="scale-circle">2</div><div class="scale-label">Rare</div></div>
+        <div class="scale-item"><div class="scale-circle">3</div><div class="scale-label">Some</div></div>
+        <div class="scale-item"><div class="scale-circle">4</div><div class="scale-label">Frequent</div></div>
+        <div class="scale-item"><div class="scale-circle">5</div><div class="scale-label">Abundant</div></div>
+      </div>
+    </div>
+
+    <div class="perma-card">
+      <div class="perma-head">
+        <div class="perma-letter">A</div>
+        <div>
+          <div class="perma-title">Accomplishment</div>
+          <div class="perma-sub">Mastery, achievement, pursuing goals.</div>
+        </div>
+      </div>
+      <div class="scale">
+        <div class="scale-item"><div class="scale-circle">1</div><div class="scale-label">Absent</div></div>
+        <div class="scale-item"><div class="scale-circle">2</div><div class="scale-label">Rare</div></div>
+        <div class="scale-item"><div class="scale-circle">3</div><div class="scale-label">Some</div></div>
+        <div class="scale-item"><div class="scale-circle">4</div><div class="scale-label">Frequent</div></div>
+        <div class="scale-item"><div class="scale-circle">5</div><div class="scale-label">Abundant</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">Three Good Things</div>
+    <div class="field-group">
+      <span class="hint">List three things that went well today and why. Repeated daily for two weeks, this practice has measurably lifted mood and life satisfaction in randomised trials.</span>
+      <div class="grid-2">
+        <div class="field-group" style="margin-bottom:0;"><label>1. What went well</label><textarea class="textarea-box"></textarea></div>
+        <div class="field-group" style="margin-bottom:0;"><label>1. Why it went well</label><textarea class="textarea-box"></textarea></div>
+        <div class="field-group" style="margin-bottom:0;"><label>2. What went well</label><textarea class="textarea-box"></textarea></div>
+        <div class="field-group" style="margin-bottom:0;"><label>2. Why it went well</label><textarea class="textarea-box"></textarea></div>
+        <div class="field-group" style="margin-bottom:0;"><label>3. What went well</label><textarea class="textarea-box"></textarea></div>
+        <div class="field-group" style="margin-bottom:0;"><label>3. Why it went well</label><textarea class="textarea-box"></textarea></div>
+      </div>
+    </div>
+
+    <div class="section-title">Best Possible Self</div>
+    <div class="field-group">
+      <span class="hint">Imagine your life one year from now if everything goes as well as it realistically could. Describe what you see in two or three sentences.</span>
+      <textarea class="textarea-box" style="min-height:110px;"></textarea>
+    </div>
+
+    <div class="insight-box">
+      <div class="label">Gentle Reminder</div>
+      <div class="text">Flourishing is built from small repeated practices, not from grand transformations. Choose one practice from this workbook and commit to it for two weeks. Notice what shifts.</div>
+    </div>
+  </div>
+  <div class="footer">MindSpace &middot; Mental Health Learning Portal &middot; mindspace.io</div>
+</div>
+</body>
+</html>

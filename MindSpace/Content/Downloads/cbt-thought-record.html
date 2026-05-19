@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBT Thought Record Workbook — MindSpace</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f2fa; color: #1c1c2e; }
+  .page { max-width: 880px; margin: 0 auto; padding: 24px; }
+  .header { background: linear-gradient(135deg, #6366F1, #818CF8); color: #fff; border-radius: 14px 14px 0 0; padding: 30px 36px; text-align: center; }
+  .header h1 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .header p { opacity: 0.88; font-size: 0.92rem; }
+  .card { background: #fff; border: 1px solid #e0e7ff; border-radius: 0 0 14px 14px; padding: 32px 36px; margin-bottom: 24px; }
+  .intro { background: #eef2ff; border-left: 4px solid #6366F1; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 22px; font-size: 0.85rem; color: #4b5563; line-height: 1.65; }
+  .section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #6366F1; margin: 26px 0 10px; padding-bottom: 8px; border-bottom: 1px solid #e0e7ff; }
+  .section-title:first-of-type { margin-top: 4px; }
+  .meta-row { display: flex; gap: 18px; margin-bottom: 8px; flex-wrap: wrap; }
+  .meta-field { flex: 1 1 180px; }
+  .meta-field label { display: block; font-size: 0.74rem; color: #6b7280; margin-bottom: 4px; font-weight: 500; }
+  .line { border-bottom: 1.5px solid #e0e7ff; height: 34px; }
+  .field-group { margin-bottom: 18px; }
+  .field-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #1c1c2e; margin-bottom: 8px; }
+  .field-group .hint { display: block; font-size: 0.75rem; color: #6b7280; font-weight: 400; margin-bottom: 6px; font-style: italic; }
+  .textarea-box { border: 1.5px solid #e0e7ff; border-radius: 8px; width: 100%; min-height: 70px; padding: 12px; font-size: 0.88rem; resize: vertical; background: #fafafd; font-family: inherit; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .scale { display: flex; gap: 8px; margin: 6px 0 12px; flex-wrap: wrap; }
+  .scale-item { flex: 1 1 70px; min-width: 60px; text-align: center; }
+  .scale-circle {
+      min-width: 42px; min-height: 42px;
+      border-radius: 50%; border: 2px solid #e0e7ff;
+      margin: 0 auto 4px; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.92rem; color: #6b7280;
+      padding: 4px; box-sizing: border-box;
+  }
+  .scale-label { font-size: 0.68rem; color: #6b7280; line-height: 1.3; }
+  .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin: 8px 0; }
+  .check-item {
+      border: 1.5px solid #e0e7ff; border-radius: 8px;
+      padding: 10px 12px; font-size: 0.82rem;
+      display: flex; align-items: center; gap: 8px;
+      background: #fafafd; line-height: 1.3;
+      overflow-wrap: break-word; word-break: break-word;
+      min-height: 42px; box-sizing: border-box;
+  }
+  .check-box { min-width: 16px; min-height: 16px; border: 1.5px solid #a5b4fc; border-radius: 3px; flex-shrink: 0; }
+  .insight-box { background: #eef2ff; border-left: 4px solid #6366F1; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 14px; }
+  .insight-box .label { font-size: 0.7rem; color: #6366F1; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .insight-box .text { font-size: 0.83rem; color: #4b5563; line-height: 1.6; }
+  .footer { text-align: center; padding: 18px; font-size: 0.72rem; color: #9ca3af; }
+  .print-btn { display: block; text-align: center; margin: 16px 0 24px; }
+  .print-btn button { background: #6366F1; color: #fff; border: 0; border-radius: 99px; padding: 11px 30px; font-size: 0.92rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .print-btn button:hover { background: #4F46E5; }
+  @media print { body { background: #fff; } .print-btn { display: none; } .card { border: 1px solid #ccc; border-radius: 4px; } .header { border-radius: 4px 4px 0 0; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <h1>CBT Thought Record Workbook</h1>
+    <p>MindSpace &mdash; Cognitive Behavioural Therapy Techniques</p>
+  </div>
+  <div class="card">
+    <div class="print-btn"><button onclick="window.print()">Print this worksheet</button></div>
+
+    <div class="intro">
+      A thought record helps you slow down a difficult moment, examine the thinking behind your emotional reaction, and choose a more balanced response. Complete one entry per emotional episode &mdash; the practice itself rewires habitual thinking patterns over time.
+    </div>
+
+    <div class="section-title">The Situation</div>
+    <div class="meta-row">
+      <div class="meta-field"><label>Date / time</label><div class="line"></div></div>
+      <div class="meta-field"><label>Where / who with</label><div class="line"></div></div>
+    </div>
+    <div class="field-group">
+      <label>Describe the situation factually (what an objective observer would see):</label>
+      <textarea class="textarea-box"></textarea>
+    </div>
+
+    <div class="section-title">Emotion &amp; Intensity</div>
+    <div class="grid-2">
+      <div class="field-group">
+        <label>Name the emotion(s) you felt:</label>
+        <textarea class="textarea-box" placeholder="e.g. anxious, embarrassed, ashamed, angry, sad..."></textarea>
+      </div>
+      <div class="field-group">
+        <label>Body sensations you noticed:</label>
+        <textarea class="textarea-box" placeholder="e.g. tight chest, shallow breath, jaw clench..."></textarea>
+      </div>
+    </div>
+    <div class="field-group">
+      <label>How intense was the emotion? (1 = barely, 5 = overwhelming)</label>
+      <div class="scale">
+        <div class="scale-item"><div class="scale-circle">1</div><div class="scale-label">Barely</div></div>
+        <div class="scale-item"><div class="scale-circle">2</div><div class="scale-label">Mild</div></div>
+        <div class="scale-item"><div class="scale-circle">3</div><div class="scale-label">Moderate</div></div>
+        <div class="scale-item"><div class="scale-circle">4</div><div class="scale-label">Strong</div></div>
+        <div class="scale-item"><div class="scale-circle">5</div><div class="scale-label">Overwhelming</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">Automatic Thoughts</div>
+    <div class="field-group">
+      <label>What was running through your mind in the moment?</label>
+      <span class="hint">Write the exact thought, image, or memory &mdash; including the most distressing one (the &quot;hot thought&quot;).</span>
+      <textarea class="textarea-box" style="min-height:90px;"></textarea>
+    </div>
+
+    <div class="section-title">Cognitive Distortions to Check For</div>
+    <div class="field-group">
+      <span class="hint">Tick any patterns that show up in your automatic thought.</span>
+      <div class="check-grid">
+        <div class="check-item"><div class="check-box"></div>All-or-nothing thinking</div>
+        <div class="check-item"><div class="check-box"></div>Catastrophising</div>
+        <div class="check-item"><div class="check-box"></div>Mind-reading</div>
+        <div class="check-item"><div class="check-box"></div>Fortune-telling</div>
+        <div class="check-item"><div class="check-box"></div>Personalisation</div>
+        <div class="check-item"><div class="check-box"></div>Should statements</div>
+        <div class="check-item"><div class="check-box"></div>Labelling</div>
+        <div class="check-item"><div class="check-box"></div>Emotional reasoning</div>
+        <div class="check-item"><div class="check-box"></div>Mental filter</div>
+        <div class="check-item"><div class="check-box"></div>Discounting positives</div>
+      </div>
+    </div>
+
+    <div class="section-title">Examine the Evidence</div>
+    <div class="grid-2">
+      <div class="field-group">
+        <label>Evidence that supports the thought:</label>
+        <textarea class="textarea-box"></textarea>
+      </div>
+      <div class="field-group">
+        <label>Evidence that does not support it:</label>
+        <textarea class="textarea-box"></textarea>
+      </div>
+    </div>
+
+    <div class="section-title">A More Balanced Thought</div>
+    <div class="field-group">
+      <label>If a wise friend looked at all the evidence, how might they describe this situation?</label>
+      <textarea class="textarea-box" style="min-height:90px;"></textarea>
+    </div>
+
+    <div class="section-title">Re-rate the Emotion</div>
+    <div class="field-group">
+      <label>Now, how intense does the emotion feel? (1 = barely, 5 = overwhelming)</label>
+      <div class="scale">
+        <div class="scale-item"><div class="scale-circle">1</div><div class="scale-label">Barely</div></div>
+        <div class="scale-item"><div class="scale-circle">2</div><div class="scale-label">Mild</div></div>
+        <div class="scale-item"><div class="scale-circle">3</div><div class="scale-label">Moderate</div></div>
+        <div class="scale-item"><div class="scale-circle">4</div><div class="scale-label">Strong</div></div>
+        <div class="scale-item"><div class="scale-circle">5</div><div class="scale-label">Overwhelming</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">Next Step</div>
+    <div class="field-group">
+      <label>One small action I can take from this more balanced place:</label>
+      <textarea class="textarea-box"></textarea>
+    </div>
+
+    <div class="insight-box">
+      <div class="label">Gentle Reminder</div>
+      <div class="text">You are not your thoughts. CBT is a practice of noticing thought patterns, holding them up to the light, and choosing your response. The skill grows with repetition.</div>
+    </div>
+  </div>
+  <div class="footer">MindSpace &middot; Mental Health Learning Portal &middot; mindspace.io</div>
+</div>
+</body>
+</html>

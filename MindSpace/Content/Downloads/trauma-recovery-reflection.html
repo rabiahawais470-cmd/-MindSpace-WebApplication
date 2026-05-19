@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trauma Recovery Reflection Guide — MindSpace</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #faf5ff; color: #1c1c2e; }
+  .page { max-width: 880px; margin: 0 auto; padding: 24px; }
+  .header { background: linear-gradient(135deg, #A855F7, #C084FC); color: #fff; border-radius: 14px 14px 0 0; padding: 30px 36px; text-align: center; }
+  .header h1 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .header p { opacity: 0.88; font-size: 0.92rem; }
+  .card { background: #fff; border: 1px solid #f3e8ff; border-radius: 0 0 14px 14px; padding: 32px 36px; margin-bottom: 24px; }
+  .intro { background: #faf5ff; border-left: 4px solid #A855F7; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 22px; font-size: 0.85rem; color: #4b5563; line-height: 1.65; }
+  .section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #A855F7; margin: 26px 0 10px; padding-bottom: 8px; border-bottom: 1px solid #f3e8ff; }
+  .section-title:first-of-type { margin-top: 4px; }
+  .meta-row { display: flex; gap: 18px; margin-bottom: 8px; flex-wrap: wrap; }
+  .meta-field { flex: 1 1 180px; }
+  .meta-field label { display: block; font-size: 0.74rem; color: #6b7280; margin-bottom: 4px; font-weight: 500; }
+  .line { border-bottom: 1.5px solid #f3e8ff; height: 34px; }
+  .field-group { margin-bottom: 18px; }
+  .field-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #1c1c2e; margin-bottom: 8px; }
+  .field-group .hint { display: block; font-size: 0.75rem; color: #6b7280; font-weight: 400; margin-bottom: 6px; font-style: italic; }
+  .textarea-box { border: 1.5px solid #f3e8ff; border-radius: 8px; width: 100%; min-height: 70px; padding: 12px; font-size: 0.88rem; resize: vertical; background: #fafafd; font-family: inherit; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .scale { display: flex; gap: 8px; margin: 6px 0 12px; flex-wrap: wrap; }
+  .scale-item { flex: 1 1 70px; min-width: 60px; text-align: center; }
+  .scale-circle {
+      min-width: 42px; min-height: 42px;
+      border-radius: 50%; border: 2px solid #f3e8ff;
+      margin: 0 auto 4px; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.92rem; color: #6b7280;
+      padding: 4px; box-sizing: border-box;
+  }
+  .scale-label { font-size: 0.68rem; color: #6b7280; line-height: 1.3; }
+  .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin: 8px 0; }
+  .check-item {
+      border: 1.5px solid #f3e8ff; border-radius: 8px;
+      padding: 10px 12px; font-size: 0.82rem;
+      display: flex; align-items: center; gap: 8px;
+      background: #fafafd; line-height: 1.3;
+      overflow-wrap: break-word; word-break: break-word;
+      min-height: 42px; box-sizing: border-box;
+  }
+  .check-box { min-width: 16px; min-height: 16px; border: 1.5px solid #d8b4fe; border-radius: 3px; flex-shrink: 0; }
+  .insight-box { background: #faf5ff; border-left: 4px solid #A855F7; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-top: 14px; }
+  .insight-box .label { font-size: 0.7rem; color: #A855F7; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .insight-box .text { font-size: 0.83rem; color: #4b5563; line-height: 1.6; }
+  .footer { text-align: center; padding: 18px; font-size: 0.72rem; color: #9ca3af; }
+  .print-btn { display: block; text-align: center; margin: 16px 0 24px; }
+  .print-btn button { background: #A855F7; color: #fff; border: 0; border-radius: 99px; padding: 11px 30px; font-size: 0.92rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .print-btn button:hover { background: #9333EA; }
+  @media print { body { background: #fff; } .print-btn { display: none; } .card { border: 1px solid #ccc; border-radius: 4px; } .header { border-radius: 4px 4px 0 0; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <h1>Trauma Recovery Reflection Guide</h1>
+    <p>MindSpace &mdash; Trauma &amp; Post-Traumatic Growth</p>
+  </div>
+  <div class="card">
+    <div class="print-btn"><button onclick="window.print()">Print this worksheet</button></div>
+
+    <div class="intro">
+      Trauma recovery is non-linear and unique to each person. This guide invites gentle reflection on your nervous system, your anchors of safety, and the meaning you are slowly making. Use it at a pace that feels manageable. If the work becomes overwhelming, pause and reach out to a qualified trauma-informed clinician.
+    </div>
+
+    <div class="section-title">Today&rsquo;s Check-In</div>
+    <div class="meta-row">
+      <div class="meta-field"><label>Date</label><div class="line"></div></div>
+      <div class="meta-field"><label>Time of day</label><div class="line"></div></div>
+      <div class="meta-field"><label>Location</label><div class="line"></div></div>
+    </div>
+
+    <div class="section-title">Window of Tolerance</div>
+    <div class="field-group">
+      <span class="hint">Where is your nervous system right now? (1 = shut down / numb, 3 = grounded / present, 5 = activated / overwhelmed)</span>
+      <div class="scale">
+        <div class="scale-item"><div class="scale-circle">1</div><div class="scale-label">Numb / hypo-aroused</div></div>
+        <div class="scale-item"><div class="scale-circle">2</div><div class="scale-label">Low energy</div></div>
+        <div class="scale-item"><div class="scale-circle">3</div><div class="scale-label">Grounded</div></div>
+        <div class="scale-item"><div class="scale-circle">4</div><div class="scale-label">Activated</div></div>
+        <div class="scale-item"><div class="scale-circle">5</div><div class="scale-label">Hyper-aroused</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">Safety Anchors</div>
+    <div class="field-group">
+      <label>People, places, objects, or sensations that help me feel safe today:</label>
+      <textarea class="textarea-box" placeholder="e.g. a trusted friend, my warm cup of tea, the texture of my blanket..."></textarea>
+    </div>
+
+    <div class="section-title">Grounding Techniques to Try</div>
+    <div class="check-grid">
+      <div class="check-item"><div class="check-box"></div>5-4-3-2-1 senses scan</div>
+      <div class="check-item"><div class="check-box"></div>Box breathing (4-4-4-4)</div>
+      <div class="check-item"><div class="check-box"></div>Feet firmly on the floor</div>
+      <div class="check-item"><div class="check-box"></div>Cold water on wrists / face</div>
+      <div class="check-item"><div class="check-box"></div>Orienting to the room</div>
+      <div class="check-item"><div class="check-box"></div>Naming six colours in sight</div>
+      <div class="check-item"><div class="check-box"></div>Soft humming / vocalisation</div>
+      <div class="check-item"><div class="check-box"></div>Gentle movement or shaking</div>
+      <div class="check-item"><div class="check-box"></div>Touching a comforting object</div>
+      <div class="check-item"><div class="check-box"></div>Reaching out to a safe person</div>
+    </div>
+
+    <div class="section-title">Body &amp; Story</div>
+    <div class="grid-2">
+      <div class="field-group">
+        <label>What is my body holding right now?</label>
+        <textarea class="textarea-box" placeholder="Tension, warmth, heaviness, tightness..."></textarea>
+      </div>
+      <div class="field-group">
+        <label>What is the story my mind is telling?</label>
+        <textarea class="textarea-box" placeholder="Note the narrative without judging it..."></textarea>
+      </div>
+    </div>
+
+    <div class="section-title">Self-Compassion Statement</div>
+    <div class="field-group">
+      <span class="hint">Speak to yourself the way you would speak to a friend going through what you are going through.</span>
+      <textarea class="textarea-box" style="min-height:90px;"></textarea>
+    </div>
+
+    <div class="section-title">Meaning-Making (Post-Traumatic Growth)</div>
+    <div class="grid-2">
+      <div class="field-group">
+        <label>What strength has this experience uncovered in me?</label>
+        <textarea class="textarea-box"></textarea>
+      </div>
+      <div class="field-group">
+        <label>What do I value more clearly now?</label>
+        <textarea class="textarea-box"></textarea>
+      </div>
+    </div>
+
+    <div class="section-title">Care Plan</div>
+    <div class="field-group">
+      <label>One nurturing action I will take for myself in the next 24 hours:</label>
+      <textarea class="textarea-box"></textarea>
+    </div>
+    <div class="field-group">
+      <label>One person I can reach out to if today feels too heavy:</label>
+      <textarea class="textarea-box"></textarea>
+    </div>
+
+    <div class="insight-box">
+      <div class="label">Gentle Reminder</div>
+      <div class="text">Healing is not a straight line. Some days will feel like progress and others like setbacks. Both are part of the journey. Be patient and kind with yourself.</div>
+    </div>
+  </div>
+  <div class="footer">MindSpace &middot; Mental Health Learning Portal &middot; mindspace.io</div>
+</div>
+</body>
+</html>
