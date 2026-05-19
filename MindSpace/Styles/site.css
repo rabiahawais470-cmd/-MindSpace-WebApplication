@@ -1919,6 +1919,219 @@ a:hover { color: var(--color-orange); }
 .rich-toolbar .btn-xs:hover { background: var(--color-primary-light); color: var(--color-primary); }
 
 /* ==========================================================
+   Parallax Feature Panels
+   (Ported from a React+framer-motion component to vanilla CSS+JS;
+    each panel reads its own --p variable set by IntersectionObserver-
+    driven scroll tracking.)
+   ========================================================== */
+.ms-pfeature-intro {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    background: #fff;
+}
+.ms-pfeature-intro h2 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    max-width: 880px;
+    margin: 0;
+    color: var(--color-text-primary);
+}
+.ms-pfeature-intro h2 .accent {
+    color: var(--color-orange);
+}
+.ms-pfeature-intro .scroll-cue {
+    margin-top: clamp(24px, 4vw, 56px);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+}
+.ms-pfeature-intro .scroll-cue i {
+    animation: ms-bounce-y 1.6s ease-in-out infinite;
+}
+@keyframes ms-bounce-y {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(6px); }
+}
+
+.ms-pfeature-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(40px, 8vw, 160px);
+    padding: 80px clamp(20px, 6vw, 60px);
+    /* --p ranges 0..1, set by the scroll observer */
+    --p: 0;
+}
+.ms-pfeature-section.reverse { flex-direction: row-reverse; }
+@media (max-width: 768px) {
+    .ms-pfeature-section,
+    .ms-pfeature-section.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        min-height: auto;
+        padding: 60px 20px;
+    }
+}
+.ms-pfeature-copy {
+    max-width: 420px;
+    transform: translateY(calc(50px * (1 - var(--p))));
+    transition: transform 0.05s linear;
+}
+.ms-pfeature-copy h3 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    margin: 0 0 24px;
+    color: var(--color-text-primary);
+}
+.ms-pfeature-copy p {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 420px;
+}
+.ms-pfeature-img-wrap {
+    position: relative;
+    width: clamp(280px, 36vw, 480px);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    /* Clip-path reveal: from 100% (fully clipped) to 0% (fully visible) */
+    clip-path: inset(0 calc(100% * (1 - var(--p))) 0 0);
+    opacity: var(--p);
+    box-shadow: 0 20px 60px rgba(49,0,111,0.18);
+    transition: opacity 0.05s linear, clip-path 0.05s linear;
+}
+.ms-pfeature-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================================
+   Text Parallax with Sticky Images
+   ========================================================== */
+.ms-text-parallax-track {
+    padding: 0 12px;
+    background: var(--color-bg);
+}
+.ms-text-parallax-block {
+    position: relative;
+    height: 150vh;
+}
+.ms-text-parallax-sticky {
+    position: sticky;
+    top: 12px;
+    height: calc(100vh - 24px);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    /* --sp goes 0..1 across [end end -> end start] */
+    --sp: 0;
+    transform: scale(calc(1 - 0.15 * var(--sp)));
+    transform-origin: center;
+    transition: transform 0.06s linear;
+}
+.ms-text-parallax-sticky::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 20, 0.70);
+    opacity: calc(1 - var(--sp));
+    transition: opacity 0.06s linear;
+}
+.ms-text-parallax-overlay {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    pointer-events: none;
+    /* --op goes 0..1 across [start end -> end start] of the block */
+    --op: 0.5;
+    transform: translateY(calc(500px * (var(--op) - 0.5)));
+    opacity: calc(1 - 4 * (var(--op) - 0.5) * (var(--op) - 0.5));
+    transition: transform 0.06s linear, opacity 0.06s linear;
+    padding: 0 24px;
+}
+.ms-text-parallax-overlay .sub {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    margin: 0 0 14px;
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.85);
+}
+.ms-text-parallax-overlay h2 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    margin: 0;
+    text-transform: lowercase;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: #fff;
+}
+.ms-text-parallax-content {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 80px 24px 96px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 32px;
+}
+.ms-text-parallax-content h3 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    text-transform: lowercase;
+    margin: 0;
+}
+.ms-text-parallax-content .body p {
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    margin: 0 0 18px;
+}
+.ms-text-parallax-content .body .btn {
+    margin-top: 8px;
+}
+@media (max-width: 768px) {
+    .ms-text-parallax-content { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================
    AnimatedTestimonials section
    (Ported from a React+framer-motion component to vanilla CSS+JS)
    ========================================================== */

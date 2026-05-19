@@ -64,105 +64,103 @@
         </div>
     </section>
 
-    <!-- ===== MANIFESTO ===== -->
-    <section class="home-manifesto">
-        <div class="home-manifesto-inner reveal">
-            <div class="home-manifesto-eyebrow">Our quiet manifesto</div>
-            <p class="home-manifesto-quote">
-                Mental health isn&rsquo;t a destination, it&rsquo;s a <span class="accent">practice</span>.
-                Small habits, repeated gently, change the shape of a week &mdash; and over time, the shape of a life.
-            </p>
-            <div class="home-manifesto-signature">
-                <span>The MindSpace team</span>
-            </div>
-        </div>
+    <!-- ===== PARALLAX FEATURE INTRO ===== -->
+    <section class="ms-pfeature-intro">
+        <h2>explore by <span class="accent">topic</span>.</h2>
+        <span class="scroll-cue">Scroll <i class="fa-solid fa-arrow-down"></i></span>
     </section>
 
-    <!-- ===== HOW IT WORKS ===== -->
-    <section class="home-steps">
-        <div class="section-head-split reveal">
-            <div>
-                <span class="section-eyebrow">In Three Quiet Steps</span>
-                <h2 class="section-title">A <span class="accent">gentle</span> path to start</h2>
+    <!-- ===== PARALLAX FEATURE PANELS ===== -->
+    <div class="ms-pfeature-track">
+        <section class="ms-pfeature-section" data-pfeature>
+            <div class="ms-pfeature-copy">
+                <h3>stress, softened</h3>
+                <p>Short evidence-based practices for the days that feel too full. Breath, body, mind &mdash; one small reset at a time, repeated until it sticks.</p>
             </div>
-            <p class="section-intro mb-0">No long sign-ups. No noisy gamification. Just a clear way in.</p>
-        </div>
-        <div class="home-steps-grid">
-            <div class="home-step reveal">
-                <div class="home-step-num">01</div>
-                <h5>Create a free account</h5>
-                <p>Username, email, and a password. That&rsquo;s all we ask for. No upsells.</p>
+            <div class="ms-pfeature-img-wrap" data-pfeature-img>
+                <img src="https://images.unsplash.com/photo-1499728603263-13726abce5fd?w=960&q=75" alt="Stress management course imagery" />
             </div>
-            <div class="home-step reveal">
-                <div class="home-step-num">02</div>
-                <h5>Pick a topic that fits</h5>
-                <p>Stress, sleep, anxiety, self-care &mdash; start where life is asking for attention.</p>
-            </div>
-            <div class="home-step reveal">
-                <div class="home-step-num">03</div>
-                <h5>Practice in small doses</h5>
-                <p>Short readings, guided videos, and reflective quizzes. Five to ten minutes is enough.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ===== BENTO CATEGORY GRID ===== -->
-    <section class="home-bento">
-        <div class="section-head-split reveal">
-            <div>
-                <span class="section-eyebrow">Explore By Topic</span>
-                <h2 class="section-title">Choose where to <span class="accent">begin</span></h2>
+        <section class="ms-pfeature-section reverse" data-pfeature>
+            <div class="ms-pfeature-copy">
+                <h3>anxiety, named</h3>
+                <p>Cognitive-behavioural tools to put words on the worry, examine it, and choose a calmer response. Built on six decades of clinical research.</p>
             </div>
-            <a href="Courses/CourseList.aspx" class="btn btn-outline-primary">All topics <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            <div class="ms-pfeature-img-wrap" data-pfeature-img>
+                <img src="https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=960&q=75" alt="Anxiety course imagery" />
+            </div>
+        </section>
+
+        <section class="ms-pfeature-section" data-pfeature>
+            <div class="ms-pfeature-copy">
+                <h3>resilience, rebuilt</h3>
+                <p>Setbacks happen. The work is what comes after. Frameworks for emotional regulation, meaning-making, and the slow, quiet repair of a hard week.</p>
+            </div>
+            <div class="ms-pfeature-img-wrap" data-pfeature-img>
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=960&q=75" alt="Resilience course imagery" />
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== TEXT PARALLAX STICKY SECTIONS ===== -->
+    <div class="ms-text-parallax-track">
+
+        <div class="ms-text-parallax-block" data-tp-block>
+            <div class="ms-text-parallax-sticky"
+                 data-tp-sticky
+                 style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&q=80');"></div>
+            <div class="ms-text-parallax-overlay" data-tp-overlay>
+                <p class="sub">evidence-based</p>
+                <h2>built on science.</h2>
+            </div>
         </div>
-        <div class="home-bento-grid">
-            <a href="Courses/CourseList.aspx" class="bento-tile t1 lg">
-                <div class="bento-tile-inner">
-                    <span class="bento-tile-eyebrow">Most popular</span>
-                    <div>
-                        <h3 class="bento-tile-title">Mindfulness &amp; Meditation</h3>
-                        <div class="bento-tile-meta">Stay present, breathe, and notice without judgement.</div>
-                    </div>
-                </div>
-            </a>
-            <a href="Courses/CourseList.aspx" class="bento-tile t2">
-                <div class="bento-tile-inner">
-                    <span class="bento-tile-eyebrow">Care for yourself</span>
-                    <div>
-                        <h3 class="bento-tile-title">Self-Care</h3>
-                        <div class="bento-tile-meta">Daily rituals to recharge.</div>
-                    </div>
-                </div>
-            </a>
-            <a href="Courses/CourseList.aspx" class="bento-tile t3">
-                <div class="bento-tile-inner">
-                    <span class="bento-tile-eyebrow">Rest deeply</span>
-                    <div>
-                        <h3 class="bento-tile-title">Sleep Hygiene</h3>
-                        <div class="bento-tile-meta">Habits for restorative sleep.</div>
-                    </div>
-                </div>
-            </a>
-            <a href="Courses/CourseList.aspx" class="bento-tile t4">
-                <div class="bento-tile-inner">
-                    <span class="bento-tile-eyebrow">Soften worry</span>
-                    <div>
-                        <h3 class="bento-tile-title">Anxiety</h3>
-                        <div class="bento-tile-meta">Tools to ground yourself.</div>
-                    </div>
-                </div>
-            </a>
-            <a href="Courses/CourseList.aspx" class="bento-tile t5">
-                <div class="bento-tile-inner">
-                    <span class="bento-tile-eyebrow">Bounce forward</span>
-                    <div>
-                        <h3 class="bento-tile-title">Resilience</h3>
-                        <div class="bento-tile-meta">Strength after setbacks.</div>
-                    </div>
-                </div>
-            </a>
+        <div class="ms-text-parallax-content">
+            <h3>Every course traces back to peer-reviewed research.</h3>
+            <div class="body">
+                <p>Our courses draw on cognitive-behavioural therapy, dialectical behaviour therapy, polyvagal theory, and positive psychology &mdash; methods with decades of randomised-trial evidence behind them.</p>
+                <p>No fluff, no quick fixes. Just the techniques clinicians actually use, translated into something a student can practise in five minutes between lectures.</p>
+                <a href="Courses/CourseList.aspx" class="btn btn-primary">Browse the library <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></a>
+            </div>
         </div>
-    </section>
+
+        <div class="ms-text-parallax-block" data-tp-block>
+            <div class="ms-text-parallax-sticky"
+                 data-tp-sticky
+                 style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=80');"></div>
+            <div class="ms-text-parallax-overlay" data-tp-overlay>
+                <p class="sub">self-paced</p>
+                <h2>learn at your rhythm.</h2>
+            </div>
+        </div>
+        <div class="ms-text-parallax-content">
+            <h3>Five minutes today. Five minutes tomorrow. That is enough.</h3>
+            <div class="body">
+                <p>Each course breaks down into bite-sized articles, short guided videos, and reflective quizzes. Pick up where you left off whenever life makes space.</p>
+                <p>No streak shaming, no notification spam. Progress tracking that's there when you want it and quiet when you don't.</p>
+                <a href="Register.aspx" class="btn btn-primary">Create a free account <i class="fa-solid fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+
+        <div class="ms-text-parallax-block" data-tp-block>
+            <div class="ms-text-parallax-sticky"
+                 data-tp-sticky
+                 style="background-image: url('https://images.unsplash.com/photo-1518602164578-cd0074062767?w=1600&q=80');"></div>
+            <div class="ms-text-parallax-overlay" data-tp-overlay>
+                <p class="sub">private</p>
+                <h2>your data, your eyes only.</h2>
+            </div>
+        </div>
+        <div class="ms-text-parallax-content">
+            <h3>What you read, write, and rate stays with you.</h3>
+            <div class="body">
+                <p>Your progress, your journal entries, your quiz scores &mdash; visible only to you. We do not sell data, we do not surface your activity to other learners, and we do not need a phone number to let you in.</p>
+                <p>Encrypted at rest, transmitted over HTTPS, deletable on request.</p>
+                <a href="Default.aspx#voices" class="btn btn-outline-primary">Hear from learners <i class="fa-solid fa-arrow-down ms-2"></i></a>
+            </div>
+        </div>
+
+    </div>
 
     <!-- ===== FEATURED COURSES (magazine: big + side stack) ===== -->
     <section class="home-featured">
@@ -320,7 +318,69 @@
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
 <script>
-    // Image rendering for the featured course cards is server-side via inline expressions;
-    // see RenderBigCourse / RenderSideCourse helpers below (markup-only inline funcs).
+/* ===== Parallax scroll tracking (vanilla equivalent of framer-motion useScroll/useTransform) ===== */
+(function () {
+    var clamp = function (v, lo, hi) { return Math.max(lo, Math.min(hi, v)); };
+
+    // --- Parallax-feature panels ---
+    // p = 0 when section bottom is at viewport bottom (section just entering)
+    // p = 1 when section center reaches viewport top (well past midpoint)
+    var pfeatures = document.querySelectorAll('[data-pfeature]');
+    function updatePFeatures() {
+        var vh = window.innerHeight || 800;
+        pfeatures.forEach(function (sec) {
+            var r = sec.getBoundingClientRect();
+            // start: section top at viewport bottom  -> r.top === vh
+            // end:   section center at viewport top  -> r.top + r.height/2 === 0
+            var start = vh;
+            var end   = -r.height / 2;
+            var p = (start - r.top) / (start - end);
+            sec.style.setProperty('--p', clamp(p, 0, 1).toFixed(3));
+        });
+    }
+
+    // --- Text-parallax sticky blocks ---
+    // For each .ms-text-parallax-block we drive two progresses:
+    //   sp (sticky): 0 when block bottom enters bottom of viewport,
+    //                1 when block bottom leaves top of viewport (image scales/fades)
+    //   op (overlay): 0 at start (block top at bottom) -> 0.5 at middle -> 1 at end
+    var tpBlocks = document.querySelectorAll('[data-tp-block]');
+    function updateTPBlocks() {
+        var vh = window.innerHeight || 800;
+        tpBlocks.forEach(function (block) {
+            var r = block.getBoundingClientRect();
+            var bottom = r.bottom;
+            var top    = r.top;
+            // sticky: progress as block bottom passes through viewport
+            var spStart = vh;       // bottom of block at bottom of viewport
+            var spEnd   = 0;        // bottom of block at top of viewport
+            var sp = clamp((spStart - bottom) / (spStart - spEnd), 0, 1);
+            // overlay: progress across full scroll (start: top at bottom, end: bottom at top)
+            var opStart = vh;        // top at bottom of viewport
+            var opEnd   = -r.height; // top at -block height (block fully above viewport)
+            var op = clamp((opStart - top) / (opStart - opEnd), 0, 1);
+            var sticky  = block.querySelector('[data-tp-sticky]');
+            var overlay = block.querySelector('[data-tp-overlay]');
+            if (sticky)  sticky.style.setProperty('--sp', sp.toFixed(3));
+            if (overlay) overlay.style.setProperty('--op', op.toFixed(3));
+        });
+    }
+
+    var ticking = false;
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(function () {
+            updatePFeatures();
+            updateTPBlocks();
+            ticking = false;
+        });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    // Initial paint
+    onScroll();
+})();
 </script>
 </asp:Content>
