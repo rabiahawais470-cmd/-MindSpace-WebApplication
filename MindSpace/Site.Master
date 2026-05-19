@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="<%: ResolveUrl("~/favicon.svg") %>" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=6.0" rel="stylesheet" />
+    <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=6.1" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body class='<%= pnlUserNav.Visible || pnlAdminNav.Visible ? "is-auth" : "is-guest" %>'>
@@ -38,9 +38,16 @@
             <%-- LEARNER SIDEBAR --%>
             <asp:Panel ID="pnlUserNav" runat="server" Visible="false">
                 <nav id="sidebar">
+                    <button type="button" class="sidebar-collapse-btn d-none d-lg-flex" onclick="document.body.classList.toggle('sidebar-collapsed'); this.querySelector('i').classList.toggle('fa-chevron-right'); this.querySelector('i').classList.toggle('fa-chevron-left');" title="Collapse sidebar" aria-label="Collapse sidebar">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
                     <div class="sidebar-brand">
                         <span class="sidebar-brand-icon"><i class="fa-solid fa-brain"></i></span>
                         <span class="sidebar-brand-name">MindSpace</span>
+                    </div>
+                    <div class="sidebar-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search courses..." onkeydown="if(event.key==='Enter'){var v=this.value.trim();if(v){window.location.href='<%: ResolveUrl("~/Courses/CourseList.aspx") %>?search='+encodeURIComponent(v);}}" />
                     </div>
                     <ul class="sidebar-nav">
                         <li><a class="sidebar-link" href="<%: ResolveUrl("~/User/UserHome.aspx") %>"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a></li>
@@ -52,7 +59,17 @@
                     </ul>
                     <div class="sidebar-bottom">
                         <a class="sidebar-link" href="<%: ResolveUrl("~/ChangePassword.aspx") %>"><i class="fa-solid fa-key"></i><span>Settings</span></a>
-                        <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="sidebar-link text-danger" OnClick="lbtnLogout_Click">
+                        <a class="sidebar-profile" href="<%: ResolveUrl("~/User/Profile.aspx") %>" title="View profile">
+                            <div class="sidebar-profile-avatar">
+                                <%: ((Session["FullName"] ?? Session["Username"] ?? "M").ToString().Length > 0 ? (Session["FullName"] ?? Session["Username"]).ToString().Substring(0,1).ToUpper() : "M") %>
+                                <span class="sb-status-dot" title="Online"></span>
+                            </div>
+                            <div class="sidebar-profile-info">
+                                <div class="sidebar-profile-name"><%: Session["FullName"] ?? Session["Username"] ?? "Learner" %></div>
+                                <div class="sidebar-profile-role">Learner</div>
+                            </div>
+                        </a>
+                        <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="sidebar-logout" OnClick="lbtnLogout_Click">
                             <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
                         </asp:LinkButton>
                     </div>
@@ -62,9 +79,16 @@
             <%-- ADMIN SIDEBAR --%>
             <asp:Panel ID="pnlAdminNav" runat="server" Visible="false">
                 <nav id="sidebar">
+                    <button type="button" class="sidebar-collapse-btn d-none d-lg-flex" onclick="document.body.classList.toggle('sidebar-collapsed'); this.querySelector('i').classList.toggle('fa-chevron-right'); this.querySelector('i').classList.toggle('fa-chevron-left');" title="Collapse sidebar" aria-label="Collapse sidebar">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
                     <div class="sidebar-brand">
                         <span class="sidebar-brand-icon"><i class="fa-solid fa-shield-halved"></i></span>
                         <span class="sidebar-brand-name">Admin</span>
+                    </div>
+                    <div class="sidebar-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search users..." onkeydown="if(event.key==='Enter'){var v=this.value.trim();if(v){window.location.href='<%: ResolveUrl("~/Admin/UserManagement.aspx") %>?search='+encodeURIComponent(v);}}" />
                     </div>
                     <ul class="sidebar-nav">
                         <li><a class="sidebar-link" href="<%: ResolveUrl("~/Admin/AdminHome.aspx") %>"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a></li>
@@ -74,7 +98,17 @@
                     </ul>
                     <div class="sidebar-bottom">
                         <a class="sidebar-link" href="<%: ResolveUrl("~/ChangePassword.aspx") %>"><i class="fa-solid fa-key"></i><span>Settings</span></a>
-                        <asp:LinkButton ID="lbtnAdminLogout" runat="server" CssClass="sidebar-link text-danger" OnClick="lbtnLogout_Click">
+                        <div class="sidebar-profile" title="Administrator">
+                            <div class="sidebar-profile-avatar">
+                                <%: ((Session["FullName"] ?? Session["Username"] ?? "A").ToString().Length > 0 ? (Session["FullName"] ?? Session["Username"]).ToString().Substring(0,1).ToUpper() : "A") %>
+                                <span class="sb-status-dot" title="Online"></span>
+                            </div>
+                            <div class="sidebar-profile-info">
+                                <div class="sidebar-profile-name"><%: Session["FullName"] ?? Session["Username"] ?? "Administrator" %></div>
+                                <div class="sidebar-profile-role">Administrator</div>
+                            </div>
+                        </div>
+                        <asp:LinkButton ID="lbtnAdminLogout" runat="server" CssClass="sidebar-logout" OnClick="lbtnLogout_Click">
                             <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
                         </asp:LinkButton>
                     </div>
@@ -127,6 +161,24 @@
                 var leaf = href.replace(/^.*\//, '');
                 if (leaf && current.indexOf(leaf) !== -1) a.classList.add('active');
             });
+        })();
+
+        // Persist sidebar collapse state across navigation
+        (function () {
+            try {
+                if (localStorage.getItem('ms-sidebar-collapsed') === '1') {
+                    document.body.classList.add('sidebar-collapsed');
+                    var icon = document.querySelector('.sidebar-collapse-btn i');
+                    if (icon) { icon.classList.remove('fa-chevron-left'); icon.classList.add('fa-chevron-right'); }
+                }
+                var btn = document.querySelector('.sidebar-collapse-btn');
+                if (btn) {
+                    btn.addEventListener('click', function () {
+                        var collapsed = document.body.classList.contains('sidebar-collapsed');
+                        try { localStorage.setItem('ms-sidebar-collapsed', collapsed ? '1' : '0'); } catch (e) {}
+                    });
+                }
+            } catch (e) {}
         })();
         // Reveal-on-scroll fallback (so .reveal works on all pages)
         (function () {
