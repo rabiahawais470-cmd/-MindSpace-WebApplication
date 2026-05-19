@@ -1717,6 +1717,128 @@ a:hover { color: var(--color-orange); }
 .rich-toolbar .btn-xs { background: #fff; border: 1px solid #E5E7EB; color: var(--color-text-secondary); }
 .rich-toolbar .btn-xs:hover { background: var(--color-primary-light); color: var(--color-primary); }
 
+/* ==========================================================
+   HighlightCard pattern
+   (Ported from a React+framer-motion component to vanilla CSS)
+   Use: <div class="ms-highlight-card hc-violet"> ... </div>
+   ========================================================== */
+.ms-highlight-card {
+    position: relative;
+    width: 100%;
+    border-radius: 1.25rem;
+    padding: 1.5rem 1.5rem 1.4rem;
+    overflow: hidden;
+    color: #fff;
+    box-shadow: var(--shadow-card);
+    background-image:
+        radial-gradient(circle at 1px 1px, hsla(0,0%,100%,0.18) 1px, transparent 0),
+        linear-gradient(to bottom right, var(--hc-from, hsl(262 83% 58%)), var(--hc-to, hsl(262 70% 50%)));
+    background-size: 0.5rem 0.5rem, 100% 100%;
+    transition: transform 0.25s cubic-bezier(.16,1,.3,1), box-shadow 0.25s ease;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+}
+.ms-highlight-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+}
+.ms-highlight-card.hc-green   { --hc-from: hsl(142 76% 46%); --hc-to: hsl(160 60% 48%); }
+.ms-highlight-card.hc-blue    { --hc-from: hsl(217 91% 60%); --hc-to: hsl(221 83% 53%); }
+.ms-highlight-card.hc-violet  { --hc-from: hsl(262 83% 58%); --hc-to: hsl(262 70% 50%); }
+.ms-highlight-card.hc-orange  { --hc-from: hsl(24 94% 52%); --hc-to: hsl(35 92% 60%); }
+.ms-highlight-card.hc-magenta { --hc-from: hsl(303 60% 50%); --hc-to: hsl(330 70% 55%); }
+.ms-highlight-card.hc-purple  { --hc-from: hsl(271 100% 22%); --hc-to: hsl(291 60% 45%); }
+
+.ms-highlight-card .hc-bookmark {
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    height: 64px;
+    width: 48px;
+    background: rgba(255,255,255,0.95);
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 12px;
+    color: var(--hc-from);
+    font-size: 1.1rem;
+}
+.ms-highlight-card .hc-title {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: #fff;
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+    line-height: 1.15;
+    max-width: 75%;
+}
+.ms-highlight-card .hc-desc {
+    font-size: 0.85rem;
+    opacity: 0.92;
+    max-width: 80%;
+    margin: 0;
+    line-height: 1.45;
+    color: #fff;
+}
+.ms-highlight-card .hc-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.22);
+    margin: 1.1rem 0 1rem;
+    width: 100%;
+}
+.ms-highlight-card .hc-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+}
+.ms-highlight-card .hc-metric {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: #fff;
+}
+.ms-highlight-card .hc-metric-label {
+    font-size: 0.78rem;
+    opacity: 0.9;
+    margin-top: 0.35rem;
+    color: #fff;
+}
+.ms-highlight-card .hc-btn {
+    background: rgba(255,255,255,0.30);
+    color: #fff;
+    border: 0;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius-pill);
+    padding: 0.55rem 1.1rem;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.12s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+.ms-highlight-card .hc-btn:hover {
+    background: rgba(255,255,255,0.45);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
 /* ---------- Animations ---------- */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }

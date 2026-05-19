@@ -20,41 +20,65 @@
         </div>
     </div>
 
-    <!-- ===== STATS ROW (4 cards) ===== -->
-    <div class="row g-3 mb-4">
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon purple"><i class="fa-solid fa-percent"></i></div>
-                <div>
-                    <div class="stat-num"><asp:Literal ID="litOverallPct" runat="server">0</asp:Literal>%</div>
-                    <div class="stat-label">Overall Progress</div>
+    <!-- ===== STATS ROW (HighlightCards) ===== -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-3">
+            <div class="ms-highlight-card hc-violet anim-fade-up">
+                <span class="hc-bookmark"><i class="fa-solid fa-percent"></i></span>
+                <h3 class="hc-title">overall progress</h3>
+                <p class="hc-desc">Your aggregated learning completion across every enrolled course.</p>
+                <div class="hc-divider"></div>
+                <div class="hc-bottom">
+                    <div>
+                        <div class="hc-metric"><asp:Literal ID="litOverallPct" runat="server">0</asp:Literal>%</div>
+                        <div class="hc-metric-label">Across all courses</div>
+                    </div>
+                    <a href="../Courses/CourseList.aspx" class="hc-btn">See all</a>
                 </div>
             </div>
         </div>
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon green"><i class="fa-solid fa-clipboard-check"></i></div>
-                <div>
-                    <div class="stat-num"><asp:Literal ID="litQuizzesDone" runat="server">0</asp:Literal></div>
-                    <div class="stat-label">Quizzes Taken</div>
+        <div class="col-md-6 col-lg-3">
+            <div class="ms-highlight-card hc-green anim-fade-up anim-delay-1">
+                <span class="hc-bookmark"><i class="fa-solid fa-clipboard-check"></i></span>
+                <h3 class="hc-title">quizzes taken</h3>
+                <p class="hc-desc">Total quizzes you have attempted across your enrolled courses.</p>
+                <div class="hc-divider"></div>
+                <div class="hc-bottom">
+                    <div>
+                        <div class="hc-metric"><asp:Literal ID="litQuizzesDone" runat="server">0</asp:Literal></div>
+                        <div class="hc-metric-label">This learning cycle</div>
+                    </div>
+                    <a href="../Courses/CourseList.aspx" class="hc-btn">Practice</a>
                 </div>
             </div>
         </div>
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon blue"><i class="fa-solid fa-comments"></i></div>
-                <div>
-                    <div class="stat-num"><asp:Literal ID="litForumCount" runat="server">0</asp:Literal></div>
-                    <div class="stat-label">Forum Posts</div>
+        <div class="col-md-6 col-lg-3">
+            <div class="ms-highlight-card hc-blue anim-fade-up anim-delay-2">
+                <span class="hc-bookmark"><i class="fa-solid fa-comments"></i></span>
+                <h3 class="hc-title">forum posts</h3>
+                <p class="hc-desc">Contributions you have shared with the community discussion.</p>
+                <div class="hc-divider"></div>
+                <div class="hc-bottom">
+                    <div>
+                        <div class="hc-metric"><asp:Literal ID="litForumCount" runat="server">0</asp:Literal></div>
+                        <div class="hc-metric-label">Total contributions</div>
+                    </div>
+                    <a href="Forum.aspx" class="hc-btn">Visit</a>
                 </div>
             </div>
         </div>
-        <div class="col-6 col-md-3">
-            <div class="stat-card">
-                <div class="stat-icon orange"><i class="fa-regular fa-clock"></i></div>
-                <div>
-                    <div class="stat-num"><asp:Literal ID="litHours" runat="server">0</asp:Literal>h</div>
-                    <div class="stat-label">Time on Platform</div>
+        <div class="col-md-6 col-lg-3">
+            <div class="ms-highlight-card hc-orange anim-fade-up anim-delay-3">
+                <span class="hc-bookmark"><i class="fa-regular fa-clock"></i></span>
+                <h3 class="hc-title">time on platform</h3>
+                <p class="hc-desc">Total time you have spent learning during this period.</p>
+                <div class="hc-divider"></div>
+                <div class="hc-bottom">
+                    <div>
+                        <div class="hc-metric"><asp:Literal ID="litHours" runat="server">0</asp:Literal>h</div>
+                        <div class="hc-metric-label">Daily average tracked</div>
+                    </div>
+                    <a href="UserHome.aspx" class="hc-btn">Dashboard</a>
                 </div>
             </div>
         </div>
