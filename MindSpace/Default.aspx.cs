@@ -7,13 +7,14 @@ namespace MindSpace
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            // Logged-in users should never see the public marketing hero — send them straight
+            // to their role-appropriate dashboard so the public content doesn't appear under
+            // the authenticated app shell.
+            if (Session["UserID"] != null)
             {
-                if (Session["UserID"] != null)
-                {
-                    pnlCTAGuest.Visible = false;
-                    pnlCTAUser.Visible  = true;
-                }
+                string role = Session["Role"]?.ToString();
+                Response.Redirect(role == "admin" ? "~/Admin/AdminHome.aspx" : "~/User/UserHome.aspx");
+                return;
             }
         }
     }
