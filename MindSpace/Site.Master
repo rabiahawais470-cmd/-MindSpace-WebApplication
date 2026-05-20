@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="<%: ResolveUrl("~/favicon.svg") %>" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=6.6" rel="stylesheet" />
+    <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=6.7" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body class='<%= pnlUserNav.Visible || pnlAdminNav.Visible ? "is-auth" : "is-guest" %>'>
@@ -64,7 +64,7 @@
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>"><i class="fa-solid fa-book-open"></i><span>Courses</span></a></li>
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/ProgressTracking.aspx") %>"><i class="fa-solid fa-chart-line"></i><span>Progress</span></a></li>
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/Discussions.aspx") %>"><i class="fa-solid fa-comments"></i><span>Discussions</span></a></li>
-                            <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/Profile.aspx") %>"><i class="fa-solid fa-user"></i><span>Profile</span></a></li>
+                            <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/Bookmarks.aspx") %>"><i class="fa-solid fa-bookmark"></i><span>Bookmarks</span></a></li>
                         </ul>
                         <div class="sb2-collapse" data-sb2-collapse>
                             <button type="button" class="sb2-collapse-head">
@@ -74,7 +74,8 @@
                             <div class="sb2-collapse-body">
                                 <div class="sb2-collapse-body-inner">
                                     <a class="sb2-sub-link" href="<%: ResolveUrl("~/ChangePassword.aspx") %>">Change password</a>
-                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/User/Profile.aspx") %>">Edit profile</a>
+                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/User/NotificationPreferences.aspx") %>">Notification Preferences</a>
+                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/User/PrivacySettings.aspx") %>">Privacy Settings</a>
                                 </div>
                             </div>
                         </div>
@@ -85,14 +86,14 @@
                             </button>
                             <div class="sb2-collapse-body">
                                 <div class="sb2-collapse-body-inner">
-                                    <p class="sb2-help-text">Questions or feedback? Reach out at hi@mindspace.io</p>
+                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/User/FAQ.aspx") %>">FAQ</a>
+                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/User/ReportBug.aspx") %>">Report a Bug</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <%-- Footer --%>
                     <div class="sb2-footer">
-                        <a class="sb2-footer-btn" href="<%: ResolveUrl("~/User/Profile.aspx") %>"><i class="fa-solid fa-id-card"></i><span>view profile</span></a>
                         <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="sb2-footer-btn is-logout" OnClick="lbtnLogout_Click">
                             <i class="fa-solid fa-right-from-bracket"></i><span>logout</span>
                         </asp:LinkButton>

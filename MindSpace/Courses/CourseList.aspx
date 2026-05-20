@@ -56,27 +56,36 @@
             <div class="ms-blog-grid">
         </HeaderTemplate>
         <ItemTemplate>
-            <a class="ms-blog-card" href='<%: ResolveUrl("~/Courses/CourseDetail.aspx") %>?id=<%# Eval("CourseID") %>'>
-                <div class='ms-blog-card-img cat-<%# GetCatClass(Eval("Category").ToString()) %>'>
-                    <span class="ms-blog-card-tag">#<%# Eval("Category").ToString().Replace(" ", "").ToUpper() %></span>
-                </div>
-                <div class="ms-blog-card-body">
-                    <h3 class="ms-blog-card-title"><%# Eval("Title") %></h3>
-                    <p class="ms-blog-card-desc"><%# Eval("Description") %></p>
-                    <div class="ms-blog-card-footer">
-                        <span class="ms-blog-card-more">
-                            <span class="ms-blog-card-more-icon">
-                                <i class="fa-solid fa-arrow-right arr-a"></i>
-                                <i class="fa-solid fa-arrow-right arr-b"></i>
-                            </span>
-                            <%# Convert.ToBoolean(Eval("IsEnrolled")) ? "Continue learning" : "Read more" %>
-                        </span>
-                        <span class="ms-blog-card-date">
-                            <%# Eval("DifficultyLevel") %> &middot; <%# Eval("Duration") %>
-                        </span>
+            <div class="ms-blog-card-wrap">
+                <a class="ms-blog-card" href='<%: ResolveUrl("~/Courses/CourseDetail.aspx") %>?id=<%# Eval("CourseID") %>'>
+                    <div class='ms-blog-card-img cat-<%# GetCatClass(Eval("Category").ToString()) %>'>
+                        <span class="ms-blog-card-tag">#<%# Eval("Category").ToString().Replace(" ", "").ToUpper() %></span>
                     </div>
-                </div>
-            </a>
+                    <div class="ms-blog-card-body">
+                        <h3 class="ms-blog-card-title"><%# Eval("Title") %></h3>
+                        <p class="ms-blog-card-desc"><%# Eval("Description") %></p>
+                        <div class="ms-blog-card-footer">
+                            <span class="ms-blog-card-more">
+                                <span class="ms-blog-card-more-icon">
+                                    <i class="fa-solid fa-arrow-right arr-a"></i>
+                                    <i class="fa-solid fa-arrow-right arr-b"></i>
+                                </span>
+                                <%# Convert.ToBoolean(Eval("IsEnrolled")) ? "Continue learning" : "Read more" %>
+                            </span>
+                            <span class="ms-blog-card-date">
+                                <%# Eval("DifficultyLevel") %> &middot; <%# Eval("Duration") %>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                <button type="button"
+                        class='ms-bookmark-btn <%# Convert.ToBoolean(Eval("IsBookmarked")) ? "is-on" : "" %>'
+                        data-course-id='<%# Eval("CourseID") %>'
+                        aria-label="Toggle bookmark"
+                        title="Bookmark this course">
+                    <i class='<%# Convert.ToBoolean(Eval("IsBookmarked")) ? "fa-solid fa-bookmark" : "fa-regular fa-bookmark" %>'></i>
+                </button>
+            </div>
         </ItemTemplate>
         <FooterTemplate></div></FooterTemplate>
     </asp:Repeater>
@@ -95,4 +104,46 @@
 </asp:Content>
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
+<script>
+/* ===== Bookmark toggle (course cards) ===== */
+(function () {
+    var endpoint = '<%: ResolveUrl("~/Handlers/BookmarkHandler.ashx") %>';
+    var buttons = document.querySelectorAll('.ms-bookmark-btn');
+    buttons.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var courseId = btn.getAttribute('data-course-id');
+            if (!courseId || btn.dataset.busy === '1') return;
+            btn.dataset.busy = '1';
+            var icon = btn.querySelector('i');
+            fetch(endpoint, {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'courseId=' + encodeURIComponent(courseId)
+            })
+            .then(function (r) {
+                if (r.status === 401) {
+                    window.location.href = '<%: ResolveUrl("~/Login.aspx") %>';
+                    return null;
+                }
+                return r.json();
+            })
+            .then(function (data) {
+                if (!data || !data.ok) return;
+                if (data.bookmarked) {
+                    btn.classList.add('is-on');
+                    if (icon) { icon.classList.remove('fa-regular'); icon.classList.add('fa-solid'); }
+                } else {
+                    btn.classList.remove('is-on');
+                    if (icon) { icon.classList.remove('fa-solid'); icon.classList.add('fa-regular'); }
+                }
+            })
+            .catch(function () { /* swallow */ })
+            .then(function () { btn.dataset.busy = '0'; });
+        });
+    });
+})();
+</script>
 </asp:Content>

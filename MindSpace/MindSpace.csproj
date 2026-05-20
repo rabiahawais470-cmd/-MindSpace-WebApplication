@@ -56,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\DatabaseHelper.cs" />
+    <Compile Include="Handlers\BookmarkHandler.ashx.cs">
+      <DependentUpon>BookmarkHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -137,6 +140,36 @@
     <Compile Include="User\ProgressTracking.aspx.designer.cs">
       <DependentUpon>ProgressTracking.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Bookmarks.aspx.cs">
+      <DependentUpon>Bookmarks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Bookmarks.aspx.designer.cs">
+      <DependentUpon>Bookmarks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ReportBug.aspx.cs">
+      <DependentUpon>ReportBug.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ReportBug.aspx.designer.cs">
+      <DependentUpon>ReportBug.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\NotificationPreferences.aspx.cs">
+      <DependentUpon>NotificationPreferences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\NotificationPreferences.aspx.designer.cs">
+      <DependentUpon>NotificationPreferences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\PrivacySettings.aspx.cs">
+      <DependentUpon>PrivacySettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\PrivacySettings.aspx.designer.cs">
+      <DependentUpon>PrivacySettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Courses\CourseList.aspx.cs">
       <DependentUpon>CourseList.aspx</DependentUpon>
     </Compile>
@@ -179,6 +212,12 @@
     <Content Include="User\Forum.aspx" />
     <Content Include="User\Discussions.aspx" />
     <Content Include="User\ProgressTracking.aspx" />
+    <Content Include="User\Bookmarks.aspx" />
+    <Content Include="User\FAQ.aspx" />
+    <Content Include="User\ReportBug.aspx" />
+    <Content Include="User\NotificationPreferences.aspx" />
+    <Content Include="User\PrivacySettings.aspx" />
+    <Content Include="Handlers\BookmarkHandler.ashx" />
     <Content Include="Courses\CourseList.aspx" />
     <Content Include="Courses\CourseDetail.aspx" />
     <Content Include="Courses\Quiz.aspx" />

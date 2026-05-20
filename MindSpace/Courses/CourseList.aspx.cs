@@ -21,7 +21,9 @@ namespace MindSpace
                 SELECT c.CourseID, c.Title, c.Description, c.Category, c.DifficultyLevel, c.Duration,
                        (SELECT COUNT(*) FROM Enrollments WHERE CourseID=c.CourseID) AS EnrollmentCount,
                        CASE WHEN EXISTS(SELECT 1 FROM Enrollments WHERE CourseID=c.CourseID AND UserID=@uid)
-                            THEN 1 ELSE 0 END AS IsEnrolled
+                            THEN 1 ELSE 0 END AS IsEnrolled,
+                       CASE WHEN EXISTS(SELECT 1 FROM Bookmarks   WHERE CourseID=c.CourseID AND UserID=@uid)
+                            THEN 1 ELSE 0 END AS IsBookmarked
                 FROM   Courses c
                 WHERE  c.IsActive = 1
                   AND  (@search='' OR c.Title LIKE @searchLike OR c.Description LIKE @searchLike)
