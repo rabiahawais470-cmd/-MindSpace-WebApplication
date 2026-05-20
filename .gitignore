@@ -16,6 +16,10 @@ packages/
 # Claude Code config
 .claude/
 
+# AI Tools (instructions for Kimi/Cline, DeepSeek, etc.)
+# These are tracked and should be shared - customize per your needs
+# .ai-tools/
+
 # PDF documents
 *.pdf
 

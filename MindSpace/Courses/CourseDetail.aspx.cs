@@ -30,17 +30,24 @@ namespace MindSpace
             if (dt.Rows.Count == 0) { Response.Redirect("~/Courses/CourseList.aspx"); return; }
 
             DataRow r = dt.Rows[0];
-            Page.Title          = r["Title"].ToString();
-            litCourseTitle.Text = r["Title"].ToString();
-            litCourseDesc.Text  = r["Description"].ToString();
-            litLevel.Text       = r["DifficultyLevel"].ToString();
-            litDuration.Text    = r["Duration"].ToString();
-            litIcon.Text        = GetIcon(r["Category"].ToString());
-            litCatBadge.Text    = $"<span class='course-cat-badge cat-{GetCatClass(r["Category"].ToString())}'>{r["Category"]}</span>";
+            string title = r["Title"] != DBNull.Value ? r["Title"].ToString() : "";
+            string description = r["Description"] != DBNull.Value ? r["Description"].ToString() : "";
+            string level = r["DifficultyLevel"] != DBNull.Value ? r["DifficultyLevel"].ToString() : "";
+            string duration = r["Duration"] != DBNull.Value ? r["Duration"].ToString() : "";
+            string category = r["Category"] != DBNull.Value ? r["Category"].ToString() : "";
 
-            int ec = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+            Page.Title = System.Web.HttpUtility.HtmlEncode(title);
+            litCourseTitle.Text = System.Web.HttpUtility.HtmlEncode(title);
+            litCourseDesc.Text  = System.Web.HttpUtility.HtmlEncode(description);
+            litLevel.Text       = System.Web.HttpUtility.HtmlEncode(level);
+            litDuration.Text    = System.Web.HttpUtility.HtmlEncode(duration);
+            litIcon.Text        = GetIcon(category);
+            litCatBadge.Text    = $"<span class='course-cat-badge cat-{GetCatClass(category)}'>{System.Web.HttpUtility.HtmlEncode(category)}</span>";
+
+            object ecObj = DatabaseHelper.ExecuteScalar(
                 "SELECT COUNT(*) FROM Enrollments WHERE CourseID=@id",
-                new[] { new SqlParameter("@id", courseID) }));
+                new[] { new SqlParameter("@id", courseID) });
+            int ec = ecObj != null ? Convert.ToInt32(ecObj) : 0;
             litEnrolled.Text = ec.ToString();
 
             int  userID     = Session["UserID"] != null ? Convert.ToInt32(Session["UserID"]) : 0;
@@ -48,9 +55,10 @@ namespace MindSpace
 
             if (userID > 0)
             {
-                int enrolled = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                object enrolledObj = DatabaseHelper.ExecuteScalar(
                     "SELECT COUNT(*) FROM Enrollments WHERE UserID=@uid AND CourseID=@cid",
-                    new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) }));
+                    new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
+                int enrolled = enrolledObj != null ? Convert.ToInt32(enrolledObj) : 0;
                 isEnrolled = enrolled > 0;
 
                 if (isEnrolled)
@@ -60,12 +68,14 @@ namespace MindSpace
                     pnlLoginToEnroll.Visible = false;
                     pnlProgress.Visible      = true;
 
-                    int progress = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                    object progressObj = DatabaseHelper.ExecuteScalar(
                         "SELECT Progress FROM Enrollments WHERE UserID=@uid AND CourseID=@cid",
-                        new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) }));
+                        new[] { new SqlParameter("@uid", userID), new SqlParameter("@cid", courseID) });
+
+                    int progress = progressObj != null ? Convert.ToInt32(progressObj) : 0;
 
                     litProgressPct.Text = progress.ToString();
-                    courseProgressBar.Attributes["style"] = $"width:{progress}%;";
+                    courseProgressBar.Attributes["style"] = $"width:{progress}%";
                 }
                 else
                 {

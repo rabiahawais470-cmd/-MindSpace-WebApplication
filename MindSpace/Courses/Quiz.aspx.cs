@@ -39,10 +39,14 @@ namespace MindSpace
             if (quiz.Rows.Count == 0) { Response.Redirect("~/Courses/CourseList.aspx"); return; }
 
             DataRow q = quiz.Rows[0];
-            Page.Title          = q["Title"].ToString() + " - Quiz";
-            litQuizTitle.Text   = q["Title"].ToString();
-            litQuizDesc.Text    = q["Description"].ToString();
-            litPassingScore.Text = q["PassingScore"].ToString();
+            string qTitle = q["Title"] != DBNull.Value ? q["Title"].ToString() : "";
+            string qDesc = q["Description"] != DBNull.Value ? q["Description"].ToString() : "";
+            string qPassing = q["PassingScore"] != DBNull.Value ? q["PassingScore"].ToString() : "";
+
+            Page.Title = System.Web.HttpUtility.HtmlEncode(qTitle) + " - Quiz";
+            litQuizTitle.Text = System.Web.HttpUtility.HtmlEncode(qTitle);
+            litQuizDesc.Text = System.Web.HttpUtility.HtmlEncode(qDesc);
+            litPassingScore.Text = System.Web.HttpUtility.HtmlEncode(qPassing);
             hdnQuizID.Value     = quizID.ToString();
 
             // Load questions
@@ -69,14 +73,16 @@ namespace MindSpace
             var sb = new StringBuilder();
             foreach (DataRow row in dt.Rows)
             {
-                string label = row["OptionLabel"].ToString();
-                string text  = row["OptionText"].ToString();
+                string label = row["OptionLabel"] != DBNull.Value ? row["OptionLabel"].ToString() : "";
+                string text  = row["OptionText"] != DBNull.Value ? row["OptionText"].ToString() : "";
+                string encLabel = System.Web.HttpUtility.HtmlAttributeEncode(label);
+                string encText = System.Web.HttpUtility.HtmlEncode(text);
                 sb.AppendFormat(
                     "<label class='quiz-option'>" +
                     "<input type='radio' name='q{0}' value='{1}' />" +
                     "<strong class='me-2'>{1}.</strong> {2}" +
                     "</label>",
-                    questionID, label, text);
+                    questionID, encLabel, encText);
             }
             return sb.ToString();
         }
@@ -103,10 +109,10 @@ namespace MindSpace
             int score = 0;
             foreach (DataRow row in questions.Rows)
             {
-                int    qID     = Convert.ToInt32(row["QuestionID"]);
-                string correct = row["CorrectAnswer"].ToString();
+                int qID = row["QuestionID"] != DBNull.Value ? Convert.ToInt32(row["QuestionID"]) : 0;
+                if (qID == 0) continue;
+                string correct = row["CorrectAnswer"] != DBNull.Value ? row["CorrectAnswer"].ToString() : "";
                 string userAns = Request.Form["q" + qID] ?? "";
-
                 if (userAns.Trim().Equals(correct.Trim(), StringComparison.OrdinalIgnoreCase))
                     score++;
             }
@@ -114,9 +120,10 @@ namespace MindSpace
             decimal percentage = total > 0 ? Math.Round((decimal)score / total * 100, 1) : 0;
 
             // Get passing score
-            int passingScore = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+            object passObj = DatabaseHelper.ExecuteScalar(
                 "SELECT PassingScore FROM Quizzes WHERE QuizID=@id",
-                new[] { new SqlParameter("@id", quizID) }));
+                new[] { new SqlParameter("@id", quizID) });
+            int passingScore = passObj != null ? Convert.ToInt32(passObj) : 0;
 
             // Generate feedback
             string feedback;
@@ -168,7 +175,9 @@ namespace MindSpace
                     new SqlParameter("@score", percentage)
                 });
 
-            Response.Redirect("~/Courses/QuizResults.aspx?resultID=" + resultID);
+            Response.Redirect("~/Courses/QuizResults.aspx?resultID=" + (resultID?.ToString() ?? ""));
         }
     }
 }
+
+
