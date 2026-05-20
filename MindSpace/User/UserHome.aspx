@@ -184,19 +184,21 @@
         </div>
     </div>
 
-    <%-- Hidden / kept-for-backend literals --%>
-    <asp:Literal ID="litAvatarInitial" runat="server" Visible="false" />
-    <asp:Literal ID="litProfileInitial" runat="server" Visible="false" />
-    <asp:Literal ID="litProfileName" runat="server" Visible="false" />
-    <asp:Literal ID="litProfileUsername" runat="server" Visible="false" />
-    <asp:Panel ID="pnlBio" runat="server" Visible="false">
-        <asp:Literal ID="litProfileBio" runat="server" />
-    </asp:Panel>
-    <asp:Literal ID="litAchievements" runat="server" Visible="false" />
-    <asp:Panel ID="pnlCertificates" runat="server" Visible="false">
-        <asp:Literal ID="litCertCount" runat="server" />
-        <asp:Repeater ID="rptCertificates" runat="server"></asp:Repeater>
-    </asp:Panel>
+    <%-- Hidden / kept-for-backend literals (wrapped so server-side Visible toggles still don't leak text) --%>
+    <div style="display: none !important;" aria-hidden="true">
+        <asp:Literal ID="litAvatarInitial" runat="server" />
+        <asp:Literal ID="litProfileInitial" runat="server" />
+        <asp:Literal ID="litProfileName" runat="server" />
+        <asp:Literal ID="litProfileUsername" runat="server" />
+        <asp:Panel ID="pnlBio" runat="server">
+            <asp:Literal ID="litProfileBio" runat="server" />
+        </asp:Panel>
+        <asp:Literal ID="litAchievements" runat="server" />
+        <asp:Panel ID="pnlCertificates" runat="server">
+            <asp:Literal ID="litCertCount" runat="server" />
+            <asp:Repeater ID="rptCertificates" runat="server"></asp:Repeater>
+        </asp:Panel>
+    </div>
 
 </div>
 
