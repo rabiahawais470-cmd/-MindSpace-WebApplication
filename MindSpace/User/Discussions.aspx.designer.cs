@@ -54,6 +54,7 @@ namespace MindSpace {
         // Comments repeater
         protected global::System.Web.UI.WebControls.Literal litCommentCount;
         protected global::System.Web.UI.WebControls.Repeater rptComments;
+        protected global::System.Web.UI.WebControls.Panel pnlNoComments;
 
         // Edit comment form
         protected global::System.Web.UI.WebControls.Panel pnlEditComment;

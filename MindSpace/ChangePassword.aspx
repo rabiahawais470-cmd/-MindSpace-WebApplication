@@ -2,7 +2,7 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div style="max-width: 520px; margin: 20px auto;">
+    <div class="simple-form simple-form-narrow">
 
         <div class="mb-4">
             <h3 style="font-family: var(--font-heading); font-weight: 700;"><i class="fa-solid fa-key me-2" style="color: var(--color-primary);"></i>Change Password</h3>
@@ -22,10 +22,9 @@
             </div>
         </asp:Panel>
 
-        <div class="card p-4">
-            <input type="text" name="username" autocomplete="username"
-                   style="display:none;" aria-hidden="true"
-                   value='<%: Session["Username"] %>' />
+        <input type="text" name="username" autocomplete="username"
+               style="display:none;" aria-hidden="true"
+               value='<%: Session["Username"] %>' />
 
             <div class="mb-3">
                 <label class="form-label">Current Password <span class="text-danger">*</span></label>
@@ -98,8 +97,6 @@
                     CssClass="btn btn-outline-secondary" CausesValidation="false"
                     OnClick="btnCancel_Click" />
             </div>
-        </div>
-
         <div class="mt-3 p-3" style="background: var(--color-primary-light); border-radius: var(--radius-md);">
             <h6 class="mb-2" style="font-size: var(--text-sm);"><i class="fa-solid fa-circle-info me-2" style="color: var(--color-primary);"></i>Password Tips</h6>
             <ul class="small text-muted mb-0" style="padding-left: 20px;">

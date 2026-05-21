@@ -3,7 +3,7 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="cl-header">
-        <h2 class="cl-header-title">privacy <span class="cl-header-accent">settings</span></h2>
+        <h2 class="cl-header-title">Privacy <span class="cl-header-accent">Settings</span></h2>
         <p class="cl-header-sub">Control what other learners can see about your activity on MindSpace.</p>
     </div>
 

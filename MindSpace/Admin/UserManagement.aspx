@@ -52,6 +52,7 @@
                     <asp:ListItem Value="learner">Learner</asp:ListItem>
                     <asp:ListItem Value="admin">Admin</asp:ListItem>
                 </asp:DropDownList>
+                <div class="form-text text-muted">Learner = standard account, Admin = full access.</div>
             </div>
             <div class="col-md-3">
                 <label class="form-label">Status</label>
@@ -117,7 +118,7 @@
                     <asp:TemplateField HeaderText="Role">
                         <ItemTemplate>
                             <span class="badge <%# Eval("Role").ToString() == "admin" ? "badge-role-admin" : "badge-role-learner" %>">
-                                <%# Eval("Role") %>
+                                <%# Eval("Role").ToString() == "admin" ? "Admin" : "Learner" %>
                             </span>
                         </ItemTemplate>
                     </asp:TemplateField>

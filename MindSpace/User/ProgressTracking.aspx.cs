@@ -478,13 +478,21 @@ namespace MindSpace
                         <div class=""badge-name"">{HttpUtility.HtmlEncode(name)}</div>
                         <div class=""badge-desc"">{HttpUtility.HtmlEncode(desc)}</div>
                     </div>
+                    <span class=""badge-status"">{(unlocked ? "Unlocked" : "Locked")}</span>
                 </div>");
             }
 
-            // Header with count
-            litAchievements.Text = $@"<div class=""d-flex justify-content-between align-items-center mb-2"">
-                <small class=""text-muted"">{unlockCount}/{badges.Count} earned</small>
-            </div>" + sb.ToString();
+            int total = badges.Count;
+            int pct = total == 0 ? 0 : (int)Math.Round((unlockCount / (double)total) * 100);
+            string progress = $@"<div class=""achievement-progress"">
+                <div class=""achievement-progress-head"">
+                    <span class=""achievement-progress-title"">Badges earned</span>
+                    <span class=""achievement-progress-count"">{unlockCount}/{total}</span>
+                </div>
+                <div class=""achievement-progress-bar""><span style=""width:{pct}%""></span></div>
+            </div>";
+
+            litAchievements.Text = progress + $@"<div class=""achievement-grid"">{sb}</div>";
         }
 
         // ============================================================

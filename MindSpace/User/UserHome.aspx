@@ -71,13 +71,13 @@
         <div class="dash-panel">
             <div class="dash-panel-head">
                 <h3 class="dash-panel-title">recent activity</h3>
-                <a class="dash-panel-link" href="Discussions.aspx">View all</a>
+                <a class="dash-panel-link" href="ProgressTracking.aspx">View all</a>
             </div>
 
             <asp:Panel ID="pnlNoActivity" runat="server" Visible="false">
                 <div class="text-center py-4 text-muted">
                     <i class="fa-regular fa-comment fa-2x mb-2 d-block" style="color: #E5E7EB;"></i>
-                    <p class="mb-2 small">No discussion activity yet.</p>
+                    <p class="mb-2 small">No recent activity yet.</p>
                     <a href="Discussions.aspx" class="dash-panel-link">Join a conversation &rarr;</a>
                 </div>
             </asp:Panel>

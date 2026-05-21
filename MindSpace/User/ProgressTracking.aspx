@@ -90,67 +90,67 @@
         <div class="col-lg-8">
 
             <!-- COURSE PROGRESS -->
-            <div class="section-header">
-                <h6 class="fw-bold mb-0">Course Progress</h6>
-                <a href="../Courses/CourseList.aspx" style="font-size: var(--text-sm); color: var(--color-primary);">Browse all &rarr;</a>
-            </div>
-
-            <asp:Panel ID="pnlNoCourses" runat="server" Visible="false">
-                <div class="card p-4 text-center text-muted mb-3">
-                    <i class="fa-solid fa-book fa-3x mb-3" style="color: #E5E7EB;"></i>
-                    <p class="mb-3">You haven&rsquo;t enrolled in any courses yet.</p>
-                    <a href="../Courses/CourseList.aspx" class="btn btn-primary btn-sm">Browse Courses</a>
+            <div class="card p-4 mb-4">
+                <div class="section-header mb-3">
+                    <h6 class="fw-bold mb-0">Course Progress</h6>
                 </div>
-            </asp:Panel>
 
-            <asp:Repeater ID="rptCourseProgress" runat="server">
-                <ItemTemplate>
-                    <div class="progress-course-card mb-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="rounded-2 d-flex align-items-center justify-content-center"
-                                 style="width: 48px; height: 48px; background: var(--color-primary-light); color: var(--color-primary); border-radius: var(--radius-md); font-size: 1.25rem; flex-shrink: 0;">
-                                <i class="fa-solid fa-brain"></i>
-                            </div>
-                            <div style="flex: 1; min-width: 0;">
-                                <div class="d-flex justify-content-between align-items-start gap-2 mb-1 flex-wrap">
-                                    <div>
-                                        <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>">
-                                            <%# System.Web.HttpUtility.HtmlEncode(Eval("Category").ToString()) %>
-                                        </span>
-                                        <div class="fw-semibold mt-1" style="font-size: var(--text-sm);">
-                                            <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>" style="color: var(--color-text-primary);">
-                                                <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
-                                            </a>
+                <asp:Panel ID="pnlNoCourses" runat="server" Visible="false">
+                    <div class="text-center text-muted py-4">
+                        <i class="fa-solid fa-book fa-3x mb-3" style="color: #E5E7EB;"></i>
+                        <p class="mb-3">You haven&rsquo;t enrolled in any courses yet.</p>
+                        <a href="../Courses/CourseList.aspx" class="btn btn-primary btn-sm">Browse Courses</a>
+                    </div>
+                </asp:Panel>
+
+                <asp:Repeater ID="rptCourseProgress" runat="server">
+                    <ItemTemplate>
+                        <div class="progress-course-card mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="rounded-2 d-flex align-items-center justify-content-center"
+                                     style="width: 48px; height: 48px; background: var(--color-primary-light); color: var(--color-primary); border-radius: var(--radius-md); font-size: 1.25rem; flex-shrink: 0;">
+                                    <i class="fa-solid fa-brain"></i>
+                                </div>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div class="d-flex justify-content-between align-items-start gap-2 mb-1 flex-wrap">
+                                        <div>
+                                            <span class="course-cat-badge cat-<%# GetCatClass(Eval("Category").ToString()) %>">
+                                                <%# System.Web.HttpUtility.HtmlEncode(Eval("Category").ToString()) %>
+                                            </span>
+                                            <div class="fw-semibold mt-1" style="font-size: var(--text-sm);">
+                                                <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>" style="color: var(--color-text-primary);">
+                                                    <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <%# GetStatusBadge(Eval("IsCompleted"), Eval("Progress")) %>
                                         </div>
                                     </div>
-                                    <div>
-                                        <%# GetStatusBadge(Eval("IsCompleted"), Eval("Progress")) %>
+                                    <div class="progress mt-2" style="height: 6px;">
+                                        <div class="progress-bar" style="width: <%# Eval("Progress") %>%;"></div>
                                     </div>
-                                </div>
-                                <div class="progress mt-2" style="height: 6px;">
-                                    <div class="progress-bar" style="width: <%# Eval("Progress") %>%;"></div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mt-2 flex-wrap gap-2">
-                                    <div class="text-muted" style="font-size: 0.72rem;">
-                                        <i class="fa-solid fa-graduation-cap me-1"></i><%# Eval("QuizzesPassed") %>/<%# Eval("TotalQuizzes") %> quizzes passed
-                                        <span class="mx-1">&middot;</span>
-                                        <%# Eval("Progress") %>% complete
+                                    <div class="d-flex justify-content-between align-items-center mt-2 flex-wrap gap-2">
+                                        <div class="text-muted" style="font-size: 0.72rem;">
+                                            <i class="fa-solid fa-graduation-cap me-1"></i><%# Eval("QuizzesPassed") %>/<%# Eval("TotalQuizzes") %> quizzes passed
+                                            <span class="mx-1">&middot;</span>
+                                            <%# Eval("Progress") %>% complete
+                                        </div>
+                                        <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>" class="btn btn-sm btn-outline-primary">
+                                            <%# Convert.ToBoolean(Eval("IsCompleted")) ? "Review" : "Continue" %>
+                                        </a>
                                     </div>
-                                    <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>" class="btn btn-sm btn-outline-primary">
-                                        <%# Convert.ToBoolean(Eval("IsCompleted")) ? "Review" : "Continue" %>
-                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
 
             <!-- QUIZ SCORE CHART -->
             <div class="card p-4 mb-4 mt-4">
                 <div class="section-header mb-3" style="margin-bottom: 0;">
                     <h6 class="fw-bold mb-0"><i class="fa-solid fa-chart-bar me-2" style="color: var(--color-primary);"></i>Quiz Score History</h6>
-                    <a href="../Courses/CourseList.aspx" style="font-size: var(--text-sm); color: var(--color-primary);">Take a quiz &rarr;</a>
                 </div>
 
                 <asp:Panel ID="pnlNoChart" runat="server">

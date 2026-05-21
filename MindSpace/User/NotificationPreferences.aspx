@@ -3,7 +3,7 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="cl-header">
-        <h2 class="cl-header-title">notification <span class="cl-header-accent">preferences</span></h2>
+        <h2 class="cl-header-title">Notification <span class="cl-header-accent">Preferences</span></h2>
         <p class="cl-header-sub">Choose which updates you&rsquo;d like to hear about. Changes apply immediately.</p>
     </div>
 

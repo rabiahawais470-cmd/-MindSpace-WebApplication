@@ -239,8 +239,18 @@ namespace MindSpace
                 r["ContentHtml"] = SanitizeHtml(r["Content"].ToString()).Replace("\n", "<br/>");
             }
 
-            rptComments.DataSource = dt;
-            rptComments.DataBind();
+            if (dt.Rows.Count == 0)
+            {
+                rptComments.Visible = false;
+                pnlNoComments.Visible = true;
+            }
+            else
+            {
+                pnlNoComments.Visible = false;
+                rptComments.Visible = true;
+                rptComments.DataSource = dt;
+                rptComments.DataBind();
+            }
             litCommentCount.Text = dt.Rows.Count.ToString();
         }
 

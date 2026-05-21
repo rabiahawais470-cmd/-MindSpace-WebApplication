@@ -30,8 +30,9 @@ namespace MindSpace
                 LoadStats(userID);
                 LoadEnrolledCourses(userID);
                 LoadCertificates(userID);
-                LoadDiscussionActivity(userID);
-                LoadQuizResults(userID);
+                int discussionCount = LoadDiscussionActivity(userID);
+                int quizCount = LoadQuizResults(userID);
+                pnlNoActivity.Visible = discussionCount == 0 && quizCount == 0;
                 LoadProfileCard(userID);
                 LoadAchievements(userID);
             }
@@ -134,7 +135,7 @@ namespace MindSpace
         // ============================================================
         // DISCUSSION ACTIVITY (last 5 posts + comments)
         // ============================================================
-        private void LoadDiscussionActivity(int userID)
+        private int LoadDiscussionActivity(int userID)
         {
             DataTable dt = DatabaseHelper.ExecuteQuery(@"
                 SELECT TOP 5 ActivityType, PostID, Label, DatePosted, Context
@@ -163,21 +164,20 @@ namespace MindSpace
 
             if (dt.Rows.Count == 0)
             {
-                pnlNoActivity.Visible = true;
-                rptActivity.Visible   = false;
+                rptActivity.Visible = false;
+                return 0;
             }
-            else
-            {
-                pnlNoActivity.Visible = false;
-                rptActivity.DataSource = dt;
-                rptActivity.DataBind();
-            }
+
+            rptActivity.Visible = true;
+            rptActivity.DataSource = dt;
+            rptActivity.DataBind();
+            return dt.Rows.Count;
         }
 
         // ============================================================
         // QUIZ RESULTS
         // ============================================================
-        private void LoadQuizResults(int userID)
+        private int LoadQuizResults(int userID)
         {
             DataTable dt = DatabaseHelper.ExecuteQuery(@"
                 SELECT TOP 5 qr.Score, qr.TotalQuestions, qr.Percentage, qr.DateTaken,
@@ -192,13 +192,13 @@ namespace MindSpace
             {
                 pnlNoQuizzes.Visible   = true;
                 rptQuizResults.Visible = false;
+                return 0;
             }
-            else
-            {
-                pnlNoQuizzes.Visible      = false;
-                rptQuizResults.DataSource = dt;
-                rptQuizResults.DataBind();
-            }
+
+            pnlNoQuizzes.Visible      = false;
+            rptQuizResults.DataSource = dt;
+            rptQuizResults.DataBind();
+            return dt.Rows.Count;
         }
 
         // ============================================================

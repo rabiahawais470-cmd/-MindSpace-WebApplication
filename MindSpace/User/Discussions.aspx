@@ -172,6 +172,17 @@
                         </ItemTemplate>
                     </asp:Repeater>
 
+                    <asp:Panel ID="pnlNoComments" runat="server" Visible="false">
+                        <div class="comment-samples">
+                            <p class="mb-2 text-muted small">Be the first to reply. Here are a few ideas:</p>
+                            <ul class="small text-muted mb-0">
+                                <li>Share a quick tip that helped you manage stress this week.</li>
+                                <li>Ask a clarifying question to keep the conversation going.</li>
+                                <li>Offer encouragement or a resource that helped you.</li>
+                            </ul>
+                        </div>
+                    </asp:Panel>
+
                     <asp:Panel ID="pnlEditComment" runat="server" Visible="false">
                         <div class="p-3 mb-3" style="background: var(--color-badge-beginner-bg); border-radius: var(--radius-md);">
                             <h6 class="fw-semibold mb-2">Edit Reply</h6>

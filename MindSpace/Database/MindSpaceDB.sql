@@ -57,6 +57,17 @@ CREATE TABLE Enrollments (
 );
 
 -- =============================================
+-- TABLE: Bookmarks
+-- =============================================
+CREATE TABLE Bookmarks (
+    BookmarkID     INT IDENTITY(1,1) PRIMARY KEY,
+    UserID         INT NOT NULL FOREIGN KEY REFERENCES Users(UserID),
+    CourseID       INT NOT NULL FOREIGN KEY REFERENCES Courses(CourseID),
+    DateBookmarked DATETIME DEFAULT GETDATE(),
+    UNIQUE (UserID, CourseID)
+);
+
+-- =============================================
 -- TABLE: Resources
 -- =============================================
 CREATE TABLE Resources (

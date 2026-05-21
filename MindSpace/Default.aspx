@@ -5,10 +5,6 @@
     <!-- ===== ANIMATED HERO ===== -->
     <section class="ah-hero">
         <div class="ah-hero-inner">
-            <a href="Courses/CourseList.aspx" class="ah-hero-eyebrow">
-                Read our latest research <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
             <h1 class="ah-hero-title">
                 <span class="static-line">Mental wellness is</span>
                 <span class="cycle-line" id="ahWords">

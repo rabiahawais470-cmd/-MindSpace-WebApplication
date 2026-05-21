@@ -11,7 +11,7 @@ namespace MindSpace
             RequireAdmin();
             if (!IsPostBack)
             {
-                litAdminName.Text = Session["FullName"]?.ToString() ?? "Admin";
+                litAdminName.Text = Session["FullName"]?.ToString() ?? "Administrator";
                 LoadStats();
                 LoadRecentUsers();
                 LoadCourses();

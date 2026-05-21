@@ -3,8 +3,8 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="dash-banner">
-        <h2>Welcome, <asp:Literal ID="litAdminName" runat="server" /></h2>
-        <p>Here&rsquo;s an overview of MindSpace activity.</p>
+        <h2>Welcome back, <asp:Literal ID="litAdminName" runat="server" /></h2>
+        <p>Here&rsquo;s a quick overview of MindSpace activity.</p>
     </div>
 
     <!-- STATS CARDS -->
@@ -66,7 +66,7 @@
                             <asp:TemplateField HeaderText="Role">
                                 <ItemTemplate>
                                     <span class="badge <%# Eval("Role").ToString() == "admin" ? "badge-role-admin" : "badge-role-learner" %>">
-                                        <%# Eval("Role") %>
+                                        <%# Eval("Role").ToString() == "admin" ? "Admin" : "Learner" %>
                                     </span>
                                 </ItemTemplate>
                             </asp:TemplateField>

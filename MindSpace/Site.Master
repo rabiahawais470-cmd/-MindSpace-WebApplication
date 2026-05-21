@@ -11,7 +11,7 @@
     <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=6.7" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
-<body class='<%= pnlUserNav.Visible || pnlAdminNav.Visible ? "is-auth" : "is-guest" %>'>
+<body class='<%= (pnlUserNav.Visible || pnlAdminNav.Visible ? "is-auth" : "is-guest") + (HideSearch ? " no-search" : "") %>'>
     <form id="frmMain" runat="server">
 
         <%-- ====== GUEST TOP NAVBAR (Default, Login, Register, public CourseList preview) ====== --%>
@@ -94,7 +94,7 @@
                     </div>
                     <%-- Footer --%>
                     <div class="sb2-footer">
-                        <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="sb2-footer-btn is-logout" OnClick="lbtnLogout_Click">
+                        <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="sb2-footer-btn is-logout" OnClick="lbtnLogout_Click" CausesValidation="false">
                             <i class="fa-solid fa-right-from-bracket"></i><span>logout</span>
                         </asp:LinkButton>
                     </div>
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                     <div class="sb2-footer">
-                        <asp:LinkButton ID="lbtnAdminLogout" runat="server" CssClass="sb2-footer-btn is-logout" OnClick="lbtnLogout_Click">
+                        <asp:LinkButton ID="lbtnAdminLogout" runat="server" CssClass="sb2-footer-btn is-logout" OnClick="lbtnLogout_Click" CausesValidation="false">
                             <i class="fa-solid fa-right-from-bracket"></i><span>logout</span>
                         </asp:LinkButton>
                     </div>
@@ -164,7 +164,7 @@
                         <input type="text" placeholder="Search courses, topics..." />
                     </div>
                     <div class="topbar-actions">
-                        <button type="button" class="topbar-icon-btn" title="Notifications">
+                        <button type="button" class="topbar-icon-btn is-disabled" title="Notifications (coming soon)" aria-disabled="true">
                             <i class="fa-regular fa-bell"></i>
                             <span class="badge-dot"></span>
                         </button>
