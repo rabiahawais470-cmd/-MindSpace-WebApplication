@@ -95,7 +95,7 @@
                     <%-- Footer --%>
                     <div class="sb2-footer">
                         <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="sb2-footer-btn is-logout" OnClick="lbtnLogout_Click" CausesValidation="false">
-                            <i class="fa-solid fa-right-from-bracket"></i><span>logout</span>
+                            <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
                         </asp:LinkButton>
                     </div>
                 </nav>
@@ -142,7 +142,7 @@
                     </div>
                     <div class="sb2-footer">
                         <asp:LinkButton ID="lbtnAdminLogout" runat="server" CssClass="sb2-footer-btn is-logout" OnClick="lbtnLogout_Click" CausesValidation="false">
-                            <i class="fa-solid fa-right-from-bracket"></i><span>logout</span>
+                            <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
                         </asp:LinkButton>
                     </div>
                 </nav>

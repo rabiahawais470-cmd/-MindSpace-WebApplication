@@ -3,7 +3,7 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="cl-header">
-        <h2 class="cl-header-title">report a <span class="cl-header-accent">bug</span></h2>
+        <h2 class="cl-header-title">Report a <span class="cl-header-accent">Bug</span></h2>
         <p class="cl-header-sub">Spotted something broken? Tell us what happened and we&rsquo;ll take a look. Reports go straight to the maintainers.</p>
     </div>
 

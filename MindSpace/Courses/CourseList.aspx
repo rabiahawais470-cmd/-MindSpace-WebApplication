@@ -4,7 +4,7 @@
 
     <!-- HEADER -->
     <div class="cl-header">
-        <h2 class="cl-header-title">Access mental health education <span class="cl-header-accent">designed for you</span></h2>
+        <h2 class="cl-header-title">Access Mental Health Education <span class="cl-header-accent">Designed for You</span></h2>
         <p class="cl-header-sub">Short, evidence-based courses across six wellness topics &mdash; built for real life.</p>
     </div>
 

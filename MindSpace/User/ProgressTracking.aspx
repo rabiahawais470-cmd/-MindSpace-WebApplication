@@ -25,7 +25,7 @@
         <div class="col-md-6 col-lg-3">
             <div class="ms-highlight-card hc-violet anim-fade-up">
                 <span class="hc-bookmark"><i class="fa-solid fa-percent"></i></span>
-                <h3 class="hc-title">overall progress</h3>
+                <h3 class="hc-title">Overall Progress</h3>
                 <p class="hc-desc">Your aggregated learning completion across every enrolled course.</p>
                 <div class="hc-divider"></div>
                 <div class="hc-bottom">
@@ -40,7 +40,7 @@
         <div class="col-md-6 col-lg-3">
             <div class="ms-highlight-card hc-green anim-fade-up anim-delay-1">
                 <span class="hc-bookmark"><i class="fa-solid fa-clipboard-check"></i></span>
-                <h3 class="hc-title">quizzes taken</h3>
+                <h3 class="hc-title">Quizzes Taken</h3>
                 <p class="hc-desc">Total quizzes you have attempted across your enrolled courses.</p>
                 <div class="hc-divider"></div>
                 <div class="hc-bottom">
@@ -55,7 +55,7 @@
         <div class="col-md-6 col-lg-3">
             <div class="ms-highlight-card hc-blue anim-fade-up anim-delay-2">
                 <span class="hc-bookmark"><i class="fa-solid fa-comments"></i></span>
-                <h3 class="hc-title">forum posts</h3>
+                <h3 class="hc-title">Forum Posts</h3>
                 <p class="hc-desc">Contributions you have shared with the community discussion.</p>
                 <div class="hc-divider"></div>
                 <div class="hc-bottom">
@@ -70,7 +70,7 @@
         <div class="col-md-6 col-lg-3">
             <div class="ms-highlight-card hc-orange anim-fade-up anim-delay-3">
                 <span class="hc-bookmark"><i class="fa-regular fa-clock"></i></span>
-                <h3 class="hc-title">time on platform</h3>
+                <h3 class="hc-title">Time on Platform</h3>
                 <p class="hc-desc">Total time you have spent learning during this period.</p>
                 <div class="hc-divider"></div>
                 <div class="hc-bottom">

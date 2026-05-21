@@ -3,7 +3,7 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="cl-header">
-        <h2 class="cl-header-title">frequently asked <span class="cl-header-accent">questions</span></h2>
+        <h2 class="cl-header-title">Frequently Asked <span class="cl-header-accent">Questions</span></h2>
         <p class="cl-header-sub">Quick answers about how MindSpace works. Tap any question to expand.</p>
     </div>
 

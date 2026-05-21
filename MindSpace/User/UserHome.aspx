@@ -7,7 +7,7 @@
     <!-- ====== HEADER ====== -->
     <div class="dash-header">
         <div>
-            <h1 class="dash-header-title">dashboard</h1>
+            <h1 class="dash-header-title">Dashboard</h1>
             <p class="dash-header-sub">Welcome back, <asp:Literal ID="litWelcome" runat="server" /> &mdash; member since <asp:Literal ID="litMemberSince" runat="server" />.</p>
         </div>
         <div class="dash-header-actions">
@@ -70,7 +70,7 @@
         <!-- LEFT: Recent Activity -->
         <div class="dash-panel">
             <div class="dash-panel-head">
-                <h3 class="dash-panel-title">recent activity</h3>
+                <h3 class="dash-panel-title">Recent Activity</h3>
                 <a class="dash-panel-link" href="ProgressTracking.aspx">View all</a>
             </div>
 
@@ -125,7 +125,7 @@
         <div>
             <div class="dash-panel" style="margin-bottom: 24px;">
                 <div class="dash-panel-head">
-                    <h3 class="dash-panel-title">quick stats</h3>
+                    <h3 class="dash-panel-title">Quick Stats</h3>
                 </div>
                 <div class="dash-progress-row">
                     <div class="dash-progress-label">
@@ -158,7 +158,7 @@
 
             <div class="dash-panel">
                 <div class="dash-panel-head">
-                    <h3 class="dash-panel-title">my courses</h3>
+                    <h3 class="dash-panel-title">My Courses</h3>
                     <a class="dash-panel-link" href="../Courses/CourseList.aspx">View all</a>
                 </div>
                 <asp:Panel ID="pnlNoCourses" runat="server" Visible="false">

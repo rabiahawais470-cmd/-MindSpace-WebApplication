@@ -3,12 +3,12 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="cl-header">
-        <h2 class="cl-header-title">your <span class="cl-header-accent">bookmarks</span></h2>
+        <h2 class="cl-header-title">Your <span class="cl-header-accent">Bookmarks</span></h2>
         <p class="cl-header-sub">Courses you&rsquo;ve saved for later. Tap the bookmark icon on any course card to remove it from this list.</p>
     </div>
 
     <div class="cl-grid-header">
-        <h6 class="fw-bold mb-0" style="font-family: var(--font-heading);">Saved courses</h6>
+        <h6 class="fw-bold mb-0" style="font-family: var(--font-heading);">Saved Courses</h6>
         <span class="cl-grid-header-count">
             <strong><asp:Literal ID="litCount" runat="server">0</asp:Literal></strong> course<span>(s)</span>
         </span>

@@ -381,7 +381,7 @@
                 <span class="ms-testimonials-badge">
                     <i class="fa-solid fa-star"></i> Loved by learners
                 </span>
-                <h2 class="ms-testimonials-title">voices from our community</h2>
+                <h2 class="ms-testimonials-title">Voices from Our Community</h2>
                 <p class="ms-testimonials-sub">Real reflections from students and young adults using MindSpace to build small, repeatable mental-wellness habits.</p>
                 <div class="ms-testimonials-dots" id="msTestimonialDots">
                     <button type="button" class="ms-testimonials-dot active" data-index="0" aria-label="View testimonial 1"></button>

@@ -65,27 +65,27 @@
     <section class="ah-features">
         <div class="ah-features-head">
             <div class="ah-features-eyebrow">Why MindSpace</div>
-            <h2 class="ah-features-title">a quieter way to learn about yourself.</h2>
+            <h2 class="ah-features-title">A Quieter Way to Learn About Yourself</h2>
         </div>
         <div class="ah-features-grid">
             <div class="ah-feature-tile">
                 <div class="ah-feature-icon"><i class="fa-solid fa-flask"></i></div>
-                <h3 class="ah-feature-title">evidence-based</h3>
+                <h3 class="ah-feature-title">Evidence-Based</h3>
                 <p class="ah-feature-body">Every course traces back to peer-reviewed research &mdash; CBT, DBT, polyvagal, positive psychology.</p>
             </div>
             <div class="ah-feature-tile">
                 <div class="ah-feature-icon bg-orange"><i class="fa-regular fa-clock"></i></div>
-                <h3 class="ah-feature-title">self-paced</h3>
+                <h3 class="ah-feature-title">Self-Paced</h3>
                 <p class="ah-feature-body">Five minutes is enough. Pick up where you left off whenever life makes the space.</p>
             </div>
             <div class="ah-feature-tile">
                 <div class="ah-feature-icon bg-cyan"><i class="fa-solid fa-shield-halved"></i></div>
-                <h3 class="ah-feature-title">private by default</h3>
+                <h3 class="ah-feature-title">Private by Default</h3>
                 <p class="ah-feature-body">Your journal entries, quiz scores, and progress stay yours. No selling, no surfacing.</p>
             </div>
             <div class="ah-feature-tile">
                 <div class="ah-feature-icon bg-magenta"><i class="fa-regular fa-heart"></i></div>
-                <h3 class="ah-feature-title">made for real life</h3>
+                <h3 class="ah-feature-title">Made for Real Life</h3>
                 <p class="ah-feature-body">Built for students and young adults navigating exams, work, relationships, and a noisy world.</p>
             </div>
         </div>
@@ -94,7 +94,7 @@
     <!-- ===== OUTRO CTA ===== -->
     <section class="home-outro">
         <div class="home-outro-inner">
-            <h2>begin a quieter <span class="accent">five minutes</span> today.</h2>
+            <h2>Begin a Quieter <span class="accent">Five Minutes</span> Today</h2>
             <p>Free, private, self-paced. The kindest thing you can do for yourself this week takes less time than scrolling.</p>
             <% if (Session["UserID"] == null) { %>
                 <a href="Register.aspx" class="btn btn-primary btn-lg me-2">Create free account</a>
