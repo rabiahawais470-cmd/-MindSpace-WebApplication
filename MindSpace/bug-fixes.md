@@ -35,7 +35,7 @@ MindSpace UI/UX Issues & Fixes - Comprehensive List
 	•	Recent Activity section is confusing:
 	◦	Shows “No discussion activity yet” + “JOIN A CONVERSATION”
 	◦	But also displays one activity (“Self-Care Essentials”) at the same time → layout conflict.
-	•	Quick Stats and other cards look AI-generated / not polished.
+	•	Quic/k Stats and other cards look AI-generated / not polished.
 5. Progress Page
 	•	Whole Progress section “don’t link bro” (feels disconnected).
 	•	Unnecessary buttons:
@@ -82,5 +82,3 @@ Additional Notes for Developer:
 	•	Make sure everything is responsive (test on different screen sizes).
 	•	Aim for a calm, gentle, trustworthy feel (mental health app).
 	•	Reduce “AI-generated” look — more human, polished, professional.
-
-You can now feed this entire markdown to Cline and ask it to fix page by page. Let me know if you want me to split it into separate tickets or prioritize differently!

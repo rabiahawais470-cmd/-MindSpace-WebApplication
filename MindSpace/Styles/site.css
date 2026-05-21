@@ -2090,8 +2090,8 @@ a:hover { color: var(--color-orange); }
     gap: 12px;
 }
 .dash-icon-btn {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 10px;
     border: 1px solid var(--color-card-border);
     background: #fff;
@@ -2102,12 +2102,13 @@ a:hover { color: var(--color-orange); }
     cursor: pointer;
     position: relative;
     transition: color 0.18s, border-color 0.18s, transform 0.12s;
+    overflow: visible;
 }
 .dash-icon-btn:hover { color: var(--color-text-primary); border-color: var(--color-primary-soft); transform: translateY(-1px); }
 .dash-icon-btn .dot {
     position: absolute;
-    top: 8px; right: 8px;
-    width: 8px; height: 8px;
+    top: 6px; right: 6px;
+    width: 10px; height: 10px;
     border-radius: 50%;
     background: var(--color-danger);
     border: 2px solid #fff;
