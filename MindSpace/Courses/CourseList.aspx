@@ -2,6 +2,8 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    <div style="padding-bottom: 60px;">
+
     <!-- HEADER -->
     <div class="cl-header">
         <h2 class="cl-header-title">Access Mental Health Education <span class="cl-header-accent">Designed for You</span></h2>
@@ -100,6 +102,8 @@
             </div>
         </div>
     </asp:Panel>
+
+    </div>
 
 </asp:Content>
 

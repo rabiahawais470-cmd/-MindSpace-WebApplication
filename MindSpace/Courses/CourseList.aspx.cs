@@ -87,16 +87,17 @@ namespace MindSpace
 
         protected string GetCourseIcon(string cat)
         {
-            switch (cat?.ToLower())
+            string iconClass = cat?.ToLower() switch
             {
-                case "stress management": return "🧘";
-                case "mindfulness":       return "🌿";
-                case "anxiety":           return "💙";
-                case "sleep hygiene":     return "🌙";
-                case "resilience":        return "💪";
-                case "self-care":         return "🌸";
-                default:                  return "📚";
-            }
+                "stress management" => "fa-person-hiking",
+                "mindfulness"       => "fa-leaf",
+                "anxiety"           => "fa-heart",
+                "sleep hygiene"     => "fa-moon",
+                "resilience"        => "fa-hand-fist",
+                "self-care"         => "fa-flower",
+                _                   => "fa-book"
+            };
+            return $"<i class=\"fa-solid {iconClass}\"></i>";
         }
     }
 }

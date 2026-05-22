@@ -253,24 +253,24 @@ namespace MindSpace
                 "SELECT COUNT(*) FROM QuizResults WHERE UserID=@uid AND Percentage >= 70",
                 new[] { new SqlParameter("@uid", userID) }));
 
-            var badges = new List<(string Icon, string Name, string Desc, bool Unlocked)>
+            var badges = new List<(string IconClass, string Name, string Desc, bool Unlocked)>
             {
-                ("🌱", "First Steps",       "Enrolled in your first course",         enrolled >= 1),
-                ("🎓", "Graduate",          "Completed your first course",           completed >= 1),
-                ("📚", "Avid Learner",      "Enrolled in 3 or more courses",         enrolled >= 3),
-                ("🏆", "Course Champion",   "Completed 3 or more courses",           completed >= 3),
-                ("✏️",  "Quiz Taker",        "Attempted your first quiz",             quizzesTaken >= 1),
-                ("⭐", "High Achiever",     "Scored 70%+ on 3 or more quizzes",     highScores >= 3),
-                ("💬", "Community Voice",   "Made your first forum post",            forumPosts >= 1),
-                ("🤝", "Forum Regular",     "Made 5 or more forum contributions",    forumPosts >= 5),
+                ("fa-leaf", "First Steps",       "Enrolled in your first course",         enrolled >= 1),
+                ("fa-graduation-cap", "Graduate",          "Completed your first course",           completed >= 1),
+                ("fa-book", "Avid Learner",      "Enrolled in 3 or more courses",         enrolled >= 3),
+                ("fa-trophy", "Course Champion",   "Completed 3 or more courses",           completed >= 3),
+                ("fa-pen",  "Quiz Taker",        "Attempted your first quiz",             quizzesTaken >= 1),
+                ("fa-star", "High Achiever",     "Scored 70%+ on 3 or more quizzes",     highScores >= 3),
+                ("fa-comments", "Community Voice",   "Made your first forum post",            forumPosts >= 1),
+                ("fa-handshake", "Forum Regular",     "Made 5 or more forum contributions",    forumPosts >= 5),
             };
 
             var sb = new StringBuilder();
-            foreach (var (icon, name, desc, unlocked) in badges)
+            foreach (var (iconClass, name, desc, unlocked) in badges)
             {
                 string cls = unlocked ? "unlocked" : "locked";
                 sb.Append($@"<div class=""achievement-badge {cls}"">
-                    <span class=""badge-icon"">{icon}</span>
+                    <span class=""badge-icon""><i class=""fa-solid {iconClass}""></i></span>
                     <div class=""badge-info"">
                         <div class=""badge-name"">{HttpUtility.HtmlEncode(name)}</div>
                         <div class=""badge-desc"">{HttpUtility.HtmlEncode(desc)}</div>
