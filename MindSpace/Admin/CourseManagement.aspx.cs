@@ -123,10 +123,43 @@ namespace MindSpace
             }
             else if (e.CommandName == "DeleteCourse")
             {
-                DatabaseHelper.ExecuteNonQuery(
-                    "UPDATE Courses SET IsActive=0 WHERE CourseID=@id",
-                    new[] { new SqlParameter("@id", courseID) });
-                ShowMessage("Course deactivated.");
+                try
+                {
+                    int affected;
+
+                    using (SqlConnection conn = DatabaseHelper.GetConnection())
+                    {
+                        conn.Open();
+                        using (SqlTransaction tx = conn.BeginTransaction())
+                        {
+                            try
+                            {
+                                ExecuteDelete(conn, tx, @"DELETE FROM QuizResults WHERE QuizID IN (SELECT QuizID FROM Quizzes WHERE CourseID=@id)", courseID);
+                                ExecuteDelete(conn, tx, @"DELETE FROM QuestionOptions WHERE QuestionID IN (SELECT QuestionID FROM Questions WHERE QuizID IN (SELECT QuizID FROM Quizzes WHERE CourseID=@id))", courseID);
+                                ExecuteDelete(conn, tx, @"DELETE FROM Questions WHERE QuizID IN (SELECT QuizID FROM Quizzes WHERE CourseID=@id)", courseID);
+                                ExecuteDelete(conn, tx, @"DELETE FROM Quizzes WHERE CourseID=@id", courseID);
+                                ExecuteDelete(conn, tx, @"DELETE FROM Resources WHERE CourseID=@id", courseID);
+                                ExecuteDelete(conn, tx, @"DELETE FROM Enrollments WHERE CourseID=@id", courseID);
+                                ExecuteDelete(conn, tx, @"DELETE FROM Bookmarks WHERE CourseID=@id", courseID);
+                                affected = ExecuteDelete(conn, tx, @"DELETE FROM Courses WHERE CourseID=@id", courseID);
+                                tx.Commit();
+                            }
+                            catch
+                            {
+                                try { tx.Rollback(); } catch { }
+                                throw;
+                            }
+                        }
+                    }
+
+                    if (affected > 0) ShowMessage("Course permanently deleted.");
+                    else ShowError("Course not found or already deleted.");
+                }
+                catch (Exception ex)
+                {
+                    ShowError("Error deleting course: " + ex.Message);
+                }
+
                 LoadCourses();
             }
         }
@@ -159,5 +192,14 @@ namespace MindSpace
 
         private void ShowMessage(string msg) { pnlMsg.Visible = true; litMsg.Text = msg; pnlError.Visible = false; }
         private void ShowError(string msg)   { pnlError.Visible = true; litError.Text = msg; pnlMsg.Visible = false; }
+
+        private static int ExecuteDelete(SqlConnection conn, SqlTransaction tx, string sql, int courseID)
+        {
+            using (SqlCommand cmd = new SqlCommand(sql, conn, tx))
+            {
+                cmd.Parameters.Add(new SqlParameter("@id", courseID));
+                return cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

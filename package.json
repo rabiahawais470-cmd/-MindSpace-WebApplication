@@ -2,5 +2,11 @@
   "dependencies": {
     "@modelcontextprotocol/server-filesystem": "^2026.1.14",
     "playwright": "^1.52.0"
+  },
+  "scripts": {
+    "test:e2e": "npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
   }
 }

@@ -138,8 +138,8 @@
                             </asp:LinkButton>
                             <asp:LinkButton ID="lbtnDelete" runat="server" CssClass="btn btn-sm btn-outline-danger"
                                 CommandName="DeleteCourse" CommandArgument='<%# Eval("CourseID") %>'
-                                OnClientClick="return confirm('Deactivate this course?');">
-                                <i class="fa-solid fa-trash"></i>
+                                OnClientClick="return confirm('Permanently delete this course? This cannot be undone.');">
+                                <i class="fa-solid fa-trash-can"></i>
                             </asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
