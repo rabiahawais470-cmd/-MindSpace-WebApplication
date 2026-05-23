@@ -107,7 +107,7 @@ namespace MindSpace
                         new SqlParameter("@role",   role),
                         new SqlParameter("@active", isActive)
                     });
-                    ShowMessage("User created successfully.");
+                    ShowToast("User created successfully.");
                 }
                 else
                 {
@@ -122,7 +122,7 @@ namespace MindSpace
                         new SqlParameter("@active", isActive),
                         new SqlParameter("@id",     editID)
                     });
-                    ShowMessage("User updated successfully.");
+                    ShowToast("User updated successfully.");
                 }
 
                 ResetForm();
@@ -141,15 +141,21 @@ namespace MindSpace
 
             if (e.CommandName == "DeleteUser")
             {
-                DatabaseHelper.ExecuteNonQuery(
-                    "DELETE FROM Users WHERE UserID=@id",
-                    new[] { new SqlParameter("@id", userID) });
-                BindGrid();
+                DeleteUser(userID);
             }
             else if (e.CommandName == "EditUser")
             {
                 Response.Redirect("EditUser.aspx?id=" + userID);
             }
+        }
+
+        protected void btnConfirmDelete_Click(object sender, EventArgs e)
+        {
+            int userID = Convert.ToInt32(hdnDeleteUserID.Value);
+            if (userID <= 0) return;
+
+            DeleteUser(userID);
+            hdnDeleteUserID.Value = "0";
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -188,6 +194,26 @@ namespace MindSpace
             pnlMsg.Visible   = true;
             litMsg.Text      = msg;
             pnlError.Visible = false;
+        }
+
+        private void ShowToast(string message)
+        {
+            pnlToast.Visible = true;
+            litToastMessage.Text = message;
+            ClientScript.RegisterStartupScript(
+                GetType(),
+                "ShowUserManagementToast",
+                "var toastEl = document.getElementById('userManagementToast'); if (toastEl && window.bootstrap) { bootstrap.Toast.getOrCreateInstance(toastEl).show(); }",
+                true);
+        }
+
+        private void DeleteUser(int userID)
+        {
+            DatabaseHelper.ExecuteNonQuery(
+                "DELETE FROM Users WHERE UserID=@id",
+                new[] { new SqlParameter("@id", userID) });
+            BindGrid();
+            ShowToast("User deleted successfully");
         }
 
         private void ShowError(string msg)

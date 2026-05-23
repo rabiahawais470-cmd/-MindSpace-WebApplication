@@ -20,12 +20,25 @@
         </div>
     </asp:Panel>
 
+    <asp:Panel ID="pnlToast" runat="server" Visible="false" CssClass="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1080;">
+        <div id="userManagementToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fa-solid fa-circle-check me-2"></i>
+                    <asp:Literal ID="litToastMessage" runat="server" />
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </asp:Panel>
+
     <!-- ADD/EDIT PANEL -->
     <div class="card p-4 mb-4">
         <h5 class="fw-bold mb-3">
             <asp:Literal ID="litFormTitle" runat="server">Add New User</asp:Literal>
         </h5>
         <asp:HiddenField ID="hdnEditUserID" runat="server" Value="0" />
+        <asp:HiddenField ID="hdnDeleteUserID" runat="server" Value="0" />
 
         <div class="row g-3">
             <div class="col-md-6">
@@ -139,7 +152,7 @@
                             </asp:LinkButton>
                             <asp:LinkButton ID="lbtnDelete" runat="server" CssClass="btn btn-sm btn-outline-danger"
                                 CommandName="DeleteUser" CommandArgument='<%# Eval("UserID") %>'
-                                OnClientClick="return confirm('Are you sure you want to permanently delete this user? This cannot be undone.');">
+                                OnClientClick='<%# "return openDeleteUserModal(" + Eval("UserID") + ");" %>'>
                                 <i class="fa-solid fa-trash"></i>
                             </asp:LinkButton>
                         </ItemTemplate>
@@ -154,4 +167,56 @@
         </div>
     </div>
 
+    <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteUserModalLabel">Delete User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-0">Are you sure you want to permanently delete this user? This cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick="confirmDeleteUser();">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <asp:Button ID="btnConfirmDelete" runat="server" Text="Delete" CssClass="d-none" CausesValidation="false" OnClick="btnConfirmDelete_Click" />
+
+</asp:Content>
+
+<asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
+<script>
+    function openDeleteUserModal(userId) {
+        var hiddenField = document.getElementById('<%: hdnDeleteUserID.ClientID %>');
+        if (hiddenField) {
+            hiddenField.value = userId;
+        }
+
+        var modalElement = document.getElementById('deleteUserModal');
+        if (modalElement && window.bootstrap) {
+            bootstrap.Modal.getOrCreateInstance(modalElement).show();
+        }
+
+        return false;
+    }
+
+    function confirmDeleteUser() {
+        var deleteButton = document.getElementById('<%: btnConfirmDelete.ClientID %>');
+        if (deleteButton) {
+            deleteButton.click();
+        }
+    }
+
+    (function () {
+        var toastElement = document.getElementById('userManagementToast');
+        if (toastElement && window.bootstrap) {
+            bootstrap.Toast.getOrCreateInstance(toastElement).show();
+        }
+    })();
+</script>
 </asp:Content>
