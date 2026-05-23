@@ -184,14 +184,29 @@ namespace MindSpace
             int userID = Convert.ToInt32(hdnDeleteUserID.Value);
             if (userID <= 0) return;
 
-            var parameters = new[] { new SqlParameter("@id", userID) };
+            DatabaseHelper.ExecuteNonQuery(
+                "DELETE FROM UserProgress WHERE UserID=@id",
+                new[] { new SqlParameter("@id", userID) });
 
-            DatabaseHelper.ExecuteNonQuery("DELETE FROM UserProgress WHERE UserID=@id", parameters);
-            DatabaseHelper.ExecuteNonQuery("DELETE FROM QuizResults WHERE UserID=@id", parameters);
-            DatabaseHelper.ExecuteNonQuery("DELETE FROM Enrollments WHERE UserID=@id", parameters);
-            DatabaseHelper.ExecuteNonQuery("DELETE FROM ForumComments WHERE UserID=@id", parameters);
-            DatabaseHelper.ExecuteNonQuery("DELETE FROM ForumPosts WHERE UserID=@id", parameters);
-            DatabaseHelper.ExecuteNonQuery("DELETE FROM Users WHERE UserID=@id", parameters);
+            DatabaseHelper.ExecuteNonQuery(
+                "DELETE FROM QuizResults WHERE UserID=@id",
+                new[] { new SqlParameter("@id", userID) });
+
+            DatabaseHelper.ExecuteNonQuery(
+                "DELETE FROM Enrollments WHERE UserID=@id",
+                new[] { new SqlParameter("@id", userID) });
+
+            DatabaseHelper.ExecuteNonQuery(
+                "DELETE FROM ForumComments WHERE UserID=@id",
+                new[] { new SqlParameter("@id", userID) });
+
+            DatabaseHelper.ExecuteNonQuery(
+                "DELETE FROM ForumPosts WHERE UserID=@id",
+                new[] { new SqlParameter("@id", userID) });
+
+            DatabaseHelper.ExecuteNonQuery(
+                "DELETE FROM Users WHERE UserID=@id",
+                new[] { new SqlParameter("@id", userID) });
 
             BindGrid();
             ShowToast("User deleted successfully");
