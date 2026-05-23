@@ -285,7 +285,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <asp:HiddenField ID="hdnEditCourseID" runat="server" Value="0" ClientIDMode="Static" />
                 <div class="row g-3">
                     <div class="col-md-8">
                         <label class="form-label">Course Title <span class="text-danger">*</span></label>
