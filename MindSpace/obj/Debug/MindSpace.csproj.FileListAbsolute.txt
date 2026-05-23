@@ -1,0 +1,6 @@
+H:\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.csproj.AssemblyReference.cache
+H:\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.csproj.CoreCompileInputs.cache
+H:\-MindSpace-WebApplication\MindSpace\bin\MindSpace.dll
+H:\-MindSpace-WebApplication\MindSpace\bin\MindSpace.pdb
+H:\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.dll
+H:\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.pdb

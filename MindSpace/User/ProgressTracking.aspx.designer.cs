@@ -31,11 +31,22 @@ namespace MindSpace {
         protected global::System.Web.UI.WebControls.Literal litQuizzesPassed;
         protected global::System.Web.UI.WebControls.Literal litPassRate;
 
+        // Learning snapshot
+        protected global::System.Web.UI.WebControls.Literal litSnapAvgScore;
+        protected global::System.Web.UI.WebControls.Literal litSnapPassRate;
+        protected global::System.Web.UI.WebControls.Literal litSnapQuizzesPassed;
+        protected global::System.Web.UI.WebControls.Literal litSnapHours;
+
         // Class comparison
         protected global::System.Web.UI.WebControls.Literal litComparison;
 
         // Achievements
         protected global::System.Web.UI.WebControls.Literal litAchievements;
+
+        // Recommended Courses Carousel
+        protected global::System.Web.UI.WebControls.Panel pnlNoRecommendations;
+        protected global::System.Web.UI.WebControls.Panel pnlRecommendations;
+        protected global::System.Web.UI.WebControls.Repeater rptRecommended;
 
         protected global::System.Web.UI.Control MainContent;
         protected global::System.Web.UI.Control ScriptContent;

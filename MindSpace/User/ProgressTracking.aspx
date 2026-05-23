@@ -191,6 +191,58 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="dash-panel progress-panel progress-snapshot-panel">
+                    <div class="dash-panel-head">
+                        <h3 class="dash-panel-title">Learning snapshot</h3>
+                        <span class="progress-next-pill"><i class="fa-solid fa-chart-pie"></i> At a glance</span>
+                    </div>
+                    <div class="progress-snapshot-grid">
+                        <div class="progress-snapshot-item">
+                            <span class="progress-snapshot-label">Average score</span>
+                            <strong><asp:Literal ID="litSnapAvgScore" runat="server">&mdash;</asp:Literal></strong>
+                            <small>Across your latest quiz results</small>
+                        </div>
+                        <div class="progress-snapshot-item">
+                            <span class="progress-snapshot-label">Pass rate</span>
+                            <strong><asp:Literal ID="litSnapPassRate" runat="server">&mdash;</asp:Literal></strong>
+                            <small>Quiz results above the passing score</small>
+                        </div>
+                        <div class="progress-snapshot-item">
+                            <span class="progress-snapshot-label">Quizzes passed</span>
+                            <strong><asp:Literal ID="litSnapQuizzesPassed" runat="server">0</asp:Literal></strong>
+                            <small>Successful quiz attempts so far</small>
+                        </div>
+                        <div class="progress-snapshot-item">
+                            <span class="progress-snapshot-label">Time on platform</span>
+                            <strong><asp:Literal ID="litSnapHours" runat="server">0</asp:Literal>h</strong>
+                            <small>Estimated learning time</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dash-panel progress-panel progress-focus-panel">
+                    <div class="dash-panel-head">
+                        <h3 class="dash-panel-title">Focus this week</h3>
+                    </div>
+                    <div class="progress-focus-list">
+                        <div class="progress-focus-item">
+                            <div class="progress-focus-icon color-purple"><i class="fa-solid fa-book-open"></i></div>
+                            <div>
+                                <strong>Finish one module</strong>
+                                <p>Move a course closer to completion before the week ends.</p>
+                            </div>
+                        </div>
+                        <div class="progress-focus-item">
+                            <div class="progress-focus-icon color-green"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <strong>Pass one quiz</strong>
+                                <p>Retake a lower score and try to lift it above the pass mark.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="progress-side-stack">
@@ -229,7 +281,7 @@
                     </div>
                 </div>
 
-                <div class="dash-panel progress-panel">
+                <div class="dash-panel progress-panel progress-achievements-panel">
                     <div class="dash-panel-head">
                         <h3 class="dash-panel-title">Achievements</h3>
                     </div>
@@ -300,5 +352,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 </script>
 </asp:Content>

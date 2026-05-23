@@ -2790,8 +2790,93 @@ a:hover { color: var(--color-orange); }
     display: grid;
     gap: 24px;
 }
+.progress-right-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
+    gap: 20px;
+    align-items: start;
+}
 .progress-panel {
     padding: 22px;
+}
+.progress-snapshot-panel {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8F7FF 100%);
+    border: 1px solid rgba(124,111,205,0.10);
+    box-shadow: 0 12px 30px rgba(62, 47, 115, 0.05);
+}
+.progress-snapshot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+.progress-snapshot-item {
+    padding: 14px 14px 13px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(124,111,205,0.10);
+}
+.progress-snapshot-label {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+.progress-snapshot-item strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    line-height: 1.1;
+    color: var(--color-text-primary);
+    margin-bottom: 4px;
+}
+.progress-snapshot-item small {
+    display: block;
+    color: var(--color-text-secondary);
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+.progress-focus-panel {
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbfe 100%);
+    border: 1px solid rgba(76, 118, 244, 0.10);
+}
+.progress-focus-list {
+    display: grid;
+    gap: 14px;
+}
+.progress-focus-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px;
+    border-radius: 16px;
+    background: rgba(124,111,205,0.04);
+    border: 1px solid rgba(124,111,205,0.08);
+}
+.progress-focus-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #fff;
+    color: var(--color-primary);
+}
+.progress-focus-item strong {
+    display: block;
+    font-size: 0.92rem;
+    color: var(--color-text-primary);
+    margin-bottom: 3px;
+}
+.progress-focus-item p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.78rem;
+    line-height: 1.45;
 }
 .progress-empty-state {
     text-align: center;
@@ -5683,5 +5768,18 @@ hr { border-top: 1px solid var(--color-card-border); opacity: 1; }
 
     .ms-testimonials-right {
         min-height: 500px !important;
+    }
+}
+
+/* ---------- Recommended Courses Carousel ---------- */
+.progress-achievements-panel {
+    margin-top: 2px;
+}
+@media (max-width: 768px) {
+    .progress-right-split {
+        grid-template-columns: 1fr;
+    }
+    .progress-snapshot-grid {
+        grid-template-columns: 1fr;
     }
 }

@@ -33,6 +33,7 @@ namespace MindSpace
                 LoadQuizPerformance(userID);
                 LoadClassComparison(userID);
                 LoadAchievements(userID);
+                LoadRecommendedCourses(userID);
             }
         }
 
@@ -82,6 +83,7 @@ namespace MindSpace
                              + forumComments * 3
                              + extraMins;
             litHours.Text = Math.Round(totalMinutes / 60.0, 1).ToString();
+            litSnapHours.Text = litHours.Text;
         }
 
         // ============================================================
@@ -312,6 +314,11 @@ namespace MindSpace
                 litQuizzesPassed.Text = passed.ToString();
                 litPassRate.Text      = Math.Round((decimal)passed / total * 100, 0) + "%";
             }
+
+            // Sync snapshot panel
+            litSnapAvgScore.Text      = litAvgScore.Text;
+            litSnapPassRate.Text      = litPassRate.Text;
+            litSnapQuizzesPassed.Text = litQuizzesPassed.Text;
         }
 
         // ============================================================
@@ -493,6 +500,42 @@ namespace MindSpace
             </div>";
 
             litAchievements.Text = progress + $@"<div class=""achievement-grid"">{sb}</div>";
+        }
+
+        // ============================================================
+        // RECOMMENDED COURSES (carousel)
+        // ============================================================
+        private void LoadRecommendedCourses(int userID)
+        {
+            // Show courses the user is NOT enrolled in, with module count
+            DataTable dt = DatabaseHelper.ExecuteQuery(@"
+                SELECT TOP 12
+                    c.CourseID,
+                    c.Title,
+                    c.Category,
+                    c.DifficultyLevel,
+                    c.Duration,
+                    (SELECT COUNT(*) FROM Quizzes q WHERE q.CourseID = c.CourseID) AS ModuleCount
+                FROM   Courses c
+                WHERE  c.IsActive = 1
+                  AND  c.CourseID NOT IN (
+                      SELECT e.CourseID FROM Enrollments e WHERE e.UserID = @uid
+                  )
+                ORDER  BY c.DateCreated DESC",
+                new[] { new SqlParameter("@uid", userID) });
+
+            if (dt.Rows.Count == 0)
+            {
+                pnlNoRecommendations.Visible = true;
+                pnlRecommendations.Visible   = false;
+            }
+            else
+            {
+                pnlNoRecommendations.Visible = false;
+                pnlRecommendations.Visible   = true;
+                rptRecommended.DataSource    = dt;
+                rptRecommended.DataBind();
+            }
         }
 
         // ============================================================

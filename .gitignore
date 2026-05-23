@@ -13,46 +13,52 @@ MindSpace/obj/
 packages/
 *.nupkg
 
-# Claude Code config
-.claude/
-
-# AI Tools (instructions for Kimi/Cline, DeepSeek, etc.)
-# These are tracked and should be shared - customize per your needs
-# .ai-tools/
-
-# PDF documents
-*.pdf
-
 # OS
 Thumbs.db
 .DS_Store
 
-# Playwright traces / screenshots from local UI testing
+# Node / Playwright
+node_modules/
+package.json
+package-lock.json
+playwright.config.ts
+tsconfig.json
+test-results/
+playwright-report/
+
+# Playwright MCP artifacts
 .playwright-mcp/
 
-# Local UI verification screenshots
-v[0-9]-*.png
-audit-*.png
-check-*.png
-*-homepage*.png
-*-v3*.png
-final-*.png
-footer-*.png
-courselist.png
-discussions.png
-homepage.png
-profile.png
-progress.png
-admin-dashboard.png
-user-dashboard.png
-course[0-9]*-*.png
+# AI tools & agent configs
+.ai-tools/
+.roo/
+.claude/
 
-# One-off DB migration helpers (kept locally only)
+# VS Code workspace settings
+.vscode/
+
+# Build logs
+build_logs/
+
+# Test files
+tests/
+
+# Planning / documentation artifacts not needed for the project
+PROJECT_DOCUMENTATION.md
+ui-plan.md
+seed_resources.sql
+seed_stories.sql
+
+# Local screenshots & verification images
+*.png
+!MindSpace/**
+
+# One-off DB migration helpers
 fix_articles.ps1
 add_advanced_courses.ps1
 
-# Node / Playwright
-node_modules/
-test-results/
-playwright-report/
+# PDF documents
+*.pdf
+
+# Misc
 $null
