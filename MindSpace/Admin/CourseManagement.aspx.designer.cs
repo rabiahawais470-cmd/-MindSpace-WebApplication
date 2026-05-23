@@ -9,9 +9,11 @@ namespace MindSpace {
         protected global::System.Web.UI.WebControls.Button btnCancel;
         protected global::System.Web.UI.WebControls.Button btnClear;
         protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button btnUpdateCourse;
         protected global::System.Web.UI.WebControls.Button btnSearch;
         protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
         protected global::System.Web.UI.WebControls.DropDownList ddlCatFilter;
+        protected global::System.Web.UI.WebControls.DropDownList txtEditCategory;
         protected global::System.Web.UI.WebControls.DropDownList ddlDifficulty;
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         protected global::System.Web.UI.WebControls.GridView gvCourses;
@@ -27,6 +29,10 @@ namespace MindSpace {
         protected global::System.Web.UI.WebControls.Panel pnlMsg;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescription;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTitle;
+        protected global::System.Web.UI.WebControls.TextBox txtEditDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtEditDuration;
+        protected global::System.Web.UI.WebControls.TextBox txtEditLevel;
+        protected global::System.Web.UI.WebControls.TextBox txtEditTitle;
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
         protected global::System.Web.UI.WebControls.TextBox txtDuration;
         protected global::System.Web.UI.WebControls.TextBox txtSearch;

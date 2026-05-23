@@ -100,6 +100,48 @@ namespace MindSpace
             }
         }
 
+        protected void btnUpdateCourse_Click(object sender, EventArgs e)
+        {
+            if (!Page.IsValid) return;
+
+            int courseID = Convert.ToInt32(hdnEditCourseID.Value);
+            if (courseID <= 0)
+            {
+                ShowError("Invalid course selection.");
+                return;
+            }
+
+            string title = txtEditTitle.Text.Trim();
+            string category = txtEditCategory.SelectedValue;
+            string level = txtEditLevel.Text.Trim();
+            string duration = txtEditDuration.Text.Trim();
+            string desc = txtEditDescription.Text.Trim();
+
+            try
+            {
+                DatabaseHelper.ExecuteNonQuery(
+                    @"UPDATE Courses SET Title=@title, Category=@category,
+                      DifficultyLevel=@level, Duration=@duration,
+                      Description=@desc WHERE CourseID=@id",
+                    new[] {
+                        new SqlParameter("@title", title),
+                        new SqlParameter("@category", category),
+                        new SqlParameter("@level", level),
+                        new SqlParameter("@duration", duration),
+                        new SqlParameter("@desc", desc),
+                        new SqlParameter("@id", courseID)
+                    });
+
+                hdnEditCourseID.Value = "0";
+                LoadCourses();
+                ShowMessage("Course updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                ShowError("Error: " + ex.Message);
+            }
+        }
+
         protected void gvCourses_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int courseID = Convert.ToInt32(e.CommandArgument);

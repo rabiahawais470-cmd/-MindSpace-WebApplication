@@ -117,7 +117,7 @@
     <h5 class="fw-bold mb-3">
         <asp:Literal ID="litFormTitle" runat="server">Add New Course</asp:Literal>
     </h5>
-    <asp:HiddenField ID="hdnEditCourseID" runat="server" Value="0" />
+    <asp:HiddenField ID="hdnEditCourseID" runat="server" Value="0" ClientIDMode="Static" />
 
     <div class="row g-3">
         <div class="col-md-8">
@@ -225,7 +225,14 @@
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
                         <asp:LinkButton ID="lbtnEdit" runat="server" CssClass="btn btn-sm btn-outline-primary me-1"
-                            CommandName="EditCourse" CommandArgument='<%# Eval("CourseID") %>'>
+                            CommandName="EditCourse" CommandArgument='<%# Eval("CourseID") %>'
+                            data-courseid='<%# Eval("CourseID") %>'
+                            data-title='<%# System.Web.HttpUtility.HtmlAttributeEncode(Eval("Title").ToString()) %>'
+                            data-category='<%# System.Web.HttpUtility.HtmlAttributeEncode(Eval("Category").ToString()) %>'
+                            data-level='<%# System.Web.HttpUtility.HtmlAttributeEncode(Eval("DifficultyLevel").ToString()) %>'
+                            data-duration='<%# System.Web.HttpUtility.HtmlAttributeEncode(Eval("Duration").ToString()) %>'
+                            data-description='<%# System.Web.HttpUtility.HtmlAttributeEncode(Eval("Description").ToString()) %>'
+                            OnClientClick="return openEditCourseModal(this);">
                             <i class="fa-solid fa-pen"></i>
                         </asp:LinkButton>
                         <asp:LinkButton ID="lbtnDelete" runat="server"
@@ -266,6 +273,52 @@
             <button type="button" id="btnDeleteConfirm" class="btn btn-delete-confirm">
                 <i class="fa-solid fa-trash-can me-1"></i>Delete
             </button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editCourseModal" tabindex="-1" aria-labelledby="editCourseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCourseModalLabel">Edit Course</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <label class="form-label">Course Title <span class="text-danger">*</span></label>
+                            <asp:TextBox ID="txtEditTitle" runat="server" CssClass="form-control" MaxLength="200" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Category <span class="text-danger">*</span></label>
+                            <asp:DropDownList ID="txtEditCategory" runat="server" CssClass="form-select">
+                                <asp:ListItem Value="Stress Management">Stress Management</asp:ListItem>
+                                <asp:ListItem Value="Mindfulness">Mindfulness</asp:ListItem>
+                                <asp:ListItem Value="Anxiety">Anxiety</asp:ListItem>
+                                <asp:ListItem Value="Sleep Hygiene">Sleep Hygiene</asp:ListItem>
+                                <asp:ListItem Value="Resilience">Resilience</asp:ListItem>
+                                <asp:ListItem Value="Self-Care">Self-Care</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Difficulty Level</label>
+                            <asp:TextBox ID="txtEditLevel" runat="server" CssClass="form-control" MaxLength="50" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Duration</label>
+                            <asp:TextBox ID="txtEditDuration" runat="server" CssClass="form-control" MaxLength="50" />
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Description <span class="text-danger">*</span></label>
+                            <asp:TextBox ID="txtEditDescription" runat="server" TextMode="MultiLine" Rows="5" CssClass="form-control" MaxLength="2000" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <asp:Button ID="btnUpdateCourse" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="btnUpdateCourse_Click" />
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -332,6 +385,24 @@
         pendingHref = '';
     }
 })();
+
+function openEditCourseModal(btn) {
+    if (!btn) return false;
+
+    document.getElementById('txtEditTitle').value = btn.getAttribute('data-title');
+    document.getElementById('txtEditCategory').value = btn.getAttribute('data-category');
+    document.getElementById('txtEditLevel').value = btn.getAttribute('data-level');
+    document.getElementById('txtEditDuration').value = btn.getAttribute('data-duration');
+    document.getElementById('txtEditDescription').value = btn.getAttribute('data-description');
+    document.getElementById('hdnEditCourseID').value = btn.getAttribute('data-courseid');
+
+    var modalEl = document.getElementById('editCourseModal');
+    if (modalEl && window.bootstrap) {
+        bootstrap.Modal.getOrCreateInstance(modalEl).show();
+    }
+
+    return false;
+}
 </script>
 
 </asp:Content>
