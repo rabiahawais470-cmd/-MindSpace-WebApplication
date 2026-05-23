@@ -139,7 +139,7 @@
                             </asp:LinkButton>
                             <asp:LinkButton ID="lbtnDelete" runat="server" CssClass="btn btn-sm btn-outline-danger"
                                 CommandName="DeleteUser" CommandArgument='<%# Eval("UserID") %>'
-                                OnClientClick="return confirm('Delete this user? They will be deactivated.');">
+                                OnClientClick="return confirm('Are you sure you want to permanently delete this user? This cannot be undone.');">
                                 <i class="fa-solid fa-trash"></i>
                             </asp:LinkButton>
                         </ItemTemplate>
