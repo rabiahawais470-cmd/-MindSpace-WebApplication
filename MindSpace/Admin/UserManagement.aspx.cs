@@ -45,6 +45,11 @@ namespace MindSpace
             litCount.Text = dt.Rows.Count.ToString();
         }
 
+        private void BindGrid()
+        {
+            LoadUsers(txtSearch.Text.Trim(), ddlRoleFilter.SelectedValue);
+        }
+
         protected void btnSave_Click(object sender, EventArgs e)
         {
             if (!Page.IsValid) return;
@@ -114,50 +119,29 @@ namespace MindSpace
         {
             int userID = Convert.ToInt32(e.CommandArgument);
 
-            if (e.CommandName == "EditUser")
+            if (e.CommandName == "DeleteUser")
             {
-                string sql = "SELECT UserID,FullName,Username,Email,Role,IsActive FROM Users WHERE UserID=@id";
-                DataTable dt = DatabaseHelper.ExecuteQuery(sql, new[] { new SqlParameter("@id", userID) });
-
-                if (dt.Rows.Count == 1)
-                {
-                    DataRow row = dt.Rows[0];
-                    hdnEditUserID.Value       = userID.ToString();
-                    txtFullName.Text          = row["FullName"].ToString();
-                    txtUsername.Text          = row["Username"].ToString();
-                    txtEmail.Text             = row["Email"].ToString();
-                    ddlRole.SelectedValue     = row["Role"].ToString();
-                    ddlStatus.SelectedValue   = Convert.ToBoolean(row["IsActive"]) ? "1" : "0";
-                    litFormTitle.Text         = "Edit User";
-                    pnlPasswordField.Visible  = false; // No password reset in edit
-                }
-            }
-            else if (e.CommandName == "DeleteUser")
-            {
-                // Prevent deleting self
-                if (userID == Convert.ToInt32(Session["UserID"]))
-                {
-                    ShowError("You cannot delete your own account.");
-                    return;
-                }
                 DatabaseHelper.ExecuteNonQuery(
-                    "UPDATE Users SET IsActive=0 WHERE UserID=@id",
+                    "DELETE FROM Users WHERE UserID=@id",
                     new[] { new SqlParameter("@id", userID) });
-                ShowMessage("User deactivated successfully.");
-                LoadUsers();
+                BindGrid();
+            }
+            else if (e.CommandName == "EditUser")
+            {
+                Response.Redirect("EditUser.aspx?id=" + userID);
             }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            LoadUsers(txtSearch.Text.Trim(), ddlRoleFilter.SelectedValue);
+            BindGrid();
         }
 
         protected void btnClearSearch_Click(object sender, EventArgs e)
         {
             txtSearch.Text          = "";
             ddlRoleFilter.SelectedValue = "";
-            LoadUsers();
+            BindGrid();
         }
 
         protected void btnCancelEdit_Click(object sender, EventArgs e)
