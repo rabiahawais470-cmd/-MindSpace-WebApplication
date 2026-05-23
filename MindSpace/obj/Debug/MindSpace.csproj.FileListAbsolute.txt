@@ -4,3 +4,9 @@ H:\-MindSpace-WebApplication\MindSpace\bin\MindSpace.dll
 H:\-MindSpace-WebApplication\MindSpace\bin\MindSpace.pdb
 H:\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.dll
 H:\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.pdb
+C:\Users\rabia\-MindSpace-WebApplication\MindSpace\bin\MindSpace.dll
+C:\Users\rabia\-MindSpace-WebApplication\MindSpace\bin\MindSpace.pdb
+C:\Users\rabia\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.csproj.AssemblyReference.cache
+C:\Users\rabia\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.csproj.CoreCompileInputs.cache
+C:\Users\rabia\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.dll
+C:\Users\rabia\-MindSpace-WebApplication\MindSpace\obj\Debug\MindSpace.pdb
