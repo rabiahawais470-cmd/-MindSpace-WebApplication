@@ -146,25 +146,7 @@ namespace MindSpace
         {
             int courseID = Convert.ToInt32(e.CommandArgument);
 
-            if (e.CommandName == "EditCourse")
-            {
-                string sql = "SELECT * FROM Courses WHERE CourseID=@id";
-                DataTable dt = DatabaseHelper.ExecuteQuery(sql, new[] { new SqlParameter("@id", courseID) });
-
-                if (dt.Rows.Count == 1)
-                {
-                    DataRow r = dt.Rows[0];
-                    hdnEditCourseID.Value = courseID.ToString();
-                    txtTitle.Text = r["Title"].ToString();
-                    txtDescription.Text = r["Description"].ToString();
-                    ddlCategory.SelectedValue = r["Category"].ToString();
-                    ddlDifficulty.SelectedValue = r["DifficultyLevel"].ToString();
-                    txtDuration.Text = r["Duration"].ToString();
-                    ddlStatus.SelectedValue = Convert.ToBoolean(r["IsActive"]) ? "1" : "0";
-                    litFormTitle.Text = "Edit Course";
-                }
-            }
-            else if (e.CommandName == "DeleteCourse")
+            if (e.CommandName == "DeleteCourse")
             {
                 DeleteCourse(courseID);
             }
