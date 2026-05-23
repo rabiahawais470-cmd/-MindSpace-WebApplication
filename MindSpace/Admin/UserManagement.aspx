@@ -62,9 +62,12 @@
             <div class="col-md-3">
                 <label class="form-label">Role <span class="text-danger">*</span></label>
                 <asp:DropDownList ID="ddlRole" runat="server" CssClass="form-select">
+                    <asp:ListItem Value="">Select role</asp:ListItem>
                     <asp:ListItem Value="learner">Learner</asp:ListItem>
                     <asp:ListItem Value="admin">Admin</asp:ListItem>
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="rfvRole" runat="server" ControlToValidate="ddlRole"
+                    InitialValue="" ErrorMessage="Role required." CssClass="validation-error" Display="Dynamic" />
                 <div class="form-text text-muted">Learner = standard account, Admin = full access.</div>
             </div>
             <div class="col-md-3">
@@ -86,7 +89,7 @@
         </div>
 
         <div class="mt-4 d-flex gap-2">
-            <asp:Button ID="btnSave" runat="server" Text="Save User" CssClass="btn btn-primary" OnClick="btnSave_Click" />
+            <asp:Button ID="btnSave" runat="server" Text="Save User" CssClass="btn btn-primary" OnClick="btnSaveUser_Click" />
             <asp:Button ID="btnCancelEdit" runat="server" Text="Cancel" CssClass="btn btn-outline-secondary"
                 CausesValidation="false" OnClick="btnCancelEdit_Click" />
         </div>

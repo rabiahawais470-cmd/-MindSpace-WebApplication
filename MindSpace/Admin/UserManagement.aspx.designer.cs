@@ -32,6 +32,7 @@ namespace MindSpace {
         protected global::System.Web.UI.WebControls.Panel pnlToast;
         protected global::System.Web.UI.WebControls.Panel pnlPasswordField;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRole;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEditEmail;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEditFullName;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEditUsername;

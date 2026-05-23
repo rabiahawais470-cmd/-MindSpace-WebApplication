@@ -69,64 +69,54 @@ namespace MindSpace
             litCount.Text = dt.Rows.Count.ToString();
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void btnSaveUser_Click(object sender, EventArgs e)
         {
             if (!Page.IsValid) return;
 
             string fullName = txtFullName.Text.Trim();
             string username = txtUsername.Text.Trim();
-            string email    = txtEmail.Text.Trim().ToLower();
-            string role     = ddlRole.SelectedValue;
-            bool   isActive = ddlStatus.SelectedValue == "1";
-            int    editID   = Convert.ToInt32(hdnEditUserID.Value);
+            string email = txtEmail.Text.Trim().ToLower();
+            string password = txtPassword.Text;
+            string role = ddlRole.SelectedValue;
 
             try
             {
-                if (editID == 0)
+                if (string.IsNullOrWhiteSpace(fullName) ||
+                    string.IsNullOrWhiteSpace(username) ||
+                    string.IsNullOrWhiteSpace(email) ||
+                    string.IsNullOrWhiteSpace(password) ||
+                    string.IsNullOrWhiteSpace(role))
                 {
-                    // ADD NEW USER
-                    string password = txtPassword.Text;
-                    if (string.IsNullOrEmpty(password)) { ShowError("Password is required."); return; }
-
-                    // Check uniqueness
-                    int uc = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
-                        "SELECT COUNT(*) FROM Users WHERE Username=@u", new[] { new SqlParameter("@u", username) }));
-                    if (uc > 0) { ShowError("Username already exists."); return; }
-
-                    int ec = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
-                        "SELECT COUNT(*) FROM Users WHERE Email=@e", new[] { new SqlParameter("@e", email) }));
-                    if (ec > 0) { ShowError("Email already registered."); return; }
-
-                    string sql = @"INSERT INTO Users (FullName,Username,Email,PasswordHash,Role,IsActive)
-                                   VALUES (@fn,@un,@em,@ph,@role,@active)";
-                    DatabaseHelper.ExecuteNonQuery(sql, new[] {
-                        new SqlParameter("@fn",     fullName),
-                        new SqlParameter("@un",     username),
-                        new SqlParameter("@em",     email),
-                        new SqlParameter("@ph",     DatabaseHelper.HashPassword(password)),
-                        new SqlParameter("@role",   role),
-                        new SqlParameter("@active", isActive)
-                    });
-                    ShowToast("User created successfully.");
+                    ShowError("All required fields must be filled.");
+                    return;
                 }
-                else
+
+                int exists = Convert.ToInt32(DatabaseHelper.ExecuteScalar(
+                    "SELECT COUNT(*) FROM Users WHERE Username=@username OR Email=@email",
+                    new[] {
+                        new SqlParameter("@username", username),
+                        new SqlParameter("@email", email)
+                    }));
+                if (exists > 0)
                 {
-                    // UPDATE USER
-                    string sql = @"UPDATE Users SET FullName=@fn,Username=@un,Email=@em,Role=@role,IsActive=@active
-                                   WHERE UserID=@id";
-                    DatabaseHelper.ExecuteNonQuery(sql, new[] {
-                        new SqlParameter("@fn",     fullName),
-                        new SqlParameter("@un",     username),
-                        new SqlParameter("@em",     email),
-                        new SqlParameter("@role",   role),
-                        new SqlParameter("@active", isActive),
-                        new SqlParameter("@id",     editID)
-                    });
-                    ShowToast("User updated successfully.");
+                    ShowError("Email or username already exists");
+                    return;
                 }
+
+                DatabaseHelper.ExecuteNonQuery(
+                    @"INSERT INTO Users (FullName, Username, Email, PasswordHash, Role, IsActive, DateRegistered)
+                      VALUES (@name, @username, @email, @hash, @role, 1, GETDATE())",
+                    new[] {
+                        new SqlParameter("@name", fullName),
+                        new SqlParameter("@username", username),
+                        new SqlParameter("@email", email),
+                        new SqlParameter("@hash", DatabaseHelper.HashPassword(password)),
+                        new SqlParameter("@role", role)
+                    });
 
                 ResetForm();
-                LoadUsers();
+                BindGrid();
+                ShowToast("User added successfully");
             }
             catch (Exception ex)
             {
@@ -194,7 +184,17 @@ namespace MindSpace
             int userID = Convert.ToInt32(hdnDeleteUserID.Value);
             if (userID <= 0) return;
 
-            DeleteUser(userID);
+            var parameters = new[] { new SqlParameter("@id", userID) };
+
+            DatabaseHelper.ExecuteNonQuery("DELETE FROM UserProgress WHERE UserID=@id", parameters);
+            DatabaseHelper.ExecuteNonQuery("DELETE FROM QuizResults WHERE UserID=@id", parameters);
+            DatabaseHelper.ExecuteNonQuery("DELETE FROM Enrollments WHERE UserID=@id", parameters);
+            DatabaseHelper.ExecuteNonQuery("DELETE FROM ForumComments WHERE UserID=@id", parameters);
+            DatabaseHelper.ExecuteNonQuery("DELETE FROM ForumPosts WHERE UserID=@id", parameters);
+            DatabaseHelper.ExecuteNonQuery("DELETE FROM Users WHERE UserID=@id", parameters);
+
+            BindGrid();
+            ShowToast("User deleted successfully");
             hdnDeleteUserID.Value = "0";
         }
 
@@ -222,7 +222,7 @@ namespace MindSpace
             txtUsername.Text         = "";
             txtEmail.Text            = "";
             txtPassword.Text         = "";
-            ddlRole.SelectedValue    = "learner";
+            ddlRole.SelectedValue    = "";
             ddlStatus.SelectedValue  = "1";
             litFormTitle.Text        = "Add New User";
             pnlPasswordField.Visible = true;
