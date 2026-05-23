@@ -243,6 +243,37 @@
                     </div>
                 </div>
 
+                <div class="dash-panel progress-panel">
+                    <div class="dash-panel-head">
+                        <h3 class="dash-panel-title">Recommended Courses</h3>
+                    </div>
+                    <asp:Panel ID="pnlNoRecommendations" runat="server" Visible="false">
+                        <div class="progress-empty-state">
+                            <i class="fa-solid fa-lightbulb fa-2x"></i>
+                            <p>No recommendations available right now.</p>
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlRecommendations" runat="server" Visible="false">
+                        <asp:Repeater ID="rptRecommended" runat="server">
+                            <ItemTemplate>
+                                <div class="progress-course-card">
+                                    <div class="progress-course-head">
+                                        <div class="progress-course-meta">
+                                            <a href="../Courses/CourseDetail.aspx?id=<%# Eval("CourseID") %>" 
+                                               class="progress-course-title">
+                                                <%# System.Web.HttpUtility.HtmlEncode(Eval("Title").ToString()) %>
+                                            </a>
+                                            <div class="progress-course-sub">
+                                                <%# System.Web.HttpUtility.HtmlEncode(Eval("Category").ToString()) %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </asp:Panel>
+                </div>
+
             </div>
 
             <div class="progress-side-stack">
