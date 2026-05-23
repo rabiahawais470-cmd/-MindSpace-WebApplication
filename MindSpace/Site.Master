@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="<%: ResolveUrl("~/favicon.svg") %>" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=6.7" rel="stylesheet" />
+    <link href="<%: ResolveUrl("~/Styles/site.css") %>?v=7.0" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
 </head>
 <body class='<%= (pnlUserNav.Visible || pnlAdminNav.Visible ? "is-auth" : "is-guest") + (HideSearch ? " no-search" : "") %>'>
@@ -38,9 +38,6 @@
             <%-- LEARNER SIDEBAR (v2 — white surface, profile-top, collapsibles) --%>
             <asp:Panel ID="pnlUserNav" runat="server" Visible="false">
                 <nav id="sidebar">
-                    <button type="button" class="sidebar-collapse-btn d-none d-lg-flex" onclick="document.body.classList.toggle('sidebar-collapsed'); this.querySelector('i').classList.toggle('fa-chevron-right'); this.querySelector('i').classList.toggle('fa-chevron-left');" title="Collapse sidebar" aria-label="Collapse sidebar">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
                     <%-- Profile section at top --%>
                     <div class="sb2-profile">
                         <div class="sb2-profile-avatar">
@@ -59,6 +56,7 @@
                     </div>
                     <%-- Nav --%>
                     <div class="sb2-nav">
+                        <p class="sb2-section-label">Main</p>
                         <ul>
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/UserHome.aspx") %>"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a></li>
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/Courses/CourseList.aspx") %>"><i class="fa-solid fa-book-open"></i><span>Courses</span></a></li>
@@ -66,31 +64,17 @@
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/Discussions.aspx") %>"><i class="fa-solid fa-comments"></i><span>Discussions</span></a></li>
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/Bookmarks.aspx") %>"><i class="fa-solid fa-bookmark"></i><span>Bookmarks</span></a></li>
                         </ul>
-                        <div class="sb2-collapse" data-sb2-collapse>
-                            <button type="button" class="sb2-collapse-head">
-                                <span>Account</span>
-                                <i class="fa-solid fa-chevron-down sb2-chevron"></i>
-                            </button>
-                            <div class="sb2-collapse-body">
-                                <div class="sb2-collapse-body-inner">
-                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/ChangePassword.aspx") %>">Change password</a>
-                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/User/NotificationPreferences.aspx") %>">Notification Preferences</a>
-                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/User/PrivacySettings.aspx") %>">Privacy Settings</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sb2-collapse" data-sb2-collapse>
-                            <button type="button" class="sb2-collapse-head">
-                                <span>Help</span>
-                                <i class="fa-solid fa-chevron-down sb2-chevron"></i>
-                            </button>
-                            <div class="sb2-collapse-body">
-                                <div class="sb2-collapse-body-inner">
-                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/User/FAQ.aspx") %>">FAQ</a>
-                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/User/ReportBug.aspx") %>">Report a Bug</a>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="sb2-section-label">Account</p>
+                        <ul>
+                            <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/ChangePassword.aspx") %>"><i class="fa-solid fa-key"></i><span>Change password</span></a></li>
+                            <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/NotificationPreferences.aspx") %>"><i class="fa-solid fa-bell"></i><span>Notification Preferences</span></a></li>
+                            <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/PrivacySettings.aspx") %>"><i class="fa-solid fa-shield-halved"></i><span>Privacy Settings</span></a></li>
+                        </ul>
+                        <p class="sb2-section-label">Help</p>
+                        <ul>
+                            <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/FAQ.aspx") %>"><i class="fa-solid fa-circle-question"></i><span>FAQ</span></a></li>
+                            <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/ReportBug.aspx") %>"><i class="fa-solid fa-bug"></i><span>Report a Bug</span></a></li>
+                        </ul>
                     </div>
                     <%-- Footer --%>
                     <div class="sb2-footer">
@@ -104,9 +88,6 @@
             <%-- ADMIN SIDEBAR (v2) --%>
             <asp:Panel ID="pnlAdminNav" runat="server" Visible="false">
                 <nav id="sidebar">
-                    <button type="button" class="sidebar-collapse-btn d-none d-lg-flex" onclick="document.body.classList.toggle('sidebar-collapsed'); this.querySelector('i').classList.toggle('fa-chevron-right'); this.querySelector('i').classList.toggle('fa-chevron-left');" title="Collapse sidebar" aria-label="Collapse sidebar">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
                     <div class="sb2-profile">
                         <div class="sb2-profile-avatar">
                             <%: ((Session["FullName"] ?? Session["Username"] ?? "A").ToString().Length > 0 ? (Session["FullName"] ?? Session["Username"] ?? "A").ToString().Substring(0,1).ToUpper() : "A") %>
@@ -122,23 +103,17 @@
                         <input type="text" placeholder="Search users..." onkeydown="if(event.key==='Enter'){var v=this.value.trim();if(v){window.location.href='<%: ResolveUrl("~/Admin/UserManagement.aspx") %>?search='+encodeURIComponent(v);}}" />
                     </div>
                     <div class="sb2-nav">
+                        <p class="sb2-section-label">Main</p>
                         <ul>
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/Admin/AdminHome.aspx") %>"><i class="fa-solid fa-table-cells-large"></i><span>Dashboard</span></a></li>
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/Admin/UserManagement.aspx") %>"><i class="fa-solid fa-users"></i><span>Users</span></a></li>
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/Admin/CourseManagement.aspx") %>"><i class="fa-solid fa-graduation-cap"></i><span>Courses</span></a></li>
                             <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/User/Discussions.aspx") %>"><i class="fa-solid fa-comments"></i><span>Discussions</span></a></li>
                         </ul>
-                        <div class="sb2-collapse" data-sb2-collapse>
-                            <button type="button" class="sb2-collapse-head">
-                                <span>Settings</span>
-                                <i class="fa-solid fa-chevron-down sb2-chevron"></i>
-                            </button>
-                            <div class="sb2-collapse-body">
-                                <div class="sb2-collapse-body-inner">
-                                    <a class="sb2-sub-link" href="<%: ResolveUrl("~/ChangePassword.aspx") %>">Change password</a>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="sb2-section-label">Settings</p>
+                        <ul>
+                            <li><a class="sb2-link sidebar-link" href="<%: ResolveUrl("~/ChangePassword.aspx") %>"><i class="fa-solid fa-key"></i><span>Change password</span></a></li>
+                        </ul>
                     </div>
                     <div class="sb2-footer">
                         <asp:LinkButton ID="lbtnAdminLogout" runat="server" CssClass="sb2-footer-btn is-logout" OnClick="lbtnLogout_Click" CausesValidation="false">
@@ -200,35 +175,6 @@
             });
         })();
 
-        // Persist sidebar collapse state across navigation
-        (function () {
-            try {
-                if (localStorage.getItem('ms-sidebar-collapsed') === '1') {
-                    document.body.classList.add('sidebar-collapsed');
-                    var icon = document.querySelector('.sidebar-collapse-btn i');
-                    if (icon) { icon.classList.remove('fa-chevron-left'); icon.classList.add('fa-chevron-right'); }
-                }
-                var btn = document.querySelector('.sidebar-collapse-btn');
-                if (btn) {
-                    btn.addEventListener('click', function () {
-                        var collapsed = document.body.classList.contains('sidebar-collapsed');
-                        try { localStorage.setItem('ms-sidebar-collapsed', collapsed ? '1' : '0'); } catch (e) {}
-                    });
-                }
-            } catch (e) {}
-        })();
-        // Sidebar v2 — collapsible sections (animate via .open class)
-        (function () {
-            var sections = document.querySelectorAll('[data-sb2-collapse]');
-            sections.forEach(function (sec) {
-                var head = sec.querySelector('.sb2-collapse-head');
-                if (!head) return;
-                head.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    sec.classList.toggle('open');
-                });
-            });
-        })();
         // Reveal-on-scroll fallback (so .reveal works on all pages)
         (function () {
             var els = document.querySelectorAll('.reveal');

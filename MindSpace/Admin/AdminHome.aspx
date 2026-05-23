@@ -2,6 +2,8 @@
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
 
+<div class="dash-page">
+
     <div class="dash-banner">
         <h2>Welcome back, <asp:Literal ID="litAdminName" runat="server" /></h2>
         <p>Here&rsquo;s a quick overview of MindSpace activity.</p>
@@ -145,5 +147,7 @@
             </a>
         </div>
     </div>
+
+</div>
 
 </asp:Content>

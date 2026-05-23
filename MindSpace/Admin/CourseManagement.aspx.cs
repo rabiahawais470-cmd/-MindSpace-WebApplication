@@ -8,6 +8,7 @@ namespace MindSpace
 {
     public partial class CourseManagement : Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             RequireAdmin();
@@ -24,18 +25,18 @@ namespace MindSpace
         private void LoadCourses(string search = "", string category = "")
         {
             string sql = @"
-                SELECT c.CourseID, c.Title, c.Description, c.Category, c.DifficultyLevel,
-                       c.Duration, c.IsActive,
-                       (SELECT COUNT(*) FROM Enrollments WHERE CourseID=c.CourseID) AS EnrollmentCount
-                FROM   Courses c
-                WHERE  (@search='' OR c.Title LIKE @searchLike OR c.Description LIKE @searchLike)
-                  AND  (@cat='' OR c.Category=@cat)
-                ORDER  BY c.DateCreated DESC";
+            SELECT c.CourseID, c.Title, c.Description, c.Category, c.DifficultyLevel,
+                   c.Duration, c.IsActive,
+                   (SELECT COUNT(*) FROM Enrollments WHERE CourseID=c.CourseID) AS EnrollmentCount
+            FROM Courses c
+            WHERE (@search='' OR c.Title LIKE @searchLike OR c.Description LIKE @searchLike)
+            AND (@cat='' OR c.Category=@cat)
+            ORDER BY c.DateCreated DESC";
 
             SqlParameter[] prms = {
-                new SqlParameter("@search",     search),
+                new SqlParameter("@search", search),
                 new SqlParameter("@searchLike", "%" + search + "%"),
-                new SqlParameter("@cat",         category)
+                new SqlParameter("@cat", category)
             };
 
             DataTable dt = DatabaseHelper.ExecuteQuery(sql, prms);
@@ -48,14 +49,14 @@ namespace MindSpace
         {
             if (!Page.IsValid) return;
 
-            string title      = txtTitle.Text.Trim();
-            string desc       = txtDescription.Text.Trim();
-            string category   = ddlCategory.SelectedValue;
+            string title = txtTitle.Text.Trim();
+            string desc = txtDescription.Text.Trim();
+            string category = ddlCategory.SelectedValue;
             string difficulty = ddlDifficulty.SelectedValue;
-            string duration   = txtDuration.Text.Trim();
-            bool   isActive   = ddlStatus.SelectedValue == "1";
-            int    editID     = Convert.ToInt32(hdnEditCourseID.Value);
-            int    adminID    = Convert.ToInt32(Session["UserID"]);
+            string duration = txtDuration.Text.Trim();
+            bool isActive = ddlStatus.SelectedValue == "1";
+            int editID = Convert.ToInt32(hdnEditCourseID.Value);
+            int adminID = Convert.ToInt32(Session["UserID"]);
 
             try
             {
@@ -64,13 +65,13 @@ namespace MindSpace
                     string sql = @"INSERT INTO Courses (Title,Description,Category,DifficultyLevel,Duration,IsActive,CreatedBy)
                                    VALUES (@title,@desc,@cat,@diff,@dur,@active,@admin)";
                     DatabaseHelper.ExecuteNonQuery(sql, new[] {
-                        new SqlParameter("@title",  title),
-                        new SqlParameter("@desc",   desc),
-                        new SqlParameter("@cat",    category),
-                        new SqlParameter("@diff",   difficulty),
-                        new SqlParameter("@dur",    duration),
+                        new SqlParameter("@title", title),
+                        new SqlParameter("@desc", desc),
+                        new SqlParameter("@cat", category),
+                        new SqlParameter("@diff", difficulty),
+                        new SqlParameter("@dur", duration),
                         new SqlParameter("@active", isActive),
-                        new SqlParameter("@admin",  adminID)
+                        new SqlParameter("@admin", adminID)
                     });
                     ShowMessage("Course added successfully.");
                 }
@@ -79,13 +80,13 @@ namespace MindSpace
                     string sql = @"UPDATE Courses SET Title=@title,Description=@desc,Category=@cat,
                                    DifficultyLevel=@diff,Duration=@dur,IsActive=@active WHERE CourseID=@id";
                     DatabaseHelper.ExecuteNonQuery(sql, new[] {
-                        new SqlParameter("@title",  title),
-                        new SqlParameter("@desc",   desc),
-                        new SqlParameter("@cat",    category),
-                        new SqlParameter("@diff",   difficulty),
-                        new SqlParameter("@dur",    duration),
+                        new SqlParameter("@title", title),
+                        new SqlParameter("@desc", desc),
+                        new SqlParameter("@cat", category),
+                        new SqlParameter("@diff", difficulty),
+                        new SqlParameter("@dur", duration),
                         new SqlParameter("@active", isActive),
-                        new SqlParameter("@id",     editID)
+                        new SqlParameter("@id", editID)
                     });
                     ShowMessage("Course updated successfully.");
                 }
@@ -111,56 +112,19 @@ namespace MindSpace
                 if (dt.Rows.Count == 1)
                 {
                     DataRow r = dt.Rows[0];
-                    hdnEditCourseID.Value   = courseID.ToString();
-                    txtTitle.Text           = r["Title"].ToString();
-                    txtDescription.Text     = r["Description"].ToString();
-                    ddlCategory.SelectedValue   = r["Category"].ToString();
-                    ddlDifficulty.SelectedValue  = r["DifficultyLevel"].ToString();
-                    txtDuration.Text        = r["Duration"].ToString();
+                    hdnEditCourseID.Value = courseID.ToString();
+                    txtTitle.Text = r["Title"].ToString();
+                    txtDescription.Text = r["Description"].ToString();
+                    ddlCategory.SelectedValue = r["Category"].ToString();
+                    ddlDifficulty.SelectedValue = r["DifficultyLevel"].ToString();
+                    txtDuration.Text = r["Duration"].ToString();
                     ddlStatus.SelectedValue = Convert.ToBoolean(r["IsActive"]) ? "1" : "0";
-                    litFormTitle.Text       = "Edit Course";
+                    litFormTitle.Text = "Edit Course";
                 }
             }
             else if (e.CommandName == "DeleteCourse")
             {
-                try
-                {
-                    int affected;
-
-                    using (SqlConnection conn = DatabaseHelper.GetConnection())
-                    {
-                        conn.Open();
-                        using (SqlTransaction tx = conn.BeginTransaction())
-                        {
-                            try
-                            {
-                                ExecuteDelete(conn, tx, @"DELETE FROM QuizResults WHERE QuizID IN (SELECT QuizID FROM Quizzes WHERE CourseID=@id)", courseID);
-                                ExecuteDelete(conn, tx, @"DELETE FROM QuestionOptions WHERE QuestionID IN (SELECT QuestionID FROM Questions WHERE QuizID IN (SELECT QuizID FROM Quizzes WHERE CourseID=@id))", courseID);
-                                ExecuteDelete(conn, tx, @"DELETE FROM Questions WHERE QuizID IN (SELECT QuizID FROM Quizzes WHERE CourseID=@id)", courseID);
-                                ExecuteDelete(conn, tx, @"DELETE FROM Quizzes WHERE CourseID=@id", courseID);
-                                ExecuteDelete(conn, tx, @"DELETE FROM Resources WHERE CourseID=@id", courseID);
-                                ExecuteDelete(conn, tx, @"DELETE FROM Enrollments WHERE CourseID=@id", courseID);
-                                ExecuteDelete(conn, tx, @"DELETE FROM Bookmarks WHERE CourseID=@id", courseID);
-                                affected = ExecuteDelete(conn, tx, @"DELETE FROM Courses WHERE CourseID=@id", courseID);
-                                tx.Commit();
-                            }
-                            catch
-                            {
-                                try { tx.Rollback(); } catch { }
-                                throw;
-                            }
-                        }
-                    }
-
-                    if (affected > 0) ShowMessage("Course permanently deleted.");
-                    else ShowError("Course not found or already deleted.");
-                }
-                catch (Exception ex)
-                {
-                    ShowError("Error deleting course: " + ex.Message);
-                }
-
-                LoadCourses();
+                DeleteCourse(courseID);
             }
         }
 
@@ -179,27 +143,95 @@ namespace MindSpace
 
         private void ResetForm()
         {
-            hdnEditCourseID.Value     = "0";
-            txtTitle.Text             = "";
-            txtDescription.Text       = "";
-            txtDuration.Text          = "";
-            ddlCategory.SelectedIndex  = 0;
+            hdnEditCourseID.Value = "0";
+            txtTitle.Text = "";
+            txtDescription.Text = "";
+            txtDuration.Text = "";
+            ddlCategory.SelectedIndex = 0;
             ddlDifficulty.SelectedIndex = 0;
-            ddlStatus.SelectedValue   = "1";
-            litFormTitle.Text         = "Add New Course";
-            pnlError.Visible          = false;
+            ddlStatus.SelectedValue = "1";
+            litFormTitle.Text = "Add New Course";
+            pnlError.Visible = false;
         }
 
         private void ShowMessage(string msg) { pnlMsg.Visible = true; litMsg.Text = msg; pnlError.Visible = false; }
-        private void ShowError(string msg)   { pnlError.Visible = true; litError.Text = msg; pnlMsg.Visible = false; }
+        private void ShowError(string msg)  { pnlError.Visible = true; litError.Text = msg; pnlMsg.Visible = false; }
 
-        private static int ExecuteDelete(SqlConnection conn, SqlTransaction tx, string sql, int courseID)
+        private void DeleteCourse(int courseID)
         {
-            using (SqlCommand cmd = new SqlCommand(sql, conn, tx))
+            try
             {
-                cmd.Parameters.Add(new SqlParameter("@id", courseID));
-                return cmd.ExecuteNonQuery();
+                // Verify the course exists before attempting delete
+                string checkSql = "SELECT COUNT(*) FROM Courses WHERE CourseID=@id";
+                object exists = DatabaseHelper.ExecuteScalar(checkSql, new[] { new SqlParameter("@id", courseID) });
+                if (exists == null || Convert.ToInt32(exists) == 0)
+                {
+                    ShowError("Course not found or already deleted.");
+                    LoadCourses();
+                    return;
+                }
+
+                int affected;
+
+                using (SqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
+                    using (SqlTransaction tx = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            using (SqlCommand cmd = conn.CreateCommand())
+                            {
+                                cmd.Transaction = tx;
+                                cmd.Parameters.Add(new SqlParameter("@id", courseID));
+
+                                cmd.CommandText = @"DELETE FROM QuizResults WHERE QuizID IN (SELECT QuizID FROM Quizzes WHERE CourseID=@id)";
+                                cmd.ExecuteNonQuery();
+
+                                cmd.CommandText = @"DELETE FROM QuestionOptions WHERE QuestionID IN (SELECT QuestionID FROM Questions WHERE QuizID IN (SELECT QuizID FROM Quizzes WHERE CourseID=@id))";
+                                cmd.ExecuteNonQuery();
+
+                                cmd.CommandText = @"DELETE FROM Questions WHERE QuizID IN (SELECT QuizID FROM Quizzes WHERE CourseID=@id)";
+                                cmd.ExecuteNonQuery();
+
+                                cmd.CommandText = @"DELETE FROM Quizzes WHERE CourseID=@id";
+                                cmd.ExecuteNonQuery();
+
+                                cmd.CommandText = @"DELETE FROM Resources WHERE CourseID=@id";
+                                cmd.ExecuteNonQuery();
+
+                                cmd.CommandText = @"DELETE FROM SuccessStories WHERE CourseID=@id";
+                                cmd.ExecuteNonQuery();
+
+                                cmd.CommandText = @"DELETE FROM Enrollments WHERE CourseID=@id";
+                                cmd.ExecuteNonQuery();
+
+                                cmd.CommandText = @"DELETE FROM Bookmarks WHERE CourseID=@id";
+                                cmd.ExecuteNonQuery();
+
+                                cmd.CommandText = @"DELETE FROM Courses WHERE CourseID=@id";
+                                affected = cmd.ExecuteNonQuery();
+                            }
+
+                            tx.Commit();
+                        }
+                        catch
+                        {
+                            try { tx.Rollback(); } catch { }
+                            throw;
+                        }
+                    }
+                }
+
+                if (affected > 0) ShowMessage("Course permanently deleted.");
+                else ShowError("Course not found or already deleted.");
             }
+            catch (Exception ex)
+            {
+                ShowError("Error deleting course: " + ex.Message);
+            }
+
+            LoadCourses();
         }
     }
 }

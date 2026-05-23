@@ -229,16 +229,15 @@ namespace MindSpace
 
         protected string GetIcon(string cat)
         {
-            string iconClass = cat?.ToLower() switch
-            {
-                "stress management" => "fa-person-hiking",
-                "mindfulness"       => "fa-leaf",
-                "anxiety"           => "fa-heart",
-                "sleep hygiene"     => "fa-moon",
-                "resilience"        => "fa-hand-fist",
-                "self-care"         => "fa-flower",
-                _                   => "fa-book"
-            };
+            string lower = (cat ?? "").ToLower();
+            string iconClass;
+            if (lower == "stress management") iconClass = "fa-person-hiking";
+            else if (lower == "mindfulness") iconClass = "fa-leaf";
+            else if (lower == "anxiety") iconClass = "fa-heart";
+            else if (lower == "sleep hygiene") iconClass = "fa-moon";
+            else if (lower == "resilience") iconClass = "fa-hand-fist";
+            else if (lower == "self-care") iconClass = "fa-flower";
+            else iconClass = "fa-book";
             return $"<i class=\"fa-solid {iconClass}\"></i>";
         }
 

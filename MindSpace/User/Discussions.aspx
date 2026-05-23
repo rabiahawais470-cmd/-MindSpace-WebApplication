@@ -383,6 +383,35 @@
                 </span>
                 <h2 class="ms-testimonials-title">Voices from Our Community</h2>
                 <p class="ms-testimonials-sub">Real reflections from students and young adults using MindSpace to build small, repeatable mental-wellness habits.</p>
+                <div class="ms-testimonials-sidecard">
+                    <div class="ms-testimonials-sidecard-head">
+                        <div class="ms-testimonials-sidecard-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                        <div>
+                            <div class="ms-testimonials-sidecard-label">Live community activity</div>
+                            <div class="ms-testimonials-sidecard-title">People are talking, sharing, and checking in</div>
+                        </div>
+                    </div>
+                    <div class="ms-testimonials-sidecard-body">
+                        <div class="ms-testimonials-sidecard-row">
+                            <span class="ms-testimonials-sidecard-key">Most active today</span>
+                            <span class="ms-testimonials-sidecard-value">Sleep, anxiety, study stress</span>
+                        </div>
+                        <div class="ms-testimonials-sidecard-row">
+                            <span class="ms-testimonials-sidecard-key">Average response</span>
+                            <span class="ms-testimonials-sidecard-value">Under 30 minutes</span>
+                        </div>
+                        <div class="ms-testimonials-sidecard-row">
+                            <span class="ms-testimonials-sidecard-key">Tone of replies</span>
+                            <span class="ms-testimonials-sidecard-value">Warm, practical, supportive</span>
+                        </div>
+                    </div>
+                    <div class="ms-testimonials-sidecard-foot">
+                        <span class="ms-testimonials-avatar-chip">M</span>
+                        <span class="ms-testimonials-avatar-chip color-cyan">J</span>
+                        <span class="ms-testimonials-avatar-chip color-magenta">S</span>
+                        <span class="ms-testimonials-sidecard-foot-text">A small circle of voices, one conversation at a time.</span>
+                    </div>
+                </div>
                 <div class="ms-testimonials-dots" id="msTestimonialDots">
                     <button type="button" class="ms-testimonials-dot active" data-index="0" aria-label="View testimonial 1"></button>
                     <button type="button" class="ms-testimonials-dot" data-index="1" aria-label="View testimonial 2"></button>
