@@ -189,6 +189,8 @@ namespace MindSpace
 
         protected void btnConfirmDelete_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(hdnDeleteUserID.Value)) return;
+
             int userID = Convert.ToInt32(hdnDeleteUserID.Value);
             if (userID <= 0) return;
 

@@ -38,7 +38,7 @@
             <asp:Literal ID="litFormTitle" runat="server">Add New User</asp:Literal>
         </h5>
         <asp:HiddenField ID="hdnEditUserID" runat="server" Value="0" />
-        <asp:HiddenField ID="hdnDeleteUserID" runat="server" Value="0" />
+        <asp:HiddenField ID="hdnDeleteUserID" runat="server" Value="0" ClientIDMode="Static" />
 
         <div class="row g-3">
             <div class="col-md-6">
@@ -158,6 +158,7 @@
                             </asp:LinkButton>
                             <asp:LinkButton ID="lbtnDelete" runat="server" CssClass="btn btn-sm btn-outline-danger"
                                 CommandName="DeleteUser" CommandArgument='<%# Eval("UserID") %>'
+                                data-userid='<%# Eval("UserID") %>'
                                 OnClientClick="return openDeleteUserModalFromButton(this);">
                                 <i class="fa-solid fa-trash"></i>
                             </asp:LinkButton>
@@ -243,7 +244,7 @@
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContent" runat="server">
 <script>
     function openDeleteUserModal(userId) {
-        var hiddenField = document.getElementById('<%: hdnDeleteUserID.ClientID %>');
+        var hiddenField = document.getElementById('hdnDeleteUserID');
         if (hiddenField) {
             hiddenField.value = userId;
         }
