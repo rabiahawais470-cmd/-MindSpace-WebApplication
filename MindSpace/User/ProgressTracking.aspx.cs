@@ -23,17 +23,43 @@ namespace MindSpace
                 return;
             }
 
+            // Prevent browser caching so progress data always reflects latest state
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+            Response.Cache.SetExpires(DateTime.Now);
+
             if (!IsPostBack)
             {
                 int userID = Convert.ToInt32(Session["UserID"]);
-                LoadStats(userID);
-                LoadCourseProgress(userID);
-                LoadChartData(userID);
-                LoadActivityTimeline(userID);
-                LoadQuizPerformance(userID);
-                LoadClassComparison(userID);
-                LoadAchievements(userID);
-                LoadRecommendedCourses(userID);
+
+                // Each load method is isolated so a failure in one section
+                // cannot prevent the remaining sections (e.g. the Learning
+                // Snapshot) from rendering correctly.
+                SafeLoad("Stats",           () => LoadStats(userID));
+                SafeLoad("CourseProgress",  () => LoadCourseProgress(userID));
+                SafeLoad("ChartData",       () => LoadChartData(userID));
+                SafeLoad("ActivityTimeline",() => LoadActivityTimeline(userID));
+                SafeLoad("QuizPerformance", () => LoadQuizPerformance(userID));
+                SafeLoad("ClassComparison", () => LoadClassComparison(userID));
+                SafeLoad("Achievements",    () => LoadAchievements(userID));
+                SafeLoad("Recommended",     () => LoadRecommendedCourses(userID));
+            }
+        }
+
+        /// <summary>
+        /// Executes an action and swallows exceptions so one failing section
+        /// never blocks the rest of the page from loading.
+        /// </summary>
+        private void SafeLoad(string section, Action load)
+        {
+            try
+            {
+                load();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine(
+                    $"[ProgressTracking] {section} failed: {ex.Message}");
             }
         }
 
