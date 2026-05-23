@@ -13,7 +13,7 @@ namespace MindSpace
             RequireAdmin();
             if (!IsPostBack)
             {
-                LoadUsers();
+                BindGrid();
                 pnlPasswordField.Visible = true;
             }
         }
@@ -47,7 +47,26 @@ namespace MindSpace
 
         private void BindGrid()
         {
-            LoadUsers(txtSearch.Text.Trim(), ddlRoleFilter.SelectedValue);
+            string search = txtSearch.Text.Trim();
+            string roleFilter = ddlRoleFilter.SelectedValue;
+
+            string sql = @"
+                SELECT UserID, FullName, Username, Email, Role, IsActive, DateRegistered
+                FROM   Users
+                WHERE  (@search='' OR FullName LIKE @searchLike OR Username LIKE @searchLike OR Email LIKE @searchLike)
+                  AND  (@role='' OR Role=@role)
+                ORDER  BY DateRegistered DESC";
+
+            SqlParameter[] prms = {
+                new SqlParameter("@search",     search),
+                new SqlParameter("@searchLike", "%" + search + "%"),
+                new SqlParameter("@role",        roleFilter)
+            };
+
+            DataTable dt = DatabaseHelper.ExecuteQuery(sql, prms);
+            gvUsers.DataSource = dt;
+            gvUsers.DataBind();
+            litCount.Text = dt.Rows.Count.ToString();
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -117,6 +136,7 @@ namespace MindSpace
 
         protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("RowCommand fired: " + e.CommandName + " " + e.CommandArgument);
             int userID = Convert.ToInt32(e.CommandArgument);
 
             if (e.CommandName == "DeleteUser")
