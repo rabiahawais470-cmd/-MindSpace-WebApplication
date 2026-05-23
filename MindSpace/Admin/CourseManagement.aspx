@@ -288,11 +288,11 @@
                 <div class="row g-3">
                     <div class="col-md-8">
                         <label class="form-label">Course Title <span class="text-danger">*</span></label>
-                        <asp:TextBox ID="txtEditTitle" runat="server" CssClass="form-control" MaxLength="200" />
+                        <asp:TextBox ID="txtEditTitle" runat="server" CssClass="form-control" MaxLength="200" ClientIDMode="Static" />
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Category <span class="text-danger">*</span></label>
-                        <asp:DropDownList ID="txtEditCategory" runat="server" CssClass="form-select">
+                        <asp:DropDownList ID="txtEditCategory" runat="server" CssClass="form-select" ClientIDMode="Static">
                             <asp:ListItem Value="Stress Management">Stress Management</asp:ListItem>
                             <asp:ListItem Value="Mindfulness">Mindfulness</asp:ListItem>
                             <asp:ListItem Value="Anxiety">Anxiety</asp:ListItem>
@@ -303,15 +303,15 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Difficulty Level</label>
-                        <asp:TextBox ID="txtEditLevel" runat="server" CssClass="form-control" MaxLength="50" />
+                        <asp:TextBox ID="txtEditLevel" runat="server" CssClass="form-control" MaxLength="50" ClientIDMode="Static" />
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Duration</label>
-                        <asp:TextBox ID="txtEditDuration" runat="server" CssClass="form-control" MaxLength="50" />
+                        <asp:TextBox ID="txtEditDuration" runat="server" CssClass="form-control" MaxLength="50" ClientIDMode="Static" />
                     </div>
                     <div class="col-12">
                         <label class="form-label">Description <span class="text-danger">*</span></label>
-                        <asp:TextBox ID="txtEditDescription" runat="server" TextMode="MultiLine" Rows="5" CssClass="form-control" MaxLength="2000" />
+                        <asp:TextBox ID="txtEditDescription" runat="server" TextMode="MultiLine" Rows="5" CssClass="form-control" MaxLength="2000" ClientIDMode="Static" />
                     </div>
                 </div>
             </div>
