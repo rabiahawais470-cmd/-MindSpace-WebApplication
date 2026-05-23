@@ -147,12 +147,18 @@
                     <asp:TemplateField HeaderText="Actions">
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnEdit" runat="server" CssClass="btn btn-sm btn-outline-primary me-1"
-                                CommandName="EditUser" CommandArgument='<%# Eval("UserID") %>'>
+                                CommandName="EditUser" CommandArgument='<%# Eval("UserID") %>'
+                                data-userid='<%# Eval("UserID") %>'
+                                data-fullname='<%# System.Web.HttpUtility.HtmlAttributeEncode(Eval("FullName").ToString()) %>'
+                                data-username='<%# System.Web.HttpUtility.HtmlAttributeEncode(Eval("Username").ToString()) %>'
+                                data-email='<%# System.Web.HttpUtility.HtmlAttributeEncode(Eval("Email").ToString()) %>'
+                                data-role='<%# System.Web.HttpUtility.HtmlAttributeEncode(Eval("Role").ToString()) %>'
+                                OnClientClick="return openEditUserModalFromButton(this);">
                                 <i class="fa-solid fa-pen"></i>
                             </asp:LinkButton>
                             <asp:LinkButton ID="lbtnDelete" runat="server" CssClass="btn btn-sm btn-outline-danger"
                                 CommandName="DeleteUser" CommandArgument='<%# Eval("UserID") %>'
-                                OnClientClick='<%# "return openDeleteUserModal(" + Eval("UserID") + ");" %>'>
+                                OnClientClick="return openDeleteUserModalFromButton(this);">
                                 <i class="fa-solid fa-trash"></i>
                             </asp:LinkButton>
                         </ItemTemplate>
@@ -185,6 +191,51 @@
         </div>
     </div>
 
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                            <asp:TextBox ID="txtEditFullName" runat="server" CssClass="form-control" MaxLength="100" />
+                            <asp:RequiredFieldValidator ID="rfvEditFullName" runat="server" ControlToValidate="txtEditFullName"
+                                ErrorMessage="Full name required." CssClass="validation-error" Display="Dynamic" ValidationGroup="EditUser" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Username <span class="text-danger">*</span></label>
+                            <asp:TextBox ID="txtEditUsername" runat="server" CssClass="form-control" MaxLength="50" />
+                            <asp:RequiredFieldValidator ID="rfvEditUsername" runat="server" ControlToValidate="txtEditUsername"
+                                ErrorMessage="Username required." CssClass="validation-error" Display="Dynamic" ValidationGroup="EditUser" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email <span class="text-danger">*</span></label>
+                            <asp:TextBox ID="txtEditEmail" runat="server" TextMode="Email" CssClass="form-control" MaxLength="100" />
+                            <asp:RequiredFieldValidator ID="rfvEditEmail" runat="server" ControlToValidate="txtEditEmail"
+                                ErrorMessage="Email required." CssClass="validation-error" Display="Dynamic" ValidationGroup="EditUser" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Role <span class="text-danger">*</span></label>
+                            <asp:DropDownList ID="ddlEditRole" runat="server" CssClass="form-select">
+                                <asp:ListItem Value="learner">Learner</asp:ListItem>
+                                <asp:ListItem Value="admin">Admin</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <asp:Button ID="btnUpdateUser" runat="server" Text="Save" CssClass="btn btn-primary"
+                        OnClick="btnUpdateUser_Click" ValidationGroup="EditUser" />
+                </div>
+            </div>
+        </div>
+    </div>
+
     <asp:Button ID="btnConfirmDelete" runat="server" Text="Delete" CssClass="d-none" CausesValidation="false" OnClick="btnConfirmDelete_Click" />
 
 </asp:Content>
@@ -205,6 +256,11 @@
         return false;
     }
 
+    function openDeleteUserModalFromButton(button) {
+        var userId = button ? button.getAttribute('data-userid') : '';
+        return openDeleteUserModal(userId);
+    }
+
     function confirmDeleteUser() {
         var deleteButton = document.getElementById('<%: btnConfirmDelete.ClientID %>');
         if (deleteButton) {
@@ -212,11 +268,37 @@
         }
     }
 
-    (function () {
-        var toastElement = document.getElementById('userManagementToast');
-        if (toastElement && window.bootstrap) {
-            bootstrap.Toast.getOrCreateInstance(toastElement).show();
+    function openEditUserModal(userId, fullName, username, email, role) {
+        var hiddenField = document.getElementById('<%: hdnEditUserID.ClientID %>');
+        var fullNameField = document.getElementById('<%: txtEditFullName.ClientID %>');
+        var usernameField = document.getElementById('<%: txtEditUsername.ClientID %>');
+        var emailField = document.getElementById('<%: txtEditEmail.ClientID %>');
+        var roleField = document.getElementById('<%: ddlEditRole.ClientID %>');
+
+        if (hiddenField) hiddenField.value = userId;
+        if (fullNameField) fullNameField.value = fullName || '';
+        if (usernameField) usernameField.value = username || '';
+        if (emailField) emailField.value = email || '';
+        if (roleField) roleField.value = role || 'learner';
+
+        var modalElement = document.getElementById('editUserModal');
+        if (modalElement && window.bootstrap) {
+            bootstrap.Modal.getOrCreateInstance(modalElement).show();
         }
-    })();
+
+        return false;
+    }
+
+    function openEditUserModalFromButton(button) {
+        if (!button) return false;
+
+        return openEditUserModal(
+            button.getAttribute('data-userid'),
+            button.getAttribute('data-fullname'),
+            button.getAttribute('data-username'),
+            button.getAttribute('data-email'),
+            button.getAttribute('data-role')
+        );
+    }
 </script>
 </asp:Content>

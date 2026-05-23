@@ -134,6 +134,44 @@ namespace MindSpace
             }
         }
 
+        protected void btnUpdateUser_Click(object sender, EventArgs e)
+        {
+            if (!Page.IsValid) return;
+
+            int userID = Convert.ToInt32(hdnEditUserID.Value);
+            if (userID <= 0)
+            {
+                ShowError("Invalid user selection.");
+                return;
+            }
+
+            string fullName = txtEditFullName.Text.Trim();
+            string username = txtEditUsername.Text.Trim();
+            string email = txtEditEmail.Text.Trim().ToLower();
+            string role = ddlEditRole.SelectedValue;
+
+            try
+            {
+                DatabaseHelper.ExecuteNonQuery(
+                    "UPDATE Users SET FullName=@name, Username=@username, Email=@email, Role=@role WHERE UserID=@id",
+                    new[] {
+                        new SqlParameter("@name", fullName),
+                        new SqlParameter("@username", username),
+                        new SqlParameter("@email", email),
+                        new SqlParameter("@role", role),
+                        new SqlParameter("@id", userID)
+                    });
+
+                hdnEditUserID.Value = "0";
+                BindGrid();
+                ShowToast("User updated successfully");
+            }
+            catch (Exception ex)
+            {
+                ShowError("Error: " + ex.Message);
+            }
+        }
+
         protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("RowCommand fired: " + e.CommandName + " " + e.CommandArgument);

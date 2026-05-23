@@ -9,9 +9,11 @@ namespace MindSpace {
         protected global::System.Web.UI.WebControls.Button btnCancelEdit;
         protected global::System.Web.UI.WebControls.Button btnClearSearch;
         protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button btnUpdateUser;
         protected global::System.Web.UI.WebControls.Button btnSearch;
         protected global::System.Web.UI.WebControls.DropDownList ddlRole;
         protected global::System.Web.UI.WebControls.DropDownList ddlRoleFilter;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEditRole;
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         protected global::System.Web.UI.WebControls.GridView gvUsers;
         protected global::System.Web.UI.WebControls.HiddenField hdnDeleteUserID;
@@ -30,10 +32,16 @@ namespace MindSpace {
         protected global::System.Web.UI.WebControls.Panel pnlToast;
         protected global::System.Web.UI.WebControls.Panel pnlPasswordField;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEditEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEditFullName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEditUsername;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFullName;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsername;
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtEditEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtEditFullName;
+        protected global::System.Web.UI.WebControls.TextBox txtEditUsername;
         protected global::System.Web.UI.WebControls.TextBox txtFullName;
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
