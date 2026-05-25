@@ -1,10 +1,7 @@
 USE [master]
 GO
 /****** Object:  Database [MindSpaceDB]    Script Date: 25/5/2026 8:50:54 PM ******/
-CREATE DATABASE [MindSpaceDB] ON  PRIMARY 
-( NAME = N'MindSpaceDB', FILENAME = N'C:\Users\rabia\MindSpaceDB.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
- LOG ON 
-( NAME = N'MindSpaceDB_log', FILENAME = N'C:\Users\rabia\MindSpaceDB_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+CREATE DATABASE [MindSpaceDB]
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
@@ -1628,3 +1625,5 @@ USE [master]
 GO
 ALTER DATABASE [MindSpaceDB] SET  READ_WRITE 
 GO
+
+
